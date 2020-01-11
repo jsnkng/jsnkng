@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "^/.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    }
+  ],
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "build": {
+    "env": {
+      "GOO_KEY": "@goo-key",
+      "MONGODB_URI": "mongodb+srv://national_parks:1Y5QMu6632vZ3QtF@cluster0-pexqw.mongodb.net/NationalParkService_Cache?retryWrites=true&w=majority",
+      "DB_NAME": "JSNKNG",
+      "DB_PASSWORD": "@db-password",
+      "WEB_URI": "https://jsnkng.now.sh/api",
+      "AWS_URI": "https://d2x7v1dlxp51ue.cloudfront.net/",
+      "AWS_ACCESS_KEY": "@aws-key",
+      "AWS_SECRET_ACCESS_KEY": "@aws-secret-key",
+      "REGION": "us-east-1",
+      "Bucket": "national-park-images",
+      "GA_TRACKING_ID": "@ga-tracking-id"
+    }
+  }
+}
