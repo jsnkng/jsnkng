@@ -14,16 +14,32 @@ const Portfolio_I = ({ themeName, setThemeName, pageTransitionReadyToEnter, mana
      <Head>
         <title>JSNKNG</title>
       </Head>
-      <Header 
-        title='' 
-        title__sub=''
-        manageHistory={manageHistory}
-        manageFuture={manageFuture}
-      />
       <Content>
-        <Grid>
+        <Grid fluid={true}>
+        
           <Row>
-            <Col xs={12}><Image backgroundURL="/gallery/sanguine-miles.jpg" className="lazyload__image--height" /></Col>
+            <Col xs={12}>
+                <Image backgroundURL="/gallery/sanguine-miles-i.jpg" className="image__intro" />  
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <Header 
+                title='' 
+                title__sub=''
+                manageHistory={manageHistory}
+                manageFuture={manageFuture}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}><Image backgroundURL="/gallery/sanguine-miles.jpg" className="image__primary" /></Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-i.jpg" className="lazyload__image--height" /></Col>
+            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-ii.jpg" className="lazyload__image--height" /></Col>
+            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-iii.jpg" className="lazyload__image--height" /></Col>
+            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-iv.jpg" className="lazyload__image--height" /></Col>
           </Row>
         </Grid>
       </Content>
@@ -35,23 +51,24 @@ const Portfolio_I = ({ themeName, setThemeName, pageTransitionReadyToEnter, mana
 export default Portfolio_I
 
 const Content = styled.main`
-  margin: 23em 0 0 0;
-  padding: 1rem .25rem;
-  .lazyload-placeholder,
-  .lazyload__image--height {
+  .image__intro {
+    height: 100vh;
+    width: 100%;
+  }
+  .image__primary{
     height: 30rem;
-    min-width: 15rem;
+    width: 100%;
     ${SuperQuery().minWidth.md.css`
-      height: 51rem;
-      min-width: 14rem;
+      height: 50rem;
     `}
     ${SuperQuery().minWidth.lg.css`
-      height: 66rem;
-      min-width: 15rem;
+      height: 65rem;
     `}
   }
-  h4 {
-    margin: .5rem 0 0 0;
+  .lazyload-placeholder,
+  .lazyload__image--height {
+    height: 16rem;
+    width: 100%;
   }
 `
 const Image = styled.div`
@@ -59,7 +76,7 @@ const Image = styled.div`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  margin: 1rem 0 0 0;
+  margin: 0;
   -webkit-animation: myfirst 1s;
   animation: myfirst 1s;
 `

@@ -15,6 +15,7 @@ const Component = ({ title, title__sub, manageHistory, manageFuture }) => {
 
   return (
     <Header>
+    <Grid fluid={true}>
       <Row__Decorated>
         <Col xs={9} md={10}>
           <Back onClick={() => manageHistory()}>
@@ -27,11 +28,12 @@ const Component = ({ title, title__sub, manageHistory, manageFuture }) => {
         </Col>
         <Col xs={3} md={2}>
           <div onClick={() => manageFuture('/', '/')}>
-            <img className="logo" src="/apple-icon-144x144.png" width="72" alt="Jason King" />
-            <a className="logo__text" href="#">JSNKNG</a>
+            {/* <img className="logo" src="/apple-icon-144x144.png" width="72" alt="Jason King" /> */}
+            <a className="logo__text" href="#">JASON KING</a>
           </div>
         </Col>
       </Row__Decorated> 
+      </Grid>
     </Header>
   )
 }
@@ -39,7 +41,10 @@ const Component = ({ title, title__sub, manageHistory, manageFuture }) => {
 export default Component
 
 const Header = styled.header`
-  position: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
   top: 0;
   left: 0;
   right: 0;
@@ -75,16 +80,13 @@ const Header = styled.header`
   }
   .logo__text {
     display: block;
-    text-align:right;
-    font-size: .925rem;
-    line-height: .875;
+    float: right;
+    text-align: right;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
-    margin: 0.8rem 2.875rem 0 -3rem;
+    width:200px;
     ${SuperQuery().minWidth.md.css`
-      margin: 1rem 4.125rem 0 -3rem;
-      font-size: 1.125rem;
-      letter-spacing: -1.5px;
     `}
   }
 `
