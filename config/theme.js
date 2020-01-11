@@ -1,7 +1,7 @@
 const themes = {
   flexboxgrid: {
     gridSize: 12, // columns
-    gutterWidth: 1, // rem
+    gutterWidth: 0, // rem
     outerMargin: 0, // rem
     mediaQuery: 'only screen',
     container: {
@@ -27,6 +27,7 @@ const themes = {
     color_four: '#4e4f58',
     color_five: '#cdedf2',
     trans_back: 'rgba(0,0,0,0.8)',
+    trans_inv_back:'rgba(245,245,245,0.3)',
     spinner: 'rgba(0,0,0,0.2)',
     gradient_one: 'radial-gradient(ellipse at center, rgba(59, 59, 59, 1.0), rgba(16, 16, 16, 1.0))'
   },
@@ -34,13 +35,14 @@ const themes = {
     background: '#ededed',
     box_background: '#ffffff',
     offbackground: '#d2d1c7',
-    text: '#32120d',
+    text: '#111111',
     color_one: '#5c2217',
     color_two: '#ba471e',
     color_three: '#ec8217',
     color_four: '#b1b0a7',
     color_five: '#fcf8f1',
     trans_back: 'rgba(245,245,245,0.8)',
+    trans_inv_back: 'rgba(0,0,0,0.3)',
     spinner: 'rgba(255,255,255,.2)',
     gradient_one: 'radial-gradient(ellipse at center, rgba(252, 251, 231, 1.0), rgba(224, 219, 213, 1.0))'
   }

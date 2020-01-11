@@ -4,35 +4,33 @@ import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import { Arrow } from '../svgs/l-arrow.svg'
 
-const Component = ({ title, title__sub, manageHistory, manageFuture }) => {
-  /* Hacky, but trying to set semi intelligent sizes and margins based on title length */
-  const titleStyle = (title.length >= 29 && title__sub !== '') ? { fontSize: '1.175rem', margin: '0.625rem 0 0 1.75rem' } :
-  (title.length >= 29 && title__sub === '') ? { fontSize: '1.175rem', margin: '0.875rem 0 0 1.75rem' } : 
-  (title.length >= 27 && title__sub !== '') ? { fontSize: '1.175rem', margin: '0.875rem 0 0 1.75rem' } :
-  (title.length >= 27 && title__sub === '') ? { fontSize: '1.175rem', margin: '0.875rem 0 0 1.75rem' } : 
-  (title.length > 24 && title__sub !== '') ? { fontSize: '1.25rem', margin: '0.875rem 0 0 1.75rem' } : 
-  (title.length > 24 && title__sub === '') ? { fontSize: '1.25rem', margin: '1.25rem 0 0 2.25rem' } : {}
+const Component = ({ navigation__title, navigation__subtitle, manageHistory, manageFuture }) => {
 
   return (
     <Header>
-    <Grid fluid={true}>
-      <Row__Decorated>
-        <Col xs={9} md={10}>
-          <Back onClick={() => manageHistory()}>
+      <Grid fluid={true}>
+        <Row className='hero'>
+          <Col className='hero__image' xs={12}>
+          <div className='hero__image--overlay'></div>
+            <BackgroundImage className='hero__background' backgroundURL='/gallery/sanguine-miles-i.jpg' />  
+            <h1 className='hero__title'>Sanguine Miles</h1>
+          </Col>
+        </Row>
+        <Row className='navigation'>
+          <Col className='navigation__back' xs={6} onClick={() => manageHistory()}>
             <Arrow__Decorated />
-            <span className={title__sub === '' ? 'title large' : 'title'} style={titleStyle}>{title}</span>
-            { title__sub !== '' &&
-              <span className="title__sub">{title__sub}</span>
+            <span className={navigation__subtitle === '' ? 'navigation__title large' : 'navigation__title'}>{navigation__title}</span>
+            { navigation__title !== '' &&
+              <span className='navigation__subtitle'>{navigation__subtitle}</span>
             }
-          </Back>
-        </Col>
-        <Col xs={3} md={2}>
-          <div onClick={() => manageFuture('/', '/')}>
-            {/* <img className="logo" src="/apple-icon-144x144.png" width="72" alt="Jason King" /> */}
-            <a className="logo__text" href="#">JASON KING</a>
-          </div>
-        </Col>
-      </Row__Decorated> 
+          </Col>
+          <Col className='navigation__logo' xs={6}>
+            <div onClick={() => manageFuture('/', '/')}>
+              {/* <img className='logo' src='/apple-icon-144x144.png' width='72' alt='Jason King' /> */}
+              <a href='#'>JASON KING</a>
+            </div>
+          </Col>
+        </Row> 
       </Grid>
     </Header>
   )
@@ -41,116 +39,82 @@ const Component = ({ title, title__sub, manageHistory, manageFuture }) => {
 export default Component
 
 const Header = styled.header`
-  position: relative;
-  display: flex;
-  align-items: center;
-  align-self: flex-end;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: ${({ theme }) => theme.colors.trans_back};
   color: ${({ theme }) => theme.colors.text};
-  z-index: 100;
-  height: 4rem;
-  ${SuperQuery().maxWidth.of('896px').and.landscape.css`
-    position: relative;
-  `}
-  ${SuperQuery().minWidth.md.css`
-    height: 5rem;
-  `}
+  .hero {
+    margin: 0;
+  }
+  .hero__image {
+  }
+  .hero__image--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100vh;
+  }
+  .hero__background {
+    height: 100vh;
+  }
+  .hero__title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: 40vh auto;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 4.5rem;
+    font-weight: 200;
+    text-align: center;
+  }
+  
   a {
     cursor: pointer;
     text-decoration: none;
     border: none;
     color: inherit;
   }
-  img.logo {
-    position: absolute;
-    top: .5rem;
-    right: .125rem;
-    cursor: pointer;
-    border: none;
-    width: 2.75em;
-    margin: .125rem;
-    padding: 0;
-    ${SuperQuery().minWidth.md.css`
-      width: 3.5rem;
-      margin: .25rem .125rem;
-    `}
+  .navigation {
+    display: flex;
+    align-content: center;
+    height: 6rem;
+    margin: 0;
+    padding: 1rem;
   }
-  .logo__text {
-    display: block;
-    float: right;
-    text-align: right;
+  .navigation__back {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .navigation__logo {
+    display: flex;
+    justify-content: flex-end;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
-    width:200px;
-    ${SuperQuery().minWidth.md.css`
-    `}
   }
-`
-const Row__Decorated = styled(Row)`
-  padding: 0;
-  margin:0;
-  height: 4rem;
-`
-const Back = styled.div`
-  max-width: 100%;
-  height: 5rem;
-  overflow: hidden;
-  .title {
-    display: block;
-    float: left;
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin: 0.8rem 0 0 1.75rem;
-    ${SuperQuery().minWidth.md.css`
-      font-size: 1.875rem !important;
-      margin: 1rem 0 0 2.5rem !important;
-    `}
+  .navigation__title {
 
-    &.large {
-      margin: 1.25rem 0 0 1.75rem;
-      font-size: 1.375rem;
-    ${SuperQuery().minWidth.md.css`
-      font-size: 1.875rem !important;
-      margin: 1.5rem 0 0 2.5rem !important;
-    `}
-    }
   }
-  .title__sub {
-    display: block;
-    float: left;
-    clear: left;
-    font-size: 1rem;
-    line-height: 1;
-    font-weight: 200;
-    letter-spacing: -0.5px;
-    margin: 0 0 0 1.75rem;
-    
-    ${SuperQuery().minWidth.md.css`
-      margin: 0 0 0 2.5rem;
-      font-size:1.25rem;
-      letter-spacing: -1px;
-    `}
+  .navigation__subtitle {
+
   }
 `
+
 const Arrow__Decorated = styled(Arrow)`
-  position: absolute;
-  top: .875rem;
-  left: 0;
-  width: 2.25rem;
-  height: 2.25rem;
-  fill: ${({ theme }) => theme.colors.text};
   cursor: pointer;
   outline: none;
-  ${SuperQuery().minWidth.md.css`
-    top: 1.25rem;
-    left: 0.25rem;
-    width: 2.5rem;
-    height: 2.5rem;
-  `}
+  fill: ${({ theme }) => theme.colors.text};
+  width: 2.5rem;
+  height: 2.5rem;
 `
+const BackgroundImage = styled.div`
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0;
+  -webkit-animation: myfirst 1s;
+  animation: myfirst 1s;
+`
+

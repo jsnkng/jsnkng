@@ -12,34 +12,24 @@ const Portfolio_I = ({ themeName, setThemeName, pageTransitionReadyToEnter, mana
   return (
     <>
      <Head>
-        <title>JSNKNG</title>
-      </Head>
+      <title>JSNKNG</title>
+    </Head>
+       <Header 
+        title='' 
+        title__sub=''
+        manageHistory={manageHistory}
+        manageFuture={manageFuture}
+      />
       <Content>
         <Grid fluid={true}>
-        
-          <Row>
-            <Col xs={12}>
-                <Image backgroundURL="/gallery/sanguine-miles-i.jpg" className="image__intro" />  
-            </Col>
+          <Row className='image'>
+            <Col className='image__primary' xs={12}><img src='/gallery/sanguine-miles.jpg' /></Col>
           </Row>
-          <Row>
-            <Col xs={12}>
-              <Header 
-                title='' 
-                title__sub=''
-                manageHistory={manageHistory}
-                manageFuture={manageFuture}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}><Image backgroundURL="/gallery/sanguine-miles.jpg" className="image__primary" /></Col>
-          </Row>
-          <Row>
-            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-i.jpg" className="lazyload__image--height" /></Col>
-            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-ii.jpg" className="lazyload__image--height" /></Col>
-            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-iii.jpg" className="lazyload__image--height" /></Col>
-            <Col xs={12} sm={6} md={3}><Image backgroundURL="/gallery/sanguine-miles-iv.jpg" className="lazyload__image--height" /></Col>
+          <Row className='image__enlargements'>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><BackgroundImage backgroundURL='/gallery/sanguine-miles-i.jpg' /></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><BackgroundImage backgroundURL='/gallery/sanguine-miles-ii.jpg' /></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><BackgroundImage backgroundURL='/gallery/sanguine-miles-iii.jpg' /></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><BackgroundImage backgroundURL='/gallery/sanguine-miles-iv.jpg' /></Col>
           </Row>
         </Grid>
       </Content>
@@ -50,28 +40,29 @@ const Portfolio_I = ({ themeName, setThemeName, pageTransitionReadyToEnter, mana
 
 export default Portfolio_I
 
+
+
 const Content = styled.main`
-  .image__intro {
-    height: 100vh;
-    width: 100%;
+  .image {
+    margin: 0;
   }
-  .image__primary{
-    height: 30rem;
-    width: 100%;
-    ${SuperQuery().minWidth.md.css`
-      height: 50rem;
-    `}
-    ${SuperQuery().minWidth.lg.css`
-      height: 65rem;
-    `}
+  .image__primary {
+    img {
+      width: 100%;
+    }
   }
-  .lazyload-placeholder,
-  .lazyload__image--height {
-    height: 16rem;
-    width: 100%;
+  .image__enlargements {
+    margin: 0;
+    padding: 0 .5rem;
+  }
+  .image__enlarged {
+    div {
+      margin: .5rem;
+      height: 16rem;
+    }
   }
 `
-const Image = styled.div`
+const BackgroundImage = styled.div`
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
   background-position: center center;
