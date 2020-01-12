@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
+import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
@@ -74,10 +75,16 @@ const Content = styled.main`
   }
   .image__enlarged {
     div {
-      margin: .5rem;
-      height: 18rem;
+      margin: .25rem;
+      width: width: 100%;
+      height: 97vw;
+      ${SuperQuery().minWidth.sm.css`
+        height: 49vw;
+      `}
+      ${SuperQuery().minWidth.md.css`
+        height: 25vw;
+      `}
     }
-  }
 `
 const BackgroundImage = styled.div`
   background-image: url(${props => props.backgroundURL});

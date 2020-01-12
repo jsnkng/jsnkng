@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
+import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
@@ -42,7 +43,7 @@ const Collection = ({ collectionName, images, themeName, setThemeName, pageTrans
           {
           images.slice(0).map((item) => {
             return (
-              <Col className='image__thumb' xs={12} sm={6} md={3} key={item.path}>
+              <Col className='image__thumb' xs={12} sm={6} md={4} lg={3} key={item.path}>
                 <LazyLoad offset={300}>
                   <BackgroundImage backgroundURL={`${item.path}/image_thumb.jpg`} 
                     onClick={() => manageFuture('/collection/[collectionName]/image/[imageName]', `/collection/${collectionName}/image/${item.name}`)} />
@@ -86,12 +87,21 @@ const Content = styled.main`
   }
   .image__thumbs {
     margin: 0;
-    padding: 0 .5rem;
   }
   .image__thumb {
     div {
       margin: .5rem;
-      height: 16rem;
+      width: width: 100%;
+      height: 97vw;
+      ${SuperQuery().minWidth.sm.css`
+        height: 49vw;
+      `}
+      ${SuperQuery().minWidth.md.css`
+        height: 33vw;
+      `}
+      ${SuperQuery().minWidth.lg.css`
+        height: 24vw;
+      `}
     }
   }
 `

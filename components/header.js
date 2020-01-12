@@ -4,7 +4,7 @@ import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import { Arrow } from '../svgs/l-arrow.svg'
 
-const Component = ({ hero__background, navigation__title, navigation__subtitle, manageHistory, manageFuture }) => {
+const Component = ({ hero__background, navigation__title, navigation__subtitle, manageHistory, manageFuture, back }) => {
   return (
     <Header>
       <Grid fluid={true}>
@@ -16,12 +16,14 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
           </Col>
         </Row>
         <Row className='navigation'>
+          { back && 
           <Col className='navigation__back' xs={12} sm={4} onClick={() => manageHistory()}>
             <Arrow__Decorated />
             <span className={navigation__subtitle === '' ? 'navigation__title large' : 'navigation__title'}>{navigation__subtitle}</span>
            
           </Col>
-          <Col xs={12} sm={4}>
+          }
+          <Col xs={12} sm={back ? 4 : 8}>
             <div onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</div>
           </Col>
           <Col className='navigation__logo' xs={12} sm={4}>

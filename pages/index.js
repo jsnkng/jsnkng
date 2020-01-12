@@ -19,6 +19,7 @@ const Home = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         hero__background={`/gallery/Mythologies/Sanguine_Miles/image_i.jpg`}
         manageHistory={manageHistory}
         manageFuture={manageFuture}
+        back={false}
       />
       <Content>
         <Grid fluid={true}>
