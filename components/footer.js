@@ -39,7 +39,7 @@ const Footer = styled.footer`
   .bottom {
     display: flex;
     align-content: center;
-    margin: 0;
+    margin: 2rem 0 0 0;
     padding: 1rem;
     font-size: .75rem;
     letter-spacing: -1px;
@@ -77,6 +77,6 @@ const Footer = styled.footer`
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 2rem 0;
+    margin: 6rem 0 2rem 0;
   }
 `

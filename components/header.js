@@ -4,27 +4,27 @@ import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import { Arrow } from '../svgs/l-arrow.svg'
 
-const Component = ({ navigation__title, navigation__subtitle, manageHistory, manageFuture }) => {
-
+const Component = ({ hero__background, navigation__title, navigation__subtitle, manageHistory, manageFuture }) => {
   return (
     <Header>
       <Grid fluid={true}>
         <Row className='hero'>
           <Col className='hero__image' xs={12}>
           <div className='hero__image--overlay'></div>
-            <BackgroundImage className='hero__background' backgroundURL='/gallery/sanguine-miles-i.jpg' />  
-            <h1 className='hero__title'>Sanguine Miles</h1>
+            <BackgroundImage className='hero__background' backgroundURL={hero__background} />  
+            <h1 className='hero__title'>{navigation__title}</h1>
           </Col>
         </Row>
         <Row className='navigation'>
-          <Col className='navigation__back' xs={6} onClick={() => manageHistory()}>
+          <Col className='navigation__back' xs={12} sm={4} onClick={() => manageHistory()}>
             <Arrow__Decorated />
-            <span className={navigation__subtitle === '' ? 'navigation__title large' : 'navigation__title'}>{navigation__title}</span>
-            { navigation__title !== '' &&
-              <span className='navigation__subtitle'>{navigation__subtitle}</span>
-            }
+            <span className={navigation__subtitle === '' ? 'navigation__title large' : 'navigation__title'}>{navigation__subtitle}</span>
+           
           </Col>
-          <Col className='navigation__logo' xs={6}>
+          <Col xs={12} sm={4}>
+            <div onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</div>
+          </Col>
+          <Col className='navigation__logo' xs={12} sm={4}>
             <div onClick={() => manageFuture('/', '/')}>
               {/* <img className='logo' src='/apple-icon-144x144.png' width='72' alt='Jason King' /> */}
               <a href='#'>JASON KING</a>

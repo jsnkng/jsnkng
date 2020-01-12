@@ -22,13 +22,13 @@ const Portfolio_I = ({ themeName, setThemeName, pageTransitionReadyToEnter, mana
       <Content>
         <Grid fluid={true}>
           <Row className='image'>
-            <Col className='image__primary' xs={12}><LazyLoad offset={100}><img src='/gallery/sanguine-miles.jpg' /></LazyLoad></Col>
+            <Col className='image__primary' xs={12}><LazyLoad offset={100}><img src='/gallery/Sanguine_Miles/image.jpg' /></LazyLoad></Col>
           </Row>
           <Row className='image__enlargements'>
-            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={100}><BackgroundImage backgroundURL='/gallery/sanguine-miles-i.jpg' /></LazyLoad></Col>
-            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={100}><BackgroundImage backgroundURL='/gallery/sanguine-miles-ii.jpg' /></LazyLoad></Col>
-            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={100}><BackgroundImage backgroundURL='/gallery/sanguine-miles-iii.jpg' /></LazyLoad></Col>
-            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={100}><BackgroundImage backgroundURL='/gallery/sanguine-miles-iv.jpg' /></LazyLoad></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={300}><BackgroundImage backgroundURL='/gallery/Sanguine_Miles/image_i.jpg' /></LazyLoad></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={300}><BackgroundImage backgroundURL='/gallery/Sanguine_Miles/image_ii.jpg' /></LazyLoad></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={300}><BackgroundImage backgroundURL='/gallery/Sanguine_Miles/image_iii.jpg' /></LazyLoad></Col>
+            <Col className='image__enlarged' xs={12} sm={6} md={3}><LazyLoad offset={300}><BackgroundImage backgroundURL='/gallery/Sanguine_Miles/image_iv.jpg' /></LazyLoad></Col>
           </Row>
         </Grid>
       </Content>

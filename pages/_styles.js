@@ -17,15 +17,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     margin: 0;
     padding: 0;
-    transition: all .25s ease-in-out;
+    transition: all 1.25s ease-in-out;
     opacity: 1.0;
-    -webkit-transition: background .25s  ease-in-out;
-    -moz-transition: background .25s  ease-in-out;
-    -o-transition: background .25s  ease-in-out;
-    -ms-transition: background .25s  ease-in-out;
-    transition: background .25s  ease-in-out;
-  }
-  div, header, footer, main {
     -webkit-transition: background .25s  ease-in-out;
     -moz-transition: background .25s  ease-in-out;
     -o-transition: background .25s  ease-in-out;
