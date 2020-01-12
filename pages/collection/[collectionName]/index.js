@@ -13,7 +13,6 @@ import Footer from '../../../components/footer'
 
 const Collection = ({ collectionName, collection, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
-
   
   useEffect(() => {
     setLoaded(true)
@@ -43,15 +42,14 @@ const Collection = ({ collectionName, collection, images, themeName, setThemeNam
           images.slice(0).map((item) => {
             return (
               <Col className='image__thumb' xs={12} sm={6} md={3} key={item.name}>
-                  <LazyLoad offset={300}>
-                    <BackgroundImage backgroundURL={`${item.url}/image_thumb.jpg`} 
-                      onClick={() => manageFuture('/collection/[collectionName]/image/[imageName]', `/collection/${collectionName}/image/${item.name}`)} />
-                  </LazyLoad>
+                <LazyLoad offset={300}>
+                  <BackgroundImage backgroundURL={`${item.url}/image_thumb.jpg`} 
+                    onClick={() => manageFuture('/collection/[collectionName]/image/[imageName]', `/collection/${collectionName}/image/${item.name}`)} />
+                </LazyLoad>
               </Col>
             )
           })
           }
-
           </Row>
         </Grid>
       </Content>

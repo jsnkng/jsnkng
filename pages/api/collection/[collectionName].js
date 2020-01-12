@@ -20,7 +20,7 @@ export default (req, res) => {
     query: { collectionName }
   } = req
 
-  const collectionDir = path.join('./public/gallery/', collectionName)
+  const collectionDir = path.join('./gallery/', collectionName)
 
 
   const getCollection = async (callback) => {
