@@ -11,7 +11,7 @@ import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
 
-const Collection = ({ collectionName, collection, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Collection = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
   
   useEffect(() => {
@@ -23,6 +23,7 @@ const Collection = ({ collectionName, collection, images, themeName, setThemeNam
   if (!loaded) {
     return null
   } else {
+    console.log(`/${images[0].path}/image_i.jpg`)
     return (
     <>
      <Head>
@@ -31,7 +32,7 @@ const Collection = ({ collectionName, collection, images, themeName, setThemeNam
        <Header 
         navigation__title={collectionName} 
         navigation__subtitle={collectionName}
-        hero__background={`/gallery/${collectionName}/image_i.jpg`}
+        hero__background={`${images[0].path}/image_i.jpg`}
         manageHistory={manageHistory}
         manageFuture={manageFuture}
       />
@@ -41,9 +42,9 @@ const Collection = ({ collectionName, collection, images, themeName, setThemeNam
           {
           images.slice(0).map((item) => {
             return (
-              <Col className='image__thumb' xs={12} sm={6} md={3} key={item.name}>
+              <Col className='image__thumb' xs={12} sm={6} md={3} key={item.path}>
                 <LazyLoad offset={300}>
-                  <BackgroundImage backgroundURL={`${item.url}/image_thumb.jpg`} 
+                  <BackgroundImage backgroundURL={`${item.path}/image_thumb.jpg`} 
                     onClick={() => manageFuture('/collection/[collectionName]/image/[imageName]', `/collection/${collectionName}/image/${item.name}`)} />
                 </LazyLoad>
               </Col>

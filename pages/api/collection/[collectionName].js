@@ -12,37 +12,18 @@ Returns:
   i.e. collectionName and imageName.
 */
 
-import fs from 'fs'
-import path from 'path'
+// import fs from 'fs'
+// import path from 'path'
+import collection from '../_data/collection'
 
 export default (req, res) => {
   const {
     query: { collectionName }
   } = req
 
-  const collectionDir = path.join('/gallery/', collectionName)
-
-
   const getCollection = async (callback) => {
-
-    const getAllCollection = dir => fs.readdirSync(dir)
-      .reduce((collection, name) => {
-        const file = `${collectionDir}/${name}`
-        const url = `/gallery/${collectionName}/${name}`
-        const isDirectory = fs.statSync(file).isDirectory()
-        console.log(file)
-        const imageData = {
-          name,
-          url
-        }
-        return isDirectory ? [...collection, imageData] : [...collection]
-      }, [])
-
-    const result = {}
-    result.collection = collectionName
-    result.images = getAllCollection(collectionDir)
-      console.log(JSON.stringify(result))
-    callback(result)
+    console.log(collection[collectionName])
+    callback(collection[collectionName])
   }
 
   getCollection(result => {
@@ -51,3 +32,40 @@ export default (req, res) => {
     res.end(JSON.stringify(result))
   })
 }
+
+// export default (req, res) => {
+//   const {
+//     query: { collectionName }
+//   } = req
+
+//   const collectionDir = path.join('./public/gallery/', collectionName)
+
+
+//   const getCollection = async (callback) => {
+
+//     const getAllCollection = dir => fs.readdirSync(dir)
+//       .reduce((collection, name) => {
+//         const file = `${collectionDir}/${name}`
+//         const url = `/gallery/${collectionName}/${name}`
+//         const isDirectory = fs.statSync(file).isDirectory()
+//         console.log(file)
+//         const imageData = {
+//           name,
+//           url
+//         }
+//         return isDirectory ? [...collection, imageData] : [...collection]
+//       }, [])
+
+//     const result = {}
+//     result.collection = collectionName
+//     result.images = getAllCollection(collectionDir)
+//     console.log(JSON.stringify(result))
+//     callback(result)
+//   }
+
+//   getCollection(result => {
+//     res.statusCode = 200
+//     res.setHeader('Content-Type', 'application/json')
+//     res.end(JSON.stringify(result))
+//   })
+// }
