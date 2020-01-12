@@ -24,7 +24,7 @@ const Collection = ({ collectionName, images, themeName, setThemeName, pageTrans
   if (!loaded) {
     return null
   } else {
-    console.log(`/${images[0].path}/image_i.jpg`)
+    console.log(`${images[0].path}/image_i.jpg`)
     return (
     <>
      <Head>

@@ -12,7 +12,7 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
           <Col className='hero__image' xs={12}>
           <div className='hero__image--overlay'></div>
             <BackgroundImage className='hero__background' backgroundURL={hero__background} />  
-            <h1 className='hero__title'>{navigation__title}</h1>
+            <h1 className='hero__title'>{navigation__title && navigation__title.replace(/_/g, ' ')}</h1>
           </Col>
         </Row>
         <Row className='navigation'>
@@ -24,7 +24,12 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
           </Col>
           }
           <Col xs={12} sm={back ? 4 : 8}>
-            <div onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</div>
+          <ul className='navigation__links'>
+            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</li>
+            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Nature_Morte/')}>Nature Morté</li>
+            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Starlight Meadows</li>
+            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Gator Labs</li>
+          </ul>
           </Col>
           <Col className='navigation__logo' xs={12} sm={4}>
             <div onClick={() => manageFuture('/', '/')}>
@@ -66,9 +71,15 @@ const Header = styled.header`
     margin: 40vh auto;
     padding: 1rem;
     color: #ffffff;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     font-weight: 200;
     text-align: center;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3.5rem;
+    `}
+    ${SuperQuery().minWidth.md.css`
+      font-size: 4.5rem;
+    `}
   }
   
   a {
@@ -87,6 +98,15 @@ const Header = styled.header`
   .navigation__back {
     display: flex;
     justify-content: flex-start;
+  }
+  .navigation__links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      padding: 8px 20px 8px 8px;
+    }
   }
   .navigation__logo {
     display: flex;

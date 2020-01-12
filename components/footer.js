@@ -12,7 +12,7 @@ const Component = ({ themeName, setThemeName }) => {
       <Grid fluid={true}>
         <Row className='bottom'>
           <Col className='bottom__credit' xs={6}>
-            <a href="#"><strong>JSNKNG</strong> / 2020</a>
+            <a href="#">&copy; <strong>JSNKNG</strong> / 2020</a>
           </Col>
           <Col className='bottom__themeswitcher' xs={6}>
             { themeName !== 'dayTheme' &&
@@ -22,9 +22,9 @@ const Component = ({ themeName, setThemeName }) => {
               <Moon aria-label='Set Night Mode' onClick={() => setThemeName('nightTheme')} />
             }
           </Col>
-          <Col className='bottom__copyright' xs={12}>
-            <p><strong>&copy; Jason King 2000-2020</strong> All rights reserved.</p>
-          </Col>
+          {/* <Col className='bottom__copyright' xs={12}>
+            <p><strong>&copy; Jason King 2020</strong> All rights reserved.</p>
+          </Col> */}
         </Row> 
       </Grid>
     </Footer>
