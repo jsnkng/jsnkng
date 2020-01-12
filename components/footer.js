@@ -15,12 +15,18 @@ const Component = ({ themeName, setThemeName }) => {
             <a href="#">&copy; <strong>JSNKNG</strong> / 2020</a>
           </Col>
           <Col className='bottom__themeswitcher' xs={6}>
-            { themeName !== 'dayTheme' &&
-            <Sun aria-label='Set Day Mode' onClick={() => setThemeName('dayTheme')} />
-            }
-            { themeName === 'dayTheme' &&
-              <Moon aria-label='Set Night Mode' onClick={() => setThemeName('nightTheme')} />
-            }
+          { themeName !== 'lightMode' &&
+            <Sun aria-label='Set Day Mode' onClick={() => { 
+              setThemeName('lightMode')
+              document.cookie = `themeName=lightMode; path=/`
+            } } />
+          }
+          { themeName === 'lightMode' &&
+            <Moon aria-label='Set Night Mode'  onClick={() => { 
+              setThemeName('darkMode')
+              document.cookie = `themeName=darkMode; path=/`
+            } } />
+          }
           </Col>
           {/* <Col className='bottom__copyright' xs={12}>
             <p><strong>&copy; Jason King 2020</strong> All rights reserved.</p>
