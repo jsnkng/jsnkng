@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
-import Banner from '../../../../../components/elements/banner'
+import Banner from '../../../../../components/elements/Banner'
 
 const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
@@ -40,7 +40,7 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
           title={imageName.replace(/_/g, ' ')}
           subtitle=''
           hero={true}
-          manageFuture={()=>{}}
+          manageFuture={false}
         />
       </BackgroundOverlay>
 

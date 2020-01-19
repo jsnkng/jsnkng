@@ -49,7 +49,6 @@ const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.trans_back};
   color: ${({ theme }) => theme.colors.text};
   
-  
   .hero__background {
     height: 100vh;
   }
