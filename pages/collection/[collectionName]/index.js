@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
-import Banner from '../../../components/elements/Banner'
+import Banner from '../../../components/elements/banner'
 
 const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
  

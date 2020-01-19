@@ -8,7 +8,8 @@ const Component = ({ backgroundURL, title, subtitle, hero, manageFuture }) => {
  console.log(backgroundURL)
   return (
     <Banner onClick={() => {
-        manageFuture && setIsSpinnerVisible(true) && manageFuture()
+        manageFuture && setIsSpinnerVisible(true)
+        manageFuture && manageFuture()
       }}>
       <Spinner isSpinnerVisible={isSpinnerVisible} />
       <div className={hero ? 'hero__header' : 'banner__header'}>
