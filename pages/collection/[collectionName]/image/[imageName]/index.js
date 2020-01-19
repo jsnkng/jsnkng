@@ -5,9 +5,9 @@ import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
-import Header from '../../../components/header'
-import Footer from '../../../components/footer'
-import Banner from '../../../components/elements/banner'
+import Header from '../../../../../components/header'
+import Footer from '../../../../../components/footer'
+import Banner from '../../../../../components/elements/banner'
 
 const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
