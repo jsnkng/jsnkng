@@ -4,6 +4,7 @@ const collection = {
     images: [
       { name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles' },
       { name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin' },
+      { name: 'Turris_Babel', path: '/gallery/Mythologies/Turris_Babel' },
     ]
   },
   Nature_Morte: {

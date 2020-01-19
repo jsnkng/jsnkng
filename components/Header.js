@@ -8,36 +8,36 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
   return (
     <Header>
       <Grid fluid={true}>
-        <Row className='hero'>
-          <Col className='hero__image' xs={12}>
+        <Row__Decorated className='hero'>
+          <Col__Decorated className='hero__image' xs={12}>
           <div className='hero__image--overlay'></div>
             <BackgroundImage className='hero__background' backgroundURL={hero__background} />  
             <h1 className='hero__title'>{navigation__title && navigation__title.replace(/_/g, ' ')}</h1>
-          </Col>
-        </Row>
-        <Row className='navigation'>
+          </Col__Decorated>
+        </Row__Decorated>
+        <Row__Decorated className='navigation'>
           { back && 
-          <Col className='navigation__back' xs={12} sm={4} onClick={() => manageHistory()}>
+          <Col__Decorated className='navigation__back' xs={12} sm={4} onClick={() => manageHistory()}>
             <Arrow__Decorated />
             <span className={navigation__subtitle === '' ? 'navigation__title large' : 'navigation__title'}>{navigation__subtitle}</span>
            
-          </Col>
+          </Col__Decorated>
           }
-          <Col xs={12} sm={back ? 4 : 8}>
+          <Col__Decorated xs={12} sm={back ? 4 : 8}>
           <ul className='navigation__links'>
             <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</li>
             <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Nature_Morte/')}>Nature Morté</li>
             <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Starlight Meadows</li>
             <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Gator Labs</li>
           </ul>
-          </Col>
-          <Col className='navigation__logo' xs={12} sm={4}>
+          </Col__Decorated>
+          <Col__Decorated className='navigation__logo' xs={12} sm={4}>
             <div onClick={() => manageFuture('/', '/')}>
               {/* <img className='logo' src='/apple-icon-144x144.png' width='72' alt='Jason King' /> */}
               <a href='#'>JASON KING</a>
             </div>
-          </Col>
-        </Row> 
+          </Col__Decorated>
+        </Row__Decorated> 
       </Grid>
     </Header>
   )
@@ -48,26 +48,15 @@ export default Component
 const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.trans_back};
   color: ${({ theme }) => theme.colors.text};
-  .hero {
-    margin: 0;
-  }
-  .hero__image {
-  }
-  .hero__image--overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.4);
-    width: 100%;
-    height: 100vh;
-  }
+  
+  
   .hero__background {
     height: 100vh;
   }
   .hero__title {
     position: absolute;
     top: 0;
-    width: 100%;
+    ${'' /* width: 100%; */}
     margin: 40vh auto;
     padding: 1rem;
     color: #ffffff;
@@ -93,7 +82,7 @@ const Header = styled.header`
     align-content: center;
     height: 6rem;
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 0;
   }
   .navigation__back {
     display: flex;
@@ -123,6 +112,15 @@ const Header = styled.header`
   }
 `
 
+const Row__Decorated = styled(Row)`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
+const Col__Decorated = styled(Col)`
+  margin: 0;
+  padding: 0;
+`
 const Arrow__Decorated = styled(Arrow)`
   cursor: pointer;
   outline: none;

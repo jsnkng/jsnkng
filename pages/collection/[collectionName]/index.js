@@ -1,71 +1,103 @@
 import React, {useState, useEffect} from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
-import LazyLoad, { forceCheck } from 'react-lazyload'
 
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
+import Banner from '../../../components/elements/banner'
 
-const Collection = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+ 
+  /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
-  
+
+  /* Choose a random item to be the hero */
+  const [heroIdx, setHeroIdx] = useState(Math.floor(Math.random()*(images.length)))
+
+  /* Create a copy of data  and remove the hero item from it */
+  const pictures = [ ...images ]
+  pictures.splice(heroIdx,1)
+
   useEffect(() => {
+    window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
-
   }, [])
+
   
   if (!loaded) {
     return null
   } else {
-    console.log(`${images[0].path}/image_i.jpg`)
     return (
     <>
-     <Head>
-      <title>JSNKNG</title>
-    </Head>
-       <Header 
+      <Head>
+        <title>JSNKNG</title>
+      </Head>
+      <Header 
         navigation__title={collectionName} 
         navigation__subtitle={collectionName}
-        hero__background={`${images[0].path}/image_i.jpg`}
         manageHistory={manageHistory}
         manageFuture={manageFuture}
       />
-      <Content> 
-        <Grid fluid={true}>
-          <Row className='image__thumbs'>
-          {
-          images.slice(0).map((item) => {
-            return (
-              <Col className='image__thumb' xs={12} sm={6} md={4} lg={3} key={item.path}>
-                <LazyLoad offset={300}>
-                  <BackgroundImage backgroundURL={`${item.path}/image_thumb.jpg`} 
-                    onClick={() => manageFuture('/collection/[collectionName]/image/[imageName]', `/collection/${collectionName}/image/${item.name}`)} />
-                </LazyLoad>
-              </Col>
-            )
-          })
+
+      <BackgroundOverlay>
+        <Banner
+          backgroundURL={
+            images[heroIdx] !== undefined && images[heroIdx].length !== 0 
+            ? `${images[heroIdx].path}/image.jpg`
+            : '/noimage.jpg' 
           }
-          </Row>
-        </Grid>
-      </Content>
-      <Footer themeName={themeName} setThemeName={setThemeName} />
+          title={images[heroIdx].name.replace(/_/g, ' ')}
+          subtitle={images[heroIdx].name.replace(/_/g, ' ')}
+          hero={true}
+          manageFuture={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
+                                           `/collection/${collectionName}/image/${images[heroIdx].name}`)}
+        />
+      </BackgroundOverlay>
+
+        <Content> 
+          <Grid fluid={true}>
+            <Row__Decorated>
+            {
+            pictures.slice(0).map((item, index) => {
+              return (
+                <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.path}>
+                  <Banner
+                      backgroundURL={
+                        item !== undefined && item.length !== 0 
+                        ? `${item.path}/image_thumb.jpg`
+                        : '/noimage.jpg' 
+                      }
+                      title={item.name.replace(/_/g, ' ')}
+                      subtitle={item.name.replace(/_/g, ' ')}
+                      hero={false}
+                      manageFuture={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
+                                                       `/collection/${collectionName}/image/${item.name}`)}
+                    />
+                </Col__Decorated>
+              )
+            })
+            }
+            </Row__Decorated>
+          </Grid>
+        </Content>
+        <Footer__Wrapper>
+          <Footer themeName={themeName} setThemeName={setThemeName} />
+        </Footer__Wrapper>
     </>
     )
   }
 }
 
-Collection.pageTransitionDelayEnter = true
+Page.pageTransitionDelayEnter = true
 
-export default Collection
+export default Page
 
-Collection.getInitialProps = async ({ req, query }) => {
+Page.getInitialProps = async ({ req, query }) => {
   const { collectionName } = query
   const { origin }  = absoluteUrl(req)
   const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
@@ -76,41 +108,29 @@ Collection.getInitialProps = async ({ req, query }) => {
 
 
 const Content = styled.main`
-  .image {
-    margin: 0;
-  }
-  .image__primary {
-      min-height: 40vh;
-    img {
-      width: 100%;
-    }
-  }
-  .image__thumbs {
-    margin: 0;
-  }
-  .image__thumb {
-    div {
-      margin: .5rem;
-      width: width: 100%;
-      height: 97vw;
-      ${SuperQuery().minWidth.sm.css`
-        height: 49vw;
-      `}
-      ${SuperQuery().minWidth.md.css`
-        height: 33vw;
-      `}
-      ${SuperQuery().minWidth.lg.css`
-        height: 24vw;
-      `}
-    }
-  }
+  
 `
-const BackgroundImage = styled.div`
-  background-image: url(${props => props.backgroundURL});
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+
+const Row__Decorated = styled(Row)`
+  width: 100%;
   margin: 0;
-  -webkit-animation: myfirst 1s;
-  animation: myfirst 1s;
+  padding: 0;
+`
+const Col__Decorated = styled(Col)`
+  margin: 0;
+  padding: 0;
+`
+const BackgroundOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
+`
+
+const Footer__Wrapper = styled.div`
+    height: 3rem;
+    color: ${({ theme }) => theme.colors.text } !important; 
 `
