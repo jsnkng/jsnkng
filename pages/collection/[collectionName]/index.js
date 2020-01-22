@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
+import LazyLoad, {forceCheck}  from 'react-lazyload'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
@@ -28,6 +29,9 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
     pageTransitionReadyToEnter()
   }, [])
 
+  useEffect(() => {
+    forceCheck()
+  })
   
   if (!loaded) {
     return null
@@ -37,29 +41,28 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
       <Head>
         <title>JSNKNG</title>
       </Head>
-      <Header 
-        navigation__title={collectionName} 
-        navigation__subtitle={collectionName}
-        manageHistory={manageHistory}
-        manageFuture={manageFuture}
-      />
+      <Content> 
+        <BackgroundOverlay>
+          <Banner
+            backgroundURL={
+              images[heroIdx] !== undefined && images[heroIdx].length !== 0 
+              ? `${images[heroIdx].path}/image.jpg`
+              : '/noimage.jpg' 
+            }
+            title={images[heroIdx].name.replace(/_/g, ' ')}
+            subtitle=''
+            dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+            handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
+                                            `/collection/${collectionName}/image/${images[heroIdx].name}`)}
+          />
+        </BackgroundOverlay>
 
-      <BackgroundOverlay>
-        <Banner
-          backgroundURL={
-            images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-            ? `${images[heroIdx].path}/image.jpg`
-            : '/noimage.jpg' 
-          }
-          title={images[heroIdx].name.replace(/_/g, ' ')}
-          subtitle={images[heroIdx].name.replace(/_/g, ' ')}
-          hero={true}
-          manageFuture={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
-                                           `/collection/${collectionName}/image/${images[heroIdx].name}`)}
+        <Header 
+          navigation__title={collectionName} 
+          navigation__subtitle={collectionName}
+          manageHistory={manageHistory}
+          manageFuture={manageFuture}
         />
-      </BackgroundOverlay>
-
-        <Content> 
           <Grid fluid={true}>
             <Row__Decorated>
             {
@@ -73,9 +76,9 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
                         : '/noimage.jpg' 
                       }
                       title={item.name.replace(/_/g, ' ')}
-                      subtitle={item.name.replace(/_/g, ' ')}
-                      hero={false}
-                      manageFuture={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
+                      subtitle=''
+                      dimensions={{xl: false, height: '24vw', width: '25vw', 'minHeight': '25vw', 'minWidth': '100%'}}
+                      handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
                                                        `/collection/${collectionName}/image/${item.name}`)}
                     />
                 </Col__Decorated>
@@ -108,7 +111,31 @@ Page.getInitialProps = async ({ req, query }) => {
 
 
 const Content = styled.main`
-  
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .hero__background {
+    height: 100vh;
+  }
+  .hero__title {
+    position: absolute;
+    top: 0;
+    ${'' /* width: 100%; */}
+    margin: 40vh auto;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3.5rem;
+    `}
+    ${SuperQuery().minWidth.md.css`
+      font-size: 4.5rem;
+    `}
+  }
+
 `
 
 const Row__Decorated = styled(Row)`
@@ -117,11 +144,12 @@ const Row__Decorated = styled(Row)`
   padding: 0;
 `
 const Col__Decorated = styled(Col)`
+  width: 100%;
   margin: 0;
   padding: 0;
 `
 const BackgroundOverlay = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100vh;
@@ -134,3 +162,14 @@ const Footer__Wrapper = styled.div`
     height: 3rem;
     color: ${({ theme }) => theme.colors.text } !important; 
 `
+
+const BackgroundImage = styled.div`
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0;
+  -webkit-animation: myfirst 1s;
+  animation: myfirst 1s;
+`
+

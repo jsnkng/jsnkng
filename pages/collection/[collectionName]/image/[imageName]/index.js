@@ -19,6 +19,9 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
     pageTransitionReadyToEnter()
   }, [])
   
+  useEffect(() => {
+    forceCheck()
+  })
   if (!loaded) {
     return null
   } else {
@@ -27,6 +30,21 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
      <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
+
+
+    <Content>
+      <BackgroundOverlay>
+        <Banner
+          backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`}
+          title={imageName.replace(/_/g, ' ')}
+          subtitle=''
+          dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+          handleClick={false}
+        />
+      </BackgroundOverlay>
+
+
+
       <Header 
         navigation__title={collectionName} 
         navigation__subtitle={collectionName}
@@ -34,25 +52,21 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
         manageFuture={manageFuture}
       />
 
-      <BackgroundOverlay>
-        <Banner
-          backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`}
-          title={imageName.replace(/_/g, ' ')}
-          subtitle=''
-          hero={true}
-          manageFuture={false}
-        />
-      </BackgroundOverlay>
-
-      <Content>
         <Grid fluid={true}>
           <Row__Decorated>
             <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
-                <img src={`/gallery/${collectionName}/${imageName}/image.jpg`} />
+                <ResponsiveImage backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
+          <Row__Decorated>
+            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></LazyLoad></Col>
+            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></LazyLoad></Col>
+            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_iii.jpg`} /></LazyLoad></Col>
+            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_iv.jpg`} /></LazyLoad></Col>
+          </Row__Decorated>
+
         </Grid>
       </Content>
       <Footer__Wrapper>
@@ -105,14 +119,44 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 const BackgroundOverlay = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
   z-index: 1;
-  background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
+  ${'' /* background-color: ${ ({ theme }) => theme.colors.image_overlay_light }; */}
 `
+
+const ResponsiveImage = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vw;
+  margin: 0;
+  z-index: 10;
+  -webkit-animation: myfirst 1s;
+  animation: myfirst 1s;
+`
+
+const EnlargedImages = styled.div`
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50vw;
+  margin: 0;
+  z-index: 10;
+  -webkit-animation: myfirst 1s;
+  animation: myfirst 1s;
+`
+
 const Footer__Wrapper = styled.div`
     height: 3rem;
     color: ${({ theme }) => theme.colors.text } !important; 

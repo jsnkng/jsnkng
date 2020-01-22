@@ -12,6 +12,16 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
       <Head>
         <title>JSNKNG</title>
       </Head>
+       <BackgroundOverlay>
+        <Banner
+          backgroundURL={`/gallery/Mythologies/Sanguine_Miles/image_i.jpg`}
+          title='Welcome'
+          subtitle=''
+          dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+          manageFuture={() => {}}
+        />
+      </BackgroundOverlay>
+
       <Header 
         navigation__title='Welcome'
         navigation__subtitle='Nothing'
@@ -19,15 +29,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         manageFuture={manageFuture}
       />
 
-       <BackgroundOverlay>
-        <Banner
-          backgroundURL={`/gallery/Mythologies/Sanguine_Miles/image_i.jpg`}
-          title='Welcome'
-          subtitle=''
-          hero={true}
-          manageFuture={() => {}}
-        />
-      </BackgroundOverlay>
+
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
       </Footer__Wrapper>
@@ -41,7 +43,7 @@ const Content = styled.main`
   
 `
 const BackgroundOverlay = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100vh;

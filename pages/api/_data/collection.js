@@ -5,6 +5,9 @@ const collection = {
       { name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles' },
       { name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin' },
       { name: 'Turris_Babel', path: '/gallery/Mythologies/Turris_Babel' },
+      { name: 'Regina_Sumer', path: '/gallery/Mythologies/Regina_Sumer' },
+      { name: 'Natalis_Sancti_Igne', path: '/gallery/Mythologies/Natalis_Sancti_Igne' },
+      { name: 'Perseus_Caput_Corpori_Adiecta_Mutationes', path: '/gallery/Mythologies/Perseus_Caput_Corpori_Adiecta_Mutationes' },
     ]
   },
   Nature_Morte: {
