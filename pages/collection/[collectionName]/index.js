@@ -77,7 +77,7 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
                       }
                       title={item.name.replace(/_/g, ' ')}
                       subtitle=''
-                      dimensions={{xl: false, height: '24vw', width: '25vw', 'minHeight': '25vw', 'minWidth': '100%'}}
+                      dimensions={{xl: false, height: '100%', width: '100%', 'minHeight': '100vw', 'minWidth': '100%'}}
                       handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
                                                        `/collection/${collectionName}/image/${item.name}`)}
                     />
