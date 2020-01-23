@@ -4,12 +4,12 @@ import LazyLoad from 'react-lazyload'
 import Spinner from './spinner'
 import SuperQuery from '@themgoncalves/super-query'
 
-const Element = ({ backgroundURL, title, subtitle, headline, dimensions, handleClick }) => {
+const Element = ({ backgroundURL, title, subtitle, headline,  handleClick }) => {
 
   const [isSpinnerVisible, setIsSpinnerVisible] = useState(false)
 
   return (
-    <Banner dimensions={dimensions}
+    <Banner
         onClick={() => {
           handleClick && setIsSpinnerVisible(true)
           handleClick && handleClick()
@@ -111,41 +111,25 @@ const Banner = styled.section`
     opacity: 0;
     width: 90%;
     max-width: 70vw;
-    font-size: ${props => props.dimensions.xl 
-      ? '2.25rem'
-      : '1.5rem'
-    };
+    font-size: 2.25rem;
     font-weight: 400;
     line-height: .925;
     letter-spacing: -0.1rem;
     margin: 1rem 0 0 4%;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     border: none;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: ${props => props.dimensions.xl 
-        ? '6vw'
-        : '1.75rem'
-      };
-    `}
+    font-size: 6vw;
   }
   h3 {
     opacity: 0;
     width: 90%;
     max-width: 70vw;
-    font-size: ${props => props.dimensions.xl 
-      ? '1.5rem'
-      : '1.125rem'
-    };
+    font-size: 1.5rem;
     font-weight: 200;
     line-height: 0.875;
     margin: 0 0 0 4%;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-    ${SuperQuery().minWidth.sm.css`
-      font-size: ${props => props.dimensions.xl 
-        ? '3.5vw'
-        : '1.375rem'
-      };
-    `}
+    font-size: 3.5vw;
   }
   span {
     position: absolute;
@@ -157,11 +141,8 @@ const Banner = styled.section`
     width: 50%;
   }
   .header:hover {
-
-    background: ${props => props.dimensions.xl 
-      ? ({ theme }) => theme.colors.image_overlay_light
-      : ({ theme }) => theme.colors.image_overlay_opaque
-    };
+    background: ${({ theme }) => theme.colors.image_overlay_light};
+     
   }
   .header:hover h1,
   .header:hover h2,

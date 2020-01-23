@@ -8,6 +8,7 @@ import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
 import Banner from '../../../../../components/elements/banner'
+import Hero from '../../../../../components/elements/hero'
 
 const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
@@ -34,11 +35,11 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
 
     <Content>
       <BackgroundOverlay>
-        <Banner
+        <Hero
           backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`}
           title={imageName.replace(/_/g, ' ')}
           subtitle=''
-          dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+          dimensions={{xl: true, height: '100vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
           handleClick={false}
         />
       </BackgroundOverlay>
@@ -60,12 +61,12 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
-          <Row__Decorated>
-            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></LazyLoad></Col>
-            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></LazyLoad></Col>
-            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_iii.jpg`} /></LazyLoad></Col>
-            <Col xs={6} sm={6} md={3}><LazyLoad offset={300}><EnlargedImages backgroundURL={`/gallery/${collectionName}/${imageName}/image_iv.jpg`} /></LazyLoad></Col>
-          </Row__Decorated>
+          {/* <Row__Decorated>
+            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></Col__Decorated>
+            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></Col__Decorated>
+            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iii.jpg`} /></Col__Decorated>
+            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iv.jpg`} /></Col__Decorated>
+          </Row__Decorated> */}
 
         </Grid>
       </Content>
