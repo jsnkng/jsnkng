@@ -9,6 +9,7 @@ import styled from 'styled-components'
 
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
+import Hero from '../../../components/elements/hero'
 import Banner from '../../../components/elements/banner'
 
 const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
@@ -43,13 +44,13 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
       </Head>
       <Content> 
         <BackgroundOverlay>
-          <Banner
+          <Hero
             backgroundURL={
               images[heroIdx] !== undefined && images[heroIdx].length !== 0 
               ? `${images[heroIdx].path}/image.jpg`
               : '/noimage.jpg' 
             }
-            title={images[heroIdx].name.replace(/_/g, ' ')}
+            title={collectionName.replace(/_/g, ' ')}
             subtitle=''
             dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
             handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
@@ -77,7 +78,7 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
                       }
                       title={item.name.replace(/_/g, ' ')}
                       subtitle=''
-                      dimensions={{xl: false, height: '100%', width: '100%', 'minHeight': '100vw', 'minWidth': '100%'}}
+                      dimensions={{xl: false, height: '25vw', width: '100%', 'minHeight': '25vw', 'minWidth': '25vw'}}
                       handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
                                                        `/collection/${collectionName}/image/${item.name}`)}
                     />

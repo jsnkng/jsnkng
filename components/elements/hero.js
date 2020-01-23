@@ -50,21 +50,12 @@ const ResponsiveImage = styled.div`
 
 const Banner = styled.section`
   position: relative;
-  width: 100%;
-  height: 100vw;  
-  ${SuperQuery().minWidth.sm.css`
-    height: 50vw;
-  `}
-
-  ${SuperQuery().minWidth.md.css`
-    height: 33.33vw;
-  `}
-
-  ${SuperQuery().minWidth.lg.css`
-    height: 25vw;
-  `}
+  width: ${props => props.dimensions.width};
+  height: ${props => props.dimensions.height};
+  min-width: ${props => props.dimensions.minWidth};
+  min-height: ${props => props.dimensions.minHeight};
+  
   .header {
-    
     position: absolute;
     top: 0;
     left: 0;
@@ -75,6 +66,10 @@ const Banner = styled.section`
     align-content: center;
     justify-content: center;
 
+    background: ${props => props.dimensions.xl 
+      ? ({ theme }) => theme.colors.image_overlay_darkgradient
+      : ({ theme }) => theme.colors.image_overlay_gradient
+    };
 
     color: ${({ theme }) => theme.colors.home_text};
     text-shadow: 1px 1px 2px ${({ theme }) => theme.colors.home_text_shadow};
@@ -89,12 +84,9 @@ const Banner = styled.section`
     
     height: 100%;
     width: 100%;
-
-
   }
 
   h1 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-size: 3rem;
@@ -108,7 +100,6 @@ const Banner = styled.section`
     `}
   }
   h2 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-size: ${props => props.dimensions.xl 
@@ -129,7 +120,6 @@ const Banner = styled.section`
     `}
   }
   h3 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-size: ${props => props.dimensions.xl 
@@ -156,16 +146,5 @@ const Banner = styled.section`
     padding: 0;
     width: 50%;
   }
-  .header:hover {
 
-    background: ${props => props.dimensions.xl 
-      ? ({ theme }) => theme.colors.image_overlay_light
-      : ({ theme }) => theme.colors.image_overlay_opaque
-    };
-  }
-  .header:hover h1,
-  .header:hover h2,
-  .header:hover h3 {
-    opacity: 1;
-  }
 `
