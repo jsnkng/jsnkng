@@ -22,7 +22,7 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
 
   /* Create a copy of data  and remove the hero item from it */
   const pictures = [ ...images ]
-  pictures.splice(heroIdx,1)
+  // pictures.splice(heroIdx,1)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -47,7 +47,7 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
           <Hero
             backgroundURL={
               images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-              ? `${images[heroIdx].as}/image.jpg`
+              ? `${images[heroIdx].as}/image_i.jpg`
               : '/noimage.jpg' 
             }
             title={collectionName.replace(/_/g, ' ')}
