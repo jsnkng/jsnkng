@@ -91,11 +91,7 @@ const Banner = styled.section`
     color: ${({ theme }) => theme.colors.home_text};
     text-shadow: 1px 1px 2px ${({ theme }) => theme.colors.home_text_shadow};
 
-    -webkit-transition: background 0.5s linear;
-    -moz-transition: background 0.5s linear;
-    -o-transition: background 0.5s linear;
-    -ms-transition: background 0.5s linear;
-    transition: background 0.5s linear;
+ 
 
     z-index: 20; 
     
@@ -113,11 +109,9 @@ const Banner = styled.section`
     font-weight: 200;
     line-height: 0.875;
     letter-spacing: -0.1rem;
-    margin: 5vh 0 10vh 4%;
+    margin: 0 0 0 4%;
     text-shadow: 2px 2px 6px ${({ theme }) => theme.colors.home_text_shadow};
     z-index: 5;
-    margin-top: 10vh;
-     -webkit-transform: translateY(20px);
     ${SuperQuery().minWidth.sm.css`
       font-size: 7.5vw;
     `}
@@ -129,13 +123,17 @@ const Banner = styled.section`
     font-weight: 400;
     line-height: .925;
     letter-spacing: -0.1rem;
-    margin: 1rem 0 4% 4%;
+    margin: 0 0 0 4%;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     border: none;
     font-size: 10vw;
     z-index: 5;
-    margin-top: 10vh;
-     -webkit-transform: translateY(20px);
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    -ms-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+    transition: all .75s ease-in-out;
     ${SuperQuery().minWidth.sm.css`
       font-size: 5vw;
     `}
@@ -154,12 +152,10 @@ const Banner = styled.section`
     font-weight: 200;
     line-height: 0.875;
     margin: 0 0 0 4%;
-    margin-top: 10vh;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     font-size: 3.5vw;
     z-index: 5;
  
-     -webkit-transform: translateY(20px);
     ${SuperQuery().minWidth.md.css`
       font-size: 1vw;
     `}
@@ -181,21 +177,21 @@ const Banner = styled.section`
     width: 100%;
     height: 100%;
     z-index: 1;
-      opacity: 0;
-  -webkit-animation: myfirst 1s;
-  animation: myfirst 1s;
+    opacity: 1;
+    background: rgba(0,0,0,.5) !important;
+
+  -webkit-transition: opacity  .5s ease .1s;
+  -moz-transition: opacity  .5s ease .1s;
+  -o-transition: opacity  .5s ease .1s;
+  transition: opacity  .5s ease .1s;
   }
+  .header:not(:active):not(:focus):not(:hover) {
 
-
-  .header:hover {
     .header__overlay {
-      opacity: 1;
-        transition: background .5s ease .1s;
-
-      background: rgba(0,0,0,.5) !important;
+      opacity: 0;
     }
-   
   }
+
 
 
 ${'' /* 
@@ -216,14 +212,7 @@ ${'' /*
   .header:hover h2,
   .header:hover h3 {
 
-    -webkit-transition-property: -webkit-transform, margin-top;
-     -webkit-transition-duration: .25s;
-     -webkit-transform: translateY(0);
+    transition: all .75s ease-in-out;
     opacity: 1;
-    margin-top: 0;
-    -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
-   -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
-     -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530);
-        transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
   }
 `

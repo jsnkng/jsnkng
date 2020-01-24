@@ -141,9 +141,11 @@ const GlobalStyle = createGlobalStyle`
   .bm-burger-button {
     position: absolute;
     height: 2rem;
+    padding: 1rem 0;
+    margin: 2rem 0;
     width: 2.75rem;
-    top: 88.5vh;
-    left: 4%;
+    top: 85vh;
+    left: 2%;
     background:  ${ ({ theme }) => theme.colors.background};
     z-index: 10000;
   }

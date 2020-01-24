@@ -122,7 +122,7 @@ const Content = styled.main`
   padding: 0;
 
   .hero__background {
-    height: 90vh;
+    height: 85vh;
   }
   .hero__title {
     position: absolute;
@@ -159,7 +159,7 @@ const BackgroundOverlay = styled.div`
   top: 0;
   left: 0;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
   background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
 `
