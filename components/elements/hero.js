@@ -41,7 +41,7 @@ const ResponsiveImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
+    height: 85vh;
   margin: 0;
   z-index: 10;
   -webkit-animation: myfirst 1s;

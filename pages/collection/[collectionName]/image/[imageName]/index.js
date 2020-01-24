@@ -3,6 +3,7 @@ import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
+import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
@@ -10,11 +11,13 @@ import Footer from '../../../../../components/footer'
 import Banner from '../../../../../components/elements/banner'
 import Hero from '../../../../../components/elements/hero'
 
-const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ router, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
   const [loaded, setLoaded] = useState(false)
   const [collectionName, setCollectionName] = useState(router.query.collectionName)
   const [imageName, setImageName] = useState(router.query.imageName)
-  
+
+  var title = images.filter(image => image.name === imageName )
+console.log(title)
   useEffect(() => {
     setLoaded(true)
     pageTransitionReadyToEnter()
@@ -39,7 +42,7 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
           backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`}
           title={imageName.replace(/_/g, ' ')}
           subtitle=''
-          dimensions={{xl: true, height: '100vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+          dimensions={{xl: true, height: '85vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
           handleClick={false}
         />
       </BackgroundOverlay>
@@ -77,10 +80,19 @@ const Page = ({ router, themeName, setThemeName, pageTransitionReadyToEnter, man
     )
   }
 }
+Page.pageTransitionDelayEnter = true
 
 export default Page
 
-Page.pageTransitionDelayEnter = true
+Page.getInitialProps = async ({ req, query }) => {
+  const { collectionName } = query
+  const { origin }  = absoluteUrl(req)
+  const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
+  const result = await collectionResult.json()
+  result.collectionName = collectionName
+  return result
+}
+
 
 const Content = styled.main`
   .image {
@@ -123,7 +135,7 @@ const BackgroundOverlay = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   z-index: 1;
   ${'' /* background-color: ${ ({ theme }) => theme.colors.image_overlay_light }; */}

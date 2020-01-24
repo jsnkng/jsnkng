@@ -22,7 +22,6 @@ export default (req, res) => {
   } = req
 
   const getCollection = async (callback) => {
-    console.log(collection[collectionName])
     callback(collection[collectionName])
   }
 

@@ -8,7 +8,7 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
   return (
     <Header>
       <Grid fluid={true}>
-        
+      
         <Row__Decorated className='navigation'>
           { back && 
           <Col__Decorated className='navigation__back' xs={12} sm={4} onClick={() => manageHistory()}>
@@ -18,12 +18,8 @@ const Component = ({ hero__background, navigation__title, navigation__subtitle, 
           </Col__Decorated>
           }
           <Col__Decorated xs={12} sm={back ? 4 : 8}>
-          <ul className='navigation__links'>
-            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Mythologies</li>
-            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Nature_Morte/')}>Nature Morté</li>
-            <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Starlight Meadows</li>
-            {/* <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Gator Labs</li> */}
-          </ul>
+          
+          
           </Col__Decorated>
           <Col__Decorated className='navigation__logo' xs={12} sm={4}>
             <div onClick={() => manageFuture('/', '/')}>
@@ -128,4 +124,3 @@ const BackgroundImage = styled.div`
   -webkit-animation: myfirst 1s;
   animation: myfirst 1s;
 `
-

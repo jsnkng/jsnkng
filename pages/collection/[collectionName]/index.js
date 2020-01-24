@@ -47,12 +47,12 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
           <Hero
             backgroundURL={
               images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-              ? `${images[heroIdx].path}/image.jpg`
+              ? `${images[heroIdx].as}/image.jpg`
               : '/noimage.jpg' 
             }
             title={collectionName.replace(/_/g, ' ')}
             subtitle=''
-            dimensions={{xl: true, height: '100%', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
+            dimensions={{xl: true, height: '85vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
             handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
                                             `/collection/${collectionName}/image/${images[heroIdx].name}`)}
           />
@@ -69,14 +69,19 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
             {
             pictures.slice(0).map((item, index) => {
               return (
-                <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.path}>
+                <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.as}>
                   <Banner
                       backgroundURL={
                         item !== undefined && item.length !== 0 
-                        ? `${item.path}/image_thumb.jpg`
+                        ? `${item.as}/image_thumb.jpg`
                         : '/noimage.jpg' 
                       }
-                      title={item.name.replace(/_/g, ' ')}
+                      backgroundHoverURL={
+                        item !== undefined && item.length !== 0 
+                        ? `${item.as}/image_i.jpg`
+                        : '/noimage.jpg' 
+                      }
+                      title={item.title}
                       subtitle=''
                       dimensions={{xl: false, height: '25vw', width: '100%', 'minHeight': '25vw', 'minWidth': '25vw'}}
                       handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
@@ -117,7 +122,7 @@ const Content = styled.main`
   padding: 0;
 
   .hero__background {
-    height: 100vh;
+    height: 90vh;
   }
   .hero__title {
     position: absolute;
@@ -153,7 +158,7 @@ const BackgroundOverlay = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   z-index: 1;
   background-color: ${ ({ theme }) => theme.colors.image_overlay_light };

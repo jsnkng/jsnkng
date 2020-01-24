@@ -134,5 +134,113 @@ const GlobalStyle = createGlobalStyle`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   } */}
+
+
+
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: absolute;
+    height: 2rem;
+    width: 2.75rem;
+    top: 88.5vh;
+    left: 4%;
+    background:  ${ ({ theme }) => theme.colors.background};
+    z-index: 10000;
+  }
+
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background:  ${ ({ theme }) => theme.colors.text};
+  }
+
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background:  ${ ({ theme }) => theme.colors.dimtext};
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    right: 2rem !important;
+    top: 1.25rem !important;
+    height: 2.25rem !important;
+    width: 2.25rem !important;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+    height: 2.25rem !important;
+    width: .375rem !important;
+  }
+
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+    ${SuperQuery().minWidth.md.css`
+      width: 40vw !important;
+    `}
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: ${ ({ theme }) => theme.colors.box_background};
+    padding: 0;
+    font-weight: 700;
+    font-size: 6vw;
+    ${SuperQuery().minWidth.md.css`
+      font-size: 3vw;
+    `}
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 10%;
+    outline: none;
+    width: 100%;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+   
+
+  }
+
+  .navigation__links {
+      outline: none;
+      border: none;
+      list-style-type: none;
+      margin: 15vh 0 0 0;
+      padding:0;
+      li {
+        margin: 0;
+        padding: 0 0 5vh 0;
+        cursor: pointer;
+        &:hover {
+          color: ${ ({ theme }) => theme.colors.color_two};
+        }
+      }
+    }
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+
 `
+
+
+
 export default GlobalStyle
