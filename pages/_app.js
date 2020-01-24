@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import Router from 'next/router'
 import Link from 'next/link'
 import App from 'next/app'
@@ -10,10 +11,9 @@ import themes from '../config/theme'
 import GlobalStyle from '../config/styles.js'
 import * as gtag from '../config/gtag'
 import cookies from 'next-cookies'
-import { slide as Menu } from 'react-burger-menu'
+import Menu from '../components/elements/menu'
 
 const stack = []
-
 const MyApp = ({ appCookies, router, Component, pageProps }) => {
   const [themeName, setThemeName] = useState('lightMode')
 
@@ -31,28 +31,25 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
  
   useEffect(() => {
     Router.events.on('routeChangeStart', url => {
-      NProgress.start()
+      setIsMenuOpen(false)
     })
     Router.events.on('routeChangeComplete', url => { 
-
       const lastStack = stack.slice(-1)
       if(lastStack[0] !== undefined && url === lastStack[0][1]) {
         stack.pop()
       }
       gtag.pageview(url)
-      setIsMenuOpen(false)
-      NProgress.done()
     })
     Router.events.on('routeChangeError', () => {
-      NProgress.done()
     })
+
+    // const headerRoot = document.getElementById('header');
+    // ReactDOM.createPortal(Menu, document.getElementById('header'))
   }, [])
 
   const handleMenuStateChange = ({ isOpen }) => {
-    
     setIsMenuOpen(isOpen)
   }
-
 
   const manageFuture = (href, as) => {
     // Get current route and push to stack
@@ -67,23 +64,11 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
     router.push(href, as)
   }
   
-
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
       <GlobalStyle />
            <div id='outer__wrapper'>
-           <Menu 
-              isOpen={isMenuOpen}
-              onStateChange={handleMenuStateChange}
-              outerContainerId={'outer__wrapper'}
-              pageWrapId={'inner__wrapper'}>
-               <ul className='navigation__links'>
-                <li onClick={() => {manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}}>Mythologies</li>
-                <li onClick={() => {manageFuture('/collection/[collectionName]/', '/collection/Nature_Morte/')}}>Nature Morté</li>
-                <li onClick={() => {manageFuture('/collection/[collectionName]/', '/collection/Starlight_Meadows/')}}>Starlight Meadows</li>
-                {/* <li onClick={() => manageFuture('/collection/[collectionName]/', '/collection/Mythologies/')}>Gator Labs</li> */}
-              </ul>
-            </Menu>
+           <Menu isMenuOpen={isMenuOpen} handleMenuStateChange={handleMenuStateChange} manageFuture={manageFuture} />
               <div id='inner__wrapper'>
                 <PageTransition
                   timeout={400}

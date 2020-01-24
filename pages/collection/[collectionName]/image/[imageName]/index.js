@@ -34,8 +34,6 @@ console.log(title)
      <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
-
-
     <Content>
       <BackgroundOverlay>
         <Hero
@@ -46,16 +44,12 @@ console.log(title)
           handleClick={false}
         />
       </BackgroundOverlay>
-
-
-
       <Header 
         navigation__title={collectionName} 
         navigation__subtitle={collectionName}
         manageHistory={manageHistory}
         manageFuture={manageFuture}
       />
-
         <Grid fluid={true}>
           <Row__Decorated>
             <Col__Decorated xs={12}>
@@ -64,13 +58,6 @@ console.log(title)
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
-          {/* <Row__Decorated>
-            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></Col__Decorated>
-            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></Col__Decorated>
-            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iii.jpg`} /></Col__Decorated>
-            <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iv.jpg`} /></Col__Decorated>
-          </Row__Decorated> */}
-
         </Grid>
       </Content>
       <Footer__Wrapper>
@@ -146,7 +133,7 @@ const ResponsiveImage = styled.div`
   top: 0;
   left: 0;
   background-image: url(${props => props.backgroundURL});
-  background-size: cover;
+  background-size: contain;
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;

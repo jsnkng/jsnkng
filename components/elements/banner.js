@@ -41,7 +41,7 @@ const ResponsiveImage = styled.div`
   top: 0;
   left: 0;
   background-image: url(${props => props.backgroundURL});
-    background-size: 100%;
+    background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;
@@ -54,7 +54,7 @@ const ResponsiveImage = styled.div`
     -webkit-transition: background-size .25s ease-in
 
   &:hover {
-  background-size: 105%;
+  background-size: cover;
 
   }
 `
