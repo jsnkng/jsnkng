@@ -68,7 +68,7 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
       <GlobalStyle />
            <div id='outer__wrapper'>
-           <Menu isMenuOpen={isMenuOpen} handleMenuStateChange={handleMenuStateChange} manageFuture={manageFuture} />
+           <Menu right={false} isMenuOpen={isMenuOpen} handleMenuStateChange={handleMenuStateChange} manageFuture={manageFuture} />
               <div id='inner__wrapper'>
                 <PageTransition
                   timeout={400}

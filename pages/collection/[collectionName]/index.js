@@ -12,8 +12,8 @@ import Footer from '../../../components/footer'
 import Hero from '../../../components/elements/hero'
 import Banner from '../../../components/elements/banner'
 
-const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
- 
+const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
 
@@ -43,60 +43,50 @@ const Page = ({ collectionName, images, themeName, setThemeName, pageTransitionR
         <title>JSNKNG</title>
       </Head>
       <Content> 
-        <BackgroundOverlay>
-          <Hero
-            backgroundURL={
-              images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-              ? `${images[heroIdx].as}/image_i.jpg`
-              : '/noimage.jpg' 
-            }
-            title={collectionName.replace(/_/g, ' ')}
-            subtitle=''
-            dimensions={{xl: true, height: '85vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
-            handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
-                                            `/collection/${collectionName}/image/${images[heroIdx].name}`)}
-          />
-        </BackgroundOverlay>
-
         <Header 
-          navigation__title={collectionName} 
-          navigation__subtitle={collectionName}
+          hero__background={
+            images[heroIdx] !== undefined && images[heroIdx].length !== 0 
+            ? `${images[heroIdx].as}/image_i.jpg`
+            : '/noimage.jpg' 
+          }
+          hero__height='77vh'
+          hero__title={collectionTitle} 
+          hero__subtitle={images[heroIdx].title}
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
-          <Grid fluid={true}>
-            <Row__Decorated>
+        <Grid fluid={true}>
+          <Row__Decorated>
             {
             pictures.slice(0).map((item, index) => {
               return (
-                <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.as}>
-                  <Banner
-                      backgroundURL={
-                        item !== undefined && item.length !== 0 
-                        ? `${item.as}/image_thumb.jpg`
-                        : '/noimage.jpg' 
-                      }
-                      backgroundHoverURL={
-                        item !== undefined && item.length !== 0 
-                        ? `${item.as}/image_i.jpg`
-                        : '/noimage.jpg' 
-                      }
-                      title={item.title}
-                      subtitle=''
-                      dimensions={{xl: false, height: '25vw', width: '100%', 'minHeight': '25vw', 'minWidth': '25vw'}}
-                      handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
-                                                       `/collection/${collectionName}/image/${item.name}`)}
-                    />
-                </Col__Decorated>
+              <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.as}>
+                <Banner
+                    backgroundURL={
+                      item && item.length !== 0 
+                      ? `${item.as}/image_i.jpg`
+                      : '/noimage.jpg' 
+                    }
+                    backgroundHoverURL={
+                      item && item.length !== 0 
+                      ? `${item.as}/image_thumb.jpg`
+                      : '/noimage.jpg' 
+                    }
+                    title={item.title}
+                    subtitle=''
+                    handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
+                                                      `/collection/${collectionName}/image/${item.name}`)}
+                  />
+              </Col__Decorated>
               )
             })
             }
             </Row__Decorated>
           </Grid>
         </Content>
-        <Footer__Wrapper>
-          <Footer themeName={themeName} setThemeName={setThemeName} />
-        </Footer__Wrapper>
+      <Footer__Wrapper>
+        <Footer themeName={themeName} setThemeName={setThemeName} />
+      </Footer__Wrapper>
     </>
     )
   }
@@ -121,13 +111,13 @@ const Content = styled.main`
   margin: 0;
   padding: 0;
 
-  .hero__background {
+  ${'' /* .hero__background {
     height: 85vh;
   }
   .hero__title {
     position: absolute;
     top: 0;
-    ${'' /* width: 100%; */}
+    width: 100%;
     margin: 40vh auto;
     padding: 1rem;
     color: #ffffff;
@@ -140,7 +130,7 @@ const Content = styled.main`
     ${SuperQuery().minWidth.md.css`
       font-size: 4.5rem;
     `}
-  }
+  } */}
 
 `
 
@@ -154,13 +144,14 @@ const Col__Decorated = styled(Col)`
   margin: 0;
   padding: 0;
 `
+
 const BackgroundOverlay = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 90vh;
   width: 100%;
-  z-index: 1;
+  z-index: 20;
   background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
 `
 

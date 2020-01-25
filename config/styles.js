@@ -144,7 +144,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 1rem 0;
     margin: 2rem 0;
     width: 2.75rem;
-    top: 85vh;
+    top: 77vh;
     left: 2%;
     background:  ${ ({ theme }) => theme.colors.background};
     z-index: 10000;
@@ -192,7 +192,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${ ({ theme }) => theme.colors.box_background};
     padding: 0;
     font-weight: 700;
-    font-size: 6vw;
+    font-size: 4.5vw;
     ${SuperQuery().minWidth.md.css`
       font-size: 3vw;
     `}

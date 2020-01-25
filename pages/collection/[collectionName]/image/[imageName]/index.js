@@ -11,13 +11,15 @@ import Footer from '../../../../../components/footer'
 import Banner from '../../../../../components/elements/banner'
 import Hero from '../../../../../components/elements/hero'
 
-const Page = ({ router, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture, router }) => {
   const [loaded, setLoaded] = useState(false)
-  const [collectionName, setCollectionName] = useState(router.query.collectionName)
   const [imageName, setImageName] = useState(router.query.imageName)
 
-  var title = images.filter(image => image.name === imageName )
-console.log(title)
+  const [image] = images.filter(image => image.name === imageName )
+  const [verticalHeight, setVerticalHeight] = useState(Number(image.ratio.split(':')[1])/Number(image.ratio.split(':')[0])*100)
+  
+  // const ratio = images.filter(image => image.name === imageName )
+  console.log(image)
   useEffect(() => {
     setLoaded(true)
     pageTransitionReadyToEnter()
@@ -35,26 +37,19 @@ console.log(title)
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
     <Content>
-      <BackgroundOverlay>
-        <Hero
-          backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`}
-          title={imageName.replace(/_/g, ' ')}
-          subtitle=''
-          dimensions={{xl: true, height: '85vh', width: '100%', 'minHeight': '24rem', 'minWidth': '100%'}}
-          handleClick={false}
+        <Header 
+          hero__background={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
+          hero__height='77vh'
+          hero__title={collectionTitle}
+          hero__subtitle={image.title} 
+          manageHistory={manageHistory}
+          manageFuture={manageFuture}
         />
-      </BackgroundOverlay>
-      <Header 
-        navigation__title={collectionName} 
-        navigation__subtitle={collectionName}
-        manageHistory={manageHistory}
-        manageFuture={manageFuture}
-      />
         <Grid fluid={true}>
           <Row__Decorated>
             <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
-                <ResponsiveImage backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
+                <ResponsiveImage verticalHeight={verticalHeight} backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
@@ -137,7 +132,7 @@ const ResponsiveImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vw;
+  height: ${props => props.verticalHeight}vw; 
   margin: 0;
   z-index: 10;
   -webkit-animation: myfirst 1s;

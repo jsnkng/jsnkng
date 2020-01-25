@@ -1,9 +1,10 @@
 import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
 
-const Element = ({ isMenuOpen, handleMenuStateChange, manageFuture }) => {
+const Element = ({ right, isMenuOpen, handleMenuStateChange, manageFuture }) => {
   return (
       <Menu 
+        right={right}
         isOpen={isMenuOpen}
         onStateChange={handleMenuStateChange}
         outerContainerId={'outer__wrapper'}

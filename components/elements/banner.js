@@ -4,19 +4,21 @@ import LazyLoad from 'react-lazyload'
 import Spinner from './spinner'
 import SuperQuery from '@themgoncalves/super-query'
 
-const Element = ({ backgroundURL, backgroundHoverURL, title, subtitle, headline,  handleClick }) => {
-
+const Element = ({ headline, title, subtitle, backgroundURL, backgroundHoverURL, handleClick }) => {
   const [isSpinnerVisible, setIsSpinnerVisible] = useState(false)
+
   return (
-    <Banner
-        backgroundHoverURL={backgroundHoverURL}
-        onClick={() => {
-          handleClick && setIsSpinnerVisible(true)
-          handleClick && handleClick()
+    <Banner 
+      // verticalHeight={verticalHeight}
+      backgroundURL={backgroundURL}
+      onClick={() => {
+        handleClick && setIsSpinnerVisible(true)
+        handleClick && handleClick()
       }}>
       <Spinner isSpinnerVisible={isSpinnerVisible} />
       <LazyLoad height={'100%'} offset={600}>
         <ResponsiveImage 
+          // verticalHeight={verticalHeight}
           className='banner__background' 
           backgroundURL={backgroundURL} 
           backgroundHoverURL={backgroundHoverURL}>
@@ -24,11 +26,11 @@ const Element = ({ backgroundURL, backgroundHoverURL, title, subtitle, headline,
             {headline !==undefined && 
               <h1>{headline}</h1>
             }
-            <h2 dangerouslySetInnerHTML={{__html: title }}></h2>
+            <h2>{title}</h2>
             <h3>{subtitle}</h3>
             <div className='header__overlay'></div>
           </div>
-      </ResponsiveImage>
+        </ResponsiveImage>
       </LazyLoad>
     </Banner>
   )
@@ -41,7 +43,7 @@ const ResponsiveImage = styled.div`
   top: 0;
   left: 0;
   background-image: url(${props => props.backgroundURL});
-    background-size: cover;
+  background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;
@@ -54,8 +56,7 @@ const ResponsiveImage = styled.div`
     -webkit-transition: background-size .25s ease-in
 
   &:hover {
-  background-size: cover;
-
+    background-size: cover;
   }
 `
 
@@ -63,20 +64,19 @@ const Banner = styled.section`
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 100vw;  
+  height: 60vh;
+  background-image: url(${props => props.backgroundURL});
   ${SuperQuery().minWidth.sm.css`
     height: 50vw;
   `}
-
   ${SuperQuery().minWidth.md.css`
     height: 33.33vw;
   `}
-
   ${SuperQuery().minWidth.lg.css`
     height: 25vw;
   `}
+
   .header {
-    
     position: absolute;
     top: 0;
     left: 0;
@@ -86,19 +86,11 @@ const Banner = styled.section`
     align-items: flex-start;
     align-content: center;
     justify-content: center;
-
-
     color: ${({ theme }) => theme.colors.home_text};
     text-shadow: 1px 1px 2px ${({ theme }) => theme.colors.home_text_shadow};
-
- 
-
-    z-index: 20; 
-    
     height: 100%;
     width: 100%;
-
-
+    z-index: 20; 
   }
 
   h1 {
@@ -180,10 +172,10 @@ const Banner = styled.section`
     opacity: 1;
     background: rgba(0,0,0,.5) !important;
 
-  -webkit-transition: opacity  .5s ease .1s;
-  -moz-transition: opacity  .5s ease .1s;
-  -o-transition: opacity  .5s ease .1s;
-  transition: opacity  .5s ease .1s;
+    -webkit-transition: opacity  .5s ease .1s;
+    -moz-transition: opacity  .5s ease .1s;
+    -o-transition: opacity  .5s ease .1s;
+    transition: opacity  .5s ease .1s;
   }
   .header:not(:active):not(:focus):not(:hover) {
 
@@ -191,22 +183,6 @@ const Banner = styled.section`
       opacity: 0;
     }
   }
-
-
-
-${'' /* 
-
-  .header:hover {
-    .header__overlay {
-      opacity: 1;
-        transition: background .25s ease .1s;
-      background: rgba(0,0,0,.2) !important;
-    }
-   
-  } */}
-
-
-
 
   .header:hover h1,
   .header:hover h2,

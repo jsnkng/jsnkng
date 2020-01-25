@@ -26,30 +26,17 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         <Head>
           <title>JSNKNG</title>
         </Head>
-
-        <BackgroundOverlay>
-        <LazyLoad height={'100%'}>
-          <ResponsiveImage
-            backgroundURL={`/gallery/Mythologies/Sanguine_Miles/image_i.jpg`}
-          />
-          </LazyLoad>
-        </BackgroundOverlay>
-
+        
         <Header 
-          navigation__title='Welcome'
-          navigation__subtitle='Nothing'
+          hero__background={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
+          hero__height='77vh'
+          hero__title=''
+          hero__subtitle=''
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
         <Content>
           <Grid fluid={true}>
-            <Row__Decorated>
-              <Col__Decorated xs={12}>
-                <LazyLoad offset={100}>
-                  <ResponsiveImage backgroundURL={`/gallery/Nature_Morte/1_-_The_Creative_-_63/image_i.jpg`} />
-                </LazyLoad>
-              </Col__Decorated>
-            </Row__Decorated>
             {/* <Row__Decorated>
               <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></Col__Decorated>
               <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></Col__Decorated>
@@ -73,15 +60,7 @@ export default Page
 
 const Content = styled.main`
   margin-top: 95vh;
-`
-const BackgroundOverlay = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 85vh;
-  width: 100vw;
-  z-index: 1;
-  background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
+
 `
 const Row__Decorated = styled(Row)`
   width: 100%;
