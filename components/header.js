@@ -8,6 +8,7 @@ const Component = ({
         heroTitle, 
         heroSubtitle, 
         parentTitle,
+        parentHrefAs,
         manageHistory, 
         manageFuture 
       }) => {
@@ -24,7 +25,7 @@ const Component = ({
       </div>
       <div className='navigation'>
         <a className='navigation__title'
-          onClick={() => manageHistory()}>
+          onClick={() => manageFuture(parentHrefAs.href, parentHrefAs.as)}>
           {parentTitle}
         </a>
         <a className='navigation__logo' 
@@ -74,9 +75,10 @@ const Header = styled.header`
     font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
+    line-height: 1;
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
-    margin: 0;
+    margin: 4%;
     ${SuperQuery().minWidth.sm.css`
       font-size: 8vw;
     `}

@@ -43,6 +43,7 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
           heroTitle={image.title} 
           // heroSubtitle={image.title} 
           parentTitle={collectionTitle}
+          parentHrefAs={{href: `/collection/[collectionName]/`, as: `/collection/${collectionName}/`, }}
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
@@ -54,8 +55,8 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
                 
                 <div className='item__details'>
                   <p>{image.title}</p> 
-                  <p>2018</p>
-                  <p>Digital Photography, Pixellation</p>
+                  <p>{image.year}</p>
+                  <p>{image.tags}</p>
                   <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`}>Shop {image.title} Collection</a>
                 </div>
               </LazyLoad>

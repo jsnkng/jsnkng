@@ -7,22 +7,15 @@ import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 
-import Header from '../../../components/header'
-import Footer from '../../../components/footer'
-import Hero from '../../../components/elements/hero'
-import Banner from '../../../components/elements/banner'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import Hero from '../components/elements/hero'
+import Banner from '../components/elements/banner'
 
-const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture, router }) => {
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
-
-  /* Choose a random item to be the hero */
-  const [heroIdx, setHeroIdx] = useState(Math.floor(Math.random()*(images.length)))
-
-  /* Create a copy of data  and remove the hero item from it */
-  const pictures = [ ...images ]
-  // pictures.splice(heroIdx,1)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -44,48 +37,52 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
       </Head>
       <Content> 
         <Header 
-          heroBackground={
-            images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-            ? `${images[heroIdx].as}/image_i.jpg`
-            : '/noimage.jpg' 
-          }
+          heroBackground={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
           heroHeight='77vh'
-          heroTitle={collectionTitle} 
+          heroTitle='Fine Art'
           // heroSubtitle={images[heroIdx].title}
-          parentTitle='Fine Art'
-          parentHrefAs={{href: `/fineart`, as: `/fineart`, }}
+          parentTitle='Home'
+          parentHrefAs={{href: `/`, as: `/`}}
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
         <Grid fluid={true}>
           <Row__Decorated>
-            {
-            pictures.slice(0).map((item, index) => {
-              return (
-              <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.as}>
-                <Banner
-                    backgroundURL={
-                      item && item.length !== 0 
-                      ? `${item.as}/image_i.jpg`
-                      : '/noimage.jpg' 
-                    }
-                    backgroundHoverURL={
-                      item && item.length !== 0 
-                      ? `${item.as}/image_thumb.jpg`
-                      : '/noimage.jpg' 
-                    }
-                    title={item.title}
-                    subtitle={item.year}
-                    handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
-                                                      `/collection/${collectionName}/image/${item.name}`)}
-                  />
-              </Col__Decorated>
-              )
-            })
-            }
-            </Row__Decorated>
-          </Grid>
-        </Content>
+            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+              <Banner
+                backgroundURL={`/gallery/Mythologies/Natalis_Sancti_Igne/image_i.jpg`} 
+                backgroundHoverURL={`/gallery/Mythologies/Natalis_Sancti_Igne/image_i.jpg`} 
+                title='Mythologies'
+                subtitle='Digital Photography, Pixellation'
+                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
+                                                  `/collection/Mythologies/`)}
+              />
+            </Col__Decorated>
+            
+            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+              <Banner
+                backgroundURL={`/gallery/Nature_Morte/2_-_The_Receptive_-_0/image_i.jpg`} 
+                backgroundHoverURL={`/gallery/Nature_Morte/2_-_The_Receptive_-_0/image_i.jpg`} 
+                title='Nature Morté'
+                subtitle='Digital Photography, Still Life'
+                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
+                                                  `/collection/Nature_Morte/`)}
+              />
+            </Col__Decorated>
+            
+            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+              <Banner
+                backgroundURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_i.jpg`} 
+                backgroundHoverURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_i.jpg`} 
+                title='Starlight Meadows'
+                subtitle='Digital Photography, Directorial'
+                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
+                                                  `/collection/Starlight_Meadows/`)}
+              />
+            </Col__Decorated>
+          </Row__Decorated>
+        </Grid>
+      </Content>
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
       </Footer__Wrapper>
@@ -98,14 +95,7 @@ Page.pageTransitionDelayEnter = true
 
 export default Page
 
-Page.getInitialProps = async ({ req, query }) => {
-  const { collectionName } = query
-  const { origin }  = absoluteUrl(req)
-  const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
-  const result = await collectionResult.json()
-  result.collectionName = collectionName
-  return result
-}
+
 
 
 const Content = styled.main`

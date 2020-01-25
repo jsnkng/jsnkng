@@ -28,9 +28,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         </Head>
         
         <Header 
-          heroBackground={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
+          heroBackground={`/gallery/Mythologies/Ambustam_Lign_Glacialis_Aquae/image_i.jpg`} 
           heroHeight='77vh'
-          heroTitle='Fine Art'
+          heroTitle='Welcome'
           heroSubtitle=''
           manageHistory={manageHistory}
           manageFuture={manageFuture}

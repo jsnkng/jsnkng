@@ -42,21 +42,23 @@ const ResponsiveImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(${props => props.backgroundURL});
+  background-image: url(${props => props.backgroundHoverURL});
   background-size: cover;
-  background-position: center bottom;
+  background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   margin: 0;
   z-index: 5;
-
-  transition: background-image .25s ease-in;
-    -moz-transition: background-image .25s ease-in;
-    -webkit-transition: background-image .25s ease-in
+  -webkit-transition: background-size 0.25s linear;
+    -moz-transition: background-size 0.25s linear;
+    -o-transition: background-size 0.25s linear;
+    -ms-transition: background-size 0.25s linear;
 
   &:hover {
   background-image: url(${props => props.backgroundHoverURL});
+  background-size: 400%;
+  ${'' /* background-image: url(${props => props.backgroundURL}); */}
   }
 `
 
