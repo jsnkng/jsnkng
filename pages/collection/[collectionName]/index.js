@@ -51,7 +51,8 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
           }
           heroHeight='77vh'
           heroTitle={collectionTitle} 
-          heroSubtitle={images[heroIdx].title}
+          // heroSubtitle={images[heroIdx].title}
+          parentTitle='Fine Art'
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />

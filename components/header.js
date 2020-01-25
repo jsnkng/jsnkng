@@ -1,19 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 
-const Component = ({ heroBackground, heroHeight, heroTitle, heroSubtitle, manageHistory, manageFuture }) => {
+const Component = ({ 
+        heroBackground, 
+        heroHeight, 
+        heroTitle, 
+        heroSubtitle, 
+        parentTitle,
+        manageHistory, 
+        manageFuture 
+      }) => {
   return (
-    <Header heroHeight={heroHeight} heroBackground={heroBackground}>
+    <Header 
+      heroHeight={heroHeight} 
+      heroBackground={heroBackground}
+    >
       <div className='hero'>
         <div className='hero__overlay'>
-          <h3 className='hero__title'>{heroSubtitle}</h3>
+          <h1 className='hero__title'>{heroTitle}</h1>
+          <h2 className='hero__subtitle'>{heroSubtitle}</h2>
         </div>
       </div>
       <div className='navigation'>
-        <h2 className='navigation__title'><a onClick={() => manageFuture('/', '/')}>{heroTitle}</a></h2>
-        <a className='navigation__logo' onClick={() => manageFuture('/', '/')}>JASON KING</a>
+        <a className='navigation__title'
+          onClick={() => manageHistory()}>
+          {parentTitle}
+        </a>
+        <a className='navigation__logo' 
+          onClick={() => manageFuture('/', '/')}>
+          JASON KING
+        </a>
       </div> 
     </Header>
   )
@@ -42,6 +59,9 @@ const Header = styled.header`
     color: inherit;
   }
   .hero__overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -51,40 +71,50 @@ const Header = styled.header`
     background: ${ ({ theme }) => theme.colors.image_overlay_darkgradient };
   }
   .hero__title {
-    margin: 65vh 4% 0 1%;
-    padding: 1rem;
-    color: ${({ theme }) => theme.colors.home_text};
+    font-size: 1.5rem;
     font-weight: 400;
-    text-align: left;
-    font-size: 1.25rem;
+    letter-spacing: -0.05em;
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
+    color: ${({ theme }) => theme.colors.home_text};
+    margin: 0;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 8vw;
+    `}
   }
-
+  .hero__subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
+    color: ${({ theme }) => theme.colors.home_text};
+    margin: 0 4% 0 1%;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 4vw;
+    `}
+  }
   .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 6rem;
     background-color: ${({ theme }) => theme.colors.trans_back};
     color: ${({ theme }) => theme.colors.text};
-    height: 6rem;
     margin: 0;
-    padding: 0 1rem 0 4rem;
+    padding: 0 1rem 0 5rem;
   }
   .navigation__logo {
     flex: 0 1 auto;
     font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: -0.05em;
   }
-
   .navigation__title {
     flex: 0 1 auto;
     font-size: 1rem;
-    letter-spacing: -1px;
     font-weight: 400;
-    text-align: left;
+    letter-spacing: -0.05em;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3vw;
+    `}
   }
-
-
-  
 `

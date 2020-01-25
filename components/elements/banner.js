@@ -172,10 +172,10 @@ const Banner = styled.section`
     opacity: 1;
     background: rgba(0,0,0,.5) !important;
 
-    -webkit-transition: opacity  .5s ease .1s;
-    -moz-transition: opacity  .5s ease .1s;
-    -o-transition: opacity  .5s ease .1s;
-    transition: opacity  .5s ease .1s;
+    -webkit-transition: opacity  .25s  ease-in-out
+    -moz-transition: opacity  .25s  ease-in-out;
+    -o-transition: opacity  .25s  ease-in-out;
+    transition: opacity  .25s  ease-in-out;
   }
   .header:not(:active):not(:focus):not(:hover) {
 
@@ -188,7 +188,7 @@ const Banner = styled.section`
   .header:hover h2,
   .header:hover h3 {
 
-    transition: all .75s ease-in-out;
+    transition: all .25s ease-in-out;
     opacity: 1;
   }
 `

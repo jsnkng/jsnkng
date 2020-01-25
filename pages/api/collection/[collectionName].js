@@ -22,7 +22,8 @@ export default (req, res) => {
   } = req
 
   const getCollection = async (callback) => {
-    callback(collection[collectionName])
+    const [result] = collection.filter(item => item.collectionName === collectionName)
+    callback(result)
   }
 
   getCollection(result => {

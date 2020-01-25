@@ -1,8 +1,10 @@
-const collection = {
-  Mythologies: {
+const collection = [
+  {
+    disciplineTitle: 'Fine Art',
+    disciplineName: 'Fine_Art',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    images: [
+     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', as: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', as: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1' },
       { title: 'Turris Babel', name: 'Turris_Babel', as: '/gallery/Mythologies/Turris_Babel', ratio: '1:1' },
@@ -29,10 +31,12 @@ const collection = {
       { title: 'Convallaria Majalis', name: 'Convallaria_Majalis', as: '/gallery/Mythologies/Convallaria_Majalis', ratio: '1:1' },
     ]
   },
-  Nature_Morte: {
-    collectionTitle: 'Nature Morte',
+  {
+    disciplineTitle: 'Fine Art',
+    disciplineName: 'Fine_Art',
+    collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-    images: [
+   images: [
       { title: '1 - The Creative - 63', name: '1_-_The_Creative_-_63', as: '/gallery/Nature_Morte/1_-_The_Creative_-_63', ratio: '1:1' },
       { title: '24 - Return - 1', name: '24_-_Return_-_1', as: '/gallery/Nature_Morte/24_-_Return_-_1', ratio: '1:1' },
       { title: '64 - Before Completion - 42', name: '64_-_Before_Completion_-_42', as: '/gallery/Nature_Morte/64_-_Before_Completion_-_42', ratio: '1:1' },
@@ -47,7 +51,9 @@ const collection = {
       { title: '59 - Dispersion - 50', name: '59_-_Dispersion_-_50', as: '/gallery/Nature_Morte/59_-_Dispersion_-_50', ratio: '1:1' },
     ]
   },
-  Starlight_Meadows: {
+  {
+    disciplineTitle: 'Fine Art',
+    disciplineName: 'Fine_Art',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
     images: [
@@ -73,6 +79,6 @@ const collection = {
       { title: 'That’s No Way to Play', name: 'Thats_No_Way_to_Play', as: '/gallery/Starlight_Meadows/Thats_No_Way_to_Play', ratio: '3:2' },
     ]
   }
-}
+]
 
 export default collection

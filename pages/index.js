@@ -30,7 +30,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         <Header 
           heroBackground={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
           heroHeight='77vh'
-          heroTitle=''
+          heroTitle='Fine Art'
           heroSubtitle=''
           manageHistory={manageHistory}
           manageFuture={manageFuture}

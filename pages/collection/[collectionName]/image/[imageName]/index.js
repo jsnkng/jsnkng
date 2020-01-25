@@ -40,8 +40,9 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
           heroHeight='77vh'
-          heroTitle={collectionTitle}
-          heroSubtitle={image.title} 
+          heroTitle={image.title} 
+          // heroSubtitle={image.title} 
+          parentTitle={collectionTitle}
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
