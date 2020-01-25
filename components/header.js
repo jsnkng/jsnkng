@@ -71,7 +71,7 @@ const Header = styled.header`
     background: ${ ({ theme }) => theme.colors.image_overlay_darkgradient };
   }
   .hero__title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};

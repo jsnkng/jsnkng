@@ -146,18 +146,18 @@ const GlobalStyle = createGlobalStyle`
     width: 2.25rem;
     padding: 0.875rem 0;
     margin: 2rem 0;
-    background: ${ ({ theme }) => theme.colors.background};
-    z-index: 10000;
+    background: ${({ theme }) => theme.colors.background};
+    z-index: 100;
   }
 
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: ${ ({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.text};
   }
 
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: ${ ({ theme }) => theme.colors.dimtext};
+    background: ${({ theme }) => theme.colors.dimtext};
   }
 
   /* Position and sizing of clickable cross button */

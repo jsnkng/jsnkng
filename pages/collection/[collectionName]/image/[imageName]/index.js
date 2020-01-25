@@ -33,7 +33,7 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
   } else {
     return (
     <>
-     <Head>
+    <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
     <Content>
@@ -51,6 +51,13 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
             <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
                 <ResponsiveImage verticalHeight={verticalHeight} backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
+                
+                <div className='item__details'>
+                  <p>{image.title}</p> 
+                  <p>2018</p>
+                  <p>Digital Photography, Pixellation</p>
+                  <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`}>Shop {image.title} Collection</a>
+                </div>
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
@@ -104,6 +111,10 @@ const Content = styled.main`
       `}
     }
   }
+
+  .item__details {
+    margin: 1rem;
+  }
 `
 const Row__Decorated = styled(Row)`
   width: 100%;
@@ -133,8 +144,9 @@ const ResponsiveImage = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 100%;
-  height: ${props => props.verticalHeight}vw; 
-  margin: 0;
+  height: calc(${props => props.verticalHeight}vw - 2rem); 
+  padding: 1rem;
+  margin: 1rem 0;
   z-index: 10;
   -webkit-animation: myfirst 1s;
   animation: myfirst 1s;

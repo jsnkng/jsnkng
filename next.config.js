@@ -37,7 +37,8 @@ const nextConfig = {
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
     REGION: process.env.REGION,
     Bucket: process.env.Bucket,
-    GA_TRACKING_ID: process.env.GA_TRACKING_ID
+    GA_TRACKING_ID: process.env.GA_TRACKING_ID,
+    SHOP_URL: process.env.SHOP_URL
   }
 }
 

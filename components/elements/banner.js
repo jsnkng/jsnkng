@@ -51,12 +51,12 @@ const ResponsiveImage = styled.div`
   margin: 0;
   z-index: 5;
 
-  transition: background-size .25s ease-in;
-    -moz-transition: background-size .25s ease-in;
-    -webkit-transition: background-size .25s ease-in
+  transition: background-image .25s ease-in;
+    -moz-transition: background-image .25s ease-in;
+    -webkit-transition: background-image .25s ease-in
 
   &:hover {
-    background-size: cover;
+  background-image: url(${props => props.backgroundHoverURL});
   }
 `
 
