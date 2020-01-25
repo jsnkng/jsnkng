@@ -38,10 +38,10 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
     </Head>
     <Content>
         <Header 
-          hero__background={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
-          hero__height='77vh'
-          hero__title={collectionTitle}
-          hero__subtitle={image.title} 
+          heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
+          heroHeight='77vh'
+          heroTitle={collectionTitle}
+          heroSubtitle={image.title} 
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />

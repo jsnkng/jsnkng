@@ -28,10 +28,10 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         </Head>
         
         <Header 
-          hero__background={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
-          hero__height='77vh'
-          hero__title=''
-          hero__subtitle=''
+          heroBackground={`/gallery/Mythologies/Convallaria_Majalis/image_i.jpg`} 
+          heroHeight='77vh'
+          heroTitle=''
+          heroSubtitle=''
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />

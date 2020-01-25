@@ -44,14 +44,14 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
       </Head>
       <Content> 
         <Header 
-          hero__background={
+          heroBackground={
             images[heroIdx] !== undefined && images[heroIdx].length !== 0 
             ? `${images[heroIdx].as}/image_i.jpg`
             : '/noimage.jpg' 
           }
-          hero__height='77vh'
-          hero__title={collectionTitle} 
-          hero__subtitle={images[heroIdx].title}
+          heroHeight='77vh'
+          heroTitle={collectionTitle} 
+          heroSubtitle={images[heroIdx].title}
           manageHistory={manageHistory}
           manageFuture={manageFuture}
         />
