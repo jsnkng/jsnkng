@@ -1,35 +1,38 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import Spinner from './spinner'
 import SuperQuery from '@themgoncalves/super-query'
 
-const Element = ({ headline, title, subtitle, backgroundURL, backgroundHoverURL, handleClick }) => {
+const Element = ({ headline, title, subtitle, backgroundURL, backgroundHoverURL, link }) => {
   const [isSpinnerVisible, setIsSpinnerVisible] = useState(false)
-
+  const handleClick = (e) => {
+    e.preventDefault()
+    setIsSpinnerVisible(true)
+  }
   return (
     <Banner 
-      // verticalHeight={verticalHeight}
       backgroundURL={backgroundURL}
-      onClick={() => {
-        handleClick && setIsSpinnerVisible(true)
-        handleClick && handleClick()
-      }}>
+      onClick={handleClick}>
       <Spinner isSpinnerVisible={isSpinnerVisible} />
       <LazyLoad height={'100%'} offset={600}>
         <ResponsiveImage 
-          // verticalHeight={verticalHeight}
           className='banner__background' 
           backgroundURL={backgroundURL} 
           backgroundHoverURL={backgroundHoverURL}>
-          <div className='header'>
-            {headline !==undefined && 
-              <h1>{headline}</h1>
-            }
-            <h2>{title}</h2>
-            <h3>{subtitle}</h3>
-            <div className='header__overlay'></div>
-          </div>
+          <Link href={link.href} as={link.as} scroll={false}>
+            <a>
+              <div className='header'>
+                {headline !==undefined && 
+                  <h1>{headline}</h1>
+                }
+                <h2>{title}</h2>
+                <h3>{subtitle}</h3>
+                <div className='header__overlay'></div>
+              </div>
+            </a>
+          </Link>
         </ResponsiveImage>
       </LazyLoad>
     </Banner>

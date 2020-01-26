@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 
@@ -8,9 +9,7 @@ const Component = ({
         heroTitle, 
         heroSubtitle, 
         parentTitle,
-        parentHrefAs,
-        manageHistory, 
-        manageFuture 
+        parentLink
       }) => {
   return (
     <Header 
@@ -24,14 +23,16 @@ const Component = ({
         </div>
       </div>
       <div className='navigation'>
-        <a className='navigation__title'
-          onClick={() => manageFuture(parentHrefAs.href, parentHrefAs.as)}>
-          {parentTitle}
-        </a>
-        <a className='navigation__logo' 
-          onClick={() => manageFuture('/', '/')}>
-          JASON KING
-        </a>
+        <Link href={parentLink.href} as={parentLink.as} scroll={false}>
+          <a className='navigation__title'>
+            {parentTitle}
+          </a>
+        </Link>
+        <Link href='/' as='/' scroll={false}>
+          <a className='navigation__logo'>
+            JASON KING
+          </a>
+        </Link>
       </div> 
     </Header>
   )

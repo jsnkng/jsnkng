@@ -7,7 +7,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Banner from '../components/elements/banner'
 
-const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -29,23 +29,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
         
         <Header 
           heroBackground={`/gallery/Mythologies/Ambustam_Lign_Glacialis_Aquae/image_i.jpg`} 
-          heroHeight='77vh'
-          heroTitle='Welcome'
-          heroSubtitle=''
-          manageHistory={manageHistory}
-          manageFuture={manageFuture}
+          heroHeight={`77vh`}
+          heroTitle={`Welcome`}
+          heroSubtitle={``}
+          parentLink={{
+            href: `/`, 
+            as: `/` 
+          }}
         />
-        <Content>
-          <Grid fluid={true}>
-            {/* <Row__Decorated>
-              <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_i.jpg`} /></Col__Decorated>
-              <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_ii.jpg`} /></Col__Decorated>
-              <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iii.jpg`} /></Col__Decorated>
-              <Col__Decorated xs={6} sm={6} md={3}><Banner backgroundURL={`/gallery/${collectionName}/${imageName}/image_iv.jpg`} /></Col__Decorated>
-            </Row__Decorated> */}
-
-          </Grid>
-        </Content>
         <Footer__Wrapper>
           <Footer themeName={themeName} setThemeName={setThemeName} />
         </Footer__Wrapper>

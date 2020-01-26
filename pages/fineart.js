@@ -12,7 +12,7 @@ import Footer from '../components/footer'
 import Hero from '../components/elements/hero'
 import Banner from '../components/elements/banner'
 
-const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture, router }) => {
+const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
@@ -43,8 +43,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
           // heroSubtitle={images[heroIdx].title}
           parentTitle='Home'
           parentHrefAs={{href: `/`, as: `/`}}
-          manageHistory={manageHistory}
-          manageFuture={manageFuture}
         />
         <Grid fluid={true}>
           <Row__Decorated>
@@ -54,8 +52,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
                 backgroundHoverURL={`/gallery/Mythologies/Natalis_Sancti_Igne/image_i.jpg`} 
                 title='Mythologies'
                 subtitle='Digital Photography, Pixellation'
-                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
-                                                  `/collection/Mythologies/`)}
               />
             </Col__Decorated>
             
@@ -65,8 +61,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
                 backgroundHoverURL={`/gallery/Nature_Morte/2_-_The_Receptive_-_0/image_i.jpg`} 
                 title='Nature Morté'
                 subtitle='Digital Photography, Still Life'
-                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
-                                                  `/collection/Nature_Morte/`)}
               />
             </Col__Decorated>
             
@@ -76,8 +70,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter, manageHisto
                 backgroundHoverURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_i.jpg`} 
                 title='Starlight Meadows'
                 subtitle='Digital Photography, Directorial'
-                handleClick={() => manageFuture(`/collection/[collectionName]/`, 
-                                                  `/collection/Starlight_Meadows/`)}
               />
             </Col__Decorated>
           </Row__Decorated>

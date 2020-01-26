@@ -12,7 +12,7 @@ import Footer from '../../../components/footer'
 import Hero from '../../../components/elements/hero'
 import Banner from '../../../components/elements/banner'
 
-const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture }) => {
+const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
@@ -44,40 +44,29 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
       </Head>
       <Content> 
         <Header 
-          heroBackground={
-            images[heroIdx] !== undefined && images[heroIdx].length !== 0 
-            ? `${images[heroIdx].as}/image_i.jpg`
-            : '/noimage.jpg' 
-          }
-          heroHeight='77vh'
+          heroBackground={`${images[heroIdx].path}/image_i.jpg`}
+          heroHeight={`77vh`}
           heroTitle={collectionTitle} 
-          // heroSubtitle={images[heroIdx].title}
-          parentTitle='Fine Art'
-          parentHrefAs={{href: `/fineart`, as: `/fineart`, }}
-          manageHistory={manageHistory}
-          manageFuture={manageFuture}
+          heroSubtitle={``}
+          parentTitle={`Fine Art`}
+          parentLink={{ href: `/fineart`, as: `/fineart` }}
         />
         <Grid fluid={true}>
           <Row__Decorated>
             {
             pictures.slice(0).map((item, index) => {
               return (
-              <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.as}>
+              <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.path}>
                 <Banner
-                    backgroundURL={
-                      item && item.length !== 0 
-                      ? `${item.as}/image_i.jpg`
-                      : '/noimage.jpg' 
-                    }
-                    backgroundHoverURL={
-                      item && item.length !== 0 
-                      ? `${item.as}/image_thumb.jpg`
-                      : '/noimage.jpg' 
-                    }
+                    headline={``}
                     title={item.title}
                     subtitle={item.year}
-                    handleClick={() => manageFuture(`/collection/[collectionName]/image/[imageName]`, 
-                                                      `/collection/${collectionName}/image/${item.name}`)}
+                    backgroundURL={`${item.path}/image_i.jpg`}
+                    backgroundHoverURL={`${item.path}/image_thumb.jpg`}
+                    link={{ 
+                      href: `/collection/[collectionName]/image/[imageName]`, 
+                      as:`/collection/${collectionName}/image/${item.name}`
+                    }}
                   />
               </Col__Decorated>
               )

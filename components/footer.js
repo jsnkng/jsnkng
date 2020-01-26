@@ -4,7 +4,7 @@ import Toggle from 'react-toggle'
 
 
 
-const Component = ({ themeName, setThemeName, manageFuture, }) => {
+const Component = ({ themeName, setThemeName }) => {
 
 const setTheme = () => {
   const newTheme = themeName === 'lightMode' ? 'darkMode' : 'lightMode'

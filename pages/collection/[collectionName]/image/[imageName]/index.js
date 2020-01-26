@@ -11,16 +11,15 @@ import Footer from '../../../../../components/footer'
 import Banner from '../../../../../components/elements/banner'
 import Hero from '../../../../../components/elements/hero'
 
-const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter, manageHistory, manageFuture, router }) => {
+const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  const [imageName, setImageName] = useState(router.query.imageName)
-
+  // const [imageName, setImageName] = useState(router.query.imageName)
   const [image] = images.filter(image => image.name === imageName )
   const [verticalHeight, setVerticalHeight] = useState(Number(image.ratio.split(':')[1])/Number(image.ratio.split(':')[0])*100)
   
   // const ratio = images.filter(image => image.name === imageName )
-  console.log(image)
   useEffect(() => {
+    window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
   }, [])
@@ -29,8 +28,10 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
     forceCheck()
   })
   if (!loaded) {
+    console.log('not loaded')
     return null
   } else {
+    console.log(' loaded')
     return (
     <>
     <Head>
@@ -43,16 +44,16 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
           heroTitle={image.title} 
           // heroSubtitle={image.title} 
           parentTitle={collectionTitle}
-          parentHrefAs={{href: `/collection/[collectionName]/`, as: `/collection/${collectionName}/`, }}
-          manageHistory={manageHistory}
-          manageFuture={manageFuture}
+          parentLink={{
+            href: `/collection/[collectionName]/`, 
+            as: `/collection/${collectionName}/` 
+          }}
         />
         <Grid fluid={true}>
           <Row__Decorated>
             <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
                 <ResponsiveImage verticalHeight={verticalHeight} backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
-                
                 <div className='item__details'>
                   <p>{image.title}</p> 
                   <p>{image.year}</p>
@@ -76,10 +77,11 @@ Page.pageTransitionDelayEnter = true
 export default Page
 
 Page.getInitialProps = async ({ req, query }) => {
-  const { collectionName } = query
+  const { collectionName, imageName } = query
   const { origin }  = absoluteUrl(req)
   const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
   const result = await collectionResult.json()
+  result.imageName = imageName
   result.collectionName = collectionName
   return result
 }
