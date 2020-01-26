@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+import useWindowDimensions from '../../../hooks/useWindowDimensions'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
 import SuperQuery from '@themgoncalves/super-query'
@@ -13,6 +14,8 @@ import Hero from '../../../components/elements/hero'
 import Banner from '../../../components/elements/banner'
 
 const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+
+  const windowDimension = useWindowDimensions()
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
@@ -61,12 +64,14 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
                     headline={``}
                     title={item.title}
                     subtitle={item.year}
-                    backgroundURL={`${item.path}/image_i.jpg`}
-                    backgroundHoverURL={`${item.path}/image_thumb.jpg`}
+                    name={item.name}
+                    backgroundURL={`${item.path}/image_thumb.jpg`}
+                    backgroundHoverURL={`${item.path}/image_i.jpg`}
                     link={{ 
                       href: `/collection/[collectionName]/image/[imageName]`, 
                       as:`/collection/${collectionName}/image/${item.name}`
                     }}
+                    windowDimension={windowDimension}
                   />
               </Col__Decorated>
               )

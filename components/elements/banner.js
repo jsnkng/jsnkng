@@ -1,76 +1,81 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import Spinner from './spinner'
 import SuperQuery from '@themgoncalves/super-query'
 
-const Element = ({ headline, title, subtitle, backgroundURL, backgroundHoverURL, link }) => {
+const Element = ({ headline, title, subtitle, name, backgroundURL, backgroundHoverURL, link, windowDimension }) => {
   const [isSpinnerVisible, setIsSpinnerVisible] = useState(false)
   const handleClick = (e) => {
     e.preventDefault()
     setIsSpinnerVisible(true)
   }
+  const handleTouchStart = (e) => {
+    document.getElementById(name).className += " touch";
+  }
+  const handleTouchEnd = (e) => {
+    document.getElementById(name).className =
+   document.getElementById(name).className.replace
+      ( /(?:^|\s)touch(?!\S)/g , '' )
+  }
+
+  useEffect(() => {
+    // console.log(windowDimension)
+  })
   return (
-    <Banner 
-      backgroundURL={backgroundURL}
-      onClick={handleClick}>
-      <Spinner isSpinnerVisible={isSpinnerVisible} />
-      <LazyLoad height={'100%'} offset={600}>
-        <ResponsiveImage 
-          className='banner__background' 
-          backgroundURL={backgroundURL} 
-          backgroundHoverURL={backgroundHoverURL}>
-          <Link href={link.href} as={link.as} scroll={false}>
-            <a>
-              <div className='header'>
-                {headline !==undefined && 
-                  <h1>{headline}</h1>
-                }
-                <h2>{title}</h2>
-                <h3>{subtitle}</h3>
-                <div className='header__overlay'></div>
-              </div>
-            </a>
-          </Link>
-        </ResponsiveImage>
-      </LazyLoad>
-    </Banner>
+    <LazyLoad height={'100%'} offset={600}>
+      <Banner 
+        id={name}
+        backgroundURL={backgroundURL}
+        backgroundHoverURL={backgroundHoverURL}
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+        onMouseOver={handleTouchStart}
+        onMouseOut={handleTouchEnd}
+        >
+        <Spinner isSpinnerVisible={isSpinnerVisible} />
+
+        <Link href={link.href} as={link.as} scroll={false}>
+          <a>
+            <div className='header'>
+              {headline !==undefined && 
+                <h1>{headline}</h1>
+              }
+              <h2>{title}</h2>
+              <h3>{subtitle}</h3>
+              <div className='header__overlay'></div>
+            </div>
+            <div className='touchLoader'></div>
+          </a>
+        </Link>
+      </Banner>
+    </LazyLoad>
   )
 }
 
 export default Element
 
-const ResponsiveImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(${props => props.backgroundHoverURL});
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  z-index: 5;
-  -webkit-transition: background-size 0.25s linear;
-    -moz-transition: background-size 0.25s linear;
-    -o-transition: background-size 0.25s linear;
-    -ms-transition: background-size 0.25s linear;
-
-  &:hover {
-  background-image: url(${props => props.backgroundHoverURL});
-  background-size: 400%;
-  ${'' /* background-image: url(${props => props.backgroundURL}); */}
-  }
-`
 
 const Banner = styled.section`
   cursor: pointer;
   position: relative;
   width: 100%;
   height: 60vh;
+  opacity: 1;
+  background-image: url(${props => props.backgroundHoverURL});
   background-image: url(${props => props.backgroundURL});
+  background-size: 300%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+
   ${SuperQuery().minWidth.sm.css`
     height: 50vw;
   `}
@@ -80,7 +85,17 @@ const Banner = styled.section`
   ${SuperQuery().minWidth.lg.css`
     height: 25vw;
   `}
-
+  
+  &.touch {
+    ${'' /* opacity: 0; */}
+    ${'' /* background-image: url(${props => props.backgroundURL}); */}
+    ${'' /* background-size: 200%; */}
+    
+    .header,
+    .header__overlay {
+      opacity: 1;
+    }
+  }
   .header {
     position: absolute;
     top: 0;
@@ -91,15 +106,23 @@ const Banner = styled.section`
     align-items: flex-start;
     align-content: center;
     justify-content: center;
+    opacity: 0;
+    background-image: url(${props => props.backgroundURL});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     color: ${({ theme }) => theme.colors.home_text};
     text-shadow: 1px 1px 2px ${({ theme }) => theme.colors.home_text_shadow};
     height: 100%;
     width: 100%;
     z-index: 20; 
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
   }
 
   h1 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-size: 3rem;
@@ -114,7 +137,6 @@ const Banner = styled.section`
     `}
   }
   h2 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-weight: 400;
@@ -142,7 +164,6 @@ const Banner = styled.section`
     `}
   }
   h3 {
-    opacity: 0;
     width: 90%;
     max-width: 70vw;
     font-size: 1.5rem;
@@ -167,33 +188,20 @@ const Banner = styled.section`
     width: 50%;
     z-index: 5;
   }
-  .header__overlay {
+ .header__overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 1;
-    background: rgba(0,0,0,.5) !important;
+    opacity: 0;
+    background: rgba(0,0,0,0.5) !important;
 
-    -webkit-transition: opacity  .25s  ease-in-out
+    -webkit-transition: opacity  .25s  ease-in-out;
     -moz-transition: opacity  .25s  ease-in-out;
     -o-transition: opacity  .25s  ease-in-out;
     transition: opacity  .25s  ease-in-out;
   }
-  .header:not(:active):not(:focus):not(:hover) {
-
-    .header__overlay {
-      opacity: 0;
-    }
-  }
-
-  .header:hover h1,
-  .header:hover h2,
-  .header:hover h3 {
-
-    transition: all .25s ease-in-out;
-    opacity: 1;
-  }
+ 
 `
