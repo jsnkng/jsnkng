@@ -99,25 +99,34 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 6rem;
+    height: 5rem;
     background-color: ${({ theme }) => theme.colors.trans_back};
     color: ${({ theme }) => theme.colors.text};
     margin: 0;
-    padding: 0 1rem 0 5rem;
+    padding: 0;
+    ${SuperQuery().minWidth.sm.css`
+      height: 6rem;
+    `}
   }
   .navigation__logo {
     flex: 0 1 auto;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.05em;
+    padding: 0 1rem;
   }
   .navigation__title {
     flex: 0 1 auto;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: -0.05em;
+    padding: 0 1rem 0 4rem;
     ${SuperQuery().minWidth.sm.css`
       font-size: 3vw;
+       padding: 0 1rem 0 4.5rem;
+    `}
+    ${SuperQuery().minWidth.md.css`
+       padding: 0 1rem 0 5rem;
     `}
   }
 `

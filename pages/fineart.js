@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
 import SuperQuery from '@themgoncalves/super-query'
@@ -13,6 +14,7 @@ import Hero from '../components/elements/hero'
 import Banner from '../components/elements/banner'
 
 const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
+  const windowDimension = useWindowDimensions()
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
@@ -42,34 +44,58 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           heroTitle='Fine Art'
           // heroSubtitle={images[heroIdx].title}
           parentTitle='Home'
-          parentHrefAs={{href: `/`, as: `/`}}
+          parentLink={{
+            href: `/`, 
+            as: `/` 
+          }}
         />
         <Grid fluid={true}>
           <Row__Decorated>
             <Col__Decorated xs={12} sm={12} md={4} lg={4}>
               <Banner
+                headline={``}
+                title={`Mythologies`}
+                subtitle={`Digital Photography, Pixellation`}
+                name={`Mythologies`}
                 backgroundURL={`/gallery/Mythologies/Natalis_Sancti_Igne/image_i.jpg`} 
                 backgroundHoverURL={`/gallery/Mythologies/Natalis_Sancti_Igne/image_i.jpg`} 
-                title='Mythologies'
-                subtitle='Digital Photography, Pixellation'
+                link={{ 
+                      href: `/collection/[collectionName]`, 
+                      as:`/collection/Mythologies`
+                    }}
+                windowDimension={windowDimension}
               />
             </Col__Decorated>
             
             <Col__Decorated xs={12} sm={12} md={4} lg={4}>
               <Banner
+                headline={``}
+                title={`Nature Morté`}
+                subtitle={`Digital Photography, Still Life`}
+                name={`Nature_Morte`}
                 backgroundURL={`/gallery/Nature_Morte/2_-_The_Receptive_-_0/image_i.jpg`} 
                 backgroundHoverURL={`/gallery/Nature_Morte/2_-_The_Receptive_-_0/image_i.jpg`} 
-                title='Nature Morté'
-                subtitle='Digital Photography, Still Life'
+                link={{ 
+                      href: `/collection/[collectionName]`, 
+                      as:`/collection/Nature_Morte`
+                    }}
+                windowDimension={windowDimension}
               />
             </Col__Decorated>
             
             <Col__Decorated xs={12} sm={12} md={4} lg={4}>
               <Banner
+                headline={``}
+                title={`Starlight Meadows`}
+                subtitle={`Digital Photography, Directorial`}
+                name={`Starlight_Meadows`}
                 backgroundURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_i.jpg`} 
                 backgroundHoverURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_i.jpg`} 
-                title='Starlight Meadows'
-                subtitle='Digital Photography, Directorial'
+                link={{ 
+                      href: `/collection/[collectionName]`, 
+                      as:`/collection/Starlight_Meadows`
+                    }}
+                windowDimension={windowDimension}
               />
             </Col__Decorated>
           </Row__Decorated>

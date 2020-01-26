@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
@@ -6,27 +6,58 @@ import Spinner from './spinner'
 import SuperQuery from '@themgoncalves/super-query'
 
 const Element = ({ headline, title, subtitle, name, backgroundURL, backgroundHoverURL, link, windowDimension }) => {
+
+  const bannerRef = useRef(null)
+
   const [isSpinnerVisible, setIsSpinnerVisible] = useState(false)
   const handleClick = (e) => {
     e.preventDefault()
     setIsSpinnerVisible(true)
   }
   const handleTouchStart = (e) => {
-    document.getElementById(name).className += " touch";
+    if (windowDimension.width > 576) {
+      if ( bannerRef.current.className.match(/(?:^|\s)touch(?!\S)/) ) {
+        return
+      }
+      bannerRef.current.className += " touch";
+    }
   }
   const handleTouchEnd = (e) => {
-    document.getElementById(name).className =
-   document.getElementById(name).className.replace
-      ( /(?:^|\s)touch(?!\S)/g , '' )
+    if (windowDimension.width > 576) {
+      bannerRef.current.className =
+      bannerRef.current.className.replace
+            ( /(?:^|\s)touch(?!\S)/g , '' )
+    }
   }
 
   useEffect(() => {
-    // console.log(windowDimension)
-  })
+    if (windowDimension.width < 577) {
+      if (bannerRef.current !== null) {
+        const { top, height } = bannerRef.current.getBoundingClientRect()
+        if (top < -0.2 * windowDimension.height) {
+          bannerRef.current.className =
+          bannerRef.current.className.replace
+                ( /(?:^|\s)touch(?!\S)/g , '' )
+        } else if (top < 0.35 * windowDimension.height) {
+          if ( bannerRef.current.className.match(/(?:^|\s)touch(?!\S)/) ) {
+            return
+          }
+          bannerRef.current.className += " touch";
+        } else if (top > 0.8 * windowDimension.height) {
+          bannerRef.current.className =
+          bannerRef.current.className.replace
+                ( /(?:^|\s)touch(?!\S)/g , '' )
+        }
+      }
+    }
+  }
+)
+
+
   return (
     <LazyLoad height={'100%'} offset={600}>
       <Banner 
-        id={name}
+        ref={bannerRef}
         backgroundURL={backgroundURL}
         backgroundHoverURL={backgroundHoverURL}
         onClick={handleClick}
@@ -87,10 +118,6 @@ const Banner = styled.section`
   `}
   
   &.touch {
-    ${'' /* opacity: 0; */}
-    ${'' /* background-image: url(${props => props.backgroundURL}); */}
-    ${'' /* background-size: 200%; */}
-    
     .header,
     .header__overlay {
       opacity: 1;
@@ -123,7 +150,7 @@ const Banner = styled.section`
   }
 
   h1 {
-    width: 90%;
+    width: 95%;
     max-width: 70vw;
     font-size: 3rem;
     font-weight: 200;
@@ -137,15 +164,15 @@ const Banner = styled.section`
     `}
   }
   h2 {
-    width: 90%;
-    max-width: 70vw;
+    width: 95%;
+    max-width: 90vw;
     font-weight: 400;
     line-height: .925;
     letter-spacing: -0.1rem;
     margin: 0 0 0 4%;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     border: none;
-    font-size: 10vw;
+    font-size: 2rem;
     z-index: 5;
     -webkit-transition: opacity 1s linear;
     -moz-transition: opacity 1s linear;
@@ -157,25 +184,29 @@ const Banner = styled.section`
       font-size: 5vw;
     `}
     ${SuperQuery().minWidth.md.css`
-      font-size: 3.25vw;
+      font-size: 3vw;
     `}
     ${SuperQuery().minWidth.lg.css`
-      font-size: 2.5vw;
+      font-size: 2.125vw;
     `}
   }
   h3 {
-    width: 90%;
-    max-width: 70vw;
-    font-size: 1.5rem;
+    width: 95%;
+    max-width: 90vw;
+    font-size: 1.25rem;
     font-weight: 200;
     line-height: 0.875;
     margin: 0 0 0 4%;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-    font-size: 3.5vw;
     z-index: 5;
- 
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3vw;
+    `}
     ${SuperQuery().minWidth.md.css`
-      font-size: 1vw;
+      font-size: 2.5vw;
+    `}
+    ${SuperQuery().minWidth.lg.css`
+      font-size: 1.5vw;
     `}
   }
   span {

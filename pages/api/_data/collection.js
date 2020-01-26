@@ -10,7 +10,7 @@ const collection = [
       { title: 'Turris Babel', name: 'Turris_Babel', path: '/gallery/Mythologies/Turris_Babel', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Regina Sumer', name: 'Regina_Sumer', path: '/gallery/Mythologies/Regina_Sumer', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Natalis Sancti Igne', name: 'Natalis_Sancti_Igne', path: '/gallery/Mythologies/Natalis_Sancti_Igne', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
-      { title: 'Perseus Caput Corpori Adiecta Mutationes', name: 'Perseus_Caput_Corpori_Adiecta_Mutationes', path: '/gallery/Mythologies/Perseus_Caput_Corpori_Adiecta_Mutationes', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
+      { title: 'Caput Corpori Mutationes Autem Perseus', name: 'Caput_Corpori_Mutationes_Autem_Perseus', path: '/gallery/Mythologies/Caput_Corpori_Mutationes_Autem_Perseus', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Parere BeBop II', name: 'Parere_BeBop_II', path: '/gallery/Mythologies/Parere_BeBop_II', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Poster Tabula I', name: 'Poster_Tabula_I', path: '/gallery/Mythologies/Poster_Tabula_I', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Atlas Tenebre', name: 'Atlas_Tenebre', path: '/gallery/Mythologies/Atlas_Tenebre', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },

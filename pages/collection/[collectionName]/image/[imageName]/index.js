@@ -28,10 +28,10 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     forceCheck()
   })
   if (!loaded) {
-    console.log('not loaded')
+    // console.log('not loaded')
     return null
   } else {
-    console.log(' loaded')
+    // console.log(' loaded')
     return (
     <>
     <Head>
@@ -114,9 +114,12 @@ const Content = styled.main`
       `}
     }
   }
-
   .item__details {
     margin: 1rem;
+    color: ${ ({ theme }) => theme.colors.text }; 
+    a { 
+      color: ${ ({ theme }) => theme.colors.color_two };  
+    }
   }
 `
 const Row__Decorated = styled(Row)`

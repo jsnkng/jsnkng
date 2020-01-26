@@ -145,9 +145,12 @@ const GlobalStyle = createGlobalStyle`
     height: 1.5rem;
     width: 2.25rem;
     padding: 0.875rem 0;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     background: ${({ theme }) => theme.colors.background};
     z-index: 100;
+    ${SuperQuery().minWidth.sm.css`
+    margin: 2rem 0;
+    `}
   }
 
   /* Color/shape of burger icon bars */
@@ -228,7 +231,9 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0 0 5vh 0;
         cursor: pointer;
-        &:hover {
+          color: ${ ({ theme }) => theme.colors.color_two};
+        a {
+        text-decoration: none;
           color: ${ ({ theme }) => theme.colors.color_two};
         }
       }
