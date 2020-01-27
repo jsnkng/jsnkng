@@ -51,7 +51,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         />
         <Grid fluid={true}>
           <Row__Decorated>
-            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+            <Col__Decorated className='image__thumb' xs={12} sm={12}>
               <Banner
                 headline={``}
                 title={`Mythologies`}
@@ -67,7 +67,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               />
             </Col__Decorated>
             
-            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+            <Col__Decorated className='image__thumb' xs={12} sm={12}>
               <Banner
                 headline={``}
                 title={`Nature Morté`}
@@ -83,7 +83,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               />
             </Col__Decorated>
             
-            <Col__Decorated xs={12} sm={12} md={4} lg={4}>
+            <Col__Decorated className='image__thumb' xs={12} sm={12}>
               <Banner
                 headline={``}
                 title={`Starlight Meadows`}
@@ -121,6 +121,18 @@ const Content = styled.main`
   margin: 0;
   padding: 0;
 
+  .image__thumb {
+  height: 100vw;
+  position: relative;
+
+  ${SuperQuery().minWidth.md.css`
+    height: 50vw;
+  `}
+  ${SuperQuery().minWidth.lg.css`
+    height: 33.33vw;
+  `}
+  
+}
   ${'' /* .hero__background {
     height: 85vh;
   }

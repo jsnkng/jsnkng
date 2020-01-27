@@ -23,7 +23,7 @@ const Element = ({ headline, title, subtitle, name, backgroundURL, backgroundHov
     }
   }
   const handleTouchEnd = (e) => {
-    if (windowDimension.width > 576) {
+    if (windowDimension.width > 767) {
       bannerRef.current.className =
       bannerRef.current.className.replace
             ( /(?:^|\s)touch(?!\S)/g , '' )
@@ -31,7 +31,7 @@ const Element = ({ headline, title, subtitle, name, backgroundURL, backgroundHov
   }
 
   useEffect(() => {
-    if (windowDimension.width < 577) {
+    if (windowDimension.width < 768) {
       if (bannerRef.current !== null) {
         const { top, height } = bannerRef.current.getBoundingClientRect()
         if (top < -0.2 * windowDimension.height) {
@@ -95,7 +95,7 @@ const Banner = styled.section`
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 100%;
   opacity: 1;
   background-image: url(${props => props.backgroundHoverURL});
   background-image: url(${props => props.backgroundURL});
@@ -107,16 +107,6 @@ const Banner = styled.section`
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
 
-  ${SuperQuery().minWidth.sm.css`
-    height: 50vw;
-  `}
-  ${SuperQuery().minWidth.md.css`
-    height: 33.33vw;
-  `}
-  ${SuperQuery().minWidth.lg.css`
-    height: 25vw;
-  `}
-  
   &.touch {
     .header,
     .header__overlay {

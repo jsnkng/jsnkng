@@ -59,13 +59,13 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
             {
             pictures.slice(0).map((item, index) => {
               return (
-              <Col__Decorated className='image__thumb' xs={12} sm={6} md={4} lg={3} key={index+item.path}>
+              <Col__Decorated className='image__thumb' xs={12} sm={12} md={6} lg={4} key={index+item.path}>
                 <Banner
                     headline={``}
                     title={item.title}
                     subtitle={item.year}
                     name={item.name}
-                    backgroundURL={`${item.path}/image_thumb.jpg`}
+                    backgroundURL={`${item.path}/image.jpg`}
                     backgroundHoverURL={`${item.path}/image_i.jpg`}
                     link={{ 
                       href: `/collection/[collectionName]/image/[imageName]`, 
@@ -107,6 +107,18 @@ const Content = styled.main`
   margin: 0;
   padding: 0;
 
+.image__thumb {
+  height: 100vw;
+  position: relative;
+
+  ${SuperQuery().minWidth.md.css`
+    height: 50vw;
+  `}
+  ${SuperQuery().minWidth.lg.css`
+    height: 33.33vw;
+  `}
+  
+}
   ${'' /* .hero__background {
     height: 85vh;
   }
