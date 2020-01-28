@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+import Link from 'next/link'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
@@ -8,41 +10,56 @@ import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
-import Banner from '../../../../../components/elements/banner'
-import Hero from '../../../../../components/elements/hero'
 
 const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  // const [imageName, setImageName] = useState(router.query.imageName)
-  const [image] = images.filter(image => image.name === imageName )
-  const [verticalHeight, setVerticalHeight] = useState(Number(image.ratio.split(':')[1])/Number(image.ratio.split(':')[0])*100)
-  
-  // const ratio = images.filter(image => image.name === imageName )
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
+
+
   }, [])
   
+  const [currentIdx, setCurrentIdx] = useState(images.findIndex(i => i.name === imageName))
+  const [[image], setImage] = useState(images.filter(image => image.name === imageName))
+  useEffect(() => {
+    setCurrentIdx(images.findIndex(i => i.name === imageName))
+    setImage(images.filter(image => image.name === imageName))
+  }, [imageName])
+
+  const [prevIdx, setPrevIdx] = useState()
+  const [nextIdx, setNextIdx] = useState()
+  useEffect(() => {
+    setPrevIdx(currentIdx > 0 ? currentIdx - 1 : images.length - 1)
+    setNextIdx(currentIdx < images.length - 1 ? currentIdx + 1 : 0)
+  }, [currentIdx])
+
+  const [verticalHeight, setVerticalHeight] = useState()
+  useEffect(() => {
+    setVerticalHeight(Number(image.ratio.split(':')[1])/Number(image.ratio.split(':')[0]) * 100)
+  }, [image])
+
+ 
+
   useEffect(() => {
     forceCheck()
   })
+
   if (!loaded) {
-    // console.log('not loaded')
     return null
   } else {
-    // console.log(' loaded')
     return (
     <>
     <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
-    <Content>
+    <Content verticalHeight={verticalHeight}>
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
           heroHeight='77vh'
           heroTitle={image.title} 
-          // heroSubtitle={image.title} 
+          heroSubtitle={image.year} 
           parentTitle={collectionTitle}
           parentLink={{
             href: `/collection/[collectionName]/`, 
@@ -51,19 +68,34 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
         />
         <Grid fluid={true}>
           <Row__Decorated>
-            <Col__Decorated xs={12}>
+          
+             <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
+                <div className='item__nav'>
+                <Link scroll={false} href={`/collection/[collectionName]/image/[imageName]`} as={`/collection/${collectionName}/image/${images[prevIdx].name}`}><a>
+                  <div className='item__prev'>
+                    
+                  </div>
+                  </a></Link>
+                  <Link scroll={false} href={`/collection/[collectionName]/image/[imageName]`} as={`/collection/${collectionName}/image/${images[nextIdx].name}`}><a>
+                    <div className='item__next'>
+                      
+                    </div>
+                    </a></Link>
+                </div>
                 <ResponsiveImage verticalHeight={verticalHeight} backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
                 <div className='item__details'>
                   <p>{image.title}</p> 
                   <p>{image.year}</p>
                   <p>{image.tags}</p>
-                  <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`}>Shop {image.title} Collection</a>
+                  <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>Shop {image.title} Collection</a>
                 </div>
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
+          
         </Grid>
+        
       </Content>
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
@@ -116,10 +148,47 @@ const Content = styled.main`
   }
   .item__details {
     margin: 1rem;
-    color: ${ ({ theme }) => theme.colors.text }; 
+    color: ${ ({ theme }) => theme.colors.text };
     a { 
       color: ${ ({ theme }) => theme.colors.color_two };  
     }
+  }
+
+  .item__nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    height: calc(${props => props.verticalHeight}vw - 2rem);
+    width: 100%;
+    padding: 1rem;
+    color: ${ ({ theme }) => theme.colors.text };
+    z-index:1000;
+
+    a { 
+      color: ${ ({ theme }) => theme.colors.color_two };  
+    }
+  }
+  .item__next {
+    text-align: right;
+    width: 8vw;
+    height: 8vw;
+    background-image: url('/r-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-color: rgba(255,255,255,0.1)
+  }
+  .item__prev {
+    text-align: left;
+    width: 8vw;
+    height: 8vw;
+    background-image: url('/l-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-color: rgba(255,255,255,0.1)
+
   }
 `
 const Row__Decorated = styled(Row)`
@@ -128,6 +197,7 @@ const Row__Decorated = styled(Row)`
   padding: 0;
 `
 const Col__Decorated = styled(Col)`
+  position: relative;
   margin: 0;
   padding: 0;
 `

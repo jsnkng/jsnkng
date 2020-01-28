@@ -16,6 +16,8 @@ const Component = ({
       heroHeight={heroHeight} 
       heroBackground={heroBackground}
     >
+    {/* The Menu button appears here, but it's absolute positioned and 
+        the code for it can be found in the _app.js file. */}
       <div className='hero'>
         <div className='hero__overlay'>
           <h1 className='hero__title'>{heroTitle}</h1>
@@ -62,6 +64,7 @@ const Header = styled.header`
   }
   .hero__overlay {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -73,6 +76,7 @@ const Header = styled.header`
     background: ${ ({ theme }) => theme.colors.image_overlay_darkgradient };
   }
   .hero__title {
+    display: block;
     font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
@@ -85,6 +89,7 @@ const Header = styled.header`
     `}
   }
   .hero__subtitle {
+    display: block;
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;

@@ -29,6 +29,7 @@ const collection = [
       { title: 'Claviaturae', name: 'Claviaturae', path: '/gallery/Mythologies/Claviaturae', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Ones Tenebris Flavaque', name: 'Ones_Tenebris_Flavaque', path: '/gallery/Mythologies/Ones_Tenebris_Flavaque', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Convallaria Majalis', name: 'Convallaria_Majalis', path: '/gallery/Mythologies/Convallaria_Majalis', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
+      { title: 'Tesselato Stravit Flos Tegumen Spinis', name: 'Tesselato_Stravit_Flos_Tegumen_Spinis', path: '/gallery/Mythologies/Tesselato_Stravit_Flos_Tegumen_Spinis', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
     ]
   },
   {
@@ -80,12 +81,43 @@ const collection = [
     ]
   },
   {
+    disciplineTitle: 'Design',
+    disciplineName: 'Design',
+    collectionTitle: 'PXL8N',
+    collectionName: 'PXL8N',
+    images: [
+      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Product Design' },
+    ]
+  },
+  {
+    disciplineTitle: 'Design',
+    disciplineName: 'Design',
+    collectionTitle: 'Coffee',
+    collectionName: 'Coffee',
+    images: [
+      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Packaging Design' },
+    ]
+  },
+  {
+    disciplineTitle: 'Design',
+    disciplineName: 'Design',
+    collectionTitle: 'I Ching',
+    collectionName: 'IChing',
+    images: [
+      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Packaging Design' },
+    ]
+  },
+  {
     disciplineTitle: 'Web',
     disciplineName: 'Web',
     collectionTitle: 'PXL8N',
     collectionName: 'PXL8N',
     images: [
-      { title: 'PXL8N', name: 'PXL8N', path: '/gallery/Web/PXL8N', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'Product Page', name: 'Product_Page_2', path: '/gallery/PXL8N/Product_Page_2', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'Product Page', name: 'Product_Page_3', path: '/gallery/PXL8N/Product_Page_3', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'Product Page', name: 'Product_Page_4', path: '/gallery/PXL8N/Product_Page_4', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'Product Page', name: 'Product_Page_5', path: '/gallery/PXL8N/Product_Page_5', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
     ]
   },
   {

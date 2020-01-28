@@ -10,10 +10,9 @@ import styled from 'styled-components'
 
 import Header from '../../../components/header'
 import Footer from '../../../components/footer'
-import Hero from '../../../components/elements/hero'
 import Banner from '../../../components/elements/banner'
 
-const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+const Page = ({ collectionTitle, collectionName, disciplineTitle, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
   const windowDimension = useWindowDimensions()
 
@@ -45,14 +44,14 @@ const Page = ({ collectionTitle, collectionName, images, themeName, setThemeName
       <Head>
         <title>JSNKNG</title>
       </Head>
-      <Content> 
+      <Content>
         <Header 
           heroBackground={`${images[heroIdx].path}/image_i.jpg`}
           heroHeight={`77vh`}
           heroTitle={collectionTitle} 
           heroSubtitle={``}
-          parentTitle={`Fine Art`}
-          parentLink={{ href: `/fineart`, as: `/fineart` }}
+          parentTitle={disciplineTitle}
+          parentLink={{ href: `/`, as: `/` }}
         />
         <Grid fluid={true}>
           <Row__Decorated>
