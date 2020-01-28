@@ -1,10 +1,10 @@
 const collection = [
   {
-    disciplineTitle: 'Fine Art',
-    disciplineName: 'Fine_Art',
+    disciplineTitle: 'Art',
+    disciplineName: 'Art',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-     images: [
+    images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Turris Babel', name: 'Turris_Babel', path: '/gallery/Mythologies/Turris_Babel', ratio: '1:1', year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -32,11 +32,11 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Fine Art',
-    disciplineName: 'Fine_Art',
+    disciplineTitle: 'Art',
+    disciplineName: 'Art',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-   images: [
+    images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '64 - Before Completion - 42', name: '64_Before_Completion_42', path: '/gallery/Nature_Morte/64_Before_Completion_42', ratio: '1:1', year: '2011', tags: 'Digital Photography, Still Life' },
@@ -52,31 +52,112 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Fine Art',
-    disciplineName: 'Fine_Art',
+    disciplineTitle: 'Art',
+    disciplineName: 'Art',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
     images: [
-      { title: 'This Is Not An Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
-      { title: 'Wait A Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
+      { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
+      { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
       { title: 'We Do Not Torture People', name: 'We_Do_Not_Torture_People', path: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Media Bias: Axis of Evil', name: 'Media_Bias_Axis_of_Evil', path: '/gallery/Starlight_Meadows/Media_Bias_Axis_of_Evil', ratio: '3:2', year: '2005',  tags:'Digital Photography, Directorial' },
-      { title: 'The King Is with Us Now', name: 'The_King_Is_with_Us_Now', path: '/gallery/Starlight_Meadows/The_King_Is_with_Us_Now', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
+      { title: 'The King Is With Us Now', name: 'The_King_Is_with_Us_Now', path: '/gallery/Starlight_Meadows/The_King_Is_with_Us_Now', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Mr. Halloween', name: 'Mr_Halloween', path: '/gallery/Starlight_Meadows/Mr_Halloween', ratio: '3:2', year: '2005',  tags:'Digital Photography, Directorial' },
       { title: 'On the Seventh of November', name: 'On_the_Seventh_of_November', path: '/gallery/Starlight_Meadows/On_the_Seventh_of_November', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Captured by the Pigs', name: 'Captured_by_the_Pigs', path: '/gallery/Starlight_Meadows/Captured_by_the_Pigs', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Guerilla Warfare', name: 'Guerilla_Warfare', path: '/gallery/Starlight_Meadows/Guerilla_Warfare', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
       { title: 'A Life That Lasts a Day', name: 'A_Life_That_Lasts_a_Day', path: '/gallery/Starlight_Meadows/A_Life_That_Lasts_a_Day', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'The Watchman', name: 'The_Watchman', path: '/gallery/Starlight_Meadows/The_Watchman', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
-      { title: 'Remember—Remember—The Seventh of November', name: 'Remember_Remember_The_Seventh_of_November', path: '/gallery/Starlight_Meadows/Remember_Remember_The_Seventh_of_November', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
+      { title: 'Remember—Remember—the Seventh of November', name: 'Remember_Remember_The_Seventh_of_November', path: '/gallery/Starlight_Meadows/Remember_Remember_The_Seventh_of_November', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
       { title: 'Yule', name: 'Yule', path: '/gallery/Starlight_Meadows/Yule', ratio: '3:2', year: '2005',  tags: 'Digital Photography, Directorial' },
-      { title: 'He Is with Us but Remembers Nothing', name: 'He_Is_with_Us_but_Remembers_Nothing', path: '/gallery/Starlight_Meadows/He_Is_with_Us_but_Remembers_Nothing', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
+      { title: 'He Is With Us, but Remembers Nothing', name: 'He_Is_with_Us_but_Remembers_Nothing', path: '/gallery/Starlight_Meadows/He_Is_with_Us_but_Remembers_Nothing', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'He Was Looking for a Way Out', name: 'He_Was_Looking_for_a_Way_Out', path: '/gallery/Starlight_Meadows/He_Was_Looking_for_a_Way_Out', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
-      { title: 'Troglodytes, They were Called', name: 'Troglodytes_They_were_Called', path: '/gallery/Starlight_Meadows/Troglodytes_They_were_Called', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
+      { title: 'Troglodytes, They Were Called', name: 'Troglodytes_They_were_Called', path: '/gallery/Starlight_Meadows/Troglodytes_They_were_Called', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'That Old Chimp Called Himself Sarge', name: 'That_Old_Chimp_Called_Himself_Sarge', path: '/gallery/Starlight_Meadows/That_Old_Chimp_Called_Himself_Sarge', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'You Didn’t—But, I Did.', name: 'You_Didnt_But_I_Did', path: '/gallery/Starlight_Meadows/You_Didnt_But_I_Did', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Behind the Barn', name: 'Behind_the_Barn', path: '/gallery/Starlight_Meadows/Behind_the_Barn', ratio: '3:2', year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'That’s No Way to Play', name: 'Thats_No_Way_to_Play', path: '/gallery/Starlight_Meadows/Thats_No_Way_to_Play', ratio: '3:2', year: '2006', tags: 'Digital Photography, Directorial' },
+    ]
+  },
+  {
+    disciplineTitle: 'Web',
+    disciplineName: 'Web',
+    collectionTitle: 'PXL8N',
+    collectionName: 'PXL8N',
+    images: [
+      { title: 'PXL8N', name: 'PXL8N', path: '/gallery/Web/PXL8N', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+    ]
+  },
+  {
+    disciplineTitle: 'Web',
+    disciplineName: 'Web',
+    collectionTitle: 'National Park Guides',
+    collectionName: 'National_Park_Guides',
+    images: [
+      { title: 'National Park Guides', name: 'National_Park_Guides', path: '/gallery/Web/National_Park_Guides', ratio: '3:2', year: '2020', tags: '' },
+    ]
+  },
+  {
+    disciplineTitle: 'Web',
+    disciplineName: 'Web',
+    collectionTitle: 'Halter’s Cycles',
+    collectionName: 'Halters_Cycles',
+    images: [
+      { title: 'Halter’s Cycles', name: 'Halters_Cycles', path: '/gallery/Web/Halters_Cycles', ratio: '3:2', year: '2019', tags: 'WordPress, WooCommerce,  Printful, Photoshop' },
+    ]
+  },
+  {
+    disciplineTitle: 'Web',
+    disciplineName: 'Web',
+    collectionTitle: 'Hugh Johnson Advisors',
+    collectionName: 'Hugh_Johnson_Advisors',
+    images: [
+      { title: 'Hugh Johnson Advisors', name: 'Hugh_Johnson_Advisors', path: '/gallery/Web/Hugh_Johnson_Advisors', ratio: '3:2', year: '2018', tags: 'WordPress, HTML, CSS, Photoshop' },
+    ]
+  },
+  {
+    disciplineTitle: 'Code',
+    disciplineName: 'Code',
+    collectionTitle: 'PWA API/Full Stack',
+    collectionName: 'PWA_API_Full_Stack',
+    images: [
+      { title: 'PWA API/Full Stack', name: 'PWA_API_Full_Stack', path: '/gallery/Code/PWA_API_Full_Stack', ratio: '3:2', year: '2020', tags: 'JavaScript/NodeJS, MongoDB, NextJS, React, PWA/SPA, Service Workers, HTML/JSX, CSS/SCSS, Zeit Serverless Hosting' },
+    ]
+  },
+  {
+    disciplineTitle: 'Code',
+    disciplineName: 'Code',
+    collectionTitle: 'Pharma API/Backend',
+    collectionName: 'Pharma_API_Backend',
+    images: [
+      { title: 'Pharma API/Backend', name: 'Pharma_API_Backend', path: '/gallery/Code/Pharma_API_Backend', ratio: '3:2', year: '2015', tags: 'PHP, MySQL, Laravel, PDFLib, Mailgun, EFax, Composer, Apache, Docker, Alpine' },
+    ]
+  },
+  {
+    disciplineTitle: 'Code',
+    disciplineName: 'Code',
+    collectionTitle: 'Pharma API/Frontend',
+    collectionName: 'Pharma_API_Frontend',
+    images: [
+      { title: 'Pharma API/Frontend', name: 'Pharma_API_Frontend', path: '/gallery/Code/Pharma_API_Frontend', ratio: '3:2', year: '2015', tags: 'AngularJS, HTML/Pug, CSS/SCSS, NPM/Gulp, Apache, Docker, Alpine' },
+    ]
+  },
+  {
+    disciplineTitle: 'Code',
+    disciplineName: 'Code',
+    collectionTitle: 'Veeva Hybrid iPad App',
+    collectionName: 'Veeva_Hybrid_iPad_App',
+    images: [
+      { title: 'Veeva Hybrid iPad App', name: 'Veeva_Hybrid_iPad_App', path: '/gallery/Code/Veeva_Hybrid_iPad_App', ratio: '3:2', year: '2017', tags: 'AngularJS, HTML/Pug, CSS/SCSS, NPM/Grunt, Apache, Docker, Alpine' },
+    ]
+  },
+  {
+    disciplineTitle: 'Code',
+    disciplineName: 'Code',
+    collectionTitle: 'Ionic/Cordove Hybrid Mobile App',
+    collectionName: 'Ionic_Cordove_Hybrid_Mobile_App',
+    images: [
+      { title: 'Ionic/Cordove Hybrid Mobile App', name: 'Ionic_Cordove_Hybrid_Mobile_App', path: '/gallery/Code/Ionic_Cordove_Hybrid_Mobile_App', ratio: '3:2', year: '2016', tags: 'AngularJS, Ionic, HTML/Pug, CSS/SCSS, NPM/Grunt' },
     ]
   }
   
