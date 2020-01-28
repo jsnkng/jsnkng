@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Toggle from 'react-toggle'
-
-
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 const Component = ({ themeName, setThemeName }) => {
 
@@ -18,11 +17,24 @@ const setTheme = () => {
           icons={false}
           aria-label='Set Light|Dark Mode'
           onChange={setTheme} />
+      </div>
+      <div className='bottom__social'>
+        <div className='bottom__icons'>
+          <a href='https://www.linkedin.com/in/jsnkng/' target='_blank'>
+            <FaLinkedin />
+          </a>
+          <a href='https://github.com/jsnkng' target='_blank'>
+            <FaGithub />
+          </a>
+          <a href='https://www.instagram.com/jsnkng/' target='_blank'>
+            <FaInstagram />
+          </a>
         </div>
-      
-        <div className='bottom__credit'>
-          <a href="#"><strong><span>JSN</span><br />KNG</strong><br />2020</a>
-        </div>
+        <p>© 2020 Jason King. All rights reserved.</p>
+      </div>
+      <div className='bottom__credit'>
+        <a href='#'><strong><span>JSN</span><br />KNG</strong><br />2020</a>
+      </div>
     </Footer>
   )
 }
@@ -33,13 +45,13 @@ const Footer = styled.footer`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 5rem;
   padding: 1rem;
+  margin-top: 5rem;
+  background-color: ${({ theme }) => theme.colors.box_background };
   .bottom__credit {
     display: flex;
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1rem;
     font-size: 0.8rem;
     line-height: .75;
     align-items:center;
@@ -51,6 +63,16 @@ const Footer = styled.footer`
       text-decoration: none;
       border: none;
       color: inherit;
+    }
+  }
+  .bottom__social {
+    text-align: center;
+    a {
+      color: ${({ theme }) => theme.colors.text };
+      padding: 0.5rem;
+    }
+    p {
+      font-size: 0.75rem;
     }
   }
   .bottom__toggle{
@@ -103,21 +125,25 @@ const Footer = styled.footer`
   padding: 0;
   border-radius: 30px;
   background-color: ${({ theme }) => theme.colors.toggle_track };
+  background-color: ${({ theme }) => theme.colors.offbackground };
+}
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: ${({ theme }) => theme.colors.offbackground };
   background-color: ${({ theme }) => theme.colors.toggle_track };
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: ${({ theme }) => theme.colors.offbackground };
+  background-color: ${({ theme }) => theme.colors.text };
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: ${({ theme }) => theme.colors.offbackground };
+  background-color: ${({ theme }) => theme.colors.toggle_track };
 }
 
 .react-toggle-track-check {

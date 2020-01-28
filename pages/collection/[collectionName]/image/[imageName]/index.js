@@ -10,6 +10,8 @@ import styled from 'styled-components'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
+import { ArrowLeft } from '../../../../../svgs/l-arrow.svg'
+import { ArrowRight } from '../../../../../svgs/r-arrow.svg'
 
 const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
@@ -72,23 +74,44 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
              <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
                 <div className='item__nav'>
-                <Link scroll={false} href={`/collection/[collectionName]/image/[imageName]`} as={`/collection/${collectionName}/image/${images[prevIdx].name}`}><a>
-                  <div className='item__prev'>
-                    
-                  </div>
-                  </a></Link>
-                  <Link scroll={false} href={`/collection/[collectionName]/image/[imageName]`} as={`/collection/${collectionName}/image/${images[nextIdx].name}`}><a>
-                    <div className='item__next'>
-                      
-                    </div>
-                    </a></Link>
+                  <Link 
+                    scroll={false} 
+                    href={`/collection/[collectionName]/image/[imageName]`} 
+                    as={`/collection/${collectionName}/image/${images[prevIdx].name}`}
+                  >
+                    <a>
+                      <div className='item__prev'>
+                        <ArrowLeft />
+                      </div>
+                    </a>
+                  </Link>
+                  <Link 
+                    scroll={false} 
+                    href={`/collection/[collectionName]/image/[imageName]`} 
+                    as={`/collection/${collectionName}/image/${images[nextIdx].name}`}
+                  >
+                    <a>
+                      <div className='item__next'>
+                        <ArrowRight />
+                      </div>
+                    </a>
+                  </Link>
                 </div>
-                <ResponsiveImage verticalHeight={verticalHeight} backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} />
-                <div className='item__details'>
-                  <p>{image.title}</p> 
-                  <p>{image.year}</p>
-                  <p>{image.tags}</p>
-                  <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>Shop {image.title} Collection</a>
+                <ResponsiveImage 
+                  verticalHeight={verticalHeight} 
+                  backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} 
+                />
+                <div className='item__meta'>
+                  <div className='item__details'>
+                    <div className='item__title'>{image.title}</div> 
+                    <div className='item__year'>{image.year}</div>
+                    <div className='item__tags'>{image.tags}</div>
+                  </div>
+                  <div className='item__shop'>
+                    <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                      Shop Collection
+                    </a>
+                  </div>
                 </div>
               </LazyLoad>
             </Col__Decorated>
@@ -146,21 +169,13 @@ const Content = styled.main`
       `}
     }
   }
-  .item__details {
-    margin: 1rem;
-    color: ${ ({ theme }) => theme.colors.text };
-    a { 
-      color: ${ ({ theme }) => theme.colors.color_two };  
-    }
-  }
-
   .item__nav {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items:flex-end;
     height: calc(${props => props.verticalHeight}vw - 2rem);
     width: 100%;
     padding: 1rem;
@@ -173,23 +188,63 @@ const Content = styled.main`
   }
   .item__next {
     text-align: right;
-    width: 8vw;
-    height: 8vw;
-    background-image: url('/r-arrow.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-color: rgba(255,255,255,0.1)
+    width: 3rem;
+    height: 3rem;
+    margin-right: -0.25rem;
+    padding: 0.5rem;
+    background-color: ${ ({ theme }) => theme.colors.background };
+    svg {
+      fill: ${ ({ theme }) => theme.colors.text };
+    }
   }
   .item__prev {
     text-align: left;
-    width: 8vw;
-    height: 8vw;
-    background-image: url('/l-arrow.svg');
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-color: rgba(255,255,255,0.1)
-
+    width: 3rem;
+    height: 3rem;
+    margin-left: -0.25rem;
+    padding: 0.5rem;
+    background-color: ${ ({ theme }) => theme.colors.background };
+    svg {
+      fill: ${ ({ theme }) => theme.colors.text };
+    }
   }
+
+  .item__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    color: ${ ({ theme }) => theme.colors.text };
+    a { 
+      color: ${ ({ theme }) => theme.colors.color_two };  
+    }
+  }
+  .item__details {
+    margin: 0 1rem;
+  }
+  .item__title {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .item__year,
+  .item__tags {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  
+  .item__shop {
+    margin: 0 1rem;
+    line-height: 1.2;
+    background: #333;
+    padding: 0.5rem;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+    background: #111;
+    }
+  }
+  
 `
 const Row__Decorated = styled(Row)`
   width: 100%;

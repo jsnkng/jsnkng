@@ -194,10 +194,10 @@ const GlobalStyle = createGlobalStyle`
   .bm-menu {
     background: ${ ({ theme }) => theme.colors.box_background};
     padding: 0;
-    font-weight: 700;
-    font-size: 4.5vw;
+    ${'' /* font-weight: 700; */}
+    ${'' /* font-size: 4.5vw; */}
     ${SuperQuery().minWidth.md.css`
-      font-size: 3vw;
+      ${'' /* font-size: 3vw; */}
     `}
   }
 
@@ -221,23 +221,6 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
-  .navigation__links {
-      outline: none;
-      border: none;
-      list-style-type: none;
-      margin: 15vh 0 0 0;
-      padding:0;
-      li {
-        margin: 0;
-        padding: 0 0 5vh 0;
-        cursor: pointer;
-          color: ${ ({ theme }) => theme.colors.color_two};
-        a {
-        text-decoration: none;
-          color: ${ ({ theme }) => theme.colors.color_two};
-        }
-      }
-    }
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
