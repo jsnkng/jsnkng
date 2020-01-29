@@ -116,31 +116,8 @@ const Content = styled.main`
   ${SuperQuery().minWidth.lg.css`
     height: 25vw;
   `}
-  
 }
-  ${'' /* .hero__background {
-    height: 85vh;
-  }
-  .hero__title {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    margin: 40vh auto;
-    padding: 1rem;
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 200;
-    text-align: center;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 3.5rem;
-    `}
-    ${SuperQuery().minWidth.md.css`
-      font-size: 4.5rem;
-    `}
-  } */}
-
 `
-
 const Row__Decorated = styled(Row)`
   width: 100%;
   margin: 0;
@@ -152,28 +129,7 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 
-const BackgroundOverlay = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 90vh;
-  width: 100%;
-  z-index: 20;
-  background-color: ${ ({ theme }) => theme.colors.image_overlay_light };
-`
-
 const Footer__Wrapper = styled.div`
     height: 3rem;
     color: ${({ theme }) => theme.colors.text } !important; 
 `
-
-const BackgroundImage = styled.div`
-  background-image: url(${props => props.backgroundURL});
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  margin: 0;
-  -webkit-animation: myfirst 1s;
-  animation: myfirst 1s;
-`
-

@@ -138,9 +138,12 @@ const GlobalStyle = createGlobalStyle`
 
   .fixed  .bm-burger-button {
     position: fixed;
-    top: 0;
-    left: 1rem;
-    z-index:1200;
+    top: -1.25rem;
+    left: 2%;
+  }
+
+  .none  .bm-burger-button {
+    display: none;
   }
 
   /* Position and sizing of burger button */
@@ -153,7 +156,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0.875rem 0;
     margin: 1.5rem 0;
     background: ${({ theme }) => theme.colors.background};
-    z-index: 100;
     ${SuperQuery().minWidth.sm.css`
     margin: 2rem 0;
     `}

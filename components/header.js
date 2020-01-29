@@ -28,6 +28,7 @@ const Component = ({
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
         </div>
       </div>
+      <div className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'navigation__spacer absolute' : 'navigation__spacer fixed' }></div>
       
     </Header>
     <Navigation
@@ -105,6 +106,15 @@ const Header = styled.header`
     `}
   }
 
+  .navigation__spacer.absolute {
+    position: relative;
+    display: none;
+    height: 5rem;
+  }
+  .navigation__spacer.fixed {
+    display: block;
+    height: 5rem;
+  }
   
 `
 
@@ -116,6 +126,7 @@ const Navigation = styled.nav`
   background-color: ${({ theme }) => theme.colors.trans_back};
   color: ${({ theme }) => theme.colors.text};
   margin: 0;
+  z-index: 800;
   padding: 0;
   ${SuperQuery().minWidth.sm.css`
     height: 6rem;
@@ -127,7 +138,7 @@ const Navigation = styled.nav`
     top: 0vh;
     left: 0;
     right: 0;
-    z-index:1500;
+    height: 3.5rem;
   }
   a {
     cursor: pointer;

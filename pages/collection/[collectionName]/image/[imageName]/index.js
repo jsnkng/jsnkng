@@ -84,7 +84,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     </Head>
     <Content verticalHeight={verticalHeight}>
       <BackgroundOverlay 
-        showBackground={showBackground}
+        className={showBackground ? 'showBackground' : ''}
         onClick={backgroundHide} />
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
@@ -103,7 +103,8 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
              <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
                   <ResponsiveImage 
-                   onClick={backgroundShow}
+                    className={showBackground ? 'showBackground' : ''}
+                    onClick={backgroundShow}
                     verticalHeight={verticalHeight} 
                     backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} 
                   >
@@ -242,7 +243,7 @@ const Content = styled.main`
   }
 
   .item__meta {
-      z-index:  1220;
+    z-index:  100;
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
@@ -273,14 +274,15 @@ const Content = styled.main`
   .item__shop {
     margin: 0 1rem;
     line-height: 1.2;
-    background: #333;
+    background: ${ ({ theme }) => theme.colors.text };
     padding: 0.5rem;
     cursor: pointer;
     a {
+    color: ${ ({ theme }) => theme.colors.background };
       text-decoration: none;
     }
     &:hover {
-    background: #111;
+      background: ${ ({ theme }) => theme.colors.dim_text };
     }
   }
   
@@ -296,18 +298,23 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 const BackgroundOverlay = styled.div`
-  display: ${props => props.showBackground ? 'block' : 'none'}; 
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100vw;
-  z-index: 1000;
+  z-index: 1100;
+  opacity: 0;
   background-color: rgba(0,0,0,0.8);
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
+  &.showBackground {
+    display: block;
+    opacity: 1;
+  }
 `
 const ResponsiveImage = styled.div`
   position: relative;
@@ -321,11 +328,10 @@ const ResponsiveImage = styled.div`
   height: calc(${props => props.verticalHeight}vw - 2rem); 
   padding: 1rem;
   margin: 1rem 0;
-  z-index: 1200;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
+  z-index: 600; 
+  &.showBackground {
+    z-index: 1200;
+  }
 `
 
 const EnlargedImages = styled.div`

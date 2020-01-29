@@ -35,6 +35,9 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
     setIsMenuOpen(isOpen)
   }
 
+  const [showBurgerMenu, setShowBurgerMenu] = useState(true)
+  
+
   useEffect(() => {
     Router.events.on('routeChangeStart', url => {
       setIsMenuOpen(false)
@@ -55,7 +58,9 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
           right={false} 
           isMenuOpen={isMenuOpen} 
           handleMenuStateChange={handleMenuStateChange} 
-          className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'absolute' : 'fixed' }
+          className={showBurgerMenu && windowDimension.scrollY < 0.8 * windowDimension.height ? 'absolute' : 
+                    showBurgerMenu && windowDimension.scrollY >= 0.8 * windowDimension.height ? 'fixed' :
+                    'none'}
         />
         <div id='inner__wrapper'>
           <PageTransition
