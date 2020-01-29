@@ -48,7 +48,7 @@ const Footer = styled.footer`
   justify-content: space-between;
   height: 5rem;
   padding: 1rem;
-  margin-top: 5rem;
+  margin-top: 10rem;
   background-color: ${({ theme }) => theme.colors.box_background };
   .bottom__credit {
     display: flex;

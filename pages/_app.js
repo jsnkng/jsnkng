@@ -12,9 +12,11 @@ import GlobalStyle from '../config/styles.js'
 import * as gtag from '../config/gtag'
 import cookies from 'next-cookies'
 import Menu from '../components/elements/menu'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 const stack = []
 const MyApp = ({ appCookies, router, Component, pageProps }) => {
+  const windowDimension = useWindowDimensions()
   const [themeName, setThemeName] = useState('lightMode')
 
   useEffect(() => {
@@ -48,16 +50,21 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
       <GlobalStyle />
-           <div id='outer__wrapper'>
-           <Menu right={false} isMenuOpen={isMenuOpen} handleMenuStateChange={handleMenuStateChange} />
-              <div id='inner__wrapper'>
-                <PageTransition
-                  timeout={200}
-                  classNames="page-transition">
-                    <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
-                </PageTransition>
-              </div>
-            </div>
+      <div id='outer__wrapper'>
+        <Menu 
+          right={false} 
+          isMenuOpen={isMenuOpen} 
+          handleMenuStateChange={handleMenuStateChange} 
+          className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'absolute' : 'fixed' }
+        />
+        <div id='inner__wrapper'>
+          <PageTransition
+            timeout={200}
+            classNames="page-transition">
+              <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
+          </PageTransition>
+        </div>
+      </div>
     </ThemeProvider>
   )
 }

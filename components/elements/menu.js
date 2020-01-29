@@ -10,9 +10,9 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-const Element = ({ right, isMenuOpen, handleMenuStateChange }) => {
+const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
   return (
-    <Menu__Wrapper>
+    <Menu__Wrapper className={className}>
       <Menu 
         right={right}
         isOpen={isMenuOpen}
@@ -85,11 +85,11 @@ const Menu__Wrapper = styled.div`
     list-style-type: none;
     padding: 0 0 0 0.5rem;
     margin: 0.5rem 0;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     li {
       cursor: pointer;
       color: ${ ({ theme }) => theme.colors.color_two};
-      padding: 0.5rem 0;
+      padding: 1rem 0;
       a {
         text-decoration: none;
         color: ${ ({ theme }) => theme.colors.color_two};
@@ -99,6 +99,7 @@ const Menu__Wrapper = styled.div`
 
 .accordion {
     border: none;
+    outline: none;
     padding: 0;
   }
   .accordion__item + .accordion__item {
@@ -106,7 +107,7 @@ const Menu__Wrapper = styled.div`
   }
   .accordion__button {
     color: ${({ theme }) => theme.colors.color_one};
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     text-indent: 0.5rem;
     padding:  1rem 0 1rem 0.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.offbackground};

@@ -136,6 +136,12 @@ const GlobalStyle = createGlobalStyle`
   } */}
 
 
+  .fixed  .bm-burger-button {
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    z-index:1200;
+  }
 
   /* Position and sizing of burger button */
   .bm-burger-button {

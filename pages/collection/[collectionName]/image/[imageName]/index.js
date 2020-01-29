@@ -51,9 +51,11 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
 
   const handleLeftSwipe = () => {
 
+    setShowBackground(true)
     Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[nextIdx].name}`)
   }
   const handleRightSwipe = () => {
+    setShowBackground(true)
     Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[prevIdx].name}`)
   }
   const [showBackground, setShowBackground] = useState(false)
@@ -114,7 +116,6 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
                     >
                       <a>
                         <div className='item__prev'>
-                          <ArrowLeft />
                         </div>
                       </a>
                     </Link>
@@ -125,7 +126,6 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
                     >
                       <a>
                         <div className='item__next'>
-                          <ArrowRight />
                         </div>
                       </a>
                     </Link>
@@ -208,12 +208,12 @@ const Content = styled.main`
     justify-content: space-between;
     align-items:flex-start;
     width: 100%;
-    padding: 1rem;
+    padding: 0rem;
     color: ${ ({ theme }) => theme.colors.text };
     z-index:  -1;
     ${SuperQuery().minWidth.md.css`
-      z-index:  1200;
-    display:flex;
+      z-index:  200;
+      display:flex;
     `}
     
     a { 
@@ -222,25 +222,23 @@ const Content = styled.main`
   }
   .item__next {
     text-align: right;
-    width: 3rem;
-    height: 3rem;
+    width: 1rem;
+    height: 97vw;
     margin-right: -0.25rem;
     padding: 0.5rem;
-    background-color: ${ ({ theme }) => theme.colors.background };
-    svg {
-      fill: ${ ({ theme }) => theme.colors.text };
-    }
+    ${SuperQuery().minWidth.md.css`
+    width: 12rem;
+    `}
   }
   .item__prev {
     text-align: left;
-    width: 3rem;
-    height: 3rem;
+    width: 1rem;
+    height: 97vw;
     margin-left: -0.25rem;
     padding: 0.5rem;
-    background-color: ${ ({ theme }) => theme.colors.background };
-    svg {
-      fill: ${ ({ theme }) => theme.colors.text };
-    }
+    ${SuperQuery().minWidth.md.css`
+    width: 12rem;
+    `}
   }
 
   .item__meta {
@@ -323,7 +321,7 @@ const ResponsiveImage = styled.div`
   height: calc(${props => props.verticalHeight}vw - 2rem); 
   padding: 1rem;
   margin: 1rem 0;
-  z-index: 1010;
+  z-index: 1200;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;

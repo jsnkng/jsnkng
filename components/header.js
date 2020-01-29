@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 
@@ -11,7 +12,10 @@ const Component = ({
         parentTitle,
         parentLink
       }) => {
+
+  const windowDimension = useWindowDimensions()
   return (
+    <>
     <Header 
       heroHeight={heroHeight} 
       heroBackground={heroBackground}
@@ -24,7 +28,10 @@ const Component = ({
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
         </div>
       </div>
-      <div className='navigation'>
+      
+    </Header>
+    <Navigation
+      className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'absolute' : 'fixed' }>
         <Link href={parentLink.href} as={parentLink.as} scroll={false}>
           <a className='navigation__title'>
             {parentTitle}
@@ -35,14 +42,15 @@ const Component = ({
             JASON KING
           </a>
         </Link>
-      </div> 
-    </Header>
+    </Navigation>
+  </>
   )
 }
 
 export default Component
 
 const Header = styled.header`
+  
   .hero {
     position: relative;
     top: 0;
@@ -55,13 +63,9 @@ const Header = styled.header`
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
+
   }
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    color: inherit;
-  }
+
   .hero__overlay {
     display: flex;
     flex-direction: column;
@@ -100,18 +104,36 @@ const Header = styled.header`
       font-size: 4vw;
     `}
   }
-  .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5rem;
-    background-color: ${({ theme }) => theme.colors.trans_back};
-    color: ${({ theme }) => theme.colors.text};
-    margin: 0;
-    padding: 0;
-    ${SuperQuery().minWidth.sm.css`
-      height: 6rem;
-    `}
+
+  
+`
+
+const Navigation = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  background-color: ${({ theme }) => theme.colors.trans_back};
+  color: ${({ theme }) => theme.colors.text};
+  margin: 0;
+  padding: 0;
+  ${SuperQuery().minWidth.sm.css`
+    height: 6rem;
+  `}
+  &.absolute {
+  }
+  &.fixed {
+    position: fixed;
+    top: 0vh;
+    left: 0;
+    right: 0;
+    z-index:1500;
+  }
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    color: inherit;
   }
   .navigation__logo {
     flex: 0 1 auto;
@@ -128,10 +150,10 @@ const Header = styled.header`
     padding: 0 1rem 0 4rem;
     ${SuperQuery().minWidth.sm.css`
       font-size: 3vw;
-       padding: 0 1rem 0 4.5rem;
+      padding: 0 1rem 0 4.5rem;
     `}
     ${SuperQuery().minWidth.md.css`
-       padding: 0 1rem 0 5rem;
+      padding: 0 1rem 0 5rem;
     `}
   }
 `
