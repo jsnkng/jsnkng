@@ -11,6 +11,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
   }, [])

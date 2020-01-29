@@ -83,9 +83,10 @@ const collection = [
   {
     disciplineTitle: 'Design',
     disciplineName: 'Design',
-    collectionTitle: 'PXL8N',
-    collectionName: 'PXL8N',
+    collectionTitle: 'oh',
+    collectionName: 'oh',
     images: [
+      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Product Design' },
       { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Product Design' },
     ]
   },
@@ -110,14 +111,20 @@ const collection = [
   {
     disciplineTitle: 'Web',
     disciplineName: 'Web',
-    collectionTitle: 'PXL8N',
+    collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
     images: [
-      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'Product Page', name: 'Product_Page_2', path: '/gallery/PXL8N/Product_Page_2', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'Product Page', name: 'Product_Page_3', path: '/gallery/PXL8N/Product_Page_3', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'Product Page', name: 'Product_Page_4', path: '/gallery/PXL8N/Product_Page_4', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'Product Page', name: 'Product_Page_5', path: '/gallery/PXL8N/Product_Page_5', ratio: '3:2', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Home Page', name: 'Home_Page_1', path: '/gallery/PXL8N/Home_Page_1', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Home Page', name: 'Home_Page_2', path: '/gallery/PXL8N/Home_Page_2', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Home Page', name: 'Home_Page_3', path: '/gallery/PXL8N/Home_Page_3', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Home Page', name: 'Home_Page_4', path: '/gallery/PXL8N/Home_Page_4', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Home Menu', name: 'Home_Page_Menu', path: '/gallery/PXL8N/Home_Page_Menu', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Catalog Page', name: 'Catalog_View_1', path: '/gallery/PXL8N/Catalog_View_1', ratio: '13:24', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Product Page', name: 'Product_Page_2', path: '/gallery/PXL8N/Product_Page_2', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Product Page', name: 'Product_Page_3', path: '/gallery/PXL8N/Product_Page_3', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Product Page', name: 'Product_Page_4', path: '/gallery/PXL8N/Product_Page_4', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
+      { title: 'PXL∞N Product Page', name: 'Product_Page_5', path: '/gallery/PXL8N/Product_Page_5', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
     ]
   },
   {

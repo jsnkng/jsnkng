@@ -40,9 +40,11 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
 
   useEffect(() => {
     Router.events.on('routeChangeStart', url => {
+      // setShowBurgerMenu(false)
       setIsMenuOpen(false)
     })
     Router.events.on('routeChangeComplete', url => { 
+      // setShowBurgerMenu(true)
       gtag.pageview(url)
     })
     Router.events.on('routeChangeError', () => {
@@ -64,7 +66,7 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
         />
         <div id='inner__wrapper'>
           <PageTransition
-            timeout={200}
+            timeout={500}
             classNames="page-transition">
               <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
           </PageTransition>
