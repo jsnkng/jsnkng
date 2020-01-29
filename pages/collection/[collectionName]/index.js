@@ -58,7 +58,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, images, themeN
             {
             pictures.slice(0).map((item, index) => {
               return (
-              <Col__Decorated className='image__thumb' xs={12} sm={12} md={6} lg={4} key={index+item.path}>
+              <Col__Decorated className='image__thumb' xs={12} sm={12} md={4} lg={3} key={index+item.path}>
                 <Banner
                     headline={``}
                     title={item.title}
@@ -111,10 +111,10 @@ const Content = styled.main`
   position: relative;
 
   ${SuperQuery().minWidth.md.css`
-    height: 50vw;
+    height: 33.33vw;
   `}
   ${SuperQuery().minWidth.lg.css`
-    height: 33.33vw;
+    height: 25vw;
   `}
   
 }

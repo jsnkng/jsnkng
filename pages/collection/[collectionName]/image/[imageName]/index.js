@@ -7,6 +7,7 @@ import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
+import { useSwipeable, Swipeable } from 'react-swipeable'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
@@ -48,15 +49,41 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     forceCheck()
   })
 
+  const handleLeftSwipe = () => {
+
+    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[nextIdx].name}`)
+  }
+  const handleRightSwipe = () => {
+    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[prevIdx].name}`)
+  }
+  const [showBackground, setShowBackground] = useState(false)
+  const backgroundHide = () => {
+    setShowBackground(false)
+    console.log('backgroundHide')
+  }
+  const backgroundShow = () => {
+    setShowBackground(true)
+    console.log('backgroundShow')
+  }
+  const handlers = useSwipeable({
+    onSwipedLeft: handleLeftSwipe,
+    onSwipedRight: handleRightSwipe,
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  })
+
   if (!loaded) {
     return null
   } else {
     return (
-    <>
+    <div {...handlers}>
     <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
     <Content verticalHeight={verticalHeight}>
+      <BackgroundOverlay 
+        showBackground={showBackground}
+        onClick={backgroundHide} />
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
           heroHeight='77vh'
@@ -73,46 +100,50 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
           
              <Col__Decorated xs={12}>
               <LazyLoad offset={100}>
-                <div className='item__nav'>
-                  <Link 
-                    scroll={false} 
-                    href={`/collection/[collectionName]/image/[imageName]`} 
-                    as={`/collection/${collectionName}/image/${images[prevIdx].name}`}
+                  <ResponsiveImage 
+                   onClick={backgroundShow}
+                    verticalHeight={verticalHeight} 
+                    backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} 
                   >
-                    <a>
-                      <div className='item__prev'>
-                        <ArrowLeft />
-                      </div>
-                    </a>
-                  </Link>
-                  <Link 
-                    scroll={false} 
-                    href={`/collection/[collectionName]/image/[imageName]`} 
-                    as={`/collection/${collectionName}/image/${images[nextIdx].name}`}
-                  >
-                    <a>
-                      <div className='item__next'>
-                        <ArrowRight />
-                      </div>
-                    </a>
-                  </Link>
-                </div>
-                <ResponsiveImage 
-                  verticalHeight={verticalHeight} 
-                  backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} 
-                />
-                <div className='item__meta'>
-                  <div className='item__details'>
-                    <div className='item__title'>{image.title}</div> 
-                    <div className='item__year'>{image.year}</div>
-                    <div className='item__tags'>{image.tags}</div>
+
+                  <div className='item__nav'>
+                    <Link 
+                      scroll={false} 
+                      href={`/collection/[collectionName]/image/[imageName]`} 
+                      as={`/collection/${collectionName}/image/${images[prevIdx].name}`}
+                    >
+                      <a>
+                        <div className='item__prev'>
+                          <ArrowLeft />
+                        </div>
+                      </a>
+                    </Link>
+                    <Link 
+                      scroll={false} 
+                      href={`/collection/[collectionName]/image/[imageName]`} 
+                      as={`/collection/${collectionName}/image/${images[nextIdx].name}`}
+                    >
+                      <a>
+                        <div className='item__next'>
+                          <ArrowRight />
+                        </div>
+                      </a>
+                    </Link>
                   </div>
-                  <div className='item__shop'>
-                    <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
-                      Shop Collection
-                    </a>
+
+                  </ResponsiveImage>
+                  <div className='item__meta'>
+                    <div className='item__details'>
+                      <div className='item__title'>{image.title}</div> 
+                      <div className='item__year'>{image.year}</div>
+                      <div className='item__tags'>{image.tags}</div>
+                    </div>
+                    <div className='item__shop'>
+                      <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                        Shop
+                      </a>
+                    </div>
                   </div>
-                </div>
               </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
@@ -123,7 +154,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
       </Footer__Wrapper>
-    </>
+    </div>
     )
   }
 }
@@ -170,18 +201,21 @@ const Content = styled.main`
     }
   }
   .item__nav {
+    display:none;
     position: absolute;
-    top: 0;
+    bottom: 1rem;
     left: 0;
-    display: flex;
     justify-content: space-between;
-    align-items:flex-end;
-    height: calc(${props => props.verticalHeight}vw - 2rem);
+    align-items:flex-start;
     width: 100%;
     padding: 1rem;
     color: ${ ({ theme }) => theme.colors.text };
-    z-index:1000;
-
+    z-index:  -1;
+    ${SuperQuery().minWidth.md.css`
+      z-index:  1200;
+    display:flex;
+    `}
+    
     a { 
       color: ${ ({ theme }) => theme.colors.color_two };  
     }
@@ -210,6 +244,7 @@ const Content = styled.main`
   }
 
   .item__meta {
+      z-index:  1220;
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
@@ -222,13 +257,19 @@ const Content = styled.main`
     margin: 0 1rem;
   }
   .item__title {
-    font-size: 2rem;
+    font-size: 1.25rem;
     line-height: 1;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 2rem;
+    `}
   }
   .item__year,
   .item__tags {
-    font-size: 1rem;
+    font-size: 0.75rem;
     line-height: 1.2;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 1rem;
+    `}
   }
   
   .item__shop {
@@ -257,15 +298,19 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 const BackgroundOverlay = styled.div`
-  position: relative;
+  display: ${props => props.showBackground ? 'block' : 'none'}; 
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100vw;
-  z-index: 1;
-  ${'' /* background-color: ${ ({ theme }) => theme.colors.image_overlay_light }; */}
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.8);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 `
-
 const ResponsiveImage = styled.div`
   position: relative;
   top: 0;
@@ -278,9 +323,11 @@ const ResponsiveImage = styled.div`
   height: calc(${props => props.verticalHeight}vw - 2rem); 
   padding: 1rem;
   margin: 1rem 0;
-  z-index: 10;
-  -webkit-animation: myfirst 1s;
-  animation: myfirst 1s;
+  z-index: 1010;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 `
 
 const EnlargedImages = styled.div`
