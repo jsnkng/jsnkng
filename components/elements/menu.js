@@ -20,9 +20,19 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
         outerContainerId={'outer__wrapper'}
         pageWrapId={'inner__wrapper'}>
         
-        <Accordion allowZeroExpanded={true} allowMultipleExpanded={true}>
+        {/* <Accordion allowZeroExpanded={true} allowMultipleExpanded={true}> */}
 
-          <AccordionItem>
+        
+          <span>Art</span>
+        
+          <ul className='navigation__links'>
+            <li><Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}><a>Mythologies</a></Link></li>
+            <li><Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}><a>Nature Morté</a></Link></li>
+            <li><Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}><a>Starlight Meadows</a></Link></li>
+          </ul>
+       
+
+          {/* <AccordionItem>
             <AccordionItemHeading>
               <AccordionItemButton>
                 <span>Art</span>
@@ -35,7 +45,7 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
                 <li><Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}><a>Starlight Meadows</a></Link></li>
               </ul>
             </AccordionItemPanel>
-          </AccordionItem>
+          </AccordionItem> */}
 
           {/* <AccordionItem>
             <AccordionItemHeading>
@@ -69,7 +79,7 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
               </ul>
             </AccordionItemPanel>
           </AccordionItem> */}
-          </Accordion>
+          {/* </Accordion> */}
 
     </Menu> 
   </Menu__Wrapper>
@@ -83,20 +93,23 @@ const Menu__Wrapper = styled.div`
     outline: none;
     border: none;
     list-style-type: none;
-    padding: 0 0 0 0.5rem;
-    margin: 0.5rem 0;
+    padding: 0 0 0 1rem;
+    margin: 0;
     font-size: 1.5rem;
     li {
       cursor: pointer;
       color: ${ ({ theme }) => theme.colors.color_two};
-      padding: 1rem 0;
+      padding: 0.5rem 0;
       a {
         text-decoration: none;
         color: ${ ({ theme }) => theme.colors.color_two};
       }
     }
   }
-
+span {
+  font-size: 2rem;
+        color: ${ ({ theme }) => theme.colors.text};
+}
 .accordion {
     border: none;
     outline: none;

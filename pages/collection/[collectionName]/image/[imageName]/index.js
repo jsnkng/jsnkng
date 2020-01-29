@@ -326,10 +326,14 @@ const ResponsiveImage = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   height: calc(${props => props.verticalHeight}vw - 2rem); 
-  padding: 1rem;
   margin: 1rem 0;
   z-index: 600; 
+  -webkit-transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -ms-transition: height 0.5s ease-in-out;
+  -o-transition: height 0.5s ease-in-out;
   &.showBackground {
+    height: ${props => props.verticalHeight}vw; 
     z-index: 1200;
   }
 `

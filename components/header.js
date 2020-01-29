@@ -155,13 +155,12 @@ const Navigation = styled.nav`
   }
   .navigation__title {
     flex: 0 1 auto;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 400;
     letter-spacing: -0.05em;
-    padding: 0 1rem 0 4rem;
+    padding: 0 1rem 0 4.5rem;
     ${SuperQuery().minWidth.sm.css`
       font-size: 3vw;
-      padding: 0 1rem 0 4.5rem;
     `}
     ${SuperQuery().minWidth.md.css`
       padding: 0 1rem 0 5rem;
