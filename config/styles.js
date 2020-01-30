@@ -139,10 +139,6 @@ const GlobalStyle = createGlobalStyle`
   .fixed  .bm-burger-button {
     position: fixed;
     top: -0.75rem;
-    ${SuperQuery().minWidth.sm.css`
-    top: -1.25rem;
-    left: 2%;
-    `}
   }
 
   .none  .bm-burger-button {
@@ -153,16 +149,11 @@ const GlobalStyle = createGlobalStyle`
   .bm-burger-button {
     position: absolute;
     top: 77vh;
-    left: 1rem;
     height: 1.5rem;
     width: 2.25rem;
     padding: 0.875rem 0;
-    margin: 1.5rem 0;
+    margin: 1.5rem ;
     background: ${({ theme }) => theme.colors.background};
-    ${SuperQuery().minWidth.sm.css`
-      left: 2%;
-      margin: 2rem 0;
-    `}
   }
 
   /* Color/shape of burger icon bars */

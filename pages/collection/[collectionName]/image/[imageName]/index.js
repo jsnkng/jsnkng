@@ -18,7 +18,7 @@ import Footer from '../../../../../components/footer'
 const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
-    window.scrollTo(0, 700)
+    window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
   }, [])
@@ -92,7 +92,6 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     preventDefaultTouchmoveEvent: true,
     trackMouse: true
   })
-
   if (!loaded) {
     return null
   } else {
@@ -101,7 +100,8 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
-    <Content verticalHeight={verticalHeight}>
+    <Content verticalHeight={verticalHeight}
+          containerBackground={`/gallery/${collectionName}/${imageName}/image_iii.jpg`}>
       <BackgroundOverlay 
         className={showBackground ? 'showBackground' : ''}
         onClick={backgroundHide} 
@@ -117,7 +117,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
             as: `/collection/${collectionName}/` 
           }}
         />
-        <Grid fluid={true}>
+        <Grid className="container" fluid={true}>
           <Row__Decorated className='reversible'>
             <Col__Decorated xs={12} lg={9}>
               <ResponsiveImage 
@@ -156,11 +156,14 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
               <div className='item__year'>{image.year}</div>
               <div className='item__tags'>{image.tags}</div>
             </div>
-            <div className='item__shop'>
-              <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
-                Shop
-              </a>
-            </div>
+            {
+              image.shop &&
+              <div className='item__shop'>
+                <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                  Shop
+                </a>
+              </div>
+            }
           </div>
         </Col__Decorated>
       </Row__Decorated>
@@ -192,7 +195,18 @@ Page.getInitialProps = async ({ req, query }) => {
 
 const Content = styled.main`
 
-
+  .container {
+    background: ${ ({ theme }) => theme.colors.image_overlay_gradient };  
+    padding-bottom: 3rem;
+    ${'' /* height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background-image: url(${props => props.containerBackground});
+    background-size: cover;
+    background-opacity: 0.1;
+    background-position: center center;
+    background-repeat: no-repeat; */}
+  }
   .item__meta {
     display: flex;
     justify-content: space-between;
@@ -229,7 +243,7 @@ const Content = styled.main`
   .item__shop {
     margin: 4rem 0;
     line-height: 1.2;
-    background: ${ ({ theme }) => theme.colors.text };
+    background: ${ ({ theme }) => theme.colors.color_two };
     padding: 0.5rem;
     cursor: pointer;
     a {
@@ -273,6 +287,7 @@ const BackgroundOverlay = styled.div`
   z-index: 1100;
   opacity: 0;
   background-color: rgba(0,0,0,0.8);
+  background-image: url(${props => props.backgroundURL});
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -280,6 +295,7 @@ const BackgroundOverlay = styled.div`
   &.showBackground {
     display: block;
     opacity: 1;
+  background-color: rgba(0,0,0,0.8);
   }
 `
 const ResponsiveImage = styled.div`

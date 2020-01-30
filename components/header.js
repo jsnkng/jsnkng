@@ -129,7 +129,7 @@ const Navigation = styled.nav`
   z-index: 800;
   padding: 0;
   ${SuperQuery().minWidth.sm.css`
-    height: 6rem;
+    height: 5rem;
   `}
   &.absolute {
   }
