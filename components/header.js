@@ -5,13 +5,13 @@ import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 
 const Component = ({ 
-        heroBackground, 
-        heroHeight, 
-        heroTitle, 
-        heroSubtitle, 
-        parentTitle,
-        parentLink
-      }) => {
+    heroBackground, 
+    heroHeight, 
+    heroTitle, 
+    heroSubtitle, 
+    parentTitle,
+    parentLink
+  }) => {
 
   const windowDimension = useWindowDimensions()
   return (
@@ -89,8 +89,8 @@ const Header = styled.header`
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 4%;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 8vw;
+    ${SuperQuery().minWidth.md.css`
+      font-size: 3rem;
     `}
   }
   .hero__subtitle {
@@ -102,7 +102,7 @@ const Header = styled.header`
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 4% 0 1%;
     ${SuperQuery().minWidth.sm.css`
-      font-size: 4vw;
+      font-size: 2rem;
     `}
   }
 
@@ -148,19 +148,21 @@ const Navigation = styled.nav`
   }
   .navigation__logo {
     flex: 0 1 auto;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.1;
     font-weight: 700;
     letter-spacing: -0.05em;
     padding: 0 1rem;
   }
   .navigation__title {
     flex: 0 1 auto;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.1;
     font-weight: 400;
     letter-spacing: -0.05em;
     padding: 0 1rem 0 4.5rem;
     ${SuperQuery().minWidth.sm.css`
-      font-size: 3vw;
+      font-size: 1.5rem;
     `}
     ${SuperQuery().minWidth.md.css`
       padding: 0 1rem 0 5rem;

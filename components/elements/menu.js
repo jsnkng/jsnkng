@@ -31,12 +31,13 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
             <li><Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'><a>Starlight Meadows</a></Link></li>
           </ul>
        
-          <span>Web UX</span>
+          {/* <span>Web UX</span>
           <ul className='navigation__links'>
+                <li><Link href='/web/[collectionName]/' as='/web/National_Park_Guides/'><a>National Park Guides</a></Link></li>
                 <li><Link href='/web/[collectionName]/' as='/web/PXL8N/'><a>PXL∞N</a></Link></li>
-                {/* <li><Link href='/web/[collectionName]/' as='/web/Nature_Morte/' scroll={false}><a>Nature Morté</a></Link></li> */}
-                {/* <li><Link href='/web/[collectionName]/' as='/web/Starlight_Meadows/' scroll={false}><a>Starlight Meadows</a></Link></li> */}
-              </ul>
+                <li><Link href='/web/[collectionName]/' as='/web/Nature_Morte/' scroll={false}><a>Nature Morté</a></Link></li>
+                <li><Link href='/web/[collectionName]/' as='/web/Starlight_Meadows/' scroll={false}><a>Starlight Meadows</a></Link></li>
+              </ul> */}
           {/* <AccordionItem>
             <AccordionItemHeading>
               <AccordionItemButton>
@@ -100,7 +101,7 @@ const Menu__Wrapper = styled.div`
     list-style-type: none;
     padding: 0 0 0 1rem;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     li {
       cursor: pointer;
       color: ${ ({ theme }) => theme.colors.color_two};
@@ -113,7 +114,7 @@ const Menu__Wrapper = styled.div`
   }
 span {
   outline: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: ${ ({ theme }) => theme.colors.text};
 }
 .accordion {

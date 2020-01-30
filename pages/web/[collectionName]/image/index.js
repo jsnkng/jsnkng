@@ -9,8 +9,8 @@ import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 import { useSwipeable, Swipeable } from 'react-swipeable'
 import LazyLoad, { forceCheck } from 'react-lazyload'
-import Header from '../../../../../components/header'
-import Footer from '../../../../../components/footer'
+import Header from '../../../../components/header'
+import Footer from '../../../../components/footer'
 
 
 const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
@@ -51,11 +51,11 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
   const handleLeftSwipe = () => {
 
     setShowBackground(true)
-    Router.push(`/web/[collectionName]/image/[imageName]`, `/web/${collectionName}/image/${images[nextIdx].name}`)
+    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[nextIdx].name}`)
   }
   const handleRightSwipe = () => {
     setShowBackground(true)
-    Router.push(`/web/[collectionName]/image/[imageName]`, `/web/${collectionName}/image/${images[prevIdx].name}`)
+    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[prevIdx].name}`)
   }
   const [showBackground, setShowBackground] = useState(false)
   const backgroundHide = () => {
@@ -97,8 +97,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
         <Grid fluid={true}>
           <Row__Decorated>
           
-             <Col__Decorated xs={12}>
-              <LazyLoad offset={100}>
+             <Col__Decorated xs={12} md={8}>
                   <ResponsiveImage 
                     className={showBackground ? 'showBackground' : ''}
                     onClick={backgroundShow}
@@ -130,15 +129,21 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
                   </div>
 
                   </ResponsiveImage>
+            </Col__Decorated>
+             <Col__Decorated xs={12} md={4}>
+
                   <div className='item__meta'>
                     <div className='item__details'>
                       <div className='item__title'>{image.title}</div> 
                       <div className='item__year'>{image.year}</div>
                       <div className='item__tags'>{image.tags}</div>
                     </div>
-                    
+                    <div className='item__shop'>
+                      <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                        Shop
+                      </a>
+                    </div>
                   </div>
-              </LazyLoad>
             </Col__Decorated>
           </Row__Decorated>
           
@@ -159,7 +164,7 @@ export default Page
 Page.getInitialProps = async ({ req, query }) => {
   const { collectionName, imageName } = query
   const { origin }  = absoluteUrl(req)
-  const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
+  const collectionResult = await fetch(`${origin}/api/web/${collectionName}`)
   const result = await collectionResult.json()
   result.imageName = imageName
   result.collectionName = collectionName

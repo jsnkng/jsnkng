@@ -61,6 +61,8 @@ const Element = ({ headline, title, subtitle, name, backgroundURL, backgroundHov
         backgroundURL={backgroundURL}
         backgroundHoverURL={backgroundHoverURL}
         onClick={handleClick}
+        onFocus={handleTouchStart}
+        onBlur={handleTouchEnd}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -106,8 +108,7 @@ const Banner = styled.section`
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
-
-  &.touch {
+  &:active, &.touch {
     .header,
     .header__overlay {
       opacity: 1;

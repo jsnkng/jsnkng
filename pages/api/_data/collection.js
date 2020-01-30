@@ -118,10 +118,8 @@ const collection = [
       { title: 'PXL∞N Home Page', name: 'Home_Page_2', path: '/gallery/PXL8N/Home_Page_2', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Home Page', name: 'Home_Page_3', path: '/gallery/PXL8N/Home_Page_3', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Home Page', name: 'Home_Page_4', path: '/gallery/PXL8N/Home_Page_4', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Home Menu', name: 'Home_Page_Menu', path: '/gallery/PXL8N/Home_Page_Menu', ratio: '13:23', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Catalog Page', name: 'Catalog_View_1', path: '/gallery/PXL8N/Catalog_View_1', ratio: '13:24', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Product Page', name: 'Product_Page_2', path: '/gallery/PXL8N/Product_Page_2', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Product Page', name: 'Product_Page_3', path: '/gallery/PXL8N/Product_Page_3', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Product Page', name: 'Product_Page_4', path: '/gallery/PXL8N/Product_Page_4', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
       { title: 'PXL∞N Product Page', name: 'Product_Page_5', path: '/gallery/PXL8N/Product_Page_5', ratio: '13:32', year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
@@ -133,7 +131,8 @@ const collection = [
     collectionTitle: 'National Park Guides',
     collectionName: 'National_Park_Guides',
     images: [
-      { title: 'National Park Guides', name: 'National_Park_Guides', path: '/gallery/Web/National_Park_Guides', ratio: '3:2', year: '2020', tags: '' },
+      { title: 'National Park Detail Page (Desktop/Light)', name: 'Park_Detail_Guide_Large_Light', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Light', ratio: '9:83', year: '2020', tags: 'React' },
+      { title: 'National Park Detail Page (Desktop/Dark)', name: 'Park_Detail_Guide_Large_Dark', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Dark', ratio: '9:41', year: '2020', tags: 'React' },
     ]
   },
   {

@@ -14,16 +14,16 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
+   
   }, [])
   useEffect(() => {
     forceCheck()
   })
-  
   if (!loaded) {
     return null
   } else {
     return (
-      <>
+      <div>
         <Head>
           <title>JSNKNG</title>
         </Head>
@@ -35,13 +35,13 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           heroSubtitle={``}
           parentLink={{
             href: `/`, 
-            as: `/` 
+            as: `/`
           }}
         />
         <Footer__Wrapper>
           <Footer themeName={themeName} setThemeName={setThemeName} />
         </Footer__Wrapper>
-      </>
+      </div>
     )
   }
 }

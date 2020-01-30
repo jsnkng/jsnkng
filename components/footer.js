@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Toggle from 'react-toggle'
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { Icon } from 'react-icons-kit'
+import {linkedinSquare} from 'react-icons-kit/fa/linkedinSquare'
+import {instagram} from 'react-icons-kit/fa/instagram'
+import {githubSquare} from 'react-icons-kit/fa/githubSquare'
 
 const Component = ({ themeName, setThemeName }) => {
 
@@ -21,13 +24,13 @@ const setTheme = () => {
       <div className='bottom__social'>
         <div className='bottom__icons'>
           <a href='https://www.linkedin.com/in/jsnkng/' target='_blank'>
-            <FaLinkedin />
+          <Icon size={'1.5rem'} icon={linkedinSquare}/>
           </a>
           <a href='https://github.com/jsnkng' target='_blank'>
-            <FaGithub />
+          <Icon size={'1.5rem'} icon={githubSquare}/>
           </a>
           <a href='https://www.instagram.com/jsnkng/' target='_blank'>
-            <FaInstagram />
+          <Icon size={'1.5rem'} icon={instagram}/>
           </a>
         </div>
         <p>© 2020 Jason King. All rights reserved.</p>
@@ -48,7 +51,7 @@ const Footer = styled.footer`
   justify-content: space-between;
   height: 5rem;
   padding: 1rem;
-  margin-top: 10rem;
+  margin-top: 6rem;
   background-color: ${({ theme }) => theme.colors.box_background };
   .bottom__credit {
     display: flex;
