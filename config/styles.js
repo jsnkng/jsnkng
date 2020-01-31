@@ -148,7 +148,7 @@ const GlobalStyle = createGlobalStyle`
   /* Position and sizing of burger button */
   .bm-burger-button {
     position: absolute;
-    top: 77vh;
+    top: 90vh;
     height: 1.5rem;
     width: 2.25rem;
     padding: 0.875rem 0;

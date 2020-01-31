@@ -47,7 +47,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, images, themeN
       <Content>
         <Header 
           heroBackground={`${images[heroIdx].path}/image_i.jpg`}
-          heroHeight={`77vh`}
+          heroHeight={`90vh`}
           heroTitle={collectionTitle} 
           heroSubtitle={``}
           parentTitle={disciplineTitle}

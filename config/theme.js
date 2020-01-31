@@ -29,7 +29,7 @@ const themes = {
     trans_back: 'rgba(0,0,0,0.8)',
     home_text: '#cfcfcf',
     dim_text: '#999999',
-    home_text_shadow: 'rgba(0,0,0,0.45)',
+    home_text_shadow: 'rgba(0,0,0,0.75)',
     image_overlay_light: 'rgba(0,0,0,0.4)',
     image_overlay_opaque: 'rgba(0,0,0,0.55)',
     image_overlay_gradient: 'linear-gradient(180deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0) 100%)',

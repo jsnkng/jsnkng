@@ -39,9 +39,9 @@ const Component = ({
           </a>
         </Link>
         <Link href='/' as='/' scroll={false}>
-          <a className='navigation__logo'>
-            JASON KING
-          </a>
+          <div className='navigation__logo'>
+            <a href='#'><strong><span>JSN</span><br />KNG</strong><br />2020</a>
+          </div>
         </Link>
     </Navigation>
   </>
@@ -51,7 +51,6 @@ const Component = ({
 export default Component
 
 const Header = styled.header`
-  
   .hero {
     position: relative;
     top: 0;
@@ -64,9 +63,7 @@ const Header = styled.header`
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-
   }
-
   .hero__overlay {
     display: flex;
     flex-direction: column;
@@ -105,7 +102,6 @@ const Header = styled.header`
       font-size: 2rem;
     `}
   }
-
   .navigation__spacer.absolute {
     position: relative;
     display: none;
@@ -115,9 +111,7 @@ const Header = styled.header`
     display: block;
     height: 5rem;
   }
-  
 `
-
 const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -147,12 +141,20 @@ const Navigation = styled.nav`
     color: inherit;
   }
   .navigation__logo {
-    flex: 0 1 auto;
-    font-size: 1.25rem;
-    line-height: 1.1;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    padding: 0 1rem;
+    display: flex;
+    font-size: 1rem;
+    line-height: .8;
+    align-items:center;
+    margin-right: 1.5rem;
+    span {
+      font-size: 1.125rem;
+    }
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      color: inherit;
+    }
   }
   .navigation__title {
     flex: 0 1 auto;

@@ -22,6 +22,9 @@ const setTheme = () => {
           onChange={setTheme} />
       </div>
       <div className='bottom__social'>
+        <p>© 2020 Jason King. All rights reserved.</p>
+      </div>
+      <div className='bottom__social'>
         <div className='bottom__icons'>
           <a href='https://www.linkedin.com/in/jsnkng/' target='_blank'>
           <Icon size={'1.5rem'} icon={linkedinSquare}/>
@@ -33,11 +36,10 @@ const setTheme = () => {
           <Icon size={'1.5rem'} icon={instagram}/>
           </a>
         </div>
-        <p>© 2020 Jason King. All rights reserved.</p>
       </div>
-      <div className='bottom__credit'>
+      {/* <div className='bottom__credit'>
         <a href='#'><strong><span>JSN</span><br />KNG</strong><br />2020</a>
-      </div>
+      </div> */}
     </Footer>
   )
 }
@@ -50,9 +52,8 @@ const Footer = styled.footer`
   align-items: center;
   justify-content: space-between;
   height: 5rem;
-  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.box_background };
-  .bottom__credit {
+  ${'' /* .bottom__credit {
     display: flex;
     font-size: 0.8rem;
     line-height: .75;
@@ -66,19 +67,22 @@ const Footer = styled.footer`
       border: none;
       color: inherit;
     }
-  }
+  } */}
   .bottom__social {
+    margin-right: 1rem;
     text-align: center;
     a {
       color: ${({ theme }) => theme.colors.text };
-      padding: 0.5rem;
     }
     p {
       font-size: 0.75rem;
+      line-height: 1.1;
     }
   }
   .bottom__toggle{
-    width: 52px;
+    width: 75px;
+    height: 25px;
+    margin-left: 1rem;
   }
 }
 

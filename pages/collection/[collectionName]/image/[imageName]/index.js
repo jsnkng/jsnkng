@@ -108,7 +108,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
        />
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
-          heroHeight='77vh'
+          heroHeight={'90vh'}
           heroTitle={image.title} 
           heroSubtitle={image.year} 
           parentTitle={collectionTitle}

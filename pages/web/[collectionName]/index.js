@@ -78,6 +78,20 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, images, themeN
             })
             }
             </Row__Decorated>
+            <Row__Decorated>
+            <Col__Decorated xs={12} md={4}>
+
+            </Col__Decorated>
+              <Col__Decorated xs={12} md={8}>
+              <Iframe url="http://www.youtube.com/embed/xDMP3i36naA"
+                width="450px"
+                height="450px"
+                id="myId"
+                className="myClassname"
+                display="initial"
+                position="relative"/>
+              </Col__Decorated>
+            </Row__Decorated>
           </Grid>
         </Content>
         <Footer__Wrapper>

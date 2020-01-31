@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { slide as Menu } from 'react-burger-menu'
+import SuperQuery from '@themgoncalves/super-query'
 import styled from 'styled-components'
 import {
   Accordion,
@@ -23,21 +24,33 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
         {/* <Accordion allowZeroExpanded={true} allowMultipleExpanded={true}> */}
 
         
+          <span>Dev</span>
+          <ul className='navigation__links'>
+            <li><Link href='/natparguides_dev'><a>National Park Guides</a></Link></li>
+            {/* <li>2017 — <Link href='/pkd'><a>Disease Info Site</a></Link></li>
+            <li>2017 — <Link href='/veeva'><a>Sales Rep IVA</a></Link></li>
+            <li>2016 — <Link href='/naftin'><a>Patient/HCP Site</a></Link></li>
+            <li>2016 — <Link href='/ihateseizures'><a>Patient Info Site</a></Link></li>
+            <li>2015 — <Link href='/actelion'><a>HCP Hybrid Mobile</a></Link></li> */}
+          </ul>
+
+          <span>UX/UI</span>
+          <ul className='navigation__links'>
+            <li><Link href='/natparguides'><a>National Park Guides</a></Link></li>
+            <li><Link href='/halterscycles'><a>Halter’s Cycles</a></Link></li>
+            {/* <li>2019 — <Link href='/atkinscre'><a>Atkins CRE</a></Link></li>
+            <li>2019 — <Link href='/adcycle'><a>AdCycle</a></Link></li>
+            <li>2018 — <Link href='/hjadvisors'><a>Hugh Johnson Advisors</a></Link></li> */}
+          </ul>
+
           <span>Art</span>
-        
           <ul className='navigation__links'>
             <li><Link href='/collection/[collectionName]/' as='/collection/Mythologies/'><a>Mythologies</a></Link></li>
             <li><Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/'><a>Nature Morté</a></Link></li>
             <li><Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'><a>Starlight Meadows</a></Link></li>
           </ul>
        
-          {/* <span>Web UX</span>
-          <ul className='navigation__links'>
-                <li><Link href='/web/[collectionName]/' as='/web/National_Park_Guides/'><a>National Park Guides</a></Link></li>
-                <li><Link href='/web/[collectionName]/' as='/web/PXL8N/'><a>PXL∞N</a></Link></li>
-                <li><Link href='/web/[collectionName]/' as='/web/Nature_Morte/' scroll={false}><a>Nature Morté</a></Link></li>
-                <li><Link href='/web/[collectionName]/' as='/web/Starlight_Meadows/' scroll={false}><a>Starlight Meadows</a></Link></li>
-              </ul> */}
+
           {/* <AccordionItem>
             <AccordionItemHeading>
               <AccordionItemButton>
@@ -99,13 +112,17 @@ const Menu__Wrapper = styled.div`
     outline: none;
     border: none;
     list-style-type: none;
-    padding: 0 0 0 1rem;
+    padding: 0;
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
+
+    ${SuperQuery().minWidth.lg.css`
+      font-size: 1.25rem;
+    `}
     li {
       cursor: pointer;
       color: ${ ({ theme }) => theme.colors.color_two};
-      padding: 0.5rem 0;
+      padding: 0.125rem 0 0 0;
       a {
         text-decoration: none;
         color: ${ ({ theme }) => theme.colors.color_two};
@@ -116,6 +133,9 @@ span {
   outline: none;
   font-size: 1.5rem;
   color: ${ ({ theme }) => theme.colors.text};
+}
+span.bm-item {
+  margin-top: 1rem;
 }
 .accordion {
     border: none;
@@ -129,7 +149,7 @@ span {
     color: ${({ theme }) => theme.colors.color_one};
     font-size: 1.75rem;
     text-indent: 0.5rem;
-    padding:  1rem 0 1rem 0.5rem;
+    padding:  1rem 0 0.5rem 0.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.offbackground};
     outline: 0;
     cursor: pointer;

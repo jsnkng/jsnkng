@@ -133,29 +133,6 @@ const Content = styled.main`
   `}
   
 }
-  ${'' /* .hero__background {
-    height: 85vh;
-  }
-  .hero__title {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    margin: 40vh auto;
-    padding: 1rem;
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 200;
-    text-align: center;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 3.5rem;
-    `}
-    ${SuperQuery().minWidth.md.css`
-      font-size: 4.5rem;
-    `}
-  } */}
-
-`
-
 const Row__Decorated = styled(Row)`
   width: 100%;
   margin: 0;
