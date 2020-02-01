@@ -46,6 +46,7 @@ const setTheme = () => {
 
 export default Component
 
+
 const Footer = styled.footer`
   position: relative;
   display: flex;
@@ -71,6 +72,7 @@ const Footer = styled.footer`
   .bottom__social {
     margin-right: 1rem;
     text-align: center;
+      color: ${({ theme }) => theme.colors.text };
     a {
       color: ${({ theme }) => theme.colors.text };
     }

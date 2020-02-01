@@ -3,6 +3,7 @@ import Link from 'next/link'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
+import Navigation from './navigation'
 
 const Component = ({ 
     heroBackground, 
@@ -28,22 +29,11 @@ const Component = ({
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
         </div>
       </div>
-      <div className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'navigation__spacer absolute' : 'navigation__spacer fixed' }></div>
-      
+       
     </Header>
-    <Navigation
-      className={windowDimension.scrollY < 0.8 * windowDimension.height  ? 'absolute' : 'fixed' }>
-        <Link href={parentLink.href} as={parentLink.as} scroll={false}>
-          <a className='navigation__title'>
-            {parentTitle}
-          </a>
-        </Link>
-        <Link href='/' as='/' scroll={false}>
-          <div className='navigation__logo'>
-            <a href='#'><strong><span>JSN</span><br />KNG</strong><br />2020</a>
-          </div>
-        </Link>
-    </Navigation>
+    
+     
+    <Navigation parentTitle={parentTitle} parentLink={parentLink} />
   </>
   )
 }
@@ -56,13 +46,16 @@ const Header = styled.header`
     top: 0;
     left: 0;
     width: 100%;
-    height: ${props => props.heroHeight};
+    height: 100vh;
     margin: 0;
     z-index: 5;
     background-image: url(${props => props.heroBackground});
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
+    ${SuperQuery().minWidth.sm.css`
+      height: 90vh;
+    `}
   }
   .hero__overlay {
     display: flex;
@@ -100,74 +93,6 @@ const Header = styled.header`
     margin: 0 4% 0 1%;
     ${SuperQuery().minWidth.sm.css`
       font-size: 2rem;
-    `}
-  }
-  .navigation__spacer.absolute {
-    position: relative;
-    display: none;
-    height: 5rem;
-  }
-  .navigation__spacer.fixed {
-    display: block;
-    height: 5rem;
-  }
-`
-const Navigation = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 5rem;
-  background-color: ${({ theme }) => theme.colors.trans_back};
-  color: ${({ theme }) => theme.colors.text};
-  margin: 0;
-  z-index: 800;
-  padding: 0;
-  ${SuperQuery().minWidth.sm.css`
-    height: 5rem;
-  `}
-  &.absolute {
-  }
-  &.fixed {
-    position: fixed;
-    top: 0vh;
-    left: 0;
-    right: 0;
-    height: 3.5rem;
-  }
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    color: inherit;
-  }
-  .navigation__logo {
-    display: flex;
-    font-size: 1rem;
-    line-height: .8;
-    align-items:center;
-    margin-right: 1.5rem;
-    span {
-      font-size: 1.125rem;
-    }
-    a {
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
-      color: inherit;
-    }
-  }
-  .navigation__title {
-    flex: 0 1 auto;
-    font-size: 1rem;
-    line-height: 1.1;
-    font-weight: 400;
-    letter-spacing: -0.05em;
-    padding: 0 1rem 0 4.5rem;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 1.5rem;
-    `}
-    ${SuperQuery().minWidth.md.css`
-      padding: 0 1rem 0 5rem;
     `}
   }
 `

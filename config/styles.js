@@ -7,7 +7,16 @@ const GlobalStyle = createGlobalStyle`
   *::before {
     box-sizing: border-box;
   }
+  html {
+    font-size: 16px;
 
+    ${SuperQuery().minWidth.of('1360px').css`
+      font-size: 22px;
+    `}
+    ${SuperQuery().minWidth.of('2400px').css`
+      font-size: 28px;
+    `}
+  }
   body {
     font-family: Helvetica, "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -138,7 +147,7 @@ const GlobalStyle = createGlobalStyle`
 
   .fixed  .bm-burger-button {
     position: fixed;
-    top: -0.75rem;
+    top: 0;
   }
 
   .none  .bm-burger-button {
@@ -147,13 +156,18 @@ const GlobalStyle = createGlobalStyle`
 
   /* Position and sizing of burger button */
   .bm-burger-button {
-    position: absolute;
-    top: 90vh;
+    position: fixed;
+    top: 0;
     height: 1.5rem;
     width: 2.25rem;
     padding: 0.875rem 0;
-    margin: 1.5rem ;
+    margin: 1rem;
     background: ${({ theme }) => theme.colors.background};
+
+    ${SuperQuery().minWidth.sm.css`
+    position: absolute;
+      top: 90vh;
+    `}
   }
 
   /* Color/shape of burger icon bars */
@@ -215,6 +229,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 10%;
     outline: none;
     width: 100%;
+  }
+
+  .bm-item.menu {
+    outline: none;
   }
 
   /* Individual item */

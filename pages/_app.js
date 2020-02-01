@@ -50,7 +50,7 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
     Router.events.on('routeChangeError', () => {
     })
   }, [])
-
+ 
   
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
@@ -60,8 +60,8 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
           right={false} 
           isMenuOpen={isMenuOpen} 
           handleMenuStateChange={handleMenuStateChange} 
-          className={showBurgerMenu && windowDimension.scrollY < 0.8 * windowDimension.height ? 'absolute' : 
-                    showBurgerMenu && windowDimension.scrollY >= 0.8 * windowDimension.height ? 'fixed' :
+          className={showBurgerMenu && windowDimension.scrollY < Math.round(0.9 * windowDimension.height) ? 'absolute' : 
+                    showBurgerMenu && windowDimension.scrollY >= Math.round(0.9 * windowDimension.height) ? 'fixed' :
                     'none'}
         />
         <div id='inner__wrapper'>

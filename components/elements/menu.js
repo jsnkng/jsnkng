@@ -23,33 +23,42 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
         
         {/* <Accordion allowZeroExpanded={true} allowMultipleExpanded={true}> */}
 
-        
-          <span>Dev</span>
+          <div className='menu'>
+          <span>Development</span>
           <ul className='navigation__links'>
-            <li><Link href='/natparguides_dev'><a>National Park Guides</a></Link></li>
-            {/* <li>2017 — <Link href='/pkd'><a>Disease Info Site</a></Link></li>
-            <li>2017 — <Link href='/veeva'><a>Sales Rep IVA</a></Link></li>
-            <li>2016 — <Link href='/naftin'><a>Patient/HCP Site</a></Link></li>
-            <li>2016 — <Link href='/ihateseizures'><a>Patient Info Site</a></Link></li>
-            <li>2015 — <Link href='/actelion'><a>HCP Hybrid Mobile</a></Link></li> */}
+            <li><Link href='/natparguides_dev'><a>Full-Stack PWA/API</a></Link></li>
+            <li><Link href='/pkd'><a>Docker Frontend Build</a></Link></li>
+            <li><Link href='/actelion'><a>Hybrid Mobile App</a></Link></li>
+            <li><Link href='/veeva'><a>Veeva iPad App</a></Link></li>
+            <li><Link href='/etoc'><a>LAMP API/Backend</a></Link></li>
+            <li><Link href='/ihateseizures'><a>AJAX Frontend</a></Link></li>
           </ul>
 
-          <span>UX/UI</span>
+          <span>UX/UI Design</span>
           <ul className='navigation__links'>
             <li><Link href='/natparguides'><a>National Park Guides</a></Link></li>
             <li><Link href='/halterscycles'><a>Halter’s Cycles</a></Link></li>
-            {/* <li>2019 — <Link href='/atkinscre'><a>Atkins CRE</a></Link></li>
-            <li>2019 — <Link href='/adcycle'><a>AdCycle</a></Link></li>
-            <li>2018 — <Link href='/hjadvisors'><a>Hugh Johnson Advisors</a></Link></li> */}
+            <li><Link href='/atkinscre'><a>Atkins CRE</a></Link></li>
+            <li><Link href='/hjadvisors'><a>Hugh Johnson Advisors</a></Link></li>
+            {/* <li><Link href='/ormondrenaissance'><a>Ormond Renaissance</a></Link></li> */}
+            {/* <li>2019 — <Link href='/adcycle'><a>AdCycle</a></Link></li>
+             */}
           </ul>
 
-          <span>Art</span>
+          <span>Fine Art</span>
           <ul className='navigation__links'>
             <li><Link href='/collection/[collectionName]/' as='/collection/Mythologies/'><a>Mythologies</a></Link></li>
             <li><Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/'><a>Nature Morté</a></Link></li>
             <li><Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'><a>Starlight Meadows</a></Link></li>
           </ul>
        
+          <span>Product Design</span>
+          <ul className='navigation__links'>
+            <li><a href='https://shop.jsnkng.com/product-type/stationery/'>PXL∞N</a></li>
+            {/* <li><Link href='https://shop.jsnkng.com/product-type/home-accessories/'><a>Home</a></Link></li>
+            <li><Link href='https://shop.jsnkng.com/product-type/home-accessories/'><a>Accessories</a></Link></li> */}
+          </ul>
+          </div>
 
           {/* <AccordionItem>
             <AccordionItemHeading>
@@ -108,11 +117,12 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
 export default Element
 
 const Menu__Wrapper = styled.div`
+
   .navigation__links {
     outline: none;
     border: none;
     list-style-type: none;
-    padding: 0;
+    padding: 0 0 1rem 0;  
     margin: 0;
     font-size: 1rem;
 
@@ -127,6 +137,12 @@ const Menu__Wrapper = styled.div`
         text-decoration: none;
         color: ${ ({ theme }) => theme.colors.color_two};
       }
+      
+      a:hover {
+        text-decoration: none;
+        color: ${ ({ theme }) => theme.colors.color_one};
+      }
+      
     }
   }
 span {
