@@ -45,7 +45,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
-                  <a className='logo'>
+                  <a href='https://www.atkinscre.com' className='logo'>
                   <img src='/gallery/AtkinsCRE/logo-atkins-commercial-realestate.png' alt='Atkins CRE' />
                     <h2>Wordpress</h2>
                     <h3>Responsive Design</h3>
@@ -67,9 +67,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   WordPress plugin.</p>
                 </div>
                 <br />
-                {/* <div className='description'>
-                  <Link href='/atkinscre'><a>Learn More About the Project</a></Link>
-                </div> */}
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
                 <Iframe url="https://www.atkinscre.com"

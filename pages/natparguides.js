@@ -46,15 +46,13 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
-                <Link href='/natparguides'>
-                  <a className='logo'>
-                    <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
-                    <h2>Full Stack Development—UX/UI</h2>
-                    <h3>Progressive Web App</h3>
-                    <h3>API Integration</h3>
-                    <h3>NextJS/React/Node/MongoDB</h3>
-                  </a>
-                </Link>
+                <a href='https://natparguides.com' className='logo'>
+                  <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
+                  <h2>Full Stack Development—UX/UI</h2>
+                  <h3>Progressive Web App</h3>
+                  <h3>API Integration</h3>
+                  <h3>NextJS/React/Node/MongoDB</h3>
+                </a>
                 <br />
                 <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
                 <a className='xs' href="https://github.com/jsnkng/National-Parks">GitHub</a>

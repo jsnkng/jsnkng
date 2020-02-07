@@ -36,7 +36,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <Grid>
               <Row__Decorated className='reversible'>
                 <Col__Decorated xs={12} md={5}>
-                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}>
                     <a>
                       <h3>Mythologies</h3>
                       <p>Mythologies borrows strategies from Surrealism’s encounters with automatic writing 
@@ -44,14 +44,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                     </a>
                   </Link>
 
-                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}>
                     <a>
                       <span>View Gallery</span>
                     </a>
                   </Link>
                 </Col__Decorated>
                 <Col__Decorated xs={12} mdOffset={1} md={6}>
-                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}>
                     <a>
                       <ResponsiveImage backgroundURL={`/gallery/Mythologies/Musae_in_Deliquium/image.jpg`} />
                     </a>
@@ -68,14 +68,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <Grid>
               <Row__Decorated>
                 <Col__Decorated xs={12} md={6}>
-                  <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}>
                     <a>
                       <ResponsiveImage backgroundURL={`/gallery/Nature_Morte/2_The_Receptive_0/image.jpg`} />
                     </a>
                   </Link>
                 </Col__Decorated>
                 <Col__Decorated xs={12} mdOffset={1} md={5}>
-                <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/'>
+                <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}>
                   <a>
                     <h3>Nature Morté</h3>
                     <p>Nature Morté meshes the aesthetic sensibility of the painter's still life 
@@ -83,7 +83,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                       and zoological specimens to produce an ontological catalog of time and beauty.</p>
                   </a>
                   </Link>
-                  <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}>
                     <a>
                       <span>View Gallery</span>
                     </a>
@@ -97,7 +97,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <Grid>
               <Row__Decorated className='reversible'>
                 <Col__Decorated xs={12} md={5}>
-                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}>
                     <a>
                       <h3>Starlight Meadows</h3>
                       <p>Starlight Meadows tells the story of last patch of farmland at the end of the world. 
@@ -108,14 +108,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                         the forward flow of time.</p>
                     </a>
                   </Link>
-                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}>
                     <a>
                       <span>View Gallery</span>
                     </a>
                   </Link>
                 </Col__Decorated>
                 <Col__Decorated xs={12} mdOffset={1} md={6}>
-                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/'>
+                  <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}>
                     <a>
                       <ResponsiveImage backgroundURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image.jpg`} />
                     </a>

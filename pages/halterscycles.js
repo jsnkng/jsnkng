@@ -45,18 +45,18 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
-                  <a className='logo'>
+                  <a href='https://www.halterscycles.com' className='logo'>
                   <img src='/gallery/Halters_Cycles/HC_Script_Yellow.png' alt='Halter’s Cycles' />
                     <h2>Wordpress/WooCommerce</h2>
                     <h3>Responsive Design</h3>
                     <h3>Print-on-Demand Integration</h3>
                   </a>
                 <br />
-                <a href='https://www.halterscycles.com' target='_blank' rel='noopener'>https://www.halterscycles.com</a>
+                <a href='https://www.halterscycles.com'>https://www.halterscycles.com</a>
                 </div>
 
                 <div className='content'>
-                  <a href="https://www.halterscycles.com" target="_blank" rel="noopener">
+                  <a href="https://www.halterscycles.com">
                     <img src='/gallery/Halters_Cycles/halterscycles_thumbnail.jpg' />
                   </a>
                   <p>Designed to drive foot traffic to a brick-and-mortar retail bike shop, the Halter’s Cycles website
@@ -65,9 +65,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                     graphical design elements to give visitors the flavor of the shop and draw customers in.</p>
                 </div>
                 <br />
-                {/* <div className='description'>
-                  <Link href='/halterscycles'><a>Learn More About the Project</a></Link>
-                </div> */}
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
                 <Iframe url="https://www.halterscycles.com"
@@ -79,7 +76,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href="https://www.halterscycles.com" target="_blank" rel="noopener">Open in New Window</a></span>
+                  <span><a href="https://www.halterscycles.com">Open in New Window</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>

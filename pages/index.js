@@ -48,10 +48,10 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
               <Col__Decorated xsOffset={1} xs={10} lgOffset={1} lg={9}>
 
                 <br /> <br />
-                <p>Hello. I’m <strong><Link href='/about'><a>Jason King</a></Link>.</strong> 
-                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/web'><a>Full-Stack Web Developer,</a></Link> 
-                {` `}<Link href='/design'><a>Graphic Designer</a></Link>, </strong> and
-                {` `}<strong><Link href='/art'><a>Visual Artist</a></Link></strong>, 
+                <p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
+                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/web' scroll={false}><a>Full-Stack Web Developer,</a></Link> 
+                {` `}<Link href='/design' scroll={false}><a>Graphic Designer</a></Link>, </strong> and
+                {` `}<strong><Link href='/art' scroll={false}><a>Visual Artist</a></Link></strong>, 
                 {` `}living in <strong>Princeton, NJ.</strong></p>
                 
                 <br /><p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a></strong>, 

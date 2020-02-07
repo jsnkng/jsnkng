@@ -45,7 +45,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
-                  <a className='logo'>
+                  <a href='https://www.hjadvisors.com' className='logo'>
                     <img src='/gallery/HJAdvisors/HJAdvisors_logo.png' alt='Hugh Johnson Adivsors' />
                     <h2>Wordpress</h2>
                     <h3>Brochure and Media Site</h3>
@@ -64,9 +64,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   to learn more about the company.</p>
                 </div>
                 <br />
-                {/* <div className='description'>
-                  <Link href='/halterscycles'><a>Learn More About the Project</a></Link>
-                </div> */}
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
                 <Iframe url="https://www.hjadvisors.com"

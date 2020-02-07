@@ -45,7 +45,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
-                <Link href='/natparguides'>
+                <Link href='/natparguides' scroll={false}>
                   <a className='logo'>
                     <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
                     <h2>Web Development—UX/UI</h2>
@@ -70,7 +70,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 </div>
                 <br />
                 <div className='description'>
-                  <Link href='/natparguides'><a>Learn More About the Project</a></Link>
+                  <Link href='/natparguides' scroll={false}><a>Learn More About the Project</a></Link>
                 </div>
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
@@ -84,7 +84,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
                   <span><a href="https://natparguides.com">Open in New Window</a></span>
-                  {/* <span><a href="https://github.com/jsnkng/National-Parks" target="_blank" rel="noopener">GitHub</a></span> */}
                 </div>
               </Col__Decorated>
             </Row__Decorated>
@@ -93,124 +92,16 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
 
-        
-{/*        
-        <Content>
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={12}  md={5} lg={6}>
-              <div className='content'>
-                <h1>
-                  Hello. I'm Jason King and this is what I do.
-                </h1>
-              </div>
-              </Col__Decorated>
-          
-              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
-                <div className='content'>
-                  <p>
-                  JavaScript, HTML, CSS/SCSS, PHP, mySQL, MongoDB, React, Vue, Angular, jQuery, BootStrap, NodeJS, NextJS
-                  </p>
-                </div>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-        </Content>
+    
 
         <Content>
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={12}  md={5} lg={6}>
-              <div className='content'>
-                <blockquote>I believe in thinking through projects while doing them. In other words projects become a means to think through other problems. 
-                
-                I enjoy making prototypes and MVPs, I find writing code is the best way to think through and about the problems we are trying to solve by writing code. If there's a map to follow
-                that’s great and I really like working with an organization that provides structure and support, but I'm extremely comfortable taking on large projects on my own and working them through to completion. I
-                think it’s a much better approach than over architecting a solution or running into unforseen implementation challenges down the road. Plus most people think better
-                about something they can see than they do with their imaginations, so being able to create a draft or prototype out of nothing and then bringing that to the table for greater group input just makes sense. </blockquote>
-              </div>
-              </Col__Decorated>
-             
-              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
-                <div className='content'>
-                  <p>Jason King satisfies his passion for making things synthesizing visual, cognitive, and semiotic systems 
-                    as an artist, designer, and full-stack web developer. A versatile Creative Technologist he’s worked for a variety of large and small agencies, startups, 
-                    and dot-coms over more than 20 years in the industry. Energetic and passionate about making things both artistic and commercial his entrepreneurial 
-                    drive has provided him opportunities to experience a range of failures and successes and develop his programming, UX design, project and business management skills.
-                  </p>
-                </div>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-        </Content>
-
-        <Content>
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={12}>
-                <h2>Development</h2>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-
-        <Character className='selectedWorks' backgroundURL={`/gallery/AdCycle/cab408_background.jpg`}>
-          <BackgroundOverlay /> 
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/natparguides'>
-                <a>
-                  <div className='content'>
-                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
-                    <h3>Hybrid Mobile App</h3>
-                    <span>Angular, Pug, SCSS, Ionic</span>
-                  </div>
-                  </a>
-                </Link>
-              </Col__Decorated>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/natparguides'>
-                <a>
-                  <div className='content'>
-                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
-                    <h3>Docker Frontend Build</h3>
-                    <span>Docker, Gulp, Pug, SCSS</span>
-                  </div>
-                  </a>
-                </Link>
-              </Col__Decorated>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/natparguides'>
-                <a>
-                  <div className='content'>
-                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
-                    <h3>AJAX Frontend</h3>
-                    <span>Angular, SCSS, Pug, Grunt</span>
-                  </div>
-                  </a>
-                </Link>
-                
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-          </Character>
-        </Content> 
-*/}
-
-        <Content>
-          {/* <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={12}>
-              <h2>UX/UI</h2>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid> */}
+    
         <Character className='selectedWorks' backgroundURL={``}> 
           <BackgroundOverlay />
           <Grid>
             <Row__Decorated className='column'>
               <Col__Decorated xs={12} sm={4}>
-                <Link href='/halterscycles'>
+                <Link href='/halterscycles' scroll={false}>
                 <a>
                   <div className='content'>
                     <img src='/gallery/Halters_Cycles/halterscycles_thumbnail.jpg' />
@@ -221,7 +112,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 </Link>
               </Col__Decorated>
               <Col__Decorated xs={12} sm={4}>
-                <Link href='/atkinscre'>
+                <Link href='/atkinscre' scroll={false}>
                 <a>
                   <div className='content'>
                     <img src='/gallery/AtkinsCRE/atkinscre_thumbnail.jpg' />
@@ -232,7 +123,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 </Link>
               </Col__Decorated>
               <Col__Decorated xs={12} sm={4}>
-                <Link href='/hjadvisors'>
+                <Link href='/hjadvisors' scroll={false}>
               <a>
                   <div className='content'>
                     <img src='/gallery/HJAdvisors/hjadvisors_thumbnail.jpg' />
