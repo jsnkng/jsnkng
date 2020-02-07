@@ -52,12 +52,12 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                     <h3>Dynamic Property Listings</h3>
                   </a>
                 <br />
-                <a href='https://www.atkinscre.com' target='_blank' rel='noopener'>https://www.atkinscre.com</a>
+                <a href='https://www.atkinscre.com'>https://www.atkinscre.com</a>
                 </div>
 
                 <div className='content'>
-                  <a href="https://www.atkinscre.com" target="_blank" rel="noopener">
-                    <img src='/gallery/AtkinsCRE/logo-atkins-commercial-realestate.png' alt='Atkins CRE' />
+                  <a href="https://www.atkinscre.com">
+                    <img src='/gallery/AtkinsCRE/atkinscre_thumbnail.jpg' alt='Atkins CRE' />
                   </a>
                   <p>All businesses need to generate leads and develop brand awareness, Atkins Commercial Real Estate uses 
                   their mobile-friendly, Wordpress site to do both and a whole lot more. Putting the customer’s needs first, 
@@ -81,7 +81,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href="https://www.atkinscre.com" target="_blank" rel="noopener">Open in New Window</a></span>
+                  <span><a href="https://www.atkinscre.com">Open in New Window</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>

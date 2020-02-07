@@ -51,11 +51,11 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                     <h3>Brochure and Media Site</h3>
                   </a>
                 <br />
-                <a href='https://www.hjadvisors.com' target='_blank' rel='noopener'>https://www.hjadvisors.com</a>
+                <a href='https://www.hjadvisors.com'>https://www.hjadvisors.com</a>
                 </div>
 
                 <div className='content'>
-                  <a href="https://www.hjadvisors.com" target="_blank" rel="noopener">
+                  <a href="https://www.hjadvisors.com">
                     <img src='/gallery/HJAdvisors/hjadvisors_thumbnail.jpg' />  
                   </a>
                   <p>Hugh Johnson Advisors is a registered investment advisor who’s founder regularly appears
@@ -78,7 +78,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href="https://www.hjadvisors.com" target="_blank" rel="noopener">Open in New Window</a></span>
+                  <span><a href="https://www.hjadvisors.com">Open in New Window</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>

@@ -55,12 +55,12 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   </a>
                 </Link>
                 <br />
-                <a href='https://natparguides.com' target='_blank' rel='noopener'>https://natparguides.com</a>&nbsp;|&nbsp;
+                <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
                 <a className='xs' href="https://github.com/jsnkng/National-Parks" target="_blank" rel="noopener">GitHub</a>
                 </div>
 
                 <div className='content'>
-                  <a href="https://natparguides.com" target="_blank" rel="noopener">
+                  <a href="https://natparguides.com">
                     <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' />
                   </a>
                   <p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated
@@ -83,7 +83,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href="https://natparguides.com" target="_blank" rel="noopener">Open in New Window</a></span>
+                  <span><a href="https://natparguides.com">Open in New Window</a></span>
                   {/* <span><a href="https://github.com/jsnkng/National-Parks" target="_blank" rel="noopener">GitHub</a></span> */}
                 </div>
               </Col__Decorated>
