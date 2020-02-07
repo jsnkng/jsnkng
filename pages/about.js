@@ -47,7 +47,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
             <Row__Decorated>
               <Col__Decorated xsOffset={1} xs={10} lgOffset={1} lg={9}>
               <br /> <br />
-                <p>Hello. I’m <strong><Link href='/about#AboutMe'><a>Jason King</a></Link>.</strong>
+                <p>Hello.<br />I’m <strong><Link href='/about#AboutMe'><a>Jason King</a></Link>.</strong>
                 {` `}
                 {` `}
                 </p> 
