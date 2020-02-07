@@ -23,6 +23,7 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
           <Link href='/art' scroll={false}><a onFocus={handleFocus}><div>Art</div></a></Link>     
           <Link href='/design' scroll={false}><a onFocus={handleFocus}><div>Design</div></a></Link>
           <Link href='/about' scroll={false}><a onFocus={handleFocus}><div>About</div></a></Link>
+          <a href='https://shop.jsnkng.com/' onFocus={handleFocus}><div>Shop</div></a>
         </div>
       </Menu>
     </Menu__Wrapper>

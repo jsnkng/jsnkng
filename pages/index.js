@@ -37,16 +37,19 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
                 <br /> <br />
                 <p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
-                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/web' scroll={false}><a>Full-Stack Web Developer,</a></Link> 
-                {` `}<Link href='/design' scroll={false}><a>Graphic Designer</a></Link>, </strong> and
-                {` `}<strong><Link href='/art' scroll={false}><a>Visual Artist</a></Link></strong>, 
+                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
+                {` `}<Link href='/design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
+                {` `}<strong><Link href='/art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>
                 
-                <br /><p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a></strong>, 
-                {` `} a boutique <strong>digital agency</strong> 
-                {` `} and provide <strong> web & mobile development and support</strong> through 
-                {` `} <strong><a href='https://cab408.com' target='_blank' rel='noopener'>CAB408</a></strong>.</p> 
+                <br /><p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a>,</strong> 
+                {` `} a boutique <strong>digital marketing agency</strong> 
+                {` `} and offer <strong> web & mobile development support</strong> through 
+                {` `} <strong><a href='https://cab408.com' target='_blank' rel='noopener'>CAB408</a>.</strong></p>
                 <br />
+                {` `} <p>Open edition art prints and designer goods available  <strong><a href='https://shop.jsnkng.com' target='_blank' rel='noopener'>in my shop</a></strong>.</p>
+                <br />
+                <p></p>
 
               </Col__Decorated>
             </Row__Decorated>

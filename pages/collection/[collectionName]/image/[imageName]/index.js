@@ -321,7 +321,7 @@ const ResponsiveImage = styled.div`
   .cross-button {
     display: none;
     position: absolute;
-    top: -10vh;
+    top: 0vh;
     right: 0;
     background: ${ ({ theme }) => theme.colors.background };
     height: 2.75rem !important;
@@ -343,7 +343,7 @@ const ResponsiveImage = styled.div`
     height: calc(${props => props.verticalHeight}vw - 3vw); 
     
     position: fixed;
-    top: 10vh;
+    top: 5h;
     ${SuperQuery().landscape.css`
       height: 95vh; 
     `}  
