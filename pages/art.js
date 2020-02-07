@@ -176,8 +176,8 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 750px;
-  padding: 7rem 1rem 2rem 1rem;
+  min-height: 800px;
+  padding: 2rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
@@ -198,7 +198,7 @@ const Character = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 750px;
+  min-height: 800px;
   padding: 2rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
