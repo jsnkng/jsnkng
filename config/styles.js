@@ -150,9 +150,9 @@ const GlobalStyle = createGlobalStyle`
     top: 0;
   }
 
-  .none  .bm-burger-button {
+  ${'' /* .none  .bm-burger-button {
     display: none;
-  }
+  } */}
 
   /* Position and sizing of burger button */
   .bm-burger-button {
