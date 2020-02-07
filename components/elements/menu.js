@@ -18,11 +18,11 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
         outerContainerId={'outer__wrapper'}
         pageWrapId={'inner__wrapper'}>
         <div className='menu'>
-          <Link href='/'><a onFocus={handleFocus}><div>Home</div></a></Link>
-          <Link href='/web'><a onFocus={handleFocus}><div>Web</div></a></Link>
-          <Link href='/art'><a onFocus={handleFocus}><div>Art</div></a></Link>     
-          <Link href='/design'><a onFocus={handleFocus}><div>Design</div></a></Link>
-          <Link href='/about'><a onFocus={handleFocus}><div>About</div></a></Link>
+          <Link href='/' scroll={false}><a onFocus={handleFocus}><div>Home</div></a></Link>
+          <Link href='/web' scroll={false}><a onFocus={handleFocus}><div>Web</div></a></Link>
+          <Link href='/art' scroll={false}><a onFocus={handleFocus}><div>Art</div></a></Link>     
+          <Link href='/design' scroll={false}><a onFocus={handleFocus}><div>Design</div></a></Link>
+          <Link href='/about' scroll={false}><a onFocus={handleFocus}><div>About</div></a></Link>
         </div>
       </Menu>
     </Menu__Wrapper>

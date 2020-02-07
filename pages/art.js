@@ -33,7 +33,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
           <Hero vHeight={'90vh'} backgroundURL={`/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg`}> 
             <BackgroundOverlay />
-            <Grid>
+            <Grid__Decorated>
               <Row__Decorated className='reversible'>
                 <Col__Decorated xs={12} md={5}>
                   <Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}>
@@ -58,14 +58,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   </Link>
                 </Col__Decorated>
               </Row__Decorated>
-            </Grid>
+            </Grid__Decorated>
           </Hero>
           
           <Navigation parentTitle={`Art`} parentLink={{ href: `/art`, as: `/art` }} />
 
           <Character backgroundURL={`/gallery/Nature_Morte/2_The_Receptive_0/Nature_Morte_background.jpg`}> 
             <BackgroundOverlay /> 
-            <Grid>
+            <Grid__Decorated>
               <Row__Decorated>
                 <Col__Decorated xs={12} md={6}>
                   <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}>
@@ -90,11 +90,11 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   </Link>
                 </Col__Decorated>
               </Row__Decorated>
-            </Grid>
+            </Grid__Decorated>
           </Character>
           <Character backgroundURL={`/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg`}> 
             <BackgroundOverlay />
-            <Grid>
+            <Grid__Decorated>
               <Row__Decorated className='reversible'>
                 <Col__Decorated xs={12} md={5}>
                   <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}>
@@ -122,7 +122,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                   </Link>
                 </Col__Decorated>
               </Row__Decorated>
-            </Grid>
+            </Grid__Decorated>
           </Character>
 
         </Content>
@@ -176,7 +176,7 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 7rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -185,7 +185,7 @@ const Hero = styled.header`
   background-repeat: no-repeat;
   color: #ffffff;
   ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
-    height:  ${props => props.vHeight};
+    min-height:  ${props => props.vHeight};
     padding: 2rem 1rem 2rem 1rem;
   `}
 
@@ -198,7 +198,7 @@ const Character = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -210,6 +210,9 @@ const Character = styled.header`
 
   a {
     color:#fff; 
+  }
+  h3 {
+    line-height: 1.2;
   }
 `
 const Row__Decorated = styled(Row)`
@@ -227,7 +230,7 @@ const Row__Decorated = styled(Row)`
     flex-direction: column-reverse;
     ${SuperQuery().minWidth.md.css`
       flex-direction: row;
-  justify-content: left;
+      justify-content: left;
     `}
   }
 `
@@ -238,6 +241,11 @@ const Col__Decorated = styled(Col)`
   justify-content: flex-end;
 `
 
+const Grid__Decorated = styled(Grid)`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
 const BackgroundOverlay = styled.div`
   display: block; 
   position: absolute;

@@ -63,14 +63,20 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
 
 /* Functions to be called by event listeners to handle navigation between images */
   const handleLeftSwipe = () => {
-    showBackground || setShowBackground(true)
-    Router.push(`/collection/[collectionName]/image/[imageName]`, 
-                `/collection/${collectionName}/image/${images[nextIdx].name}`)
+    if(showBackground) {
+      Router.push(`/collection/[collectionName]/image/[imageName]`, 
+                  `/collection/${collectionName}/image/${images[nextIdx].name}`)
+    } else {
+      backgroundShow()
+    }
   }
   const handleRightSwipe = () => {
-    showBackground || setShowBackground(true)
-    Router.push(`/collection/[collectionName]/image/[imageName]`, 
+    if(showBackground) {
+      Router.push(`/collection/[collectionName]/image/[imageName]`, 
                 `/collection/${collectionName}/image/${images[prevIdx].name}`)
+    } else {
+      backgroundShow()
+    }
   }
   /* Swipe event listeners */
   const handlers = useSwipeable({
@@ -81,22 +87,18 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
   })
   /* keyboard navigation */
   const handleKeyPress = (event) => {
-    if(showBackground) {
-      if (event.which == 27 || event.keyCode == 27) {
-        backgroundHide()
-      } else if (event.which == 39 || event.keyCode == 39)  {
-        handleLeftSwipe()
-      } else if (event.which == 37 || event.keyCode == 37)  {
-        handleRightSwipe()
-      } else if (event.which == 32 || event.keyCode == 32)  {
-        event.preventDefault()
-        showBackground && backgroundHide()
-        showBackground || backgroundShow()
-      } else {
-        return true;
-      }
+    if (event.which == 27 || event.keyCode == 27) {
+      backgroundHide()
+    } else if (event.which == 39 || event.keyCode == 39)  {
+      handleLeftSwipe()
+    } else if (event.which == 37 || event.keyCode == 37)  {
+      handleRightSwipe()
+    } else if (event.which == 32 || event.keyCode == 32)  {
+      event.preventDefault()
+      showBackground && backgroundHide()
+      showBackground || backgroundShow()
     } else {
-      backgroundShow()
+      return true;
     }
   }
   /* keyboard navigation listener */
@@ -128,7 +130,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
             as: `/collection/${collectionName}/` 
           }}
         />
-        <Grid className="container" fluid={true}>
+        <Grid__Decorated className="container" fluid={true}>
           
           <Row__Decorated className='reversible'>
             <Col__Decorated xs={12} lg={9}>
@@ -164,7 +166,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
             </Col__Decorated>
           </Row__Decorated>
 
-        </Grid>
+        </Grid__Decorated>
       </Content>
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
@@ -259,6 +261,12 @@ const Row__Decorated = styled(Row)`
 `
 const Col__Decorated = styled(Col)`
   position: relative;
+  margin: 0;
+  padding: 0;
+`
+
+const Grid__Decorated = styled(Grid)`
+  width: 100%;
   margin: 0;
   padding: 0;
 `

@@ -47,7 +47,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               <div className='description'>
                   <a href='https://www.halterscycles.com' className='logo'>
                   <img src='/gallery/Halters_Cycles/HC_Script_Yellow.png' alt='Halter’s Cycles' />
-                    <h2>Wordpress/WooCommerce</h2>
+                    <h2>Wordpress & WooCommerce</h2>
                     <h3>Responsive Design</h3>
                     <h3>Print-on-Demand Integration</h3>
                   </a>
@@ -135,38 +135,7 @@ position: relative;
     text-shadow: none;
   }
   
-  &.selectedWorks {
-    text-align: center;
-    .content {
-      
-      img {
-        display: block;
-        margin: 1rem auto 1.5rem auto;
-        border: 3px solid ${({ theme }) => theme.colors.home_text };
-        border-radius: 4px;
-        width: 70vw;
-        max-width: 90%;
-        box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-        cursor: pointer;
-        ${'' /* ${SuperQuery().minWidth.lg.css`
-          width: 22vw;
-        `}
-        ${SuperQuery().minWidth.of('1700px').css`
-          width:  20vw;
-          max-width: 90%;
-        `} */}
-      }
-    }
-    ${SuperQuery().minWidth.sm.css`
-      text-align: left;
-    `}
-   h3, span {
-     display: block;
-     text-align: center;
-   }
-  }
-
-
+    
 
 `
 
@@ -181,7 +150,7 @@ const Hero = styled.header`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 7rem 1rem 2rem 1rem;
+  padding: 5rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
@@ -199,7 +168,8 @@ const Hero = styled.header`
     text-decoration: none;
     img {
       border: none;
-      width: 280px;
+      width: 90%;
+      max-width: 360px;
     }
   }
   .description {
@@ -218,6 +188,7 @@ const Hero = styled.header`
       font-size: 2rem;
       font-weight: 400;
       letter-spacing: -0.05em;
+      line-height: 1.1;
     }
     h3 {
       font-size: 1.125rem;

@@ -198,7 +198,8 @@ const Hero = styled.header`
     text-decoration: none;
     img {
       border: none;
-      width: 320px;
+      width: 90%;
+      max-width: 360px;
     }
   }
   .description {

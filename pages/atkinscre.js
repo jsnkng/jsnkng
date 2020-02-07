@@ -99,11 +99,9 @@ Page.pageTransitionDelayEnter = true
 export default Page
  
 const Content = styled.div`
-  ${'' /* padding: 2rem 1rem 2rem 1rem; */}
   color: ${({ theme }) => theme.colors.text }; 
   a {
-    ${'' /* color: ${({ theme }) => theme.colors.text }; */}
-  color: #ffffff;
+    color: #ffffff;
     text-decoration: none; 
   }
   a h3 {
@@ -118,7 +116,7 @@ const Content = styled.div`
 `
 
 const Character = styled.header`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -136,46 +134,7 @@ position: relative;
     text-decoration: none;
     text-shadow: none;
   }
-  
-  &.selectedWorks {
-    text-align: center;
-    .content {
-      
-      img {
-        display: block;
-        margin: 1rem auto 1.5rem auto;
-        border: 3px solid ${({ theme }) => theme.colors.home_text };
-        border-radius: 4px;
-        width: 70vw;
-        max-width: 90%;
-        box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-        cursor: pointer;
-        ${'' /* ${SuperQuery().minWidth.lg.css`
-          width: 22vw;
-        `}
-        ${SuperQuery().minWidth.of('1700px').css`
-          width:  20vw;
-          max-width: 90%;
-        `} */}
-      }
-    }
-    ${SuperQuery().minWidth.sm.css`
-      text-align: left;
-    `}
-   h3, span {
-     display: block;
-     text-align: center;
-   }
-  }
-
-
-
-`
-
-
-
-
-
+  `
 
 const Hero = styled.header`
   position: relative;
@@ -201,7 +160,8 @@ const Hero = styled.header`
     text-decoration: none;
     img {
       border: none;
-      width: 360px;
+      width: 90%;
+      max-width: 360px;
     }
   }
   .description {

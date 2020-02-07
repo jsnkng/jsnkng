@@ -77,7 +77,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
           parentLink={{ href: `/art`, as: `/art` }}
         />
         {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
-        <Grid fluid={true}>
+        <Grid__Decorated >
           <Row__Decorated>
             {
             pictures.slice(0).map((item, index) => {
@@ -101,7 +101,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
             })
             }
             </Row__Decorated>
-          </Grid>
+          </Grid__Decorated>
         </Content>
       <Footer__Wrapper>
         <Footer themeName={themeName} setThemeName={setThemeName} />
@@ -152,6 +152,11 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 
+const Grid__Decorated = styled(Grid)`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
 const Footer__Wrapper = styled.div`
     height: 3rem;
     color: ${({ theme }) => theme.colors.text } !important; 
