@@ -56,7 +56,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 </Link>
                 <br />
                 <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
-                <a className='xs' href="https://github.com/jsnkng/National-Parks" target="_blank" rel="noopener">GitHub</a>
+                <a className='xs' href="https://github.com/jsnkng/National-Parks">GitHub</a>
                 </div>
 
                 <div className='content'>
