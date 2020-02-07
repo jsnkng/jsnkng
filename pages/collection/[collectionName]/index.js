@@ -77,7 +77,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
           parentLink={{ href: `/art`, as: `/art` }}
         />
         {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
-        <Grid__Decorated >
+        <Grid__Decorated fluid={true}>
           <Row__Decorated>
             {
             pictures.slice(0).map((item, index) => {

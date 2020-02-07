@@ -38,42 +38,47 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <title>JSNKNG</title>
         </Head>
 
-        <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background__spring.jpg`}
-          vHeight={'90vh'}> 
+        <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background__spring.jpg`}> 
           <BackgroundOverlay />
           <Grid__Decorated>
-          <Row__Decorated>
-            <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
-              <div className='description'>
-                <Link href='/natparguides' scroll={false}>
-                  <a className='logo'>
-                    <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
-                    <h2>Web Development—UX/UI</h2>
-                    <h3>Progressive Web App</h3>
-                    <h3>API Integration</h3>
-                    <h3>NextJS/React/Node/MongoDB</h3>
-                  </a>
-                </Link>
-                <br />
-                <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
-                <a className='xs' href="https://github.com/jsnkng/National-Parks">GitHub</a>
+            <Row__Decorated>
+              <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
+
+                <div className='description'>
+
+                  <Link href='/natparguides' scroll={false}>
+                    <a className='logo'>
+                      <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
+                      <h2>Full Stack & UX/UI</h2>
+                      <h3>NextJS/React/Node/MongoDB</h3>
+                      <h3>Progressive Web App</h3>
+                      <h3>API Integration</h3>
+                    </a>
+                  </Link>
+
+                  <br />
+
+                  <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
+                  <a className='xs' href="https://github.com/jsnkng/National-Parks">GitHub</a>
+
                 </div>
 
                 <div className='content'>
                   <Link href='/natparguides' scroll={false}>
-                    <a>
-                      <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' />
-                    </a>
+                    <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
                   </Link>
                   <p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated
                     digital guide. Offering up-to-date park alerts, event information, maps, and park-related news,
                     along with admission fees, contact information, campground, and visitor center locations and info all backed by the National Park Service API.
-                    </p>
+                  </p>
                 </div>
+
                 <br />
+
                 <div className='description'>
                   <Link href='/natparguides' scroll={false}><a>Learn More About the Project</a></Link>
                 </div>
+
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
                 <Iframe url="https://natparguides.com"
@@ -94,11 +99,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
 
-    
-
         <Content>
     
-        <Character className='selectedWorks' backgroundURL={``}> 
+        <Character backgroundURL={``}> 
           <BackgroundOverlay />
           <Grid__Decorated>
             <Row__Decorated className='column'>
@@ -162,7 +165,7 @@ const Content = styled.div`
   color: ${({ theme }) => theme.colors.text }; 
   a {
     ${'' /* color: ${({ theme }) => theme.colors.text }; */}
-  color: #ffffff;
+    color: #ffffff;
     text-decoration: none; 
   }
   a h3 {
@@ -183,7 +186,7 @@ position: relative;
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 5rem 1rem 2rem 1rem;
+  padding: 3rem 1rem 3rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
@@ -196,44 +199,27 @@ position: relative;
     text-decoration: none;
     text-shadow: none;
   }
-  
-  &.selectedWorks {
-    text-align: center;
-    .content {
-      
-      img {
-        display: block;
-        margin: 1rem auto 1.5rem auto;
-        border: 3px solid ${({ theme }) => theme.colors.home_text };
-        border-radius: 4px;
-        width: 70vw;
-        max-width: 90%;
-        box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-        cursor: pointer;
-        ${'' /* ${SuperQuery().minWidth.lg.css`
-          width: 22vw;
-        `}
-        ${SuperQuery().minWidth.of('1700px').css`
-          width:  20vw;
-          max-width: 90%;
-        `} */}
-      }
+
+  .content {
+    img {
+      display: block;
+      margin: 1rem auto 1.5rem auto;
+      border: 3px solid ${({ theme }) => theme.colors.home_text };
+      border-radius: 4px;
+      width: 70vw;
+      max-width: 90%;
+      box-shadow: 5px 5px 40px rgba(0,0,0,.8);
+      cursor: pointer;
     }
-    ${SuperQuery().minWidth.sm.css`
-      text-align: left;
-    `}
-   h3, span {
-     display: block;
-     text-align: center;
-   }
   }
-
-
-
+  ${SuperQuery().minWidth.sm.css`
+    text-align: left;
+  `}
+  h3, span {
+    display: block;
+    text-align: center;
+  }
 `
-
-
-
 
 
 const Hero = styled.header`
@@ -251,7 +237,7 @@ const Hero = styled.header`
   color: ${({ theme }) => theme.colors.home_text};
   /* Navigation related, responsive design */
   ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
-    height:  ${props => props.vHeight};
+    height:  90vh;
     padding: 2rem 1rem 2rem 1rem;
   `}
   .logo {
@@ -332,6 +318,9 @@ const Hero = styled.header`
       `}
     }
   }
+
+
+
 
   #webFrame {
     display: none !important;
@@ -418,9 +407,4 @@ const BackgroundOverlay = styled.div`
   z-index: 0;
   opacity: 1;
   background-color: ${({ theme }) => theme.colors.image_overlay_opaque };
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  
 `

@@ -48,10 +48,10 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               <div className='description'>
                 <a href='https://natparguides.com' className='logo'>
                   <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
-                  <h2>Full Stack Development—UX/UI</h2>
+                  <h2>Full Stack & UX/UI</h2>
+                  <h3>NextJS/React/Node/MongoDB</h3>
                   <h3>Progressive Web App</h3>
                   <h3>API Integration</h3>
-                  <h3>NextJS/React/Node/MongoDB</h3>
                 </a>
                 <br />
                 <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
