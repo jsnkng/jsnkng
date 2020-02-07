@@ -6,18 +6,11 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 import Footer from '../components/footer'
-import Iframe from 'react-iframe'
 import Navigation from '../components/navigation'
 
 const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  const [expandIFrame, setExpandIFrame] = useState(false)
-  const handleExpandIFrame = () => {
-    setExpandIFrame(true)
-  }
-  const handleCollapseIFrame = () => {
-    setExpandIFrame(false)
-  }
+  
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
@@ -45,33 +38,6 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <img className='logo' src='/gallery/PXL8N/PXL8N_Tag_Logo_sml.png' alt='PXL8N' width="200px" />
           <h2>Returning Soon</h2>
 
-              {/* <Col__Decorated xs={6} md={3}>
-              <a href='https://shop.jsnkng.com/catalog/pxl8n/daycrawler/daycrawler-bean-bag-chair-w-filling/' target="_blank" rel="noopener">
-                <div className='content'>
-                  <img src='/gallery/PXL8N/Double_Daredevil/image.jpg' width="90%"/>
-                  <h3>Double Daredevil</h3>
-                  <h4>Beanbag Chair</h4>
-                </div>
-                </a>
-              </Col__Decorated>
-              <Col__Decorated xs={6} md={3}>
-              <a href='https://shop.jsnkng.com/catalog/mythologies/valteri-mortem-benjamin/vmb-iv-journal-blank/' target="_blank" rel="noopener">
-                <div className='content'>
-                  <img src='/gallery/PXL8N/Languid_Angel/image.jpg' width="90%"/>
-                  <h3>Languid Angel</h3>
-                  <h4>Ruled Journal</h4>
-                </div>
-                </a>
-              </Col__Decorated>
-              <Col__Decorated xs={6} md={3}>
-              <a href='https://shop.jsnkng.com/catalog/mythologies/tesselato-stravit-flos-tegumen-spinis/tesselato-stravit-flos-tegumen-spinis-ceramic-mug/' target="_blank" rel="noopener">
-                <div className='content'>
-                  <img src='/gallery/PXL8N/Petal_Pusher/image.jpg' width="90%"/>
-                  <h3>Petal Pusher</h3>
-                  <h4>Ceramic Mug</h4>
-                </div>
-                </a>
-              </Col__Decorated> */}
         </Hero>
 
         <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
@@ -115,11 +81,7 @@ const Hero = styled.header`
     letter-spacing: -0.05em;
     z-index: 10;
   }
- 
-
-  `
-
-
+`
 const BackgroundOverlay = styled.div`
   display: block; 
   position: absolute;
@@ -131,9 +93,4 @@ const BackgroundOverlay = styled.div`
   z-index: 0;
   opacity: 1;
   background-color: ${({ theme }) => theme.colors.image_overlay_opaque };
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  
 `

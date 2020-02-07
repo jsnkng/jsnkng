@@ -11,13 +11,7 @@ import Navigation from '../components/navigation'
 
 const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  const [expandIFrame, setExpandIFrame] = useState(false)
-  const handleExpandIFrame = () => {
-    setExpandIFrame(true)
-  }
-  const handleCollapseIFrame = () => {
-    setExpandIFrame(false)
-  }
+  
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
@@ -27,6 +21,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
   useEffect(() => {
     forceCheck()
   })
+  
+  const [expandIFrame, setExpandIFrame] = useState(false)
+  const handleExpandIFrame = () => {
+    setExpandIFrame(true)
+  }
+  const handleCollapseIFrame = () => {
+    setExpandIFrame(false)
+  }
 
   if (!loaded) {
     return null
@@ -101,14 +103,12 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Content>
     
-        <Character backgroundURL={``}> 
-          <BackgroundOverlay />
           <Grid__Decorated>
             <Row__Decorated className='column'>
               <Col__Decorated xs={12} sm={4}>
                 <Link href='/halterscycles' scroll={false}>
                 <a>
-                  <div className='content'>
+                  <div className='callout'>
                     <img src='/gallery/Halters_Cycles/halterscycles_thumbnail.jpg' />
                     <h3>Halter’s Cycles</h3>
                     <span>UX/UI WordPress</span>
@@ -119,7 +119,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               <Col__Decorated xs={12} sm={4}>
                 <Link href='/atkinscre' scroll={false}>
                 <a>
-                  <div className='content'>
+                  <div className='callout'>
                     <img src='/gallery/AtkinsCRE/atkinscre_thumbnail.jpg' />
                     <h3>Atkins CRE</h3>
                     <span>UX/UI WordPress</span>
@@ -130,7 +130,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               <Col__Decorated xs={12} sm={4}>
                 <Link href='/hjadvisors' scroll={false}>
               <a>
-                  <div className='content'>
+                  <div className='callout'>
                     <img src='/gallery/HJAdvisors/hjadvisors_thumbnail.jpg' />
                     <h3>Hugh Johnson Advisors</h3>
                     <span>UX/UI WordPress</span>
@@ -140,17 +140,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
               </Col__Decorated>
             </Row__Decorated>
           </Grid__Decorated>
-          </Character>
         </Content>
-        
-
-   
-        
-        
-        
 
         <Footer themeName={themeName} setThemeName={setThemeName} />
-
       </>
     )
   }
@@ -160,67 +152,6 @@ Page.pageTransitionDelayEnter = true
 
 export default Page
  
-const Content = styled.div`
-  ${'' /* padding: 2rem 1rem 2rem 1rem; */}
-  color: ${({ theme }) => theme.colors.text }; 
-  a {
-    ${'' /* color: ${({ theme }) => theme.colors.text }; */}
-    color: #ffffff;
-    text-decoration: none; 
-  }
-  a h3 {
-    text-decoration: underline;
-  }
-  h2 {
-    margin: 2rem 0 0 0.75rem;
-    font-size: 4rem;
-    font-weight: 200;
-    letter-spacing: -0.1em;
-  }
-
-`
-
-const Character = styled.header`
-position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 3rem 1rem 3rem 1rem;
-  z-index: 5;
-  background-image: url(${props => props.backgroundURL});
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-
-  a {    
-    text-decoration: none;
-    text-shadow: none;
-  }
-
-  .content {
-    img {
-      display: block;
-      margin: 1rem auto 1.5rem auto;
-      border: 3px solid ${({ theme }) => theme.colors.home_text };
-      border-radius: 4px;
-      width: 70vw;
-      max-width: 90%;
-      box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-      cursor: pointer;
-    }
-  }
-  ${SuperQuery().minWidth.sm.css`
-    text-align: left;
-  `}
-  h3, span {
-    display: block;
-    text-align: center;
-  }
-`
-
 
 const Hero = styled.header`
   position: relative;
@@ -287,7 +218,12 @@ const Hero = styled.header`
     opacity: 1;
     margin-left: 0;
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-    
+    h3 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 1.125rem;
+    }
     a {
       display: block;
       font-weight: 700;
@@ -299,12 +235,6 @@ const Hero = styled.header`
         display: none;
         `}
       }
-    }
-    p {
-      font-size: 1.125rem;
-    }
-    h3 {
-      font-size: 1rem;
     }
     img {
       display: block;
@@ -377,6 +307,48 @@ const Hero = styled.header`
     a {
       color: inherit;
       text-decoration: none;
+    }
+  }
+`
+
+const Content = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 1rem 3rem 1rem;
+  z-index: 5;
+  color: ${({ theme }) => theme.colors.text }; 
+  background-color: ${({ theme }) => theme.colors.image_overlay_gradient };
+
+  ${SuperQuery().minWidth.sm.css`
+    text-align: left;
+  `}
+
+  a {
+    color: ${({ theme }) => theme.colors.text }; 
+    text-decoration: none; 
+  }
+  a h3 {
+    text-decoration: underline;
+  }
+  
+  h3, span {
+    display: block;
+    text-align: center;
+  }
+
+  .callout {
+    img {
+      display: block;
+      margin: 1rem auto 1.5rem auto;
+      border: 3px solid ${({ theme }) => theme.colors.home_text };
+      border-radius: 4px;
+      width: 70vw;
+      max-width: 90%;
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.25);
+      cursor: pointer;
     }
   }
 `
