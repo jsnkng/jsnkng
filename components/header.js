@@ -9,7 +9,8 @@ const Component = ({
     heroBackground, 
     heroHeight, 
     heroTitle, 
-    heroSubtitle, 
+    heroSubtitle,
+    heroDescription, 
     parentTitle,
     parentLink
   }) => {
@@ -27,6 +28,7 @@ const Component = ({
         <div className='hero__overlay'>
           <h1 className='hero__title'>{heroTitle}</h1>
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
+          {/* <div className='hero__description'dangerouslySetInnerHTML={{__html:heroDescription}}></div> */}
         </div>
       </div>
        
@@ -93,6 +95,18 @@ const Header = styled.header`
     margin: 0 4% 0 1%;
     ${SuperQuery().minWidth.sm.css`
       font-size: 2rem;
+    `}
+  }
+  .hero__description {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
+    color: ${({ theme }) => theme.colors.home_text};
+    margin: 0 4% 0 1%;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 1.5rem;
     `}
   }
 `

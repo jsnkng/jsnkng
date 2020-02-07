@@ -22,18 +22,18 @@ const setTheme = () => {
           onChange={setTheme} />
       </div>
       <div className='bottom__social'>
-        <p>© 2020 Jason King. All rights reserved.</p>
+        <p>© 2020 Jason King.<br />All rights reserved.</p>
       </div>
       <div className='bottom__social'>
         <div className='bottom__icons'>
           <a href='https://www.linkedin.com/in/jsnkng/' target='_blank'>
-          <Icon size={'1.5rem'} icon={linkedinSquare}/>
+          <Icon size={'24px'} icon={linkedinSquare}/>
           </a>
           <a href='https://github.com/jsnkng' target='_blank'>
-          <Icon size={'1.5rem'} icon={githubSquare}/>
+          <Icon size={'24px'} icon={githubSquare}/>
           </a>
           <a href='https://www.instagram.com/jsnkng/' target='_blank'>
-          <Icon size={'1.5rem'} icon={instagram}/>
+          <Icon size={'24px'} icon={instagram}/>
           </a>
         </div>
       </div>

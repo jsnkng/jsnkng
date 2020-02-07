@@ -8,13 +8,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html {
-    font-size: 16px;
+    font-size: 17px;
 
     ${SuperQuery().minWidth.of('1360px').css`
-      font-size: 22px;
+      font-size: 20px;
     `}
     ${SuperQuery().minWidth.of('2400px').css`
-      font-size: 28px;
+      font-size: 26px;
     `}
   }
   body {
@@ -164,8 +164,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 1rem;
     background: ${({ theme }) => theme.colors.background};
 
-    ${SuperQuery().minWidth.sm.css`
-    position: absolute;
+    ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
+      position: absolute;
       top: 90vh;
     `}
   }

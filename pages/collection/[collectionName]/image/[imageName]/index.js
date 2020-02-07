@@ -14,8 +14,8 @@ import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../components/header'
 import Footer from '../../../../../components/footer'
 
-
 const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+  /* Basic page stuff */
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -26,41 +26,33 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
   useEffect(() => {
     forceCheck()
   })
-
-  // const windowDimension = useWindowDimensions()
   
-  
+  /* Getting the current image's id and data */
   const [currentIdx, setCurrentIdx] = useState(images.findIndex(i => i.name === imageName))
   const [[image], setImage] = useState(images.filter(image => image.name === imageName))
+  /* Keep current image's id and data up to date */
   useEffect(() => {
     setCurrentIdx(images.findIndex(i => i.name === imageName))
     setImage(images.filter(image => image.name === imageName))
   }, [imageName])
+
+  /* Getting the next and previous image's id and data */
   const [prevIdx, setPrevIdx] = useState()
   const [nextIdx, setNextIdx] = useState()
+  /* Keep next and previous image's id and data up to date */
   useEffect(() => {
     setPrevIdx(currentIdx > 0 ? currentIdx - 1 : images.length - 1)
     setNextIdx(currentIdx < images.length - 1 ? currentIdx + 1 : 0)
-
   }, [currentIdx])
 
+  /* Calculating a fixed vertical height based on an image's ratio as determined in the collection  */
   const [verticalHeight, setVerticalHeight] = useState()
   useEffect(() => {
     setVerticalHeight(Number(image.ratio.split(':')[1])/Number(image.ratio.split(':')[0]) * 100)
   }, [image])
 
-
+/* Setting variable to determine whether to enlarge the image and show background overlay */
   const [showBackground, setShowBackground] = useState(false)
-  const handleLeftSwipe = () => {
-    showBackground || setShowBackground(true)
-    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[nextIdx].name}`)
-  }
-  const handleRightSwipe = () => {
-    showBackground || setShowBackground(true)
-    Router.push(`/collection/[collectionName]/image/[imageName]`, `/collection/${collectionName}/image/${images[prevIdx].name}`)
-  }
-
-
   const backgroundHide = () => {
     setShowBackground(false)
     window.scrollTo(0, 670)
@@ -69,29 +61,47 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
     showBackground || setShowBackground(true)
   }
 
-  const handleKeyPress = (event) => {
-    if (event.which == 27 || event.keyCode == 27) {
-      backgroundHide()
-    } else if (event.which == 39 || event.keyCode == 39)  {
-      handleLeftSwipe()
-    } else if (event.which == 37 || event.keyCode == 37)  {
-      handleRightSwipe()
-    } else if (event.which == 32 || event.keyCode == 32)  {
-      event.preventDefault()
-      showBackground && backgroundHide()
-      showBackground || backgroundShow()
-    } else {
-      return true;
-    }
+/* Functions to be called by event listeners to handle navigation between images */
+  const handleLeftSwipe = () => {
+    showBackground || setShowBackground(true)
+    Router.push(`/collection/[collectionName]/image/[imageName]`, 
+                `/collection/${collectionName}/image/${images[nextIdx].name}`)
   }
-  useEventListener('keydown', handleKeyPress)
-
+  const handleRightSwipe = () => {
+    showBackground || setShowBackground(true)
+    Router.push(`/collection/[collectionName]/image/[imageName]`, 
+                `/collection/${collectionName}/image/${images[prevIdx].name}`)
+  }
+  /* Swipe event listeners */
   const handlers = useSwipeable({
     onSwipedLeft: handleLeftSwipe,
     onSwipedRight: handleRightSwipe,
     preventDefaultTouchmoveEvent: true,
     trackMouse: true
   })
+  /* keyboard navigation */
+  const handleKeyPress = (event) => {
+    if(showBackground) {
+      if (event.which == 27 || event.keyCode == 27) {
+        backgroundHide()
+      } else if (event.which == 39 || event.keyCode == 39)  {
+        handleLeftSwipe()
+      } else if (event.which == 37 || event.keyCode == 37)  {
+        handleRightSwipe()
+      } else if (event.which == 32 || event.keyCode == 32)  {
+        event.preventDefault()
+        showBackground && backgroundHide()
+        showBackground || backgroundShow()
+      } else {
+        return true;
+      }
+    } else {
+      backgroundShow()
+    }
+  }
+  /* keyboard navigation listener */
+  useEventListener('keydown', handleKeyPress)
+
   if (!loaded) {
     return null
   } else {
@@ -101,16 +111,17 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
       <title>JSNKNG : {collectionName} : {imageName}</title>
     </Head>
     <Content verticalHeight={verticalHeight}
-          containerBackground={`/gallery/${collectionName}/${imageName}/image_iii.jpg`}>
+        containerBackground={`/gallery/${collectionName}/${imageName}/image_iii.jpg`}>
       <BackgroundOverlay 
         className={showBackground ? 'showBackground' : ''}
-        onClick={backgroundHide} 
+          onClick={backgroundHide} 
        />
         <Header 
           heroBackground={`/gallery/${collectionName}/${imageName}/image_ii.jpg`}
           heroHeight={'100vh'}
           heroTitle={image.title} 
           heroSubtitle={image.year} 
+          heroDescription={``}
           parentTitle={collectionTitle}
           parentLink={{
             href: `/collection/[collectionName]/`, 
@@ -118,6 +129,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
           }}
         />
         <Grid className="container" fluid={true}>
+          
           <Row__Decorated className='reversible'>
             <Col__Decorated xs={12} lg={9}>
               <ResponsiveImage 
@@ -126,54 +138,37 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
                 verticalHeight={verticalHeight} 
                 backgroundURL={`/gallery/${collectionName}/${imageName}/image.jpg`} 
               >
-              {/* <div className='item__nav'>
-                <Link 
-                  scroll={false} 
-                  href={`/collection/[collectionName]/image/[imageName]`} 
-                  as={`/collection/${collectionName}/image/${images[prevIdx].name}`}
-                >
-                  <a><div className='item__prev'></div></a>
-                </Link>
-                <Link 
-                  scroll={false} 
-                  href={`/collection/[collectionName]/image/[imageName]`} 
-                  as={`/collection/${collectionName}/image/${images[nextIdx].name}`}
-                >
-                  <a><div className='item__next'></div></a>
-                </Link>
-              </div> */}
-              <div className="cross-button"
-                onClick={backgroundHide}>
-                <div className="cross" style={{ transform: "rotate(45deg)"}}></div>
-                <div className="cross" style={{ transform: "rotate(-45deg)"}}></div>
+                <div className="cross-button"
+                  onClick={backgroundHide}>
+                  <div className="cross" style={{ transform: "rotate(45deg)"}}></div>
+                  <div className="cross" style={{ transform: "rotate(-45deg)"}}></div>
+                </div>
+              </ResponsiveImage>
+            </Col__Decorated>
+
+            <Col__Decorated xs={12} lg={3}>
+              <div className='item__meta'>
+                <div className='item__details'>
+                  <div className='item__title'>{image.title}</div> 
+                  <div className='item__year'>{image.year}</div>
+                  <div className='item__tags'>{image.tags}</div>
+                </div>
+                { image.shop &&
+                  <div className='item__shop'>
+                    <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                      Shop
+                    </a>
+                  </div>
+                }
               </div>
-            </ResponsiveImage>
-          </Col__Decorated>
-          <Col__Decorated xs={12} lg={3}>
-          <div className='item__meta'>
-            <div className='item__details'>
-              <div className='item__title'>{image.title}</div> 
-              <div className='item__year'>{image.year}</div>
-              <div className='item__tags'>{image.tags}</div>
-            </div>
-            {
-              image.shop &&
-              <div className='item__shop'>
-                <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
-                  Shop
-                </a>
-              </div>
-            }
-          </div>
-        </Col__Decorated>
-      </Row__Decorated>
-      
-    </Grid>
-    
-  </Content>
-  <Footer__Wrapper>
-    <Footer themeName={themeName} setThemeName={setThemeName} />
-  </Footer__Wrapper>
+            </Col__Decorated>
+          </Row__Decorated>
+
+        </Grid>
+      </Content>
+      <Footer__Wrapper>
+        <Footer themeName={themeName} setThemeName={setThemeName} />
+      </Footer__Wrapper>
     </div>
     )
   }
@@ -192,20 +187,11 @@ Page.getInitialProps = async ({ req, query }) => {
   return result
 }
 
-
 const Content = styled.main`
 
   .container {
     background: ${ ({ theme }) => theme.colors.image_overlay_gradient };  
     padding-bottom: 3rem;
-    ${'' /* height: 100vh;
-    width: 100vw;
-    z-index: 100;
-    background-image: url(${props => props.containerBackground});
-    background-size: cover;
-    background-opacity: 0.1;
-    background-position: center center;
-    background-repeat: no-repeat; */}
   }
   .item__meta {
     display: flex;
@@ -223,7 +209,6 @@ const Content = styled.main`
     `}  
   }
   .item__details {
-    ${'' /* margin: 0 1rem; */}
   }
   .item__title {
     font-size: 1.75rem;
@@ -260,8 +245,8 @@ const Row__Decorated = styled(Row)`
   width: 100%;
   margin: 0;
   padding: 0;
+  flex-direction: column;
   &.reversible {
-
     ${SuperQuery().minWidth.md.css`
       flex-direction: row-reverse;
     `}
@@ -324,11 +309,6 @@ const ResponsiveImage = styled.div`
     height: calc(0.6 * ${props => props.verticalHeight}vw); 
   `}
 
-${'' /* 
-  ${SuperQuery().landscape.css`
-    height: 80vh;
-  `}   */}
-
   /* Position and sizing of clickable cross button */
   .cross-button {
     display: none;
@@ -361,55 +341,7 @@ ${'' /*
    .cross-button {
      display: block;
    }
-
-  ${'' /* .item__nav {
-    display:none;
-    position: absolute;
-    left: 0;
-    justify-content: space-between;
-    align-items:flex-start;
-    width: 95%;
-    height: 15rem;
-    padding: 0rem;
-    color: ${ ({ theme }) => theme.colors.text };
-    z-index:  -1;
-    ${SuperQuery().minWidth.md.css`
-      z-index:  200;
-      display: flex;
-    `}
-    
-    a { 
-      color: ${ ({ theme }) => theme.colors.color_two };  
-    }
   }
-  .item__next {
-    text-align: right;
-    width: 1rem;
-    height: 15rem;
-    margin-right: -0.25rem;
-    padding: 0.5rem;
-    ${SuperQuery().minWidth.md.css`
-    width: 10rem;
-    `}
-    &:hover {
-      border:1px solid red;
-    }
-  }
-  .item__prev {
-    text-align: left;
-    width: 1rem;
-    height: 15rem;
-    margin-left: -0.25rem;
-    padding: 0.5rem;
-    ${SuperQuery().minWidth.md.css`
-    width: 12rem;
-    `}
-    &:hover {
-      border:1px solid red;
-    }
-  } */}
-
-
 `
 
 const Footer__Wrapper = styled.div`

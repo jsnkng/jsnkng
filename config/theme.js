@@ -38,6 +38,7 @@ const themes = {
     color_filter: 'invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%)',
     toggle_track: '#333333',
     logoURL: '/jsnkng_256.png',
+    jasonking: '/jasonking-dark.jpg'
     // gradient_one: 'radial-gradient(ellipse at center, rgba(59, 59, 59, 1.0), rgba(16, 16, 16, 1.0))'
   },
   lightMode: {
@@ -55,13 +56,14 @@ const themes = {
     dim_text: '#444444',
     home_text_shadow: '#111111',
     image_overlay_light: 'rgba(50,50,50,0.3)',
-    image_overlay_opaque: 'rgba(0,0,0,0.40)',
+    image_overlay_opaque: 'rgba(30,30,30,0.60)',
     image_overlay_gradient: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%)',
     image_overlay_darkgradient: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.50) 100%)',
     spinner: 'rgba(255,255,255,.4)',
     color_filter: 'invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%)',
     toggle_track: '#999999',
     logoURL: '/jsnkng_256_invert.png',
+    jasonking: '/jasonking-light.jpg'
     // gradient_one: 'radial-gradient(ellipse at center, rgba(252, 251, 231, 1.0), rgba(224, 219, 213, 1.0))'
   }
 }

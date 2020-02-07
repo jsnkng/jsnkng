@@ -31,6 +31,8 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
 
  
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  /* desctructuring an object to get isOpen value because this is a 
+  callback for the react burger menu and that's how they do it. */
   const handleMenuStateChange = ({ isOpen }) => {
     setIsMenuOpen(isOpen)
   }

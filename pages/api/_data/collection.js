@@ -4,37 +4,8 @@ const collection = [
     disciplineName: 'Art',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<h3>Rationale</h3>
-          <p>When it comes to the work of art, if we concern ourselves with its meaning, we may 
-          situate it with others sharing its aesthetic form and proceed to contextualize it, to 
-          deconstruct it. We may read closely, pay careful attention to details, strokes, 
-          notes, lines, forms, words, and colors, but we may yet wonder at the workings of the 
-          mind that created it, for we want to believe somewhere there exists an author that 
-          can guarantee meaning.</p>
-          <p>To make the world a stable thing is no small feat. What moved people in the past, 
-          the grand narratives, have fallen. Cherished stories carry their own shadows. 
-          Authoritarianism, even the word itself betrays a drive to fix the meaning of language, 
-          is largely an aesthetic pursuit to author a grand narrative that can motivate a political 
-          mob, a narrative that invents a tradition to claim for itself.</p>
-          <p>Mythologies borrows strategies from Surrealism’s encounters with automatic writing 
-          in a deliberate effort to create visual art that exceeds conscious determination, to 
-          escape authority, by guiding a process that dismantles the internal structure of the 
-          digital photograph and transforms it into its constituent fields of interrelated 
-          pixels.</p>
-          <h3>Method</h3>
-          <p>The schizo-critical method is a surrealist technique employed in the production of 
-          Digital images and other artworks, especially those that involve mechanical and digital 
-          production. The technique consists of the artist invoking a destabilization of the minimal, 
-          or core, self and relies on 2 complementary strategies: hyperreflexivity and diminished 
-          self-affection. In practice this state reflects a heightened awareness of aspects of 
-          experience that are normally tacit or implicit, while the diminished self-affection 
-          weakens the sense of existing as a subject of awareness. These processes necessarily 
-          disrupt a person’s “grip” or “hold” on the conceptual or perceptual field of awareness 
-          and provide access to consciousness at the limits of identity and subjective experience. 
-          The instability caused to the underlying structure of experience manifests in a range 
-          of anomalous self and world experiences. The result is a deconstruction of the concept 
-          of authority, such that the viewer’s own subjectivity becomes the primary aspect of the 
-          artwork.</p>`,
+    aboutCollection: `<p>Mythologies borrows strategies from Surrealism’s encounters with automatic writing 
+         to create visual art that exceeds conscious determination.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -68,25 +39,9 @@ const collection = [
     disciplineName: 'Art',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-    aboutCollection: `<h3>Rules of Nature Morté</h3>
-    <ul>
-    <li>1. Create a series of 64 pictures to be juxtaposed with the 64 hexagrams of the I Ching.</li>
-    <li>2. Pictures must be composed with 1:1 aspect ratio and contain at least 1 and no more 
-    than 2 subjects.</li>
-    <li>3. Subjects must be flora or fauna smaller than 10”x10”x10” and isolated in the frame 
-    on a solid background.</li>
-    <li>4. Subjects must be photographed on either a black background or a frosted translucent 
-    background.</li>
-    <li>5. Subjects must be clearly lit from all angles in order to create sharp detail and 
-    high contrast. If photographed on translucent background, then subject must also be lit 
-    from below causing it to “float” on the background. If photographed on a black background, 
-    then subject should be lit so that the background absorbs the light causing the subject 
-    to “sink” into the background.</li>
-    <li>6. Subjects should not be chosen to represent any specific hexagram, but after the 
-    image is complete be assigned to the hexagram it seems to resonate with. </li>
-    <li>7. No picture-hexagram relationship is binding and the relationship between them 
-    can alter at any time.</li>
-    </ul>`,
+    aboutCollection: `Nature Morté meshes the aesthetic sensibility of the painter's still life 
+    with categorical illustrations of botanical, entomological, 
+    and zoological specimens to produce an ontological catalog of time and beauty.`,
     images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
@@ -107,29 +62,12 @@ const collection = [
     disciplineName: 'Art',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<h3>Story</h3>
-    <p>On the last patch of farmland at the end of the world a play unfolds as if within a dream. 
+    aboutCollection: `<p>Starlight Meadows tells the story of last patch of farmland at the end of the world
+     through a play unfolding as if within a dream. 
     An amnesiac king abandons his kingdom to wander the land, a beggar. A trio of menacing 
     pigs arrive backed by an army of troglodytes and begin waging a campaign intimidation on 
     the sheep-folk of the land. Only a band of anarchic monkeys hold back the kingdom’s 
-    complete collapse while searching for a means of restoring the king.</p>
-    <h3>Background</h3>
-    <p>Growing up, we learned how to be creative, to use imagination to pretend our way out of 
-    boredom, and to make-believe whatever our hearts' desired. Everything is fluid in that 
-    imaginary world where being exists only as an extension of will. Anything can be, was, or 
-    could become, anything else. Logic doesn’t apply if things can be both A and not A; and 
-    time has no compunction to flow in one direction there. </p>
-    <p>In play, this is base, now it's a horse, that’s a sword, now it’s a spaceship, and so 
-    on. Substituting one thing for another like this has, as a consequence, always felt 
-    natural. Starlight Meadows relies on this substitutive play, daring realism to object 
-    to the tension between the artifice and the imagination.</p>
-    <h3>Rules of the Game</h3>
-    <ul>
-    <li>1. Create a series of pictures dramatizing your experience.</li>
-    <li>2. Pictures must be composed with 3:2 aspect ratio.</li>
-    <li>3. Work alone using yourself as a subject or figure in the material photographs.</li>
-    <li>4. You are allowed to composite multiple exposures, but the final result must look realistic, not abstract.</li>
-    <ul>`,
+    complete collapse while searching for a means of restoring the king.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
@@ -143,7 +81,7 @@ const collection = [
       { title: 'A Life That Lasts a Day', name: 'A_Life_That_Lasts_a_Day', path: '/gallery/Starlight_Meadows/A_Life_That_Lasts_a_Day', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'The Watchman', name: 'The_Watchman', path: '/gallery/Starlight_Meadows/The_Watchman', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Remember—Remember—the Seventh of November', name: 'Remember_Remember_The_Seventh_of_November', path: '/gallery/Starlight_Meadows/Remember_Remember_The_Seventh_of_November', ratio: '3:2', shop: false, year: '2006', tags: 'Digital Photography, Directorial' },
-      { title: 'Yule', name: 'Yule', path: '/gallery/Starlight_Meadows/Yule', ratio: '3:2', shop: false, year: '2005',  tags: 'Digital Photography, Directorial' },
+      { title: 'Yule', name: 'Yule', path: '/gallery/Starlight_Meadows/Yule', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'He Is With Us, but Remembers Nothing', name: 'He_Is_with_Us_but_Remembers_Nothing', path: '/gallery/Starlight_Meadows/He_Is_with_Us_but_Remembers_Nothing', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'He Was Looking for a Way Out', name: 'He_Was_Looking_for_a_Way_Out', path: '/gallery/Starlight_Meadows/He_Was_Looking_for_a_Way_Out', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Troglodytes, They Were Called', name: 'Troglodytes_They_were_Called', path: '/gallery/Starlight_Meadows/Troglodytes_They_were_Called', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
@@ -159,10 +97,10 @@ const collection = [
     collectionTitle: 'PXL8N',
     collectionName: 'PXL8N',
     images: [
-      { title: 'Daycrawler', name: 'Daycrawler', path: '/gallery/PXL8N/Daycrawler', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'TSFTS', name: 'TSFTS', path: '/gallery/PXL8N/TSFTS', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
+      { title: 'Double Daredevil', name: 'Double_Daredevil', path: '/gallery/PXL8N/Double_Daredevil', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
+      { title: 'Wintergreen Is Coming', name: 'Wintergreen_Is_Coming', path: '/gallery/PXL8N/Wintergreen_Is_Coming', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
+      { title: 'Languid Angel', name: 'Languid_Angel', path: '/gallery/PXL8N/Languid_Angel', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
+      { title: 'Petal Pusher', name: 'Petal_Pusher', path: '/gallery/PXL8N/Petal_Pusher', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
     ]
   },
   {

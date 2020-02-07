@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
+import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 import Footer from '../components/footer'
@@ -38,8 +38,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <title>JSNKNG</title>
         </Head>
 
-        
-        <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background.jpg`}
+        <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background__spring.jpg`}
           vHeight={'90vh'}> 
           <BackgroundOverlay />
           <Grid>
@@ -49,7 +48,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <Link href='/natparguides'>
                   <a className='logo'>
                     <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
-                    <h2>Full Stack Development—UX/UI</h2>
+                    <h2>Web Development—UX/UI</h2>
                     <h3>Progressive Web App</h3>
                     <h3>API Integration</h3>
                     <h3>NextJS/React/Node/MongoDB</h3>
@@ -70,6 +69,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                     </p>
                 </div>
                 <br />
+                <div className='description'>
+                  <Link href='/natparguides'><a>Learn More About the Project</a></Link>
+                </div>
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
                 <Iframe url="https://natparguides.com"
@@ -90,48 +92,167 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         </Hero>
 
         <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
-        {/* <Grid fluid={true}>
+
+        
+{/*        
+        <Content>
+          <Grid>
             <Row__Decorated>
-              <Col__Decorated xsOffset={1} xs={3} mdOffset={1} md={1}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Mobile_Light/image.jpg' width='100%' />
+              <Col__Decorated xs={12}  md={5} lg={6}>
+              <div className='content'>
+                <h1>
+                  Hello. I'm Jason King and this is what I do.
+                </h1>
+              </div>
               </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={6} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Large_Light/image.jpg' width='100%' />
-              </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={3} mdOffset={1} md={1}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Mobile_Dark/image.jpg' width='100%' />
-              </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={6} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Large_Dark/image.jpg' width='100%' />
+          
+              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
+                <div className='content'>
+                  <p>
+                  JavaScript, HTML, CSS/SCSS, PHP, mySQL, MongoDB, React, Vue, Angular, jQuery, BootStrap, NodeJS, NextJS
+                  </p>
+                </div>
               </Col__Decorated>
             </Row__Decorated>
+          </Grid>
+        </Content>
+
+        <Content>
+          <Grid>
             <Row__Decorated>
+              <Col__Decorated xs={12}  md={5} lg={6}>
+              <div className='content'>
+                <blockquote>I believe in thinking through projects while doing them. In other words projects become a means to think through other problems. 
                 
-              <Col__Decorated xsOffset={1} xs={1} mdOffset={1} md={1}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_iva.jpg' width='100%' />
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_iiia.jpg' width='100%' />
+                I enjoy making prototypes and MVPs, I find writing code is the best way to think through and about the problems we are trying to solve by writing code. If there's a map to follow
+                that’s great and I really like working with an organization that provides structure and support, but I'm extremely comfortable taking on large projects on my own and working them through to completion. I
+                think it’s a much better approach than over architecting a solution or running into unforseen implementation challenges down the road. Plus most people think better
+                about something they can see than they do with their imaginations, so being able to create a draft or prototype out of nothing and then bringing that to the table for greater group input just makes sense. </blockquote>
+              </div>
               </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={3} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_iia.jpg' width='100%' />
-              </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={4} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_ia.jpg' width='100%' />
+             
+              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
+                <div className='content'>
+                  <p>Jason King satisfies his passion for making things synthesizing visual, cognitive, and semiotic systems 
+                    as an artist, designer, and full-stack web developer. A versatile Creative Technologist he’s worked for a variety of large and small agencies, startups, 
+                    and dot-coms over more than 20 years in the industry. Energetic and passionate about making things both artistic and commercial his entrepreneurial 
+                    drive has provided him opportunities to experience a range of failures and successes and develop his programming, UX design, project and business management skills.
+                  </p>
+                </div>
               </Col__Decorated>
             </Row__Decorated>
+          </Grid>
+        </Content>
+
+        <Content>
+          <Grid>
             <Row__Decorated>
+              <Col__Decorated xs={12}>
+                <h2>Development</h2>
+              </Col__Decorated>
+            </Row__Decorated>
+          </Grid>
+
+        <Character className='selectedWorks' backgroundURL={`/gallery/AdCycle/cab408_background.jpg`}>
+          <BackgroundOverlay /> 
+          <Grid>
+            <Row__Decorated>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/natparguides'>
+                <a>
+                  <div className='content'>
+                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
+                    <h3>Hybrid Mobile App</h3>
+                    <span>Angular, Pug, SCSS, Ionic</span>
+                  </div>
+                  </a>
+                </Link>
+              </Col__Decorated>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/natparguides'>
+                <a>
+                  <div className='content'>
+                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
+                    <h3>Docker Frontend Build</h3>
+                    <span>Docker, Gulp, Pug, SCSS</span>
+                  </div>
+                  </a>
+                </Link>
+              </Col__Decorated>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/natparguides'>
+                <a>
+                  <div className='content'>
+                    <img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' width="90%"  height="225px" />
+                    <h3>AJAX Frontend</h3>
+                    <span>Angular, SCSS, Pug, Grunt</span>
+                  </div>
+                  </a>
+                </Link>
                 
-              <Col__Decorated xsOffset={1} xs={1} mdOffset={1} md={1}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_ivb.jpg' width='100%' />
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_iiib.jpg' width='100%' />
               </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={3} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_iib.jpg' width='100%' />
-              </Col__Decorated>
-              <Col__Decorated xsOffset={1} xs={4} mdOffset={1} md={3}>
-                <img src='/gallery/National_Park_Guides/Park_Detail_Guide_Homepages/image_ib.jpg' width='100%' />
+            </Row__Decorated>
+          </Grid>
+          </Character>
+        </Content> 
+*/}
+
+        <Content>
+          {/* <Grid>
+            <Row__Decorated>
+              <Col__Decorated xs={12}>
+              <h2>UX/UI</h2>
               </Col__Decorated>
             </Row__Decorated>
           </Grid> */}
+        <Character className='selectedWorks' backgroundURL={``}> 
+          <BackgroundOverlay />
+          <Grid>
+            <Row__Decorated className='column'>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/halterscycles'>
+                <a>
+                  <div className='content'>
+                    <img src='/gallery/Halters_Cycles/halterscycles_thumbnail.jpg' />
+                    <h3>Halter’s Cycles</h3>
+                    <span>UX/UI WordPress</span>
+                  </div>
+                </a>
+                </Link>
+              </Col__Decorated>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/atkinscre'>
+                <a>
+                  <div className='content'>
+                    <img src='/gallery/AtkinsCRE/atkinscre_thumbnail.jpg' />
+                    <h3>Atkins CRE</h3>
+                    <span>UX/UI WordPress</span>
+                  </div>
+                </a>
+                </Link>
+              </Col__Decorated>
+              <Col__Decorated xs={12} sm={4}>
+                <Link href='/hjadvisors'>
+              <a>
+                  <div className='content'>
+                    <img src='/gallery/HJAdvisors/hjadvisors_thumbnail.jpg' />
+                    <h3>Hugh Johnson Advisors</h3>
+                    <span>UX/UI WordPress</span>
+                  </div>
+                </a>
+                </Link>
+              </Col__Decorated>
+            </Row__Decorated>
+          </Grid>
+          </Character>
+        </Content>
+        
+
+   
+        
+        
+        
+
         <Footer themeName={themeName} setThemeName={setThemeName} />
 
       </>
@@ -143,6 +264,84 @@ Page.pageTransitionDelayEnter = true
 
 export default Page
  
+const Content = styled.div`
+  ${'' /* padding: 2rem 1rem 2rem 1rem; */}
+  color: ${({ theme }) => theme.colors.text }; 
+  a {
+    ${'' /* color: ${({ theme }) => theme.colors.text }; */}
+  color: #ffffff;
+    text-decoration: none; 
+  }
+  a h3 {
+    text-decoration: underline;
+  }
+  h2 {
+    margin: 2rem 0 0 0.75rem;
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: -0.1em;
+  }
+
+`
+
+const Character = styled.header`
+position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 1rem 2rem 1rem;
+  z-index: 5;
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
+
+  a {    
+    text-decoration: none;
+    text-shadow: none;
+  }
+  
+  &.selectedWorks {
+    text-align: center;
+    .content {
+      
+      img {
+        display: block;
+        margin: 1rem auto 1.5rem auto;
+        border: 3px solid ${({ theme }) => theme.colors.home_text };
+        border-radius: 4px;
+        width: 70vw;
+        max-width: 90%;
+        box-shadow: 5px 5px 40px rgba(0,0,0,.8);
+        cursor: pointer;
+        ${'' /* ${SuperQuery().minWidth.lg.css`
+          width: 22vw;
+        `}
+        ${SuperQuery().minWidth.of('1700px').css`
+          width:  20vw;
+          max-width: 90%;
+        `} */}
+      }
+    }
+    ${SuperQuery().minWidth.sm.css`
+      text-align: left;
+    `}
+   h3, span {
+     display: block;
+     text-align: center;
+   }
+  }
+
+
+
+`
+
+
+
+
 
 const Hero = styled.header`
   position: relative;
@@ -281,9 +480,8 @@ const Hero = styled.header`
         height: 596px;
       `}
       ${SuperQuery().minWidth.lg.css`
-        right: 50vw;
-        width: 85vw;
-        height: 596px;
+        height: 90vh;
+        max-height: 646px;
       `}
     }
   }
@@ -300,7 +498,6 @@ const Hero = styled.header`
     }
   }
 `
-
 
 const Row__Decorated = styled(Row)`
   width: 100%;

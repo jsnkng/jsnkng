@@ -29,7 +29,8 @@
       "REGION": "us-east-1",
       "Bucket": "national-park-images",
       "GA_TRACKING_ID": "@ga-tracking-id",
-      "SHOP_URL": "https://shop.jsnkng.com/collection/"
+      "SHOP_URL": "https://shop.jsnkng.com/collection/",
+      "LASTFM_API": "6c75290543c9c3b003f9e4e02083afe9"
     }
   }
 }

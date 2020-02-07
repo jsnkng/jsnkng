@@ -45,10 +45,16 @@ const Navigation = styled.nav`
   color: ${({ theme }) => theme.colors.text};
   z-index: 800;
 
-  ${SuperQuery().minWidth.sm.css`
+  ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
     position: relative;
     margin-top: -4rem;
   `}
+
+${'' /* 
+  ${SuperQuery().minWidth.sm.css`
+    position: relative;
+    margin-top: -4rem;
+  `} */}
   &.fixed {
     position: fixed;
     top: 0vh;
@@ -100,10 +106,17 @@ const Navigation = styled.nav`
 `
 const Spacer = styled.div`
     display: none;
+
+  ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
+    display: block;
     height: 4rem;
     z-index: 0;
-    ${SuperQuery().minWidth.sm.css`
+  `}
+
+    ${'' /* ${SuperQuery().minWidth.md.css`
     display: block;
-    `}
+    height: 4rem;
+    z-index: 0;
+    `} */}
     
 `

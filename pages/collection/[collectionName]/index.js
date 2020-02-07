@@ -72,10 +72,11 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
           heroHeight={`100vh`}
           heroTitle={collectionTitle} 
           heroSubtitle={``}
+          heroDescription={aboutCollection}
           parentTitle={disciplineTitle}
-          parentLink={{ href: `/`, as: `/` }}
+          parentLink={{ href: `/art`, as: `/art` }}
         />
-        <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton>
+        {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
         <Grid fluid={true}>
           <Row__Decorated>
             {

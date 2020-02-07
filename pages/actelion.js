@@ -40,7 +40,8 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         <Header 
           heroHeight={`90vh`} 
           heroBackground={`/gallery/National_Park_Guides/natparguides__background__dark.jpg`}
-        >
+          parentLink={{ href: `/`, as: `/` }}
+       >
           <div className='hero'>
             <Grid fluid={true}>
               <Row__Decorated>
