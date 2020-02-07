@@ -44,12 +44,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 
                 <br /><p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a>,</strong> 
                 {` `} a boutique <strong>digital marketing agency</strong> 
-                {` `} and offer <strong> web & mobile development support</strong> through 
+                {` `} and provide <strong> web & mobile development support</strong> through 
                 {` `} <strong><a href='https://cab408.com' target='_blank' rel='noopener'>CAB408</a>.</strong></p>
                 <br />
-                {` `} <p>Open edition art prints and designer goods available  <strong><a href='https://shop.jsnkng.com' target='_blank' rel='noopener'>in my shop</a></strong>.</p>
-                <br />
-                <p></p>
 
               </Col__Decorated>
             </Row__Decorated>
