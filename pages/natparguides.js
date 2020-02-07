@@ -42,7 +42,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background.jpg`}
           vHeight={'90vh'}> 
           <BackgroundOverlay />
-          <Grid>
+          <Grid__Decorated>
           <Row__Decorated>
             <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
               <div className='description'>
@@ -84,7 +84,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 </div>
               </Col__Decorated>
             </Row__Decorated>
-          </Grid>
+          </Grid__Decorated>
         </Hero>
 
         <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
@@ -311,6 +311,11 @@ const Col__Decorated = styled(Col)`
   padding: 0;
 `
 
+const Grid__Decorated = styled(Grid)`
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
 const BackgroundOverlay = styled.div`
   display: block; 
   position: absolute;

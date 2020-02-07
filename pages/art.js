@@ -176,7 +176,7 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 750px;
   padding: 7rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -198,7 +198,7 @@ const Character = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 750px;
   padding: 2rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
