@@ -197,9 +197,9 @@ const Content = styled.main`
   }
   .item__meta {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items:flex-start;
-    padding: 1.75rem 0 1.5rem 5%;
+    padding: 1.75rem 0 1.5rem 0;
     z-index:  100;
     color: ${ ({ theme }) => theme.colors.text };
     a { 
@@ -321,11 +321,11 @@ const ResponsiveImage = styled.div`
   .cross-button {
     display: none;
     position: absolute;
-    top: 0;
-    right: 0 ;
+    top: -10vh;
+    right: 0;
     background: ${ ({ theme }) => theme.colors.background };
-    height: 2.25rem !important;
-    width: 2.25rem !important;
+    height: 2.75rem !important;
+    width: 2.75rem !important;
   }
 
   /* Color/shape of close button cross */
@@ -334,7 +334,8 @@ const ResponsiveImage = styled.div`
     height: 2.25rem !important;
     width: .375rem !important;
     position: absolute;
-    right: 1rem;
+    right: 1.125rem;
+    top: 0.25rem;
   }
 
   &.showBackground {
@@ -342,6 +343,7 @@ const ResponsiveImage = styled.div`
     height: calc(${props => props.verticalHeight}vw - 3vw); 
     
     position: fixed;
+    top: 10vh;
     ${SuperQuery().landscape.css`
       height: 95vh; 
     `}  

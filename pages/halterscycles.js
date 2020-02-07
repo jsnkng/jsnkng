@@ -318,7 +318,7 @@ const BackgroundOverlay = styled.div`
   width: 100vw;
   z-index: 0;
   opacity: 1;
-  background-color: ${({ theme }) => theme.colors.image_overlay_opaque };
+  background: ${({ theme }) => theme.colors.image_overlay_darkgradient };
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;

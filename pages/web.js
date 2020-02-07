@@ -42,7 +42,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background__spring.jpg`}> 
           <BackgroundOverlay />
-          <Grid__Decorated>
+          <Grid__Decorated fluid={true}>
             <Row__Decorated>
               <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
 
@@ -77,9 +77,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
                 <br />
 
-                <div className='description'>
+                {/* <div className='description'>
                   <Link href='/natparguides' scroll={false}><a>Learn More About the Project</a></Link>
-                </div>
+                </div> */}
 
               </Col__Decorated>
               <Col__Decorated xs={12} sm={6} md={6}>
@@ -103,7 +103,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Content>
     
-          <Grid__Decorated>
+          <Grid__Decorated fluid={true}>
             <Row__Decorated className='column'>
               <Col__Decorated xs={12} sm={4}>
                 <Link href='/halterscycles' scroll={false}>
@@ -378,5 +378,5 @@ const BackgroundOverlay = styled.div`
   width: 100vw;
   z-index: 0;
   opacity: 1;
-  background-color: ${({ theme }) => theme.colors.image_overlay_opaque };
+  background: ${({ theme }) => theme.colors.image_overlay_darkgradient };
 `

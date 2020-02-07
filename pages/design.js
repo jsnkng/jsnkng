@@ -37,6 +37,12 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
          
           <img className='logo' src='/gallery/PXL8N/PXL8N_Tag_Logo_sml.png' alt='PXL8N' width="200px" />
           <h2>Returning Soon</h2>
+          
+          <div className='item__shop'>
+          <a href={`${process.env.SHOP_URL}pxl8n/`}>
+            Shop
+          </a>
+          </div>
 
         </Hero>
 
@@ -81,6 +87,24 @@ const Hero = styled.header`
     letter-spacing: -0.05em;
     z-index: 10;
   }
+  .item__shop {
+    margin: 4rem 0;
+    line-height: 1.2;
+    background: ${ ({ theme }) => theme.colors.color_one };
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+  
+    a {
+      color: ${ ({ theme }) => theme.colors.text };
+      text-decoration: none;
+      text-shadow: none;
+    }
+    &:hover {
+      background: ${ ({ theme }) => theme.colors.color_two };
+    }
+  }
+  
 `
 const BackgroundOverlay = styled.div`
   display: block; 
