@@ -31,7 +31,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 
         <Content>
 
-          <Hero vHeight={'90vh'} backgroundURL={`/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg`}> 
+          <Hero backgroundURL={`/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg`}> 
             <BackgroundOverlay />
             <Grid__Decorated>
               <Row__Decorated className='reversible'>
@@ -175,8 +175,8 @@ const Hero = styled.header`
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
+  width: 100%;    
+  height:  100vh;
   padding: 5rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -184,8 +184,13 @@ const Hero = styled.header`
   background-position: center bottom;
   background-repeat: no-repeat;
   color: #ffffff;
+  ${SuperQuery().maxWidth.of('325px').css`
+    height: 900px;
+  padding: 0 1rem;
+  `}
+
   ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
-    min-height:  ${props => props.vHeight};
+    height:  100vh;
     padding: 2rem 1rem 2rem 1rem;
   `}
 
@@ -198,7 +203,7 @@ const Character = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height:  100vh;
   padding: 2rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -208,6 +213,13 @@ const Character = styled.header`
   color: #ffffff;
   text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
 
+  ${SuperQuery().maxWidth.of('325px').css`
+    height: 1200px;
+    padding: 2rem 1rem 2rem 1rem;
+  `}
+  ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
+    height:  100vh;
+  `}
   a {
     color:#fff; 
   }
@@ -238,7 +250,6 @@ const Col__Decorated = styled(Col)`
   position: relative;
   margin: 0;
   padding: 0;
-  justify-content: flex-end;
 `
 
 const Grid__Decorated = styled(Grid)`
@@ -257,9 +268,5 @@ const BackgroundOverlay = styled.div`
   z-index: 0;
   opacity: 1;
   background-color: ${({ theme }) => theme.colors.image_overlay_opaque };
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
   
 `
