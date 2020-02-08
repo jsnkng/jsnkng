@@ -59,10 +59,10 @@ const Page = ({
         <BackgroundOverlay />
         <Grid>
         <Row__Decorated>
-            <Col__Decorated xs={24} sm={11} mdOffset={1}>
+          <Col__Decorated xs={24} sm={11} mdOffset={1}>
             <div className='description'>
                 <a href={projectURL} className='logo'>
-                <img src={projectLogo} alt={projectTitle} />
+                  <img src={projectLogo} alt={projectTitle} />
                 {/* <h1>{projectTitle}</h1> */}
                 <h2>{projectCategory}</h2>
                   {
@@ -75,32 +75,32 @@ const Page = ({
                 </a>
               <br />
               <a href={projectURL}>{projectURL}</a>
-              </div>
+            </div>
 
-              <div className='content'>
-                <a href={projectURL}>
-                  <img src={projectThumb} />
-                </a>
-                <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
-              </div>
-              <br />
-            </Col__Decorated>
-            <Col__Decorated xs={24} sm={12} md={12}>
-              <Iframe url={projectURL}
-                id="webFrame"
-                display="inherit"
-                position="relative"
-                className={expandIFrame && 'expanded'}
-              /> 
-              <div className='toggle__container'>
-                { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
-                { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                <span><a href={projectURL}>Open in New Window</a></span>
-              </div>
-            </Col__Decorated>
-          </Row__Decorated>
-        </Grid>
-      </Hero>
+            <div className='content'>
+              <a href={projectURL}>
+                <img src={projectThumb} />
+              </a>
+              <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
+            </div>
+            <br />
+          </Col__Decorated>
+          <Col__Decorated  xs={24} smOffset={1} sm={10}>
+            <Iframe url={projectURL}
+              id="webFrame"
+              display="inherit"
+              position="relative"
+              className={expandIFrame && 'expanded'}
+            /> 
+            <div className='toggle__container'>
+              { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
+              { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
+              <span><a href={projectURL}>Open in New Window</a></span>
+            </div>
+          </Col__Decorated>
+        </Row__Decorated>
+      </Grid>
+    </Hero>
 
       <Navigation parentTitle={`Web`} parentLink={{ href: `/projects/[projectType]`, as: `/projects/Web` }} />
 
@@ -148,8 +148,7 @@ const Hero = styled.header`
     text-decoration: none;
     img {
       border: none;
-      width: 90%;
-      max-width: 360px;
+      width: 50%;
     }
   }
   .description {
@@ -165,7 +164,7 @@ const Hero = styled.header`
       text-align: left;
     `}
     h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 400;
       letter-spacing: -0.05em;
       line-height: 1.1;
@@ -231,8 +230,10 @@ const Hero = styled.header`
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-    width: 20rem;
+   
+    width: 18rem;
     height: 70vh;
+    min-height: 600px;
     border: 3px solid ${({ theme }) => theme.colors.home_text };
     border-radius: 8px;
     box-shadow: 5px 5px 40px rgba(0,0,0,.8);
@@ -248,9 +249,9 @@ const Hero = styled.header`
       width: 21rem;
       height: 77.5vh;
     `}
-    ${SuperQuery().minWidth.lg.css`
+    ${'' /* ${SuperQuery().minWidth.lg.css`
       width: 25rem;
-    `}
+    `} */}
 
     &.expanded {
       position: fixed;

@@ -76,8 +76,8 @@ const Page = ({
           heroTitle={collection.collectionTitle} 
           heroSubtitle={``}
           heroDescription={collection.aboutCollection}
-          parentTitle={collection.disciplineTitle}
-          parentLink={{ href: `/art`, as: `/art` }}
+          parentTitle={collection.collectionTypeTitle}
+          parentLink={{ href: `/collections[collectionType]`, as: `/collections/${collection.collectionType}` }}
         />
         {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
         <Grid__Decorated fluid={true}>

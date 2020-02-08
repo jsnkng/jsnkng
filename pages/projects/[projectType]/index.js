@@ -71,7 +71,7 @@ const Page = ({
                   {
                     projects[heroIdx].projectTags.map(tag => {
                       return (
-                        <h3>{tag}</h3>
+                        <h3 key={tag}>{tag}</h3>
                       )
                     })
                   }
@@ -81,7 +81,6 @@ const Page = ({
                   <br />
 
                   <a href={projects[heroIdx].projectURL}>{projects[heroIdx].projectURL}</a>
-                  
 
                 </div>
 
@@ -116,7 +115,7 @@ const Page = ({
           </Grid__Decorated>
         </Hero>
 
-        <Navigation parentTitle={`Web`} parentLink={{ href: `/projects/[projectType]`, as: `/projects/Web` }} />
+        <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
 
         <Content>
     
@@ -127,7 +126,7 @@ const Page = ({
                 projectThumbs.slice().map(project => {
                   return (
 
-                    <Col__Decorated xs={24} sm={6}>
+                    <Col__Decorated xs={24} sm={6} key={project.projectName}>
                       <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${project.projectType}/project/${project.projectName}`} scroll={false}>
                       <a>
                         <div className='callout'>
@@ -276,8 +275,9 @@ const Hero = styled.header`
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-    width: 20rem;
+    width: 18rem;
     height: 70vh;
+    min-height: 600px;
     border: 3px solid ${({ theme }) => theme.colors.home_text };
     border-radius: 8px;
     box-shadow: 5px 5px 40px rgba(0,0,0,.8);
@@ -293,9 +293,9 @@ const Hero = styled.header`
       width: 21rem;
       height: 77.5vh;
     `}
-    ${SuperQuery().minWidth.lg.css`
+    ${'' /* ${SuperQuery().minWidth.lg.css`
       width: 25rem;
-    `}
+    `} */}
 
     &.expanded {
       position: fixed;

@@ -34,9 +34,9 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Grid>
             <Row__Decorated>
               <Col__Decorated xsOffset={1} xs={21}>
-                <p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
+                <br /><p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
                 {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
-                {` `}<Link href='/design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
+                {` `}<Link href='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
                 {` `}<strong><Link href='/collections/Art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>
                 <br />
@@ -82,17 +82,16 @@ const Hero = styled.header`
     height:  ${props => props.vHeight};
     padding: 0 1rem 0 1rem;
   `}
-  h2 {
-    color: ${({ theme }) => theme.colors.text};
-    font-size: 1.875rem;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 2.5rem;
-    `}
-  }
+  
   p {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 200;
     color: ${({ theme }) => theme.colors.text};
+    
+    ${SuperQuery().maxWidth.of('360px').css`
+    font-size: 1.25rem;
+        `}
+    
     ${SuperQuery().minWidth.sm.css`
       font-size: 2.25rem;
     `}

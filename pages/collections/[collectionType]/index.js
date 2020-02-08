@@ -66,7 +66,7 @@ const Page = ({
             </Grid__Decorated>
           </Hero>
           
-          <Navigation parentTitle={`Art`} parentLink={{ href: `/art`, as: `/art` }} />
+          <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
 
           {
             collectionsThumbs.slice().map(collection => {

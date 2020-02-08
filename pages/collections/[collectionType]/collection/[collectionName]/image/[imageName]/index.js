@@ -126,8 +126,8 @@ const Page = ({ collection, collectionType, collectionName, imageName, themeName
           heroDescription={``}
           parentTitle={collection.collectionTitle}
           parentLink={{
-            href: `/collectionType/[collectionType]/collection/[collectionName]/`, 
-            as: `/collectionType/${collectionType}/collection/${collectionName}/` 
+            href: `/collections/[collectionType]/collection/[collectionName]/`, 
+            as: `/collections/${collection.collectionType}/collection/${collection.collectionName}/` 
           }}
         />
         <Grid__Decorated className="container" fluid={true}>
