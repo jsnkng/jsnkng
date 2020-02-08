@@ -21,8 +21,8 @@ const Element = ({ right, isMenuOpen, handleMenuStateChange, className }) => {
           <Link href='/' scroll={false}><a onFocus={handleFocus}><div>Home</div></a></Link>
           <Link href='/web' scroll={false}><a onFocus={handleFocus}><div>Web</div></a></Link>
           <Link href='/art' scroll={false}><a onFocus={handleFocus}><div>Art</div></a></Link>     
-          <a href='https://shop.jsnkng.com/' onFocus={handleFocus}><div>Shop</div></a>
           <Link href='/design' scroll={false}><a onFocus={handleFocus}><div>Design</div></a></Link>
+          <a href='https://shop.jsnkng.com/' onFocus={handleFocus}><div>Shop</div></a>
           <Link href='/about' scroll={false}><a onFocus={handleFocus}><div>About</div></a></Link>
         </div>
       </Menu>
