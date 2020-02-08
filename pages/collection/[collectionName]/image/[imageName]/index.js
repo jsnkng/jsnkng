@@ -133,7 +133,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
         <Grid__Decorated className="container" fluid={true}>
           
           <Row__Decorated className='reversible'>
-            <Col__Decorated xs={12} lg={9}>
+            <Col__Decorated xs={24} lg={18}>
               <ResponsiveImage 
                 className={showBackground ? 'showBackground' : ''}
                 onClick={backgroundShow}
@@ -148,7 +148,7 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
               </ResponsiveImage>
             </Col__Decorated>
 
-            <Col__Decorated xs={12} lg={3}>
+            <Col__Decorated xs={24} lg={6}>
               <div className='item__meta'>
                 <div className='item__details'>
                   <div className='item__title'>{image.title}</div> 

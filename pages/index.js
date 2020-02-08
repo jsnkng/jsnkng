@@ -33,11 +33,11 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           vHeight={'90vh'}> 
           <Grid>
             <Row__Decorated>
-              <Col__Decorated xsOffset={1} xs={10}>
+              <Col__Decorated xsOffset={1} xs={20}>
 
                 <br /> <br />
                 <p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
-                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
+                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
                 {` `}<Link href='/design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
                 {` `}<strong><Link href='/art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>

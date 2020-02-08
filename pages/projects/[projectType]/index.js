@@ -1,15 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+import fetch from 'isomorphic-unfetch'
+import absoluteUrl from 'next-absolute-url'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
 import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
-import Footer from '../components/footer'
+import Footer from '../../../components/footer'
 import Iframe from 'react-iframe'
-import Navigation from '../components/navigation'
+import Navigation from '../../../components/navigation'
 
-const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
+const Page = ({ 
+  projects,
+  themeName, 
+  setThemeName, 
+  pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
   
   useEffect(() => {
@@ -21,6 +27,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
   useEffect(() => {
     forceCheck()
   })
+ 
   
   const [expandIFrame, setExpandIFrame] = useState(false)
   const handleExpandIFrame = () => {
@@ -30,6 +37,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     setExpandIFrame(false)
   }
 
+  /* Choose a random item to be the hero */
+  const [heroIdx, setHeroIdx] = useState(0)
+
+  /* Create a copy of data  and remove the hero item from it */
+  const projectThumbs = [ ...projects ]
+  projectThumbs.splice(heroIdx,1)
+
+
   if (!loaded) {
     return null
   } else {
@@ -37,53 +52,55 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
       <>
 
         <Head>
-          <title>JSNKNG</title>
+          <title>JSNKNG {projects[heroIdx].projectTitle}</title>
         </Head>
 
-        <Hero backgroundURL={`/gallery/National_Park_Guides/natparguides__background__spring.jpg`}> 
+        <Hero backgroundURL={projects[heroIdx].projectBackground}
+          projectThumbLogo={projects[heroIdx].projectThumbLogo}> 
           <BackgroundOverlay />
           <Grid__Decorated fluid={true}>
             <Row__Decorated>
-              <Col__Decorated xs={12} sm={6} md={6} lgOffset={1} lg={5}>
+              <Col__Decorated xs={24} sm={11} mdOffset={1}>
 
                 <div className='description'>
 
-                  <Link href='/natparguides' scroll={false}>
+                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
                     <a className='logo'>
-                      <img src='/gallery/National_Park_Guides/us-nps.png' alt='National Parks Guides' />
-                      <h2>Full Stack & UX/UI</h2>
-                      <h3>NextJS/React/Node/MongoDB</h3>
-                      <h3>Progressive Web App</h3>
-                      <h3>API Integration</h3>
+                    <img src={projects[heroIdx].projectLogo} alt={projects[heroIdx].projectTitle} />
+                  <h2>{projects[heroIdx].projectCategory}</h2>
+                  {
+                    projects[heroIdx].projectTags.map(tag => {
+                      return (
+                        <h3>{tag}</h3>
+                      )
+                    })
+                  }
                     </a>
                   </Link>
 
                   <br />
 
-                  <a href='https://natparguides.com'>https://natparguides.com</a>&nbsp;|&nbsp;
-                  <a className='xs' href="https://github.com/jsnkng/National-Parks">GitHub</a>
+                  <a href={projects[heroIdx].projectURL}>{projects[heroIdx].projectURL}</a>
+                  
 
                 </div>
 
                 <div className='content'>
-                  <Link href='/natparguides' scroll={false}>
+                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
                     <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
                   </Link>
-                  <p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated
-                    digital guide. Offering up-to-date park alerts, event information, maps, and park-related news,
-                    along with admission fees, contact information, campground, and visitor center locations and info all backed by the National Park Service API.
-                  </p>
+                  <div dangerouslySetInnerHTML={{__html:projects[heroIdx].projectDescription}}></div>
                 </div>
 
                 <br />
 
-                {/* <div className='description'>
-                  <Link href='/natparguides' scroll={false}><a>Learn More About the Project</a></Link>
-                </div> */}
+                <div className='description'>
+                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
+                </div>
 
               </Col__Decorated>
-              <Col__Decorated xs={12} sm={6} md={6}>
-                <Iframe url="https://natparguides.com"
+              <Col__Decorated xs={24} smOffset={1} sm={10}>
+                <Iframe url={projects[heroIdx].projectURL}
                   id="webFrame"
                   display="inherit"
                   position="relative"
@@ -92,52 +109,41 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href="https://natparguides.com">Open in New Window</a></span>
+                  <span><a href={projects[heroIdx].projectURL}>Open in New Window</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>
           </Grid__Decorated>
         </Hero>
 
-        <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
+        <Navigation parentTitle={`Web`} parentLink={{ href: `/projects/[projectType]`, as: `/projects/Web` }} />
 
         <Content>
     
           <Grid__Decorated fluid={true}>
             <Row__Decorated className='column'>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/halterscycles' scroll={false}>
-                <a>
-                  <div className='callout'>
-                    <img src='/gallery/Halters_Cycles/halterscycles_thumbnail.jpg' />
-                    <h3>Halter’s Cycles</h3>
-                    <span>UX/UI WordPress</span>
-                  </div>
-                </a>
-                </Link>
-              </Col__Decorated>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/atkinscre' scroll={false}>
-                <a>
-                  <div className='callout'>
-                    <img src='/gallery/AtkinsCRE/atkinscre_thumbnail.jpg' />
-                    <h3>Atkins CRE</h3>
-                    <span>UX/UI WordPress</span>
-                  </div>
-                </a>
-                </Link>
-              </Col__Decorated>
-              <Col__Decorated xs={12} sm={4}>
-                <Link href='/hjadvisors' scroll={false}>
-              <a>
-                  <div className='callout'>
-                    <img src='/gallery/HJAdvisors/hjadvisors_thumbnail.jpg' />
-                    <h3>Hugh Johnson Advisors</h3>
-                    <span>UX/UI WordPress</span>
-                  </div>
-                </a>
-                </Link>
-              </Col__Decorated>
+
+              {
+                projectThumbs.slice().map(project => {
+                  console.log(project)
+                  return (
+
+                    <Col__Decorated xs={24} sm={6}>
+                      <Link href={`/projects/${project.projectType}/project/${project.projectName}`} scroll={false}>
+                      <a>
+                        <div className='callout'>
+                          <img src={project.projectThumb} />
+                          <h3>{project.projectTitle}</h3>
+                          <span>{project.projectCategory}</span>
+                        </div>
+                      </a>
+                      </Link>
+                    </Col__Decorated>
+
+                  )
+                })
+              }
+
             </Row__Decorated>
           </Grid__Decorated>
         </Content>
@@ -152,6 +158,14 @@ Page.pageTransitionDelayEnter = true
 
 export default Page
  
+Page.getInitialProps = async ({ req, query }) => {
+  const { projectType } = query
+  const { origin }  = absoluteUrl(req)
+  const projectResult = await fetch(`${origin}/api/projects/${projectType}`)
+  const result = await projectResult.json()
+  result.projectType = projectType
+  return result
+}
 
 const Hero = styled.header`
   position: relative;
@@ -220,6 +234,8 @@ const Hero = styled.header`
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     h3 {
       font-size: 1rem;
+      font-weight: 200;
+      line-height: 1.2;
     }
     p {
       font-size: 1.125rem;
@@ -250,51 +266,45 @@ const Hero = styled.header`
   }
 
 
-
+  
 
   #webFrame {
     display: none !important;
     ${'' /* background: ${({ theme }) => theme.colors.image_overlay_darkgradient } !important;  */}
-    background-image: url(/gallery/National_Park_Guides/us-nps.png);
+    background-image: url(${props => props.projectThumbLogo});
     background-color: rgba(0,0,0,0.8);
     background-size: 66%;
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-    height: 35rem;
-    max-height: 640px;
+    width: 20rem;
+    height: 70vh;
     border: 3px solid ${({ theme }) => theme.colors.home_text };
     border-radius: 8px;
     box-shadow: 5px 5px 40px rgba(0,0,0,.8);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
     ${SuperQuery().minWidth.sm.css`
       display: block !important;
       right: 0;
     `}
     ${SuperQuery().minWidth.md.css`
       width: 21rem;
+      height: 77.5vh;
+    `}
+    ${SuperQuery().minWidth.lg.css`
+      width: 25rem;
     `}
 
     &.expanded {
       position: fixed;
-      top: -10px;
-      right: 50vw;
-      width: 85vw;
-      height: 596px;
+      top: 0;
+      right: 49vw;
+      width: 90vw;
+      height: 82.5vh;
       z-index: 1200;
-      ${SuperQuery().minWidth.sm.css`
-        right: 0vw;
-        width: 48vw;
-        height: 516px;
-      `}
-      ${SuperQuery().minWidth.md.css`
-        right: 45vw;
-        width: 90vw;
-        height: 596px;
-      `}
-      ${SuperQuery().minWidth.lg.css`
-        height: 90vh;
-        max-height: 646px;
-      `}
     }
   }
   .toggle__container {
@@ -349,6 +359,17 @@ const Content = styled.div`
       max-width: 90%;
       box-shadow: 5px 5px 20px rgba(0,0,0,0.25);
       cursor: pointer;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    span {
+      font-size: 1rem;
+      font-weight: 200;
+      line-height: 1.2;
     }
   }
 `

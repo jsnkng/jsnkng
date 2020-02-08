@@ -18,15 +18,15 @@ import collection from '../_data/collection'
 
 export default (req, res) => {
   const {
-    query: { collectionName }
+    query: { projectName }
   } = req
-
-  const getCollection = async (callback) => {
-    const [result] = collection.filter(item => item.collectionName === collectionName)
+  console.log(projectName)
+  const getProject = async (callback) => {
+    const [result] = collection.filter(item => item.projectName === projectName)
     callback(result)
   }
 
-  getCollection(result => {
+  getProject(result => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(result))

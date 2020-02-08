@@ -82,7 +82,7 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
             {
             pictures.slice(0).map((item, index) => {
               return (
-              <Col__Decorated className='image__thumb' xs={12} sm={12} md={4} lg={3} key={index+item.path}>
+              <Col__Decorated className='image__thumb' xs={24} sm={12} md={8} lg={6} key={index+item.path}>
                 <Banner
                   headline={``}
                   title={item.title}

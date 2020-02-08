@@ -45,7 +45,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
           vHeight={'90vh'}> 
           <Grid>
             <Row__Decorated>
-              <Col__Decorated  xsOffset={1} xs={10} mdOffset={0} md={7}>
+              <Col__Decorated  xsOffset={1} xs={20} mdOffset={0} md={14}>
                 <br />
                 <p>Hello.<br />I’m <strong><Link href='/about#AboutMe' scroll={false}><a>Jason&nbsp;King</a></Link>.</strong></p> 
                 <br />
@@ -59,7 +59,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
         <Content>
           <Grid>
           <Row__Decorated>
-              <Col__Decorated  xsOffset={1} xs={10} smOffset={1} sm={10} mdOffset={0} md={7}>
+              <Col__Decorated  xsOffset={1} xs={20} smOffset={1} sm={20} mdOffset={0} md={14}>
               
               <div>
                 <h2>About Me</h2>
@@ -98,7 +98,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
                 </div>
               </Col__Decorated>
 
-              <Col__Decorated xsOffset={1} xs={10} smOffset={1} sm={10} mdOffset={1} md={4}>
+              <Col__Decorated xsOffset={1} xs={20} smOffset={1} sm={20} mdOffset={1} md={8}>
                 <div className='jasonking md'></div>
                 <h3>Languages & Tools</h3>
                 <div><strong>JavaScript </strong> ES6, NodeJS, React, Vue, AngularJS, jQuery</div>
@@ -129,7 +129,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
          
             {/* <Grid>
               <Row__Decorated>
-                <Col__Decorated xsOffset={1} xs={10}>
+                <Col__Decorated xsOffset={1} xs={20}>
                   {
                     recenttracks.track.map(item => {
                       console.log(item.name)
@@ -296,7 +296,7 @@ const Col__Decorated = styled(Col)`
         <Content>
           <Grid>
             <Row__Decorated>
-              <Col__Decorated xs={12}  md={5} lg={6}>
+              <Col__Decorated xs={24}  md={10} lg={12}>
               <div className='content'>
                 <h1>
                   Hello. I'm Jason King and this is what I do.
@@ -304,7 +304,7 @@ const Col__Decorated = styled(Col)`
               </div>
               </Col__Decorated>
           
-              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
+              <Col__Decorated xs={24} s mdOffset={1}  md={12} lgOffset={1}  lg={10}>
                 <div className='content'>
                   <p>
                   JavaScript, HTML, CSS/SCSS, PHP, mySQL, MongoDB, React, Vue, Angular, jQuery, BootStrap, NodeJS, NextJS
@@ -318,7 +318,7 @@ const Col__Decorated = styled(Col)`
         <Content>
           <Grid>
             <Row__Decorated>
-              <Col__Decorated xs={12}  md={5} lg={6}>
+              <Col__Decorated xs={24}  md={10} lg={12}>
               <div className='content'>
                 <blockquote>I believe in thinking through projects while doing them. In other words projects become a means to think through other problems. 
                 
@@ -329,7 +329,7 @@ const Col__Decorated = styled(Col)`
               </div>
               </Col__Decorated>
              
-              <Col__Decorated xs={12} s mdOffset={1}  md={6} lgOffset={1}  lg={5}>
+              <Col__Decorated xs={24} s mdOffset={1}  md={12} lgOffset={1}  lg={10}>
                 <div className='content'>
                   <p>Jason King satisfies his passion for making things synthesizing visual, cognitive, and semiotic systems 
                     as an artist, designer, and full-stack web developer. A versatile Creative Technologist he’s worked for a variety of large and small agencies, startups, 

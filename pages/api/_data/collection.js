@@ -1,7 +1,7 @@
 const collection = [
   {
-    disciplineTitle: 'Art',
-    disciplineName: 'Art',
+    projectTypeTitle: 'Art',
+    projectType: 'Art',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
     aboutCollection: `<p>Mythologies borrows strategies from Surrealism’s encounters with automatic writing 
@@ -35,8 +35,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Art',
-    disciplineName: 'Art',
+    projectTypeTitle: 'Art',
+    projectType: 'Art',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
     aboutCollection: `Nature Morté meshes the aesthetic sensibility of the painter's still life 
@@ -58,8 +58,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Art',
-    disciplineName: 'Art',
+    projectTypeTitle: 'Art',
+    projectType: 'Art',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
     aboutCollection: `<p>Starlight Meadows tells the story of last patch of farmland at the end of the world
@@ -92,8 +92,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Design',
-    disciplineName: 'Design',
+    projectTypeTitle: 'Design',
+    projectType: 'Design',
     collectionTitle: 'PXL8N',
     collectionName: 'PXL8N',
     images: [
@@ -104,8 +104,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Design',
-    disciplineName: 'Design',
+    projectTypeTitle: 'Design',
+    projectType: 'Design',
     collectionTitle: 'Coffee',
     collectionName: 'Coffee',
     images: [
@@ -113,8 +113,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Design',
-    disciplineName: 'Design',
+    projectTypeTitle: 'Design',
+    projectType: 'Design',
     collectionTitle: 'I Ching',
     collectionName: 'IChing',
     images: [
@@ -122,8 +122,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Web',
-    disciplineName: 'Web',
+    projectTypeTitle: 'Webd',
+    projectType: 'Webd',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
     images: [
@@ -139,36 +139,88 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Web',
-    disciplineName: 'Web',
-    collectionTitle: 'National Park Guides',
-    collectionName: 'National_Park_Guides',
+    projectTypeTitle: 'Web',
+    projectType: 'Web',
+    projectTitle: 'National Park Guides',
+    projectName: 'National_Park_Guides',
+    projectLogo: '/gallery/National_Park_Guides/us-nps.png',
+    projectThumb: '/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg',
+    projectThumbLogo: '/gallery/National_Park_Guides/us-nps.png',
+    projectBackground: '/gallery/National_Park_Guides/natparguides__background__spring.jpg',
+    projectCategory: 'Full Stack & UX/UI',
+    projectTags: ['NextJS/React/Node/MongoDB', 'Progressive Web App', 'API Integration'],
+    projectURL: 'https://natparguides.com',
+    projectDescription: '<a href="https://github.com/jsnkng/National-Parks">View on GitHub</a><br /><p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated digital guide. Offering up-to-date park alerts, event information, maps, and park-related news, along with admission fees, contact information, campground, and visitor center locations and info all backed by the National Park Service API.</p>',
     images: [
       { title: 'National Park Detail Page (Desktop/Light)', name: 'Park_Detail_Guide_Large_Light', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Light', ratio: '9:83', shop: false, year: '2020', tags: 'React' },
       { title: 'National Park Detail Page (Desktop/Dark)', name: 'Park_Detail_Guide_Large_Dark', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Dark', ratio: '9:41', shop: false, year: '2020', tags: 'React' },
     ]
   },
   {
-    disciplineTitle: 'Web',
-    disciplineName: 'Web',
-    collectionTitle: 'Halter’s Cycles',
-    collectionName: 'Halters_Cycles',
+    projectTypeTitle: 'Web',
+    projectType: 'Web',
+    projectTitle: 'Halter’s Cycles',
+    projectName: 'Halters_Cycles',
+    projectLogo: '/gallery/Halters_Cycles/HC_Script_Yellow.png',
+    projectThumb: '/gallery/Halters_Cycles/halterscycles_thumbnail.jpg',
+    projectThumbLogo: '/gallery/Halters_Cycles/halterscycles-logo-mtb-tire.png',
+    projectBackground: '/gallery/Halters_Cycles/halters-cycles-checkout.jpg',
+    projectCategory: 'UX/UI, Wordpress, WooCommerce',
+    projectTags: ['Responsive Design', 'Print-on-Demand Integration'],
+    projectURL: 'https://www.halterscycles.com',
+    projectDescription: '<p>Designed to drive foot traffic to a brick-and-mortar retail bike shop, the Halter’s Cycles website is mobile-friendly and keeps important contact information at the top of the screen at all times. The site makes use of content from social media posts, reviews from around the web, and shop photos and graphical design elements to give visitors the flavor of the shop and draw customers in.</p>',
     images: [
       { title: 'Halter’s Cycles', name: 'Halters_Cycles', path: '/gallery/Web/Halters_Cycles', ratio: '3:2', shop: false, year: '2019', tags: 'WordPress, WooCommerce,  Printful, Photoshop' },
     ]
   },
   {
-    disciplineTitle: 'Web',
-    disciplineName: 'Web',
-    collectionTitle: 'Hugh Johnson Advisors',
-    collectionName: 'Hugh_Johnson_Advisors',
+    projectTypeTitle: 'Web',
+    projectType: 'Web',
+    projectTitle: 'Hugh Johnson Advisors',
+    projectName: 'Hugh_Johnson_Advisors',
+    projectLogo: '/gallery/HJAdvisors/HJAdvisors_logo.png',
+    projectThumb: '/gallery/HJAdvisors/hjadvisors_thumbnail.jpg',
+    projectThumbLogo: '/gallery/HJAdvisors/HJAdvisors_logo.png',
+    projectBackground: '/gallery/HJAdvisors/HJAdvisorsBackground.jpg',
+    projectCategory: 'UX/UI, Wordpress',
+    projectTags: ['Brochure and Media Site'],
+    projectURL: 'https://www.hjadvisors.com',
+    projectDescription: '<p>Hugh Johnson Advisors is a registered investment advisor who’s founder regularly appears in the media through his Hugh’s Market Minute video segment. The website provides a high-level overview of the products and services Hugh Johnson Advisors offers and makes it easy for prospective clients to learn more about the company.</p>',
     images: [
       { title: 'Hugh Johnson Advisors', name: 'Hugh_Johnson_Advisors', path: '/gallery/Web/Hugh_Johnson_Advisors', ratio: '3:2', shop: false, year: '2018', tags: 'WordPress, HTML, CSS, Photoshop' },
     ]
   },
   {
-    disciplineTitle: 'Code',
-    disciplineName: 'Code',
+    projectTypeTitle: 'Web',
+    projectType: 'Web',
+    projectTitle: 'Atkins CRE',
+    projectName: 'Atkins_CRE',
+    projectLogo: '/gallery/AtkinsCRE/logo-atkins-commercial-realestate.png',
+    projectThumb: '/gallery/AtkinsCRE/atkinscre_thumbnail.jpg',
+    projectThumbLogo: '/gallery/AtkinsCRE/logo-atkins-commercial-realestate.png',
+    projectBackground: '/gallery/AtkinsCRE/AtkinsCRE_Background.jpg',
+    projectCategory: 'UX/UI, Wordpress',
+    projectTags: ['Responsive Design', 'Dynamic Property Listings'],
+    projectURL: 'https://www.atkinscre.com',
+    projectDescription: '<p>All businesses need to generate leads and develop brand awareness, Atkins Commercial Real Estate uses their mobile-friendly, Wordpress site to do both and a whole lot more. Putting the customer’s needs first, Atkins CRE’s design puts map and phone button at the top of every screen for easy access and a CTA contact form at the bottom so users are provided lots of opportunities to get in touch. What’s more, properties they have listed are available on the website and kept up-to-date through a custom WordPress plugin.</p>',
+  },
+  {
+    projectTypeTitle: 'Web',
+    projectType: 'Web',
+    projectTitle: 'AdCycle',
+    projectName: 'AdCycle',
+    projectLogo: '/gallery/AdCycle/logo-adcycle-white-rounded.png',
+    projectThumb: '/gallery/AdCycle/adcycle_thumbnail.jpg',
+    projectThumbLogo: '/gallery/AdCycle/logo-adcycle-white-rounded.png',
+    projectBackground: '/gallery/AdCycle/AdCycleBackground.jpg',
+    projectCategory: 'UX/UI, Wordpress',
+    projectTags: ['Responsive Design'],
+    projectURL: 'https://www.adcycle.co',
+    projectDescription: '<p></p>',
+  },
+  {
+    projectTypeTitle: 'Code',
+    projectType: 'Code',
     collectionTitle: 'PWA API/Full Stack',
     collectionName: 'PWA_API_Full_Stack',
     images: [
@@ -176,8 +228,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Code',
-    disciplineName: 'Code',
+    projectTypeTitle: 'Code',
+    projectType: 'Code',
     collectionTitle: 'Pharma API/Backend',
     collectionName: 'Pharma_API_Backend',
     images: [
@@ -185,8 +237,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Code',
-    disciplineName: 'Code',
+    projectTypeTitle: 'Code',
+    projectType: 'Code',
     collectionTitle: 'Pharma API/Frontend',
     collectionName: 'Pharma_API_Frontend',
     images: [
@@ -194,8 +246,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Code',
-    disciplineName: 'Code',
+    projectTypeTitle: 'Code',
+    projectType: 'Code',
     collectionTitle: 'Veeva Hybrid iPad App',
     collectionName: 'Veeva_Hybrid_iPad_App',
     images: [
@@ -203,8 +255,8 @@ const collection = [
     ]
   },
   {
-    disciplineTitle: 'Code',
-    disciplineName: 'Code',
+    projectTypeTitle: 'Code',
+    projectType: 'Code',
     collectionTitle: 'Ionic/Cordove Hybrid Mobile App',
     collectionName: 'Ionic_Cordove_Hybrid_Mobile_App',
     images: [

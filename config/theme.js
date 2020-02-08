@@ -1,6 +1,6 @@
 const themes = {
   flexboxgrid: {
-    gridSize: 12, // columns
+    gridSize: 24, // columns
     gutterWidth: 1, // rem
     outerMargin: 1, // rem
     mediaQuery: 'only screen',

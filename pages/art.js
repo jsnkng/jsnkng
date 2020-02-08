@@ -35,7 +35,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <BackgroundOverlay />
             <Grid__Decorated>
               <Row__Decorated className='reversible'>
-                <Col__Decorated xsOffset={1} mdOffset={1} md={5}>
+                <Col__Decorated xsOffset={1} mdOffset={1} md={10}>
                   <Link href='/collection/[collectionName]/' as='/collection/Mythologies/' scroll={false}>
                     <a>
                       <h3>Mythologies</h3>
@@ -60,7 +60,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <BackgroundOverlay /> 
             <Grid__Decorated>
               <Row__Decorated>
-                <Col__Decorated xsOffset={1} xs={10} mdOffset={6} md={5}>
+                <Col__Decorated xsOffset={1} xs={20} mdOffset={6} md={10}>
                 <Link href='/collection/[collectionName]/' as='/collection/Nature_Morte/' scroll={false}>
                   <a>
                     <h3>Nature Morté</h3>
@@ -82,7 +82,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             <BackgroundOverlay />
             <Grid__Decorated>
               <Row__Decorated className='reversible'>
-                <Col__Decorated xsOffset={1} xs={10} mdOffset={6} md={5}>
+                <Col__Decorated xsOffset={1} xs={20} mdOffset={6} md={10}>
                   <Link href='/collection/[collectionName]/' as='/collection/Starlight_Meadows/' scroll={false}>
                     <a>
                       <h3>Starlight Meadows</h3>
