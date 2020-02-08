@@ -20,9 +20,10 @@ export default (req, res) => {
   const {
     query: { collectionName }
   } = req
-
   const getCollection = async (callback) => {
-    const [result] = collection.filter(item => item.collectionName === collectionName)
+    const result = {}
+    const [data] = collection.filter(item => item.collectionName === collectionName)
+    result.collection = data
     callback(result)
   }
 

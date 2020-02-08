@@ -1,11 +1,11 @@
 const collection = [
   {
-    projectTypeTitle: 'Art',
-    projectType: 'Art',
+    collectionTypeTitle: 'Art',
+    collectionType: 'Art',
+    collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>Mythologies borrows strategies from Surrealism’s encounters with automatic writing 
-         to create visual art that exceeds conscious determination.</p>`,
+    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing in a deliberate effort to create visual art that exceeds conscious determination.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -35,13 +35,14 @@ const collection = [
     ]
   },
   {
-    projectTypeTitle: 'Art',
-    projectType: 'Art',
+    collectionTypeTitle: 'Art',
+    collectionType: 'Art',
+    collectionBackground: '/gallery/Nature_Morte/2_The_Receptive_0/Nature_Morte_background.jpg',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-    aboutCollection: `Nature Morté meshes the aesthetic sensibility of the painter's still life 
-    with categorical illustrations of botanical, entomological, 
-    and zoological specimens to produce an ontological catalog of time and beauty.`,
+    aboutCollection: `inherits from the miniaturized mise-en-scene of painting's still life and scientific
+    illustrations of botanical, entomological, and zoological specimens to produce a catalog of ontologies
+    aptly named after the 64 Hexagrams of the I Ching.`,
     images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
@@ -58,16 +59,17 @@ const collection = [
     ]
   },
   {
-    projectTypeTitle: 'Art',
-    projectType: 'Art',
+    collectionTypeTitle: 'Art',
+    collectionType: 'Art',
+    collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>Starlight Meadows tells the story of last patch of farmland at the end of the world
-     through a play unfolding as if within a dream. 
-    An amnesiac king abandons his kingdom to wander the land, a beggar. A trio of menacing 
-    pigs arrive backed by an army of troglodytes and begin waging a campaign intimidation on 
-    the sheep-folk of the land. Only a band of anarchic monkeys hold back the kingdom’s 
-    complete collapse while searching for a means of restoring the king.</p>`,
+    aboutCollection: `<p>tells the story of last patch of farmland at the end of the world where the
+    king, under a spell of amnesia, has abandoned his kingdom and wanders, a beggar. A triumvirate of  
+    cruel pigs appear backed by an army of masked troglodytes and take advantage of the king’s
+    disappearance by waging a terror campaign against the folk of the land. 
+    Only a band of jolly primates hold back the kingdom’s 
+    complete collapse while their leader searches for any means of restoring the king’s memory.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },

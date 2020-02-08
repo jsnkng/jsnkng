@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 import Link from 'next/link'
-import useWindowDimensions from '../../../../../hooks/useWindowDimensions'
-import useEventListener from '../../../../../hooks/useEventListener'
+import useWindowDimensions from '../../../../../../../hooks/useWindowDimensions'
+import useEventListener from '../../../../../../../hooks/useEventListener'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
@@ -11,10 +11,11 @@ import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 import { useSwipeable, Swipeable } from 'react-swipeable'
 import LazyLoad, { forceCheck } from 'react-lazyload'
-import Header from '../../../../../components/header'
-import Footer from '../../../../../components/footer'
+import Header from '../../../../../../../components/header'
+import Footer from '../../../../../../../components/footer'
 
-const Page = ({ collectionTitle, collectionName, imageName, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+const Page = ({ collection, collectionType, collectionName, imageName, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+  
   /* Basic page stuff */
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
@@ -26,14 +27,13 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
   useEffect(() => {
     forceCheck()
   })
-  
   /* Getting the current image's id and data */
-  const [currentIdx, setCurrentIdx] = useState(images.findIndex(i => i.name === imageName))
-  const [[image], setImage] = useState(images.filter(image => image.name === imageName))
+  const [currentIdx, setCurrentIdx] = useState(collection.images.findIndex(i => i.name === imageName))
+  const [[image], setImage] = useState(collection.images.filter(image => image.name === imageName))
   /* Keep current image's id and data up to date */
   useEffect(() => {
-    setCurrentIdx(images.findIndex(i => i.name === imageName))
-    setImage(images.filter(image => image.name === imageName))
+    setCurrentIdx(collection.images.findIndex(i => i.name === imageName))
+    setImage(collection.images.filter(image => image.name === imageName))
   }, [imageName])
 
   /* Getting the next and previous image's id and data */
@@ -41,8 +41,8 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
   const [nextIdx, setNextIdx] = useState()
   /* Keep next and previous image's id and data up to date */
   useEffect(() => {
-    setPrevIdx(currentIdx > 0 ? currentIdx - 1 : images.length - 1)
-    setNextIdx(currentIdx < images.length - 1 ? currentIdx + 1 : 0)
+    setPrevIdx(currentIdx > 0 ? currentIdx - 1 : collection.images.length - 1)
+    setNextIdx(currentIdx < collection.images.length - 1 ? currentIdx + 1 : 0)
   }, [currentIdx])
 
   /* Calculating a fixed vertical height based on an image's ratio as determined in the collection  */
@@ -64,16 +64,16 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
 /* Functions to be called by event listeners to handle navigation between images */
   const handleLeftSwipe = () => {
     if(showBackground) {
-      Router.push(`/collection/[collectionName]/image/[imageName]`, 
-                  `/collection/${collectionName}/image/${images[nextIdx].name}`)
+      Router.push(`/collections/[collectionType]/collection/[collectionName]/image/[imageName]`, 
+                  `/collections/${collectionType}/collection/${collectionName}/image/${collection.images[nextIdx].name}`)
     } else {
       backgroundShow()
     }
   }
   const handleRightSwipe = () => {
     if(showBackground) {
-      Router.push(`/collection/[collectionName]/image/[imageName]`, 
-                `/collection/${collectionName}/image/${images[prevIdx].name}`)
+      Router.push(`/collections/[collectionType]/collection/[collectionName]/image/[imageName]`, 
+                `/collections/${collectionType}/collection/${collectionName}/image/${collection.images[prevIdx].name}`)
     } else {
       backgroundShow()
     }
@@ -124,10 +124,10 @@ const Page = ({ collectionTitle, collectionName, imageName, images, themeName, s
           heroTitle={image.title} 
           heroSubtitle={image.year} 
           heroDescription={``}
-          parentTitle={collectionTitle}
+          parentTitle={collection.collectionTitle}
           parentLink={{
-            href: `/collection/[collectionName]/`, 
-            as: `/collection/${collectionName}/` 
+            href: `/collectionType/[collectionType]/collection/[collectionName]/`, 
+            as: `/collectionType/${collectionType}/collection/${collectionName}/` 
           }}
         />
         <Grid__Decorated className="container" fluid={true}>
@@ -180,11 +180,12 @@ Page.pageTransitionDelayEnter = true
 export default Page
 
 Page.getInitialProps = async ({ req, query }) => {
-  const { collectionName, imageName } = query
+  const { collectionType, collectionName, imageName } = query
   const { origin }  = absoluteUrl(req)
   const collectionResult = await fetch(`${origin}/api/collection/${collectionName}`)
   const result = await collectionResult.json()
   result.imageName = imageName
+  result.collectionType = collectionType
   result.collectionName = collectionName
   return result
 }

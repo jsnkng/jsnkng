@@ -20,7 +20,6 @@ export default (req, res) => {
   const {
     query: { projectName }
   } = req
-  console.log(projectName)
   const getProject = async (callback) => {
     const [result] = collection.filter(item => item.projectName === projectName)
     callback(result)

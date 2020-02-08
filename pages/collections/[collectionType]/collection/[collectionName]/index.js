@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import useWindowDimensions from '../../../hooks/useWindowDimensions'
+import useWindowDimensions from '../../../../../hooks/useWindowDimensions'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
 import SuperQuery from '@themgoncalves/super-query'
@@ -9,24 +9,27 @@ import fetch from 'isomorphic-unfetch'
 import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 
-import Header from '../../../components/header'
-import Footer from '../../../components/footer'
-import Banner from '../../../components/elements/banner'
+import Header from '../../../../../components/header'
+import Footer from '../../../../../components/footer'
+import Banner from '../../../../../components/elements/banner'
 
-const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollection, images, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+const Page = ({ 
+  collection,
+  themeName, 
+  setThemeName, 
+  pageTransitionReadyToEnter }) => {
   const [showModal, setShowModal] = useState(false)
   const [showBackground, setShowBackground] = useState(false)
- 
   const windowDimension = useWindowDimensions()
 
   /* Flag loaded state of page for pageTransitions */
   const [loaded, setLoaded] = useState(false)
 
   /* Choose a random item to be the hero */
-  const [heroIdx, setHeroIdx] = useState(Math.floor(Math.random()*(images.length)))
+  const [heroIdx, setHeroIdx] = useState(Math.floor(Math.random()*(collection.images.length)))
 
   /* Create a copy of data  and remove the hero item from it */
-  const pictures = [ ...images ]
+  const pictures = [ ...collection.images ]
   // pictures.splice(heroIdx,1)
 
   const modalShow = () => {
@@ -64,16 +67,16 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
           onClick={modalHide} 
         >
         <Modal className={showModal && 'showModal'}>
-          <div className='content' dangerouslySetInnerHTML={{__html:aboutCollection}}></div>
+          <div className='content' dangerouslySetInnerHTML={{__html:collection.aboutCollection}}></div>
         </Modal>
         </BackgroundOverlay>
         <Header 
-          heroBackground={`${images[heroIdx].path}/image_i.jpg`}
+          heroBackground={`${collection.images[heroIdx].path}/image_i.jpg`}
           heroHeight={`100vh`}
-          heroTitle={collectionTitle} 
+          heroTitle={collection.collectionTitle} 
           heroSubtitle={``}
-          heroDescription={aboutCollection}
-          parentTitle={disciplineTitle}
+          heroDescription={collection.aboutCollection}
+          parentTitle={collection.disciplineTitle}
           parentLink={{ href: `/art`, as: `/art` }}
         />
         {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
@@ -91,8 +94,8 @@ const Page = ({ collectionTitle, collectionName, disciplineTitle, aboutCollectio
                   backgroundURL={`${item.path}/image.jpg`}
                   backgroundHoverURL={`${item.path}/image_i.jpg`}
                   link={{ 
-                    href: `/collection/[collectionName]/image/[imageName]`, 
-                    as:`/collection/${collectionName}/image/${item.name}`
+                    href: `/collections/[collectionType]/collection/[collectionName]/image/[imageName]`, 
+                    as: `/collections/${collection.collectionType}/collection/${collection.collectionName}/image/${item.name}`
                   }}
                   windowDimension={windowDimension}
                 />

@@ -64,7 +64,7 @@ const Page = ({
 
                 <div className='description'>
 
-                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
                     <a className='logo'>
                     <img src={projects[heroIdx].projectLogo} alt={projects[heroIdx].projectTitle} />
                   <h2>{projects[heroIdx].projectCategory}</h2>
@@ -86,7 +86,7 @@ const Page = ({
                 </div>
 
                 <div className='content'>
-                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}>
                     <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
                   </Link>
                   <div dangerouslySetInnerHTML={{__html:projects[heroIdx].projectDescription}}></div>
@@ -95,7 +95,7 @@ const Page = ({
                 <br />
 
                 <div className='description'>
-                  <Link href={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
                 </div>
 
               </Col__Decorated>
@@ -125,11 +125,10 @@ const Page = ({
 
               {
                 projectThumbs.slice().map(project => {
-                  console.log(project)
                   return (
 
                     <Col__Decorated xs={24} sm={6}>
-                      <Link href={`/projects/${project.projectType}/project/${project.projectName}`} scroll={false}>
+                      <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${project.projectType}/project/${project.projectName}`} scroll={false}>
                       <a>
                         <div className='callout'>
                           <img src={project.projectThumb} />

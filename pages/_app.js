@@ -39,19 +39,21 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
 
   const [showBurgerMenu, setShowBurgerMenu] = useState(true)
   
-
   useEffect(() => {
     Router.events.on('routeChangeStart', url => {
+      NProgress.start()
       // setShowBurgerMenu(false)
       setIsMenuOpen(false)
     })
     Router.events.on('routeChangeComplete', url => { 
-      // setShowBurgerMenu(true)
       gtag.pageview(url)
+      NProgress.done()
     })
     Router.events.on('routeChangeError', () => {
+      NProgress.done()
     })
   }, [])
+  
  
   
   return (
@@ -67,9 +69,16 @@ const MyApp = ({ appCookies, router, Component, pageProps }) => {
                     'none'}
         />
         <div id='inner__wrapper'>
-          <PageTransition
-            timeout={500}
-            classNames="page-transition">
+          
+      <PageTransition
+        timeout={500}
+        classNames="page-transition"
+        loadingDelay={500}
+        loadingTimeout={{
+          enter: 400,
+          exit: 400,
+        }}
+        loadingClassNames="loading-indicator">
               <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
           </PageTransition>
         </div>
