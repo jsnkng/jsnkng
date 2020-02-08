@@ -349,12 +349,13 @@ const Content = styled.div`
   }
 
   .callout {
+    margin: 0 0 2rem 0;
     img {
       display: block;
       margin: 1rem auto 1.5rem auto;
       border: 3px solid ${({ theme }) => theme.colors.home_text };
       border-radius: 4px;
-      width: 70vw;
+      width: 80vw;
       max-width: 90%;
       box-shadow: 5px 5px 20px rgba(0,0,0,0.25);
       cursor: pointer;

@@ -30,24 +30,20 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <title>JSNKNG</title>
         </Head>
         <Hero backgroundURL={``}
-          vHeight={'90vh'}> 
+          vHeight={'85vh'}> 
           <Grid>
             <Row__Decorated>
-              <Col__Decorated xsOffset={1} xs={20}>
-
-                <br /> <br />
+              <Col__Decorated xsOffset={1} xs={21}>
                 <p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
                 {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
                 {` `}<Link href='/design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
                 {` `}<strong><Link href='/collections/Art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>
-                
-                <br /><p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a>,</strong> 
+                <br />
+                <p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a>,</strong> 
                 {` `} a boutique <strong>digital marketing agency</strong> 
                 {` `} and provide <strong> web & mobile development support</strong> through 
                 {` `} <strong><a href='https://cab408.com' target='_blank' rel='noopener'>CAB408</a>.</strong></p>
-                <br />
-
               </Col__Decorated>
             </Row__Decorated>
           </Grid>

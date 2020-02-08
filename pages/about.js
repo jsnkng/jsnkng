@@ -43,9 +43,9 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
         
         <Hero backgroundURL={``}
           vHeight={'90vh'}> 
-          <Grid>
+          <Grid fluid={true}>
             <Row__Decorated>
-              <Col__Decorated  xsOffset={1} xs={20} mdOffset={0} md={14}>
+              <Col__Decorated   xs={24} mdOffset={0} md={14}>
                 <br />
                 <p>Hello.<br />I’m <strong><Link href='/about#AboutMe' scroll={false}><a>Jason&nbsp;King</a></Link>.</strong></p> 
                 <br />
@@ -59,7 +59,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
         <Content>
           <Grid>
           <Row__Decorated>
-              <Col__Decorated  xsOffset={1} xs={20} smOffset={1} sm={20} mdOffset={0} md={14}>
+              <Col__Decorated  xsOffset={1} xs={22} smOffset={1} sm={20} mdOffset={0} md={14}>
               
               <div>
                 <h2>About Me</h2>

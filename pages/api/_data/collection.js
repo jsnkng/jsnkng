@@ -64,12 +64,8 @@ const collection = [
     collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>tells the story of last patch of farmland at the end of the world where the
-    king, under a spell of amnesia, has abandoned his kingdom and wanders, a beggar. A triumvirate of  
-    cruel pigs appear backed by an army of masked troglodytes and take advantage of the king’s
-    disappearance by waging a terror campaign against the folk of the land. 
-    Only a band of jolly primates hold back the kingdom’s 
-    complete collapse while their leader searches for any means of restoring the king’s memory.</p>`,
+    aboutCollection: `<p>tells an allegorical story about memory and identity. In a kingdom where an amnesiac king abandons his throne, only a motley troop of primates stands between
+    the populace and a reign of terror brought by the arrival of a trio of pigs intent on . </p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
