@@ -95,7 +95,7 @@ const Page = ({
                 <br />
 
                 <div className='description'>
-                <a href={projectURL}>{projectURL}</a>
+                <a href={projectURL} target='_blank'>{projectURL}</a>
                 </div>
 
               </Col__Decorated>

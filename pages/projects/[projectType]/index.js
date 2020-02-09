@@ -95,7 +95,7 @@ const Page = ({
 
                 <div className='description'>
 
-                <a href={projects[heroIdx].projectURL}>{projects[heroIdx].projectURL}</a>
+                <a href={projects[heroIdx].projectURL} target='_blank'>{projects[heroIdx].projectURL}</a>
                   {/* <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link> */}
                 </div>
 
@@ -110,7 +110,7 @@ const Page = ({
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href={projects[heroIdx].projectURL}>Launch</a></span>
+                  <span><a href={projects[heroIdx].projectURL} target='_blank'>Launch</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>

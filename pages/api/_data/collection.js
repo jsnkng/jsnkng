@@ -46,7 +46,7 @@ const collection = [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '64 - Before Completion - 42', name: '64_Before_Completion_42', path: '/gallery/Nature_Morte/64_Before_Completion_42', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
-      { title: '2 - The Receptive - 0', name: '2_The_Receptive_0', path: '/gallery/Nature_Morte/2_The_Receptive_0', ratio: '1:1', shop: false, year: '2013', tags: 'Digital Photography, Still Life' },
+      { title: '2 - The Receptive - 0', name: '2_The_Receptive_0', path: '/gallery/Nature_Morte/2_The_Receptive_0', ratio: '1:1', shop: true, year: '2013', tags: 'Digital Photography, Still Life' },
       { title: '5 - Nourishing While Waiting - 23', name: '5_Nourishing_While_Waiting_23', path: '/gallery/Nature_Morte/5_Nourishing_While_Waiting_23', ratio: '1:1', shop: false, year: '2012', tags: 'Digital Photography, Still Life' },
       { title: '18 - Decay - 38', name: '18_Decay_38', path: '/gallery/Nature_Morte/18_Decay_38', ratio: '1:1', shop: false, year: '2012', tags: 'Digital Photography, Still Life' },
       { title: '40 - Limitation - 10', name: '40_Limitation_10', path: '/gallery/Nature_Morte/40_Limitation_10', ratio: '1:1', shop: false, year: '2012', tags: 'Digital Photography, Still Life' },
