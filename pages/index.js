@@ -44,12 +44,16 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
                 {` `} a boutique <strong>digital marketing agency</strong> 
                 {` `} and provide <strong> web & mobile development support</strong> through 
                 {` `} <strong><a href='https://cab408.com' target='_blank' rel='noopener'>CAB408</a>.</strong></p>
+                <br />
+                <p>If you want to <strong>see what I’ve been up to,</strong> check out my web app 
+                {` `}<strong><Link href='/projects/[projectType]/project/[projectName]' as='/projects/Web/project/National_Park_Guides' scroll={false}><a>National Park Guides</a></Link></strong>
+                {` `} or my art series <strong><Link href='/collections/[collectionType]/collection/[collectionName]' as='/collections/Art/collection/Mythologies' scroll={false}><a>Mythologies.</a></Link></strong></p>
               </Col__Decorated>
             </Row__Decorated>
           </Grid>
         </Hero>
 
-        <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
+        <Navigation parentTitle={``} parentLink={{ href: `/`, as: `/` }} />
         
         <Footer themeName={themeName} setThemeName={setThemeName} />
       </>
@@ -69,7 +73,7 @@ const Hero = styled.header`
   justify-content: center;
   padding: 2rem 0 0 0;
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   max-height: 100%;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useForm } from 'react-hook-form'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
@@ -6,18 +7,17 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
 import Footer from '../components/footer'
-import Iframe from 'react-iframe'
 import Navigation from '../components/navigation'
 
 const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  const [expandIFrame, setExpandIFrame] = useState(false)
-  const handleExpandIFrame = () => {
-    setExpandIFrame(true)
+  const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const onSubmit = data => {
+    console.log(data);
+  };
+  const handleContactFormPost = () => {
   }
-  const handleCollapseIFrame = () => {
-    setExpandIFrame(false)
-  }
+  
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
@@ -45,19 +45,35 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Row__Decorated>
           
               <Col__Decorated xs={24} sm={12} md={12}>
-                <Iframe url="https://shop.jsnkng.com/headless-contact/"
-                  id="webFrame"
-                  display="inherit"
-                  position="relative"
-                  className={expandIFrame && 'expanded'}
-                /> 
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <input name="senderName" ref={register({ required: true, maxLength: 80  })} /> {/* register an input */}
+                {errors.senderName && 'Please tell us your name.'}
+          
+                <input name="senderEmail" 
+                  ref={register({ 
+                    required: true, 
+                    maxLength: 80, 
+                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
+                  })} 
+                />
+                {errors.senderEmail && 'Please provide your return email address.'}
+                
+                <input name="senderPhone" ref={register({ required: true, maxLength: 15, minLength: 8 })} />
+                {errors.senderPhone && 'Please provide the best phone number to reach you by.'}
+          
+                <textarea name="senderMessage" ref={register({ required: true, maxLength: 480  })} ></textarea>
+                {errors.senderMessage && 'Please include a message. How can we help you?'}
+
+                <input type="submit" />
+              </form>
+      
               
               </Col__Decorated>
             </Row__Decorated>
           </Grid>
         </Hero>
 
-        <Navigation parentTitle={`Web`} parentLink={{ href: `/web`, as: `/web` }} />
+        <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
 
         <Footer themeName={themeName} setThemeName={setThemeName} />
 
@@ -123,7 +139,7 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 5rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
