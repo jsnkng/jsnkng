@@ -70,10 +70,15 @@ const Page = ({
           <div className='content' dangerouslySetInnerHTML={{__html:collection.aboutCollection}}></div>
         </Modal>
         </BackgroundOverlay>
+
+      
+                      
+
         <Header 
           heroBackground={`${collection.images[heroIdx].path}/image_i.jpg`}
           heroHeight={`100vh`}
           heroTitle={collection.collectionTitle} 
+          heroLogo={collection.collectionLogo}
           heroSubtitle={``}
           heroDescription={collection.aboutCollection}
           parentTitle={collection.collectionTypeTitle}

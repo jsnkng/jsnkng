@@ -9,6 +9,7 @@ const Component = ({
     heroBackground, 
     heroHeight, 
     heroTitle, 
+    heroLogo,
     heroSubtitle,
     heroDescription, 
     parentTitle,
@@ -26,7 +27,13 @@ const Component = ({
         the code for it can be found in the _app.js file. */}
       <div className='hero'>
         <div className='hero__overlay'>
+        { heroLogo !== undefined && 
+          <img src={heroLogo} width="200px" />
+        }
+        { heroLogo !== undefined || 
           <h1 className='hero__title'>{heroTitle}</h1>
+        }
+          
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
           {/* <div className='hero__description'dangerouslySetInnerHTML={{__html:heroDescription}}></div> */}
         </div>

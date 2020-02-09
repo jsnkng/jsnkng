@@ -51,7 +51,13 @@ const Page = ({
                 <Col__Decorated xsOffset={1} mdOffset={1} md={10}>
                   <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}/`} scroll={false}>
                     <a>
+                    { collections[heroIdx].collectionLogo !== undefined && 
+                      <img src={collections[heroIdx].collectionLogo} width="200px" />
+                    }
+                    { collections[heroIdx].collectionLogo !== undefined || 
                       <h3>{collections[heroIdx].collectionTitle}</h3>
+                    }
+                      
                       <div className='content' dangerouslySetInnerHTML={{__html:collections[heroIdx].aboutCollection}}></div>
                     </a>
                   </Link>

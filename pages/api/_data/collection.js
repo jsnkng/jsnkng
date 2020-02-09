@@ -93,6 +93,7 @@ const collection = [
     collectionTypeTitle: 'Design',
     collectionType: 'Design',
     collectionBackground: '/gallery/PXL8N/Languid_Angel/image_i.jpg',
+    collectionLogo: '/gallery/PXL8N/PXL8N_Tag_Logo_sml.png',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
     aboutCollection: `<p>like the Ouroboros eating its tail, is a line of designer goods & apparel that appropriates its graphic patterns from the pixellated textures of my Mythologies art series.</p>`,
