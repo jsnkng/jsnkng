@@ -80,7 +80,7 @@ const Page = ({
 
                   <br />
 
-                  <a href={projects[heroIdx].projectURL}>{projects[heroIdx].projectURL}</a>
+                  
 
                 </div>
 
@@ -94,7 +94,9 @@ const Page = ({
                 <br />
 
                 <div className='description'>
-                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
+
+                <a href={projects[heroIdx].projectURL}>{projects[heroIdx].projectURL}</a>
+                  {/* <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projects[heroIdx].projectType}/project/${projects[heroIdx].projectName}`} scroll={false}><a>Learn More About the Project</a></Link> */}
                 </div>
 
               </Col__Decorated>
@@ -108,7 +110,7 @@ const Page = ({
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href={projects[heroIdx].projectURL}>Open in New Window</a></span>
+                  <span><a href={projects[heroIdx].projectURL}>Launch</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>
@@ -188,7 +190,7 @@ const Hero = styled.header`
     margin: -0.5rem 0rem 1rem 0;
     img {
       border: none;
-      width: 200px;
+      width: 240px;
     }
   }
   a.logo {
@@ -237,18 +239,14 @@ const Hero = styled.header`
     }
     p {
       font-size: 1.125rem;
+      ${SuperQuery().minWidth.md.css`
+        font-size: 1.25rem;
+      `}
     }
     a {
       display: block;
       font-weight: 700;
-      padding: 0.5rem 1rem 0 1rem;
       color:  ${({ theme }) => theme.colors.home_text } !important; 
-      &.xs {
-        display: block;
-        ${SuperQuery().minWidth.sm.css`
-        display: none;
-        `}
-      }
     }
     img {
       display: block;
@@ -275,7 +273,7 @@ const Hero = styled.header`
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-    width: 18rem;
+    width: 90vw;
     height: 70vh;
     min-height: 600px;
     border: 3px solid ${({ theme }) => theme.colors.home_text };
@@ -287,16 +285,16 @@ const Hero = styled.header`
     -o-transition: all 1s ease-in-out;
     ${SuperQuery().minWidth.sm.css`
       display: block !important;
+      width: 18rem;
       right: 0;
     `}
     ${SuperQuery().minWidth.md.css`
       width: 21rem;
       height: 77.5vh;
     `}
-    ${'' /* ${SuperQuery().minWidth.lg.css`
+    ${SuperQuery().minWidth.lg.css`
       width: 25rem;
-    `} */}
-
+    `}
     &.expanded {
       position: fixed;
       top: 0;

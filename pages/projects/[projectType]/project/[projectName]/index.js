@@ -81,22 +81,22 @@ const Page = ({
 
                   <br />
 
-                  <a href={projectURL}>{projectURL}</a>
+                  
 
                 </div>
 
                 <div className='content'>
                   <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}>
-                    <a><img src={projectThumb} /></a>
+                    <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
                   </Link>
                   <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
                 </div>
 
                 <br />
 
-                {/* <div className='description'>
-                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
-                </div> */}
+                <div className='description'>
+                <a href={projectURL}>{projectURL}</a>
+                </div>
 
               </Col__Decorated>
               <Col__Decorated xs={24} smOffset={1} sm={10}>
@@ -109,7 +109,7 @@ const Page = ({
                 <div className='toggle__container'>
                   { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
                   { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-                  <span><a href={projectURL}>Open in New Window</a></span>
+                  <span><a href={projectURL}>Launch</a></span>
                 </div>
               </Col__Decorated>
             </Row__Decorated>
@@ -162,7 +162,7 @@ const Hero = styled.header`
     text-decoration: none;
     img {
       border: none;
-      width: 50%;
+      width: 240px;
     }
   }
   .description {
@@ -204,20 +204,17 @@ const Hero = styled.header`
     ${'' /* color:  ${({ theme }) => theme.colors.home_text } !important;  */}
     text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
     
+    
     a {
       display: block;
       font-weight: 700;
-      padding: 1rem 1rem 0 1rem;
       color:  ${({ theme }) => theme.colors.home_text } !important; 
-      &.xs {
-        display: block;
-        ${SuperQuery().minWidth.sm.css`
-        display: none;
-        `}
-      }
     }
     p {
       font-size: 1.125rem;
+      ${SuperQuery().minWidth.md.css`
+        font-size: 1.25rem;
+      `}
     }
     h3 {
       font-size: 1rem;
@@ -244,7 +241,7 @@ const Hero = styled.header`
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-    width: 18rem;
+    width: 90vw;
     height: 70vh;
     min-height: 600px;
     border: 3px solid ${({ theme }) => theme.colors.home_text };
@@ -256,15 +253,16 @@ const Hero = styled.header`
     -o-transition: all 1s ease-in-out;
     ${SuperQuery().minWidth.sm.css`
       display: block !important;
+      width: 18rem;
       right: 0;
     `}
     ${SuperQuery().minWidth.md.css`
       width: 21rem;
       height: 77.5vh;
     `}
-    ${'' /* ${SuperQuery().minWidth.lg.css`
+    ${SuperQuery().minWidth.lg.css`
       width: 25rem;
-    `} */}
+    `}
 
     &.expanded {
       position: fixed;

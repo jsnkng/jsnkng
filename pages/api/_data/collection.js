@@ -5,7 +5,7 @@ const collection = [
     collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing, with machine assisted decompositions deliberately undermining the first person, authorial perspective of the camera to create information that exceeds the artist's own conscious determination.</p>`,
+    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing. By forcing the machine’s interpretation of meaning on to the digital image something exceeding conscious determination appears. Oracular now, decomposing digital imagery turn into fields of color, contrast, and pattern undermining the camera’s authority, it’s forced perspective and expand the possibilities of the unconscious.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -41,8 +41,7 @@ const collection = [
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
     aboutCollection: `inherits from the miniaturized mise-en-scene of painting's still life and scientific
-    illustrations of botanical, entomological, and zoological specimens to produce a catalog of ontologies
-    aptly named after the 64 Hexagrams of the I Ching.`,
+    illustrations of botanical, entomological, and zoological specimens to produce a rare catalog of object-subject confusion.`,
     images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
@@ -65,7 +64,7 @@ const collection = [
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
     aboutCollection: `<p>tells an allegorical story about memory and identity. In a kingdom where an amnesiac king abandons his throne, only a motley troop of primates stands between
-    the populace and a trio of pigs intent on installing their own reign of terror upon the folk.</p>`,
+    the populace and a trio of cruel pigs who install their own reign of terror upon the folk.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
@@ -163,7 +162,7 @@ const collection = [
     projectCategory: 'Full Stack & UX/UI',
     projectTags: ['NextJS/React/Node/MongoDB', 'Progressive Web App', 'API Integration'],
     projectURL: 'https://natparguides.com',
-    projectDescription: '<a href="https://github.com/jsnkng/National-Parks">View on GitHub</a><br /><p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated digital guide. Offering up-to-date park alerts, event information, maps, and park-related news, along with admission fees, contact information, campground, and visitor center locations and info all backed by the National Park Service API.</p>',
+    projectDescription: '<p>An homage to the iconic NPS print guides, National Park Guides combines all 450 plus parks into a simple, easily navigated digital guide. Offering up-to-date park alerts, event information, maps, and park-related news, along with admission fees, contact information, campground, and visitor center locations and info all backed by the National Park Service API.<br /><a href="https://github.com/jsnkng/National-Parks">View on GitHub</a></p>',
     images: [
       { title: 'National Park Detail Page (Desktop/Light)', name: 'Park_Detail_Guide_Large_Light', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Light', ratio: '9:83', shop: false, year: '2020', tags: 'React' },
       { title: 'National Park Detail Page (Desktop/Dark)', name: 'Park_Detail_Guide_Large_Dark', path: '/gallery/National_Park_Guides/Park_Detail_Guide_Large_Dark', ratio: '9:41', shop: false, year: '2020', tags: 'React' },
