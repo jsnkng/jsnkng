@@ -45,7 +45,7 @@ const Page = ({
 
         <Content>
         <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}`} >
-                <a>
+          <a>
           <Header 
             heroBackground={collections[heroIdx].collectionBackground}
             heroHeight={`100vh`}
@@ -53,11 +53,11 @@ const Page = ({
             heroLogo={collections[heroIdx].collectionLogo}
             heroSubtitle={``}
             heroDescription={collections[heroIdx].aboutCollection}
-            parentTitle={collections[heroIdx].collectionTypeTitle}
-            parentLink={{ href: `/collections/[collectionType]/`, as: `/collections/${collections[heroIdx].collectionType}/` }}
+            parentTitle={`Home`}
+            parentLink={{ href: `/`, as: `/` }}
           />
-                </a>
-                </Link>
+          </a>
+        </Link>
           <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
           {
             collectionsThumbs.slice().map(collection => {
@@ -71,8 +71,8 @@ const Page = ({
                   heroLogo={collection.collectionLogo}
                   heroSubtitle={``}
                   heroDescription={collection.aboutCollection}
-                  parentTitle={collection.collectionTypeTitle}
-                  parentLink={{ href: `/collections/[collectionType]/`, as: `/collections/${collection.collectionType}/` }}
+                  parentTitle={`Home`}
+                  parentLink={{ href: `/`, as: `/` }}
                 />
                 </a>
                 </Link>

@@ -17,7 +17,7 @@ const Component = ({
   }) => {
 
   const windowDimension = useWindowDimensions()
-  console.log(heroTitle)
+  console.log(parentTitle)
   return (
     <>
     <Header 
@@ -38,8 +38,8 @@ const Component = ({
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
           <div className='hero__description'dangerouslySetInnerHTML={{__html:heroDescription}}></div>
           {
-            heroTitle == 'Home' && 
-            <div className='hero__more'><a>View the Collection</a></div>
+            parentTitle == 'Home' && 
+            <div className='hero__more'>View the Collection</div>
           }
         </div>
       </div>
