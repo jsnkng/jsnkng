@@ -19,19 +19,19 @@
   "build": {
     "env": {
       "GOO_KEY": "@goo-key",
-      "MONGODB_URI": "mongodb+srv://national_parks:1Y5QMu6632vZ3QtF@cluster0-pexqw.mongodb.net/NationalParkService_Cache?retryWrites=true&w=majority",
+      "MONGODB_URI": "",
       "DB_NAME": "JSNKNG",
       "DB_PASSWORD": "@db-password",
-      "WEB_URI": "https://jsnkng.now.sh/api",
-      "AWS_URI": "https://d2x7v1dlxp51ue.cloudfront.net/",
+      "WEB_URI": "https://jsnkng.com/api",
+      "AWS_URI": "",
       "AWS_ACCESS_KEY": "@aws-key",
       "AWS_SECRET_ACCESS_KEY": "@aws-secret-key",
       "REGION": "us-east-1",
       "Bucket": "national-park-images",
       "GA_TRACKING_ID": "@ga-tracking-id",
       "SHOP_URL": "https://shop.jsnkng.com/collection/",
-      "LASTFM_API": "6c75290543c9c3b003f9e4e02083afe9",
-      "SENDGRID_API": "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"
+      "LASTFM_API": "@lastfm-api",
+      "SENDGRID_API": "@sendgrid-api"
     }
   }
 }
