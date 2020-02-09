@@ -89,8 +89,8 @@ const Hero = styled.header`
     color: ${({ theme }) => theme.colors.text};
     
     ${SuperQuery().maxWidth.of('360px').css`
-    font-size: 1.25rem;
-        `}
+    font-size: 1.125rem;
+    `}
     
     ${SuperQuery().minWidth.sm.css`
       font-size: 2.25rem;
