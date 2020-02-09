@@ -65,7 +65,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
                 <h2>About Me</h2>
                 <p>Native Califloridian, I grew up in two Orange Counties at opposite ends of the country, each next to a magic kingdom. I had a fairly
                   standard GenX childhood, malls, arcades, sci-fi, comics, 80’s movies, and D&D. I graduated from the University of Florida in 1997, earning a BA 
-                  in Interdisciplinary Film & Media Studies with a secondary focus in Literary Theory and Criticism. I skipped grad school and got a job int the internet industry. 
+                  in Interdisciplinary Film & Media Studies with a secondary focus in Literary Theory and Criticism. I skipped grad school and got a job in the internet industry. 
                   I worked in NYC’s Silicon Alley dot-coms for six years before an opportunity to live in a farmhouse came up and I moved to Princeton where I have been 
                   been ever since.</p> 
                 <p>I like to make things, to invent, to create, to experiment with new ways of solving problems. I'm passionate about creating something new, 
@@ -221,7 +221,7 @@ const Content = styled.div`
     overflow: visible; /* For IE */
     height: 30px;
     border-style: solid;
-    border-color: black;
+    border-color:  ${({ theme }) => theme.colors.text};
     border-width: 1px 0 0 0;
     margin-left: -20px;
     border-radius: 20px;
@@ -232,7 +232,7 @@ hr:before { /* Not really supposed to work, but does */
     height: 30px;
     margin-top: -31px;
     border-style: solid;
-    border-color: black;
+    border-color:  ${({ theme }) => theme.colors.text};
     border-width: 0 0 1px 0;
     border-radius: 20px;
 }

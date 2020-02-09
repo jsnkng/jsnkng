@@ -17,6 +17,7 @@ const Component = ({
   }) => {
 
   const windowDimension = useWindowDimensions()
+  console.log(heroTitle)
   return (
     <>
     <Header 
@@ -28,21 +29,23 @@ const Component = ({
       <div className='hero'>
         <div className='hero__overlay'>
         { heroLogo !== undefined && 
-          <img src={heroLogo} width="200px" />
+          <img src={heroLogo}  />
         }
         { heroLogo !== undefined || 
           <h1 className='hero__title'>{heroTitle}</h1>
         }
           
           <h2 className='hero__subtitle'>{heroSubtitle}</h2>
-          {/* <div className='hero__description'dangerouslySetInnerHTML={{__html:heroDescription}}></div> */}
+          <div className='hero__description'dangerouslySetInnerHTML={{__html:heroDescription}}></div>
+          {
+            heroTitle == 'Home' && 
+            <div className='hero__more'><a>View the Collection</a></div>
+          }
         </div>
       </div>
        
     </Header>
     
-     
-    <Navigation parentTitle={parentTitle} parentLink={parentLink} />
   </>
   )
 }
@@ -55,64 +58,88 @@ const Header = styled.header`
     top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
     margin: 0;
     z-index: 5;
     background-image: url(${props => props.heroBackground});
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    ${SuperQuery().minWidth.sm.css`
+    
+
+    ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
       height: 90vh;
     `}
+
   }
   .hero__overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 10;
-    background: ${ ({ theme }) => theme.colors.image_overlay_darkgradient };
+    background: ${ ({ theme }) => theme.colors.image_overlay_opaque };
+    img {
+      width: 13rem;
+    margin: 0 1rem 1rem 1rem;
+    ${SuperQuery().minWidth.md.css`
+      width: 18rem;
+      margin: 0 5rem 1rem 5rem;
+    `}
+
+    }
   }
   .hero__title {
     display: block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
     letter-spacing: -0.05em;
-    line-height: 1;
-    text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
+    line-height:1.1;
+    text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
-    margin: 4%;
+    margin: 0 1rem 0 1rem;
     ${SuperQuery().minWidth.md.css`
-      font-size: 3rem;
+      font-size: 5rem;
+      margin: 0 5rem 0 5rem;
     `}
   }
   .hero__subtitle {
     display: block;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
+    line-height:1.3;
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
-    margin: 0 4% 0 1%;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 2rem;
+    margin: 0 1rem 0 1rem;
+    ${SuperQuery().minWidth.md.css`
+      font-size: 4rem;
+      margin: 0 5rem 0 5rem;
     `}
   }
+  .hero__more,
   .hero__description {
     display: block;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
     font-weight: 400;
     letter-spacing: -0.05em;
-    text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
+    line-height:1.3;
+    text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
-    margin: 0 4% 0 1%;
-    ${SuperQuery().minWidth.sm.css`
-      font-size: 1.5rem;
+    margin: 0 1rem 0 1rem;
+    ${SuperQuery().minWidth.md.css`
+      font-size: 2.75rem;
+      letter-spacing: -0.05em;
+      margin: 0 5rem 0 5rem;
     `}
+  }
+  .hero__more {
+    padding: 1rem 0 0 0;
+    text-decoration: underline;
   }
 `

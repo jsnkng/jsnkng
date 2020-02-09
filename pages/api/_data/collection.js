@@ -5,7 +5,7 @@ const collection = [
     collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing in a deliberate effort to create visual art that exceeds conscious determination.</p>`,
+    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing, with machine assisted decompositions deliberately undermining the first person, authorial perspective of the camera to create information that exceeds the artist's own conscious determination.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -65,7 +65,7 @@ const collection = [
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
     aboutCollection: `<p>tells an allegorical story about memory and identity. In a kingdom where an amnesiac king abandons his throne, only a motley troop of primates stands between
-    the populace and a reign of terror brought by the arrival of a trio of pigs intent on . </p>`,
+    the populace and a trio of pigs intent on installing their own reign of terror upon the folk.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
@@ -96,7 +96,7 @@ const collection = [
     collectionLogo: '/gallery/PXL8N/PXL8N_Tag_Logo_sml.png',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
-    aboutCollection: `<p>Like a snake eating its tail, PXL∞N is a line of designer goods & apparel that appropriates its graphic patterns from extreme enlargements of the Mythologies series. </p>`,
+    aboutCollection: `<p>like the mythical Ouroboros, the snake that eats its own tail, appropriates its graphic patterns from extreme enlargements of the Mythologies series.</p>`,
     images: [
       { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
       { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },

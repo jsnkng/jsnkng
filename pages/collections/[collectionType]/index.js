@@ -7,6 +7,7 @@ import LazyLoad, {forceCheck}  from 'react-lazyload'
 import Link from 'next/link'
 import styled from 'styled-components'
 import SuperQuery from '@themgoncalves/super-query'
+import Header from '../../../components/header'
 import Footer from '../../../components/footer'
 import Navigation from '../../../components/navigation'
 
@@ -43,67 +44,41 @@ const Page = ({
         </Head>
 
         <Content>
-
-          <Hero backgroundURL={collections[heroIdx].collectionBackground}> 
-            <BackgroundOverlay />
-            <Grid__Decorated fluid={true}>
-              <Row__Decorated className='reversible'>
-                <Col__Decorated xsOffset={1} mdOffset={2} md={12} lgOffset={13} lg={10}>
-                  <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}/`} scroll={false}>
-                    <a>
-                    { collections[heroIdx].collectionLogo !== undefined && 
-                      <img src={collections[heroIdx].collectionLogo} width="200px" />
-                    }
-                    { collections[heroIdx].collectionLogo !== undefined || 
-                      <h3>{collections[heroIdx].collectionTitle}</h3>
-                    }
-                      
-                      <div className='content' dangerouslySetInnerHTML={{__html:collections[heroIdx].aboutCollection}}></div>
-                    </a>
-                  </Link>
-
-                  <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}/`} scroll={false}>
-                    <a>
-                      <span>View Gallery</span>
-                    </a>
-                  </Link>
-                </Col__Decorated>
-              </Row__Decorated>
-            </Grid__Decorated>
-          </Hero>
-          
+        <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}`} >
+                <a>
+          <Header 
+            heroBackground={collections[heroIdx].collectionBackground}
+            heroHeight={`100vh`}
+            heroTitle={collections[heroIdx].collectionTitle} 
+            heroLogo={collections[heroIdx].collectionLogo}
+            heroSubtitle={``}
+            heroDescription={collections[heroIdx].aboutCollection}
+            parentTitle={collections[heroIdx].collectionTypeTitle}
+            parentLink={{ href: `/collections/[collectionType]/`, as: `/collections/${collections[heroIdx].collectionType}/` }}
+          />
+                </a>
+                </Link>
           <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
-
           {
             collectionsThumbs.slice().map(collection => {
               return (
-
-                <Hero backgroundURL={collection.collectionBackground} key={collection.collectionTitle}> 
-                  <BackgroundOverlay /> 
-                  <Grid__Decorated fluid={true}>
-                    <Row__Decorated>
-                      <Col__Decorated xsOffset={1} mdOffset={2} md={12} lgOffset={13} lg={10}>
-                      <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collection.collectionType}/collection/${collection.collectionName}/`} scroll={false}>
-                        <a>
-                          <h3>{collection.collectionTitle}</h3>
-                          <div className='content' dangerouslySetInnerHTML={{__html:collection.aboutCollection}}></div>
-                        </a>
-                        </Link>
-                        <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collection.collectionType}/collection/${collection.collectionName}/`}  scroll={false}>
-                          <a>
-                            <span>View Gallery</span>
-                          </a>
-                        </Link>
-                      </Col__Decorated>
-                    </Row__Decorated>
-                  </Grid__Decorated>
-                </Hero>
-
+                <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collection.collectionType}/collection/${collection.collectionName}`} >
+                <a>
+                <Header 
+                  heroBackground={collection.collectionBackground}
+                  heroHeight={`100vh`}
+                  heroTitle={collection.collectionTitle} 
+                  heroLogo={collection.collectionLogo}
+                  heroSubtitle={``}
+                  heroDescription={collection.aboutCollection}
+                  parentTitle={collection.collectionTypeTitle}
+                  parentLink={{ href: `/collections/[collectionType]/`, as: `/collections/${collection.collectionType}/` }}
+                />
+                </a>
+                </Link>
               )
             })
           }
-        
-          
         </Content>
 
         <Footer themeName={themeName} setThemeName={setThemeName} />

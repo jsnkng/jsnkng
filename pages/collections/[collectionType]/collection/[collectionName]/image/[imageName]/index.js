@@ -12,6 +12,7 @@ import styled from 'styled-components'
 import { useSwipeable, Swipeable } from 'react-swipeable'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Header from '../../../../../../../components/header'
+import Navigation from '../../../../../../../components/navigation'
 import Footer from '../../../../../../../components/footer'
 
 const Page = ({ collection, collectionType, collectionName, imageName, themeName, setThemeName, pageTransitionReadyToEnter }) => {
@@ -129,6 +130,13 @@ const Page = ({ collection, collectionType, collectionName, imageName, themeName
             href: `/collections/[collectionType]/collection/[collectionName]/`, 
             as: `/collections/${collection.collectionType}/collection/${collection.collectionName}/` 
           }}
+        />
+     
+        <Navigation parentTitle={collection.collectionTitle} 
+              parentLink={{
+                  href: `/collections/[collectionType]/collection/[collectionName]/`, 
+                  as: `/collections/${collection.collectionType}/collection/${collection.collectionName}/` 
+              }}
         />
         <Grid__Decorated className="container" fluid={true}>
           

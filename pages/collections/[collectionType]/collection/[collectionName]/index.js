@@ -10,6 +10,7 @@ import absoluteUrl from 'next-absolute-url'
 import styled from 'styled-components'
 
 import Header from '../../../../../components/header'
+import Navigation from '../../../../../components/navigation'
 import Footer from '../../../../../components/footer'
 import Banner from '../../../../../components/elements/banner'
 
@@ -84,6 +85,12 @@ const Page = ({
           parentTitle={collection.collectionTypeTitle}
           parentLink={{ href: `/collections/[collectionType]/`, as: `/collections/${collection.collectionType}/` }}
         />
+        <Navigation parentTitle={collection.collectionTypeTitle} 
+              parentLink={{
+                  href: `/collections/[collectionType]/`, 
+                  as: `/collections/${collection.collectionType}/` 
+              }}
+        />
         {/* <ModalButton><button onClick={modalShow}>About {collectionTitle}</button></ModalButton> */}
         <Grid__Decorated fluid={true}>
           <Row__Decorated>
@@ -141,6 +148,9 @@ const Content = styled.main`
   height: 100vw;
   position: relative;
 
+  ${SuperQuery().minWidth.sm.css`
+  height: 50vw;
+  `}
   ${SuperQuery().minWidth.md.css`
     height: 33.33vw;
   `}

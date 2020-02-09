@@ -94,9 +94,9 @@ const Page = ({
 
                 <br />
 
-                <div className='description'>
+                {/* <div className='description'>
                   <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
-                </div>
+                </div> */}
 
               </Col__Decorated>
               <Col__Decorated xs={24} smOffset={1} sm={10}>
@@ -143,6 +143,7 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
+  min-height:90vh;
   padding: 5rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
