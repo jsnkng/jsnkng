@@ -96,7 +96,7 @@ const collection = [
     collectionLogo: '/gallery/PXL8N/PXL8N_Tag_Logo_sml.png',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
-    aboutCollection: `<p>like the mythical Ouroboros, the snake that eats its own tail, appropriates its graphic patterns from extreme enlargements of the Mythologies series.</p>`,
+    aboutCollection: `<p>like the mythical Ouroboros, the snake that eats its own tail, PXL∞N appropriates its graphic patterns from extreme enlargements of the Mythologies series.</p>`,
     images: [
       { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
       { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },

@@ -62,7 +62,7 @@ const Page = ({
           {
             collectionsThumbs.slice().map(collection => {
               return (
-                <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collection.collectionType}/collection/${collection.collectionName}`} >
+                <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collection.collectionType}/collection/${collection.collectionName}`} key={collection.collectionName}>
                 <a>
                 <Header 
                   heroBackground={collection.collectionBackground}

@@ -17,7 +17,6 @@ const Component = ({
   }) => {
 
   const windowDimension = useWindowDimensions()
-  console.log(parentTitle)
   return (
     <>
     <Header 
