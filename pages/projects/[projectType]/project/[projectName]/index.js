@@ -87,7 +87,7 @@ const Page = ({
 
                 <div className='content'>
                   <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}>
-                    <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
+                    <a><img src={projectThumb} /></a>
                   </Link>
                   <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
                 </div>
