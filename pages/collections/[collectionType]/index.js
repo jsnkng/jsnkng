@@ -17,22 +17,28 @@ const Page = ({
   setThemeName, 
   pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
+  const [heroIdx, setHeroIdx] = useState(0)
+  const [heroBackgroundIdx, setHeroBackgroundIdx] = useState(Math.floor(Math.random()*(collections[0].images.length)))
+  const [otherCollections, setOtherCollections] = useState([ ...collections ])
+  const [collectionsBackgroundIdx, setCollectionsBackgroundIdx] = useState()
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
+    /* Create a copy of data  and remove the hero item from it */
+    setOtherCollections(otherCollections.splice(heroIdx,1))
+    setOtherCollections(otherCollections.map(collection => {
+      collection.backgroundIdx = Math.floor(Math.random()*(collection.images.length)) 
+      return collection
+    }))
+
+
   }, [])
 
   useEffect(() => {
     forceCheck()
   })
-
-  /* Choose a random item to be the hero */
-  const [heroIdx, setHeroIdx] = useState(0)
-
-  /* Create a copy of data  and remove the hero item from it */
-  const collectionsThumbs = [ ...collections ]
-  collectionsThumbs.splice(heroIdx,1)
+  
 
   if (!loaded) {
     return null
@@ -47,7 +53,7 @@ const Page = ({
         <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}`} >
           <a>
           <Header 
-            heroBackground={collections[heroIdx].collectionBackground}
+            heroBackground={`${collections[heroIdx].images[heroBackgroundIdx].path}/image_i.jpg`}
             heroHeight={`100vh`}
             heroTitle={collections[heroIdx].collectionTitle} 
             heroLogo={collections[heroIdx].collectionLogo}
@@ -60,12 +66,13 @@ const Page = ({
         </Link>
           <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
           {
-            collectionsThumbs.slice().map(collection => {
+            otherCollections.slice().map(collection => {
+ 
               return (
                 <Link href={`/collections/[collectionType]/collection/[collectionName]`} as={`/collections/${collection.collectionType}/collection/${collection.collectionName}`} key={collection.collectionName}>
                 <a>
                 <Header 
-                  heroBackground={collection.collectionBackground}
+                  heroBackground={`${collection.images[collection.backgroundIdx].path}/image_i.jpg`}
                   heroHeight={`100vh`}
                   heroTitle={collection.collectionTitle} 
                   heroLogo={collection.collectionLogo}
