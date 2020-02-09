@@ -10,15 +10,16 @@ const Component = ({
   }) => {
   const windowDimension = useWindowDimensions()
   return (
+
     <>
     <Spacer />
     <Navigation className={windowDimension.scrollY >= Math.round(0.9 * windowDimension.height) && 'fixed' }>
-      <Link href={parentLink.href} as={parentLink.as} scroll={false}>
+      <Link href={`${parentLink.href}`} as={`${parentLink.as}`} scroll={false}>
         <a className='navigation__title'>
           {parentTitle}
         </a>
       </Link>
-      <Link href='/' scroll={false}>
+      <Link href='/' as='/' scroll={false}>
         <a className='navigation__logo'>
           <div className='navigation__img'></div>
         </a>
