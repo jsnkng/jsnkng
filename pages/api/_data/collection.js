@@ -93,10 +93,9 @@ const collection = [
     collectionTypeTitle: 'Design',
     collectionType: 'Design',
     collectionBackground: '/gallery/PXL8N/Languid_Angel/image_i.jpg',
-    collectionTitle: 'PXL8N',
+    collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
-    aboutCollection: `<p>tells an allegorical story about memory and identity. In a kingdom where an amnesiac king abandons his throne, only a motley troop of primates stands between
-    the populace and a reign of terror brought by the arrival of a trio of pigs intent on . </p>`,
+    aboutCollection: `<p>like the Ouroboros eating its tail, is a line of designer goods & apparel that appropriates its graphic patterns from the pixellated textures of my Mythologies art series.</p>`,
     images: [
       { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
       { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
@@ -227,6 +226,20 @@ const collection = [
     projectCategory: 'UX/UI, Wordpress',
     projectTags: ['Responsive Design'],
     projectURL: 'https://www.adcycle.co',
+    projectDescription: '<p></p>',
+  },
+  {
+    projectTypeTitle: 'Webs',
+    projectType: 'Webs',
+    projectTitle: 'SoylentX',
+    projectName: 'SoylentX',
+    projectLogo: '/gallery/AdCycle/logo-adcycle-white-rounded.png',
+    projectThumb: '/gallery/AdCycle/adcycle_thumbnail.jpg',
+    projectThumbLogo: '/gallery/AdCycle/logo-adcycle-white-rounded.png',
+    projectBackground: '/gallery/AdCycle/AdCycleBackground.jpg',
+    projectCategory: 'UX/UI, Wordpress',
+    projectTags: ['Responsive Design'],
+    projectURL: 'https://www.soylentx.com',
     projectDescription: '<p></p>',
   },
   {

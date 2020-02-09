@@ -17,7 +17,13 @@ import useWindowDimensions from '../hooks/useWindowDimensions'
 const stack = []
 const MyApp = ({ appCookies, router, Component, pageProps }) => {
   const windowDimension = useWindowDimensions()
-  const [themeName, setThemeName] = useState('lightMode')
+  const [themeName, setTheme] = useState('lightMode')
+
+const setThemeName = themeName => {
+  setTheme(themeName)
+  document.cookie = `themeName=${themeName}; path=/`
+}
+
 
   useEffect(() => {
     if (appCookies.themeName) {
