@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import SuperQuery from '@themgoncalves/super-query'
 import fetch from 'isomorphic-unfetch'
@@ -13,6 +14,7 @@ import Navigation from '../../../../../components/navigation'
 
 import Iframe from 'react-iframe'
 const Page = ({ 
+  projectType,
   projectTitle, 
   projectName, 
   projectLogo, 
@@ -55,52 +57,64 @@ const Page = ({
         <title>JSNKNG : {projectTitle} </title>
       </Head>
       <Hero backgroundURL={projectBackground}
-            vHeight={'90vh'} projectThumbLogo={projectThumbLogo}> 
-        <BackgroundOverlay />
-        <Grid__Decorated fluid={true}>
-        <Row__Decorated>
-          <Col__Decorated xs={24} sm={11} mdOffset={1}>
-            <div className='description'>
-                <a href={projectURL} className='logo'>
-                  <img src={projectLogo} alt={projectTitle} />
-                {/* <h1>{projectTitle}</h1> */}
-                <h2>{projectCategory}</h2>
+          projectThumbLogo={projectThumbLogo}> 
+          <BackgroundOverlay />
+          <Grid__Decorated fluid={true}>
+            <Row__Decorated>
+              <Col__Decorated xs={24} sm={11} mdOffset={1}>
+
+                <div className='description'>
+
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}>
+                    <a className='logo'>
+                    <img src={projectLogo} alt={projectTitle} />
+                  <h2>{projectCategory}</h2>
                   {
                     projectTags.map(tag => {
                       return (
-                        <h3>{tag}</h3>
+                        <h3 key={tag}>{tag}</h3>
                       )
                     })
                   }
-                </a>
-              <br />
-              <a href={projectURL}>{projectURL}</a>
-            </div>
+                    </a>
+                  </Link>
 
-            <div className='content'>
-              <a href={projectURL}>
-                <img src={projectThumb} />
-              </a>
-              <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
-            </div>
-            <br />
-          </Col__Decorated>
-          <Col__Decorated  xs={24} smOffset={1} sm={10}>
-            <Iframe url={projectURL}
-              id="webFrame"
-              display="inherit"
-              position="relative"
-              className={expandIFrame && 'expanded'}
-            /> 
-            <div className='toggle__container'>
-              { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
-              { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
-              <span><a href={projectURL}>Open in New Window</a></span>
-            </div>
-          </Col__Decorated>
-        </Row__Decorated>
-      </Grid__Decorated>
-    </Hero>
+                  <br />
+
+                  <a href={projectURL}>{projectURL}</a>
+
+                </div>
+
+                <div className='content'>
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}>
+                    <a><img src='/gallery/National_Park_Guides/natparguides__thumbnail_2.jpg' /></a>
+                  </Link>
+                  <div dangerouslySetInnerHTML={{__html:projectDescription}}></div>
+                </div>
+
+                <br />
+
+                <div className='description'>
+                  <Link href='/projects/[projectType]/project/[projectName]/' as={`/projects/${projectType}/project/${projectName}`} scroll={false}><a>Learn More About the Project</a></Link>
+                </div>
+
+              </Col__Decorated>
+              <Col__Decorated xs={24} smOffset={1} sm={10}>
+                <Iframe url={projectURL}
+                  id="webFrame"
+                  display="inherit"
+                  position="relative"
+                  className={expandIFrame && 'expanded'}
+                /> 
+                <div className='toggle__container'>
+                  { expandIFrame || <span onClick={handleExpandIFrame}>Expand | </span>}
+                  { expandIFrame && <span onClick={handleCollapseIFrame}>Collapse | </span>}
+                  <span><a href={projectURL}>Open in New Window</a></span>
+                </div>
+              </Col__Decorated>
+            </Row__Decorated>
+          </Grid__Decorated>
+        </Hero>
 
       <Navigation parentTitle={`Web`} parentLink={{ href: `/projects/[projectType]`, as: `/projects/Web` }} />
 
@@ -129,7 +143,6 @@ const Hero = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
   padding: 5rem 1rem 2rem 1rem;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
@@ -230,7 +243,6 @@ const Hero = styled.header`
     background-position: center center;
     background-repeat: no-repeat;
     margin: 0 auto;
-   
     width: 18rem;
     height: 70vh;
     min-height: 600px;

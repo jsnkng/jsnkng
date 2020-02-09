@@ -55,7 +55,6 @@ const Header = styled.header`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     margin: 0;
     z-index: 5;
     background-image: url(${props => props.heroBackground});

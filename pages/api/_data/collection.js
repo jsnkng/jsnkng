@@ -96,10 +96,12 @@ const collection = [
     collectionLogo: '/gallery/PXL8N/PXL8N_Tag_Logo_sml.png',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
-    aboutCollection: `<p>like the Ouroboros eating its tail, is a line of designer goods & apparel that appropriates its graphic patterns from the pixellated textures of my Mythologies art series.</p>`,
+    aboutCollection: `<p>Like a snake eating its tail, PXL∞N is a line of designer goods & apparel that appropriates its graphic patterns from extreme enlargements of the Mythologies series. </p>`,
     images: [
       { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
       { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
+      { title: 'TSFTS-I', name: 'TSFTS_I', path: '/gallery/PXL8N/TSFTS_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
+      { title: 'ALGA-I', name: 'ALGA_I', path: '/gallery/PXL8N/ALGA_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
     ]
   },
   {

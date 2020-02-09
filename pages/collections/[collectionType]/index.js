@@ -46,9 +46,9 @@ const Page = ({
 
           <Hero backgroundURL={collections[heroIdx].collectionBackground}> 
             <BackgroundOverlay />
-            <Grid__Decorated>
+            <Grid__Decorated fluid={true}>
               <Row__Decorated className='reversible'>
-                <Col__Decorated xsOffset={1} mdOffset={1} md={10}>
+                <Col__Decorated xsOffset={1} mdOffset={2} md={12} lgOffset={13} lg={10}>
                   <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}/`} scroll={false}>
                     <a>
                     { collections[heroIdx].collectionLogo !== undefined && 
@@ -80,9 +80,9 @@ const Page = ({
 
                 <Hero backgroundURL={collection.collectionBackground} key={collection.collectionTitle}> 
                   <BackgroundOverlay /> 
-                  <Grid__Decorated>
+                  <Grid__Decorated fluid={true}>
                     <Row__Decorated>
-                      <Col__Decorated xsOffset={1} xs={20} mdOffset={6} md={10}>
+                      <Col__Decorated xsOffset={1} mdOffset={2} md={12} lgOffset={13} lg={10}>
                       <Link href='/collections/[collectionType]/collection/[collectionName]/' as={`/collections/${collection.collectionType}/collection/${collection.collectionName}/`} scroll={false}>
                         <a>
                           <h3>{collection.collectionTitle}</h3>
