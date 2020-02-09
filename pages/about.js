@@ -128,8 +128,6 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
                 sophisticated material and master new concepts and technologies, encapsulate complex processes, and function across disciplines 
                 and departments. Client and stakeholder-focused, tolerant of ambiguity; experienced through complete lifecycle development.</p>
                 <br />
-                <a href='/Jason_King_Resume.pdf' target='_blank'>Download my Résumé</a>
-                <br /> 
                 <a href='https://github.com/jsnkng/jsnkng' target='_blank'>View Site on GitHub</a>
                 
                 <br /> 
