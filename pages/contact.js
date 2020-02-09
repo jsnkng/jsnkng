@@ -86,166 +86,52 @@ Page.pageTransitionDelayEnter = true
 
 export default Page
  
-const Content = styled.div`
-  ${'' /* padding: 2rem 1rem 2rem 1rem; */}
-  color: ${({ theme }) => theme.colors.text }; 
-  a {
-    ${'' /* color: ${({ theme }) => theme.colors.text }; */}
-  color: #ffffff;
-    text-decoration: none; 
-  }
-  a h3 {
-    text-decoration: underline;
-  }
-  h2 {
-    margin: 2rem 0 0 0.75rem;
-    font-size: 4rem;
-    font-weight: 200;
-    letter-spacing: -0.1em;
-  }
-`
-
-const Character = styled.header`
-position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 5rem 1rem 2rem 1rem;
-  z-index: 5;
-  background-image: url(${props => props.backgroundURL});
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-
-  a {    
-    text-decoration: none;
-    text-shadow: none;
-  }
-  
-    
-
-`
-
-
-
-
-
 
 const Hero = styled.header`
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 5rem 0 5rem 0;
   width: 100%;
-  height: 100vh;
-  padding: 5rem 1rem 2rem 1rem;
+  min-height:  100vh;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   color: ${({ theme }) => theme.colors.home_text};
-  /* Navigation related, responsive design */
+
   ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
-    height:  ${props => props.vHeight};
-    padding: 2rem 1rem 2rem 1rem;
+    min-height: 90vh;
+    height:  90vh;
   `}
-  .logo {
-    z-index: 100;
-    margin: -0.5rem 0rem 1rem 0;
-    text-decoration: none;
-    img {
-      border: none;
-      width: 90%;
-      max-width: 360px;
-    }
-  }
-  .description {
-    text-align: center;
-    margin: 0;
-    width: 100%;
-    font-weight: 400;
-    line-height: 1.4;
-    z-index: 100;
-    opacity: 1;
-    text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-    ${SuperQuery().minWidth.sm.css`
-      text-align: left;
+  
+  p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: ${({ theme }) => theme.colors.text};
+    ${SuperQuery().maxWidth.of('360px').css`
+      font-size: 1.125rem;
     `}
-    h2 {
+    ${SuperQuery().minWidth.sm.css`
       font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: -0.05em;
-      line-height: 1.1;
-    }
-    h3 {
-      font-size: 1.125rem;
-      font-weight: 200;
-    }
-    a {
-      font-size: 1.125rem;
-      color: ${({ theme }) => theme.colors.home_text};
-      cursor: pointer;
-      border: none;
-    }
-  }
-  .content {
-    width: 100%;
-    font-weight: 400;
-    line-height: 1.4;
-    z-index: 100;
-    opacity: 1;
-    margin-left: 0;
-    ${'' /* color:  ${({ theme }) => theme.colors.home_text } !important;  */}
-    text-shadow: 1px 1px 4px ${({ theme }) => theme.colors.home_text_shadow};
-    
-    a {
-      display: block;
+    `}
+
+    strong {
       font-weight: 700;
-      padding: 1rem 1rem 0 1rem;
-      color:  ${({ theme }) => theme.colors.home_text } !important; 
-      &.xs {
-        display: block;
-        ${SuperQuery().minWidth.sm.css`
-        display: none;
-        `}
+    }
+    a {
+      color: ${({ theme }) => theme.colors.color_two};
+      border-bottom: 2px dotted;
+      text-decoration: none;
+      &:hover {
+        color: ${({ theme }) => theme.colors.color_one};
       }
     }
-    p {
-      font-size: 1.125rem;
-    }
-    h3 {
-      font-size: 1rem;
-    }
-    img {
-      display: block;
-      width: 60vw;
-      margin: 1rem auto 1.5rem auto;
-      border: 3px solid ${({ theme }) => theme.colors.home_text };
-      border-radius: 4px;
-      box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-      ${SuperQuery().minWidth.sm.css`
-        display: none;
-      `}
-    }
   }
-
-  #webFrame {
-    display: block;
-    margin: 0 auto;
-    width: 60vw;
-    height: 80vh;
-    max-height: 880px;
-    border: 3px solid ${({ theme }) => theme.colors.home_text };
-    border-radius: 8px;
-    box-shadow: 5px 5px 40px rgba(0,0,0,.8);
-   
-  }
- 
 `
-
 const Row__Decorated = styled(Row)`
   width: 100%;
   margin: 0;

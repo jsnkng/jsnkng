@@ -29,11 +29,10 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         <Head>
           <title>JSNKNG</title>
         </Head>
-        <Hero backgroundURL={``}
-          vHeight={'85vh'}> 
+        <Hero backgroundURL={``}> 
           <Grid>
             <Row__Decorated>
-              <Col__Decorated xsOffset={1} xs={21}>
+              <Col__Decorated xsOffset={1} xs={22}>
                 <br /><p>Hello. I’m <strong><Link href='/about' as='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
                 {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/[projectType]' as='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
                 {` `}<Link href='/collections/[collectionType]' as='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
@@ -71,10 +70,9 @@ const Hero = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0 0 0;
+  padding: 5rem 0 5rem 0;
   width: 100%;
-  min-height: 100vh;
-  max-height: 100%;
+  min-height:  100vh;
   z-index: 5;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
@@ -83,22 +81,21 @@ const Hero = styled.header`
   color: ${({ theme }) => theme.colors.home_text};
 
   ${SuperQuery().minWidth.of('768px').and.minHeight.of('768px').css`
-    height:  ${props => props.vHeight};
-    padding: 0 1rem 0 1rem;
+    min-height: 90vh;
+    height:  90vh;
   `}
   
   p {
     font-size: 1.5rem;
     font-weight: 200;
     color: ${({ theme }) => theme.colors.text};
-    
     ${SuperQuery().maxWidth.of('360px').css`
-    font-size: 1.125rem;
+      font-size: 1.125rem;
     `}
-    
     ${SuperQuery().minWidth.sm.css`
-      font-size: 2.25rem;
+      font-size: 2rem;
     `}
+
     strong {
       font-weight: 700;
     }
