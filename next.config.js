@@ -39,7 +39,8 @@ const nextConfig = {
     Bucket: process.env.Bucket,
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
     SHOP_URL: process.env.SHOP_URL,
-    LASTFM_API: process.env.LASTFM_API
+    LASTFM_API: process.env.LASTFM_API,
+    SENDGRID_API: process.env.SENDGRID_API
   }
 }
 

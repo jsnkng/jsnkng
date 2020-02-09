@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
+import fetch from 'isomorphic-unfetch'
+import absoluteUrl from 'next-absolute-url'
 import Head from 'next/head'
 import {Grid, Col, Row} from 'react-styled-flexboxgrid'
 import LazyLoad, {forceCheck}  from 'react-lazyload'
@@ -9,14 +11,34 @@ import SuperQuery from '@themgoncalves/super-query'
 import Footer from '../components/footer'
 import Navigation from '../components/navigation'
 
-const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
+
+
+const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
+  console.log(origin)
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
   const onSubmit = data => {
     console.log(data);
+    // complex POST request with JSON, headers:
+    fetch(`${origin}/api/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ data })
+    }).then( r => {
+      // open(r.headers.get('location'));
+      return r.json();
+    })
+
+    // const { collectionType } = query
+    // const { origin }  = absoluteUrl(req)
+    // const collectionsResult = await fetch(`${origin}/api/collections/${collectionType}`)
+    // const result = await collectionsResult.json()
+    // result.collectionType = collectionType
+    // return result
+
   };
-  const handleContactFormPost = () => {
-  }
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -41,36 +63,55 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
         <Hero backgroundURL={``}
           vHeight={'90vh'}> 
           <BackgroundOverlay />
-          <Grid>
-          <Row__Decorated>
-          
-              <Col__Decorated xs={24} sm={12} md={12}>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="senderName" ref={register({ required: true, maxLength: 80  })} /> {/* register an input */}
-                {errors.senderName && 'Please tell us your name.'}
-          
-                <input name="senderEmail" 
-                  ref={register({ 
-                    required: true, 
-                    maxLength: 80, 
-                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
-                  })} 
-                />
-                {errors.senderEmail && 'Please provide your return email address.'}
-                
-                <input name="senderPhone" ref={register({ required: true, maxLength: 15, minLength: 8 })} />
-                {errors.senderPhone && 'Please provide the best phone number to reach you by.'}
-          
-                <textarea name="senderMessage" ref={register({ required: true, maxLength: 480  })} ></textarea>
-                {errors.senderMessage && 'Please include a message. How can we help you?'}
 
-                <input type="submit" />
-              </form>
-      
-              
-              </Col__Decorated>
+          <h1>Contact Jason King</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <Grid>
+              <Row__Decorated>
+                <Col__Decorated xs={24} smOffset={2} sm={20}>
+                  <label>
+                    Your Name
+                    <input name="senderName" ref={register({ required: true, maxLength: 80  })} /> {/* register an input */}
+                    {errors.senderName && 'Please tell us your name.'}
+                  </label>
+                </Col__Decorated>
+              </Row__Decorated>
+
+              <Row__Decorated>
+                <Col__Decorated xs={24} smOffset={2} sm={9}>
+                  <label>
+                    Your Email
+                    <input name="senderEmail" 
+                      ref={register({ 
+                        required: true, 
+                        maxLength: 80, 
+                        pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
+                      })} 
+                    />
+                    {errors.senderEmail && 'Please provide your return email address.'}
+                  </label>
+                </Col__Decorated>
+                <Col__Decorated xs={24} smOffset={2} sm={9}>
+                  <label>
+                      Your Phone Number
+                    <input name="senderPhone" ref={register({ required: true, maxLength: 15, minLength: 8 })} />
+                    {errors.senderPhone && 'Please provide your phone number.'}
+                  </label>
+                </Col__Decorated>
+              </Row__Decorated>
+              <Row__Decorated>
+                <Col__Decorated xs={24} smOffset={2} sm={20}>
+                  
+                  <label>
+                      Your Message. What can we do for you?
+                    <textarea name="senderMessage" ref={register({ required: true, maxLength: 480  })} ></textarea>
+                    {errors.senderMessage && 'Please include a message. How can we help you?'}
+                  </label>
+                  <input type="submit" value="Send" />
+                </Col__Decorated>
             </Row__Decorated>
           </Grid>
+                </form>
         </Hero>
 
         <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
@@ -85,6 +126,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
 Page.pageTransitionDelayEnter = true
 
 export default Page
+
+Page.getInitialProps = async ({ req, query }) => {
+  const { origin }  = absoluteUrl(req)
+  const result = {}
+  result.origin = origin
+  console.log(result)
+  return result
+}
  
 
 const Hero = styled.header`
@@ -107,7 +156,12 @@ const Hero = styled.header`
     min-height: 90vh;
     height:  90vh;
   `}
-  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 1rem 0;
+    color: ${({ theme }) => theme.colors.text};
+    }
   p {
     font-size: 1.5rem;
     font-weight: 200;
@@ -131,6 +185,29 @@ const Hero = styled.header`
       }
     }
   }
+  label {
+    display: block;
+    color: ${({ theme }) => theme.colors.text};
+    margin: 1rem 0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    font-size: 1.25rem;
+    margin: 0.125rem 0;
+    padding: 0.5rem;
+  }
+  textarea {
+    height: 10rem;
+  }
+
+  input[type="submit"] {
+    font-size: 1.25rem ;
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.offbackground};
+  }
+
 `
 const Row__Decorated = styled(Row)`
   width: 100%;

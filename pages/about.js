@@ -123,19 +123,17 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
               </Col__Decorated>
 
               <Col__Decorated xsOffset={1} xs={20} smOffset={1} sm={20} mdOffset={1} md={8}>
-              <h3>Profile</h3>
+                <h3>Profile</h3>
                 <p>Multi-disciplinary, proactive, problem-solver with agency and start-up background. Self-directed learner able to process 
                 sophisticated material and master new concepts and technologies, encapsulate complex processes, and function across disciplines 
                 and departments. Client and stakeholder-focused, tolerant of ambiguity; experienced through complete lifecycle development.</p>
                 <br />
+                {/* <a href='/Jason_King_Resume.pdf' target='_blank'>Download my Résumé</a>
+                <br />  */}
                 <a href='https://github.com/jsnkng/jsnkng' target='_blank'>View Site on GitHub</a>
-                
                 <br /> 
-
                 <br />
                 
-              
-
               </Col__Decorated>
             </Row__Decorated>
           
@@ -159,7 +157,6 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
           </Content>
 
         <Footer themeName={themeName} setThemeName={setThemeName} />
-
       </>
     )
   }
@@ -223,8 +220,8 @@ const Content = styled.div`
     border-width: 1px 0 0 0;
     margin-left: -20px;
     border-radius: 20px;
-}
-hr:before { /* Not really supposed to work, but does */
+  }
+  hr:before { /* Not really supposed to work, but does */
     display: block;
     content: "";
     height: 30px;
@@ -233,9 +230,8 @@ hr:before { /* Not really supposed to work, but does */
     border-color:  ${({ theme }) => theme.colors.text};
     border-width: 0 0 1px 0;
     border-radius: 20px;
+  }
 }
-}
-
 .jasonking {
   background: url(${({ theme }) => theme.colors.jasonking});
   background-size: contain;
@@ -308,9 +304,7 @@ const Hero = styled.header`
       font-size: 2.25rem;
     `}
   }
-
 `
-
 const Row__Decorated = styled(Row)`
   width: 100%;
   margin: 0;
@@ -321,56 +315,3 @@ const Col__Decorated = styled(Col)`
   margin: 0;
   padding: 0;
 `
-
-
-
-{/*        
-        <Content>
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={24}  md={10} lg={12}>
-              <div className='content'>
-                <h1>
-                  Hello. I'm Jason King and this is what I do.
-                </h1>
-              </div>
-              </Col__Decorated>
-          
-              <Col__Decorated xs={24} s mdOffset={1}  md={12} lgOffset={1}  lg={10}>
-                <div className='content'>
-                  <p>
-                  JavaScript, HTML, CSS/SCSS, PHP, mySQL, MongoDB, React, Vue, Angular, jQuery, BootStrap, NodeJS, NextJS
-                  </p>
-                </div>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-        </Content>
-
-        <Content>
-          <Grid>
-            <Row__Decorated>
-              <Col__Decorated xs={24}  md={10} lg={12}>
-              <div className='content'>
-                <blockquote>I believe in thinking through projects while doing them. In other words projects become a means to think through other problems. 
-                
-                I enjoy making prototypes and MVPs, I find writing code is the best way to think through and about the problems we are trying to solve by writing code. If there's a map to follow
-                that’s great and I really like working with an organization that provides structure and support, but I'm extremely comfortable taking on large projects on my own and working them through to completion. I
-                think it’s a much better approach than over architecting a solution or running into unforseen implementation challenges down the road. Plus most people think better
-                about something they can see than they do with their imaginations, so being able to create a draft or prototype out of nothing and then bringing that to the table for greater group input just makes sense. </blockquote>
-              </div>
-              </Col__Decorated>
-             
-              <Col__Decorated xs={24} s mdOffset={1}  md={12} lgOffset={1}  lg={10}>
-                <div className='content'>
-                  <p>Jason King satisfies his passion for making things synthesizing visual, cognitive, and semiotic systems 
-                    as an artist, designer, and full-stack web developer. A versatile Creative Technologist he’s worked for a variety of large and small agencies, startups, 
-                    and dot-coms over more than 20 years in the industry. Energetic and passionate about making things both artistic and commercial his entrepreneurial 
-                    drive has provided him opportunities to experience a range of failures and successes and develop his programming, UX design, project and business management skills.
-                  </p>
-                </div>
-              </Col__Decorated>
-            </Row__Decorated>
-          </Grid>
-        </Content>
-*/}
