@@ -96,15 +96,19 @@ const Header = styled.header`
   }
   .hero__title {
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
     line-height:1.1;
     text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 1rem 0 1rem;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3.75rem;
+      margin: 0 5rem 0 5rem;
+    `}
     ${SuperQuery().minWidth.md.css`
-      font-size: 5rem;
+      font-size: 4rem;
       margin: 0 5rem 0 5rem;
     `}
   }
@@ -117,6 +121,10 @@ const Header = styled.header`
     text-shadow: 0.5px 0.5px 2px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 1rem 0 1rem;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 3rem;
+      margin: 0 5rem 0 5rem;
+    `}
     ${SuperQuery().minWidth.md.css`
       font-size: 4rem;
       margin: 0 5rem 0 5rem;
@@ -125,15 +133,20 @@ const Header = styled.header`
   .hero__more,
   .hero__description {
     display: block;
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: -0.05em;
     line-height:1.3;
     text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 1rem 0 1rem;
+    ${SuperQuery().minWidth.sm.css`
+      font-size: 2.125rem;
+      letter-spacing: -0.05em;
+      margin: 0 5rem 0 5rem;
+    `}
     ${SuperQuery().minWidth.md.css`
-      font-size: 2.75rem;
+      font-size: 2.5rem;
       letter-spacing: -0.05em;
       margin: 0 5rem 0 5rem;
     `}
