@@ -103,6 +103,9 @@ const Header = styled.header`
     text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 1rem 0 1rem;
+    ${SuperQuery().maxWidth.of('360px').css`
+      font-size: 2.25rem;
+    `}
     ${SuperQuery().minWidth.sm.css`
       font-size: 3.75rem;
       margin: 0 5rem 0 5rem;
@@ -140,6 +143,9 @@ const Header = styled.header`
     text-shadow: 0.5px 0.5px 4px ${({ theme }) => theme.colors.home_text_shadow};
     color: ${({ theme }) => theme.colors.home_text};
     margin: 0 1rem 0 1rem;
+    ${SuperQuery().maxWidth.of('360px').css`
+      font-size: 1.25rem;
+    `}
     ${SuperQuery().minWidth.sm.css`
       font-size: 2.125rem;
       letter-spacing: -0.05em;
