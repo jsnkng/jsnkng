@@ -48,7 +48,7 @@ const setThemeName = themeName => {
   useEffect(() => {
     Router.events.on('routeChangeStart', url => {
       NProgress.start()
-      // setShowBurgerMenu(false)
+      setShowBurgerMenu(false)
       setIsMenuOpen(false)
     })
     Router.events.on('routeChangeComplete', url => { 

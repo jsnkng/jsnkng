@@ -57,7 +57,7 @@ const Page = ({
       <Hero backgroundURL={projectBackground}
             vHeight={'90vh'} projectThumbLogo={projectThumbLogo}> 
         <BackgroundOverlay />
-        <Grid>
+        <Grid__Decorated fluid={true}>
         <Row__Decorated>
           <Col__Decorated xs={24} sm={11} mdOffset={1}>
             <div className='description'>
@@ -99,7 +99,7 @@ const Page = ({
             </div>
           </Col__Decorated>
         </Row__Decorated>
-      </Grid>
+      </Grid__Decorated>
     </Hero>
 
       <Navigation parentTitle={`Web`} parentLink={{ href: `/projects/[projectType]`, as: `/projects/Web` }} />
@@ -210,7 +210,7 @@ const Hero = styled.header`
     }
     img {
       display: block;
-      width: 60vw;
+      width: 80vw;
       margin: 1rem auto 1.5rem auto;
       border: 3px solid ${({ theme }) => theme.colors.home_text };
       border-radius: 4px;
@@ -283,6 +283,11 @@ const Row__Decorated = styled(Row)`
 `
 const Col__Decorated = styled(Col)`
   position: relative;
+  margin: 0;
+  padding: 0;
+`
+const Grid__Decorated = styled(Grid)`
+  width: 100%;
   margin: 0;
   padding: 0;
 `

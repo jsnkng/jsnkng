@@ -145,7 +145,7 @@ const GlobalStyle = createGlobalStyle`
   } */}
 
 
-  .fixed  .bm-burger-button {
+  .fixed .bm-burger-button {
     position: fixed;
     top: 0;
   }

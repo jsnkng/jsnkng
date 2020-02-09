@@ -34,10 +34,10 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Grid>
             <Row__Decorated>
               <Col__Decorated xsOffset={1} xs={21}>
-                <br /><p>Hello. I’m <strong><Link href='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
-                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
-                {` `}<Link href='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
-                {` `}<strong><Link href='/collections/Art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
+                <br /><p>Hello. I’m <strong><Link href='/about' as='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
+                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/[projectType]' as='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
+                {` `}<Link href='/collections/[collectionType]' as='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
+                {` `}<strong><Link href='/collections/[collectionType]' as='/collections/Art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>
                 <br />
                 <p>I’m part of <strong><a href='https://adcycle.co' target='_blank' rel='noopener'>AdCycle</a>,</strong> 
