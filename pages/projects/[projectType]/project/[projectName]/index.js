@@ -256,7 +256,7 @@ const Hero = styled.header`
     &.expanded {
       position: fixed;
       top: 0;
-      right: 45vw;
+      right: 49vw;
       width: 90vw;
       height: 82.5vh;
       z-index: 1200;
