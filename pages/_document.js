@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://jsnkng.com" />
           <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
-          <meta name="description" content="Jason King: Developer/Designer/Artist" />
+          <meta name="description" content="Hello. I’m Jason King. I'm a Creative Technologist, a Web & Mobile Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta name="theme-color" content="#00ac47" />
           <link rel="icon" href="/favicon.ico" />
