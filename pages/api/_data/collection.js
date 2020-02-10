@@ -67,9 +67,8 @@ const collection = [
     collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>An allegorical story about a king who falls under an enchantment that causes him to forget his kingdom. While the king wanders the countryside begging for alms, his kingdom 
-    is in disarray and it's not long before a trio of cunning pigs and their troglodyte army move to fill the power vacuum and reign terror upon the populace. 
-    </p>`,
+    aboutCollection: `<p>An allegory that lingers on the boundary between reality and imagination, an amnesiac king forgets his kingdom and wanders the land begging for alms, while a trio
+    of cunning pigs and their troglodyte army move to fill the power vacuum, a motley troop of monkeys wage a guerilla war against the usurpers while their leader seeks to restore the king’s memory.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
@@ -100,7 +99,7 @@ const collection = [
     collectionLogo: '/gallery/PXL8N/PXL8N_Tag_Logo_sml.png',
     collectionTitle: 'PXL∞N',
     collectionName: 'PXL8N',
-    aboutCollection: `<p>like the mythical tail-eating snake, Ouroboros, PXL∞N appropriates its graphic patterns from recycled enlargements of the Mythologies art series.</p>`,
+    aboutCollection: `<p>like the mythical tail-eating snake, Ouroboros, PXL∞N appropriates its graphic patterns from recycled enlargements of the Mythologies.</p>`,
     images: [
       { title: 'VMB-IV', name: 'VMB_IV', path: '/gallery/PXL8N/VMB_IV', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
       { title: 'VMB-I', name: 'VMB_I', path: '/gallery/PXL8N/VMB_I', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design, Pixellation' },
