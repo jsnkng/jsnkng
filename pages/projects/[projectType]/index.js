@@ -52,7 +52,12 @@ const Page = ({
       <>
 
         <Head>
-          <title>JSNKNG {projects[heroIdx].projectTitle}</title>
+          <title>{`Jason King ${projects[heroIdx].projectType}`}</title>
+
+          <meta property="og:title" content={`Jason King ${projects[heroIdx].projectType}`} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={`https://jsnkng.com/projects/${projects[heroIdx].projectType}`} />
+          <meta property="og:image" content={`https://jsnkng.com/${projects[heroIdx].projectLogo}`} />
         </Head>
 
         <Hero backgroundURL={projects[heroIdx].projectBackground}

@@ -29,7 +29,11 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
     return (
       <>
         <Head>
-          <title>JSNKNG</title>
+          <title>Jason King: Developer/Designer/Artist - About</title>
+          <meta property="og:title" content="Jason King: Developer/Designer/Artist - About" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jsnkng.com/about" />
+          <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
         </Head>
 
         
