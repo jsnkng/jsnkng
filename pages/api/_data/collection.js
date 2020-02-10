@@ -5,7 +5,9 @@ const collection = [
     collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing to create imagery that exceeds conscious determination.</p>`,
+    aboutCollection: `<p>Borrowing strategies from Surrealism’s encounters with automatic writing, in Mythologies, machine intervention
+    allows the creation of imagery that exceeds artistic determination. The Gaudi-like, abstract, organic geometries invite the viewer to  
+    identify with something in excess of human experience and see in them projections of their own unconscious.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -40,8 +42,10 @@ const collection = [
     collectionBackground: '/gallery/Nature_Morte/2_The_Receptive_0/Nature_Morte_background.jpg',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-    aboutCollection: `inherits from the miniaturized mise-en-scene of painting's still life and scientific
-    illustrations of botanical, entomological, and zoological specimens.`,
+    aboutCollection: `Inheriting from the mise-en-scene of still-life painting and illustrated scientific catalogs, the subjects dance 
+    around the question of their own being in time, being both and neither dead or alive, they are permanently fixed within the square 
+    boundaries of the frame where for a single moment their forms reflected light.
+    `,
     images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
@@ -63,7 +67,8 @@ const collection = [
     collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>is an allegorical story about memory and identity in a kingdom where an amnesiac king abandons his throne and wanders the land a beggar.
+    aboutCollection: `<p>An allegorical story about a king who falls under an enchantment that causes him to forget his kingdom. While the king wanders the countryside begging for alms, his kingdom 
+    is in disarray and it's not long before a trio of cunning pigs and their troglodyte army move to fill the power vacuum and reign terror upon the populace. 
     </p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
