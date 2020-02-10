@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Router from 'next/router'
 import Link from 'next/link'
 import App from 'next/app'
+import Head from 'next/head'
 import styled from 'styled-components'
 import { PageTransition } from 'next-page-transitions'
 import NProgress from 'nprogress'
@@ -18,6 +19,11 @@ const stack = []
 const MyApp = ({ appCookies, router, Component, pageProps }) => {
   const windowDimension = useWindowDimensions()
   const [themeName, setTheme] = useState('lightMode')
+  const [pageTitle, setPageTitle] = useState('')
+  const [pageType, setPageType] = useState('')
+  const [pageURL, setPageURL] = useState('')
+  const [pageImage, setPageImage] = useState('')
+  const [pageDescription, setPageDescription] = useState('')
 
 const setThemeName = themeName => {
   setTheme(themeName)
@@ -64,6 +70,15 @@ const setThemeName = themeName => {
   
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
+    <Head>
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsnkng.com" />
+    <meta property="og:image" content="https://www.jsnkng.com/jsnkng_ogimage.jpg" />
+    <meta name="description" content="Hello. I’m Jason King. I'm a Creative Technologist, a Web & Mobile Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
+    
+    </Head>
       <GlobalStyle />
       <div id='outer__wrapper'>
         <Menu 
@@ -85,7 +100,7 @@ const setThemeName = themeName => {
           exit: 400,
         }}
         loadingClassNames="loading-indicator">
-              <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
+              <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} setPageTitle={setPageTitle} key={router.route} />
           </PageTransition>
         </div>
       </div>

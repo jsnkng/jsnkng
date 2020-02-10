@@ -10,12 +10,15 @@ import Iframe from 'react-iframe'
 import Navigation from '../components/navigation'
 import fetch from 'isomorphic-unfetch'
 
-const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnter }) => {
+const Page = ({ recenttracks, themeName, setThemeName, setPageTitle, pageTransitionReadyToEnter }) => {
+  
+  
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
+    setPageTitle('About')
   }, [])
 
   useEffect(() => {
@@ -32,7 +35,7 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
           <title>Jason King: Developer/Designer/Artist - About</title>
           <meta property="og:title" content="Jason King: Developer/Designer/Artist - About" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://jsnkng.com/about" />
+          <meta property="og:url" content="https://jsnkng.com/about" key="url" />
           <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
         </Head>
 
