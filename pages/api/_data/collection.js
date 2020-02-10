@@ -5,9 +5,9 @@ const collection = [
     collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>Borrowing strategies from Surrealism’s encounters with automatic writing, in Mythologies, machine intervention
-    allows the creation of imagery that exceeds artistic determination. The Gaudi-like, abstract, organic geometries invite the viewer to  
-    identify with something in excess of human experience and see in them projections of their own unconscious.</p>`,
+    aboutCollection: `<p>Borrowing strategies from Surrealism’s encounters with automatic writing. In Mythologies, machine intervention
+    creates imagery that exceeds artistic determination. The Gaudi-like, abstract, organic geometries produced invite the viewer to  
+    identify with something  beyond human experience and see in them projections of their own unconscious.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -42,8 +42,8 @@ const collection = [
     collectionBackground: '/gallery/Nature_Morte/2_The_Receptive_0/Nature_Morte_background.jpg',
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
-    aboutCollection: `Inheriting from the mise-en-scene of still-life painting and illustrated scientific catalogs, the subjects dance 
-    around the question of their own being in time, being both and neither dead or alive, they are permanently fixed within the square 
+    aboutCollection: `Inheriting from the mise-en-scene of still-life painting and illustrated botanical and zoological catalogs, the subjects dance 
+    around the question of their own being in time, a being both and neither dead or alive, but permanently suspended within the square 
     boundaries of the frame where for a single moment their forms reflected light.
     `,
     images: [
@@ -67,8 +67,8 @@ const collection = [
     collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>An allegory that lingers on the boundary between reality and imagination, an amnesiac king forgets his kingdom and wanders the land begging for alms, while a trio
-    of cunning pigs and their troglodyte army move to fill the power vacuum, a motley troop of monkeys wage a guerilla war against the usurpers while their leader seeks to restore the king’s memory.</p>`,
+    aboutCollection: `<p>An allegory that lingers on the boundary between reality and imagination. An amnesiac king forgets his kingdom and wanders the land begging for alms. A trio
+    of cunning pigs and their troglodyte army move to fill the power vacuum. Only a motley troop of monkeys stand against the usurpers as their leader seeks to restore the king to his throne.</p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
@@ -232,7 +232,9 @@ const collection = [
     projectCategory: 'UX/UI, Wordpress',
     projectTags: ['Responsive Design'],
     projectURL: 'https://www.adcycle.co',
-    projectDescription: '<p></p>',
+    projectDescription: `<p>AdCycle is a boutique digital marketing agency providing strategy, web development, and marketing support. The look and feel developed 
+    for the site reflects a bright, but minimal aesthetic that stays focused on the company’s service offering and provides a clean backdrop
+    for case studies displaying client work.</p>`,
   },
   {
     projectTypeTitle: 'Webs',
