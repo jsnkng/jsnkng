@@ -27,7 +27,11 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     return (
       <>
         <Head>
-          <title>JSNKNG</title>
+          <title>Jason King: Developer/Designer/Artist</title>
+          <meta property="og:title" content="Jason King: Developer/Designer/Artist" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jsnkng.com" />
+          <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
         </Head>
         <Hero backgroundURL={``}> 
           <Grid>
