@@ -33,7 +33,12 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta charSet="UTF-8" />
-          <meta name="description" content="Jason King: Creative Technologist Developer/Designer/Artist" />
+          <title>Jason King: Developer/Designer/Artist</title>
+          <meta property="og:title" content="Jason King: Developer/Designer/Artist" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://jsnkng.com" />
+          <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
+          <meta name="description" content="Jason King: Developer/Designer/Artist" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta name="theme-color" content="#00ac47" />
           <link rel="icon" href="/favicon.ico" />
