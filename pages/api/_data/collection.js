@@ -5,7 +5,7 @@ const collection = [
     collectionBackground: '/gallery/Mythologies/Musae_in_Deliquium/image_iii.jpg',
     collectionTitle: 'Mythologies',
     collectionName: 'Mythologies',
-    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing. By forcing the machine’s interpretation of meaning on to the digital image something exceeding conscious determination appears. Oracular now, decomposing digital imagery turn into fields of color, contrast, and pattern undermining the camera’s authority, it’s forced perspective and expand the possibilities of the unconscious.</p>`,
+    aboutCollection: `<p>borrows strategies from Surrealism’s encounters with automatic writing to create imagery that exceeds conscious determination.</p>`,
     images: [
       { title: 'Sanguine Miles', name: 'Sanguine_Miles', path: '/gallery/Mythologies/Sanguine_Miles', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Valteri Mortem Benjamin', name: 'Valteri_Mortem_Benjamin', path: '/gallery/Mythologies/Valteri_Mortem_Benjamin', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
@@ -41,7 +41,7 @@ const collection = [
     collectionTitle: 'Nature Morté',
     collectionName: 'Nature_Morte',
     aboutCollection: `inherits from the miniaturized mise-en-scene of painting's still life and scientific
-    illustrations of botanical, entomological, and zoological specimens to produce a rare catalog of object-subject confusion.`,
+    illustrations of botanical, entomological, and zoological specimens.`,
     images: [
       { title: '1 - The Creative - 63', name: '1_The_Creative_63', path: '/gallery/Nature_Morte/1_The_Creative_63', ratio: '1:1', shop: false, year: '2011', tags: 'Digital Photography, Still Life' },
       { title: '24 - Return - 1', name: '24_Return_1', path: '/gallery/Nature_Morte/24_Return_1', ratio: '1:1', shop: true, year: '2011', tags: 'Digital Photography, Still Life' },
@@ -63,8 +63,8 @@ const collection = [
     collectionBackground: '/gallery/Starlight_Meadows/We_Do_Not_Torture_People/image_ii.jpg',
     collectionTitle: 'Starlight Meadows',
     collectionName: 'Starlight_Meadows',
-    aboutCollection: `<p>tells an allegorical story about memory and identity. In a kingdom where an amnesiac king abandons his throne, only a motley troop of primates stands between
-    the populace and a trio of cruel pigs who install their own reign of terror upon the folk.</p>`,
+    aboutCollection: `<p>is an allegorical story about memory and identity in a kingdom where an amnesiac king abandons his throne and wanders the land a beggar.
+    </p>`,
     images: [
       { title: 'This Is Not an Abattoir', name: 'This_Is_Not_An_Abattoir', path: '/gallery/Starlight_Meadows/This_Is_Not_An_Abattoir', ratio: '3:2', shop: false, year: '2005', tags: 'Digital Photography, Directorial' },
       { title: 'Wait a Minute We’re the Good Guys?', name: 'Wait_A_Minute_Were_the_Good_Guys', path: '/gallery/Starlight_Meadows/Wait_A_Minute_Were_the_Good_Guys', ratio: '3:2', shop: true, year: '2006', tags: 'Digital Photography, Directorial' },
