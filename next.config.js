@@ -40,7 +40,13 @@ const nextConfig = {
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
     SHOP_URL: process.env.SHOP_URL,
     LASTFM_API: process.env.LASTFM_API,
-    SENDGRID_API: process.env.SENDGRID_API
+    SENDGRID_API: process.env.SENDGRID_API,
+    SMTP_HOST: process.env.SMTP_HOST,
+    SMTP_PORT: process.env.SMTP_PORT,
+    SMTP_USER: process.env.SMTP_USER,
+    SMTP_PASS: process.env.SMTP_PASS,
+    SMTP_SENDER: process.env.SMTP_SENDER,
+    SMTP_RECIPIENT: process.env.SMTP_RECIPIENT
   }
 }
 

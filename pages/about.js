@@ -12,13 +12,6 @@ import fetch from 'isomorphic-unfetch'
 
 const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  const [expandIFrame, setExpandIFrame] = useState(false)
-  const handleExpandIFrame = () => {
-    setExpandIFrame(true)
-  }
-  const handleCollapseIFrame = () => {
-    setExpandIFrame(false)
-  }
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoaded(true)
@@ -35,7 +28,6 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
   } else {
     return (
       <>
-
         <Head>
           <title>JSNKNG</title>
         </Head>
@@ -63,13 +55,13 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
               
               <div>
                 <h2>About Me</h2>
-                <p>Native Califloridian, I grew up in two Orange Counties at opposite ends of the country, each next to a magic kingdom. I had a fairly
-                  standard GenX childhood, malls, arcades, sci-fi, comics, 80’s movies, and D&D. I graduated from the University of Florida in 1997, earning a BA 
-                  in Interdisciplinary Film & Media Studies with a secondary focus in Literary Theory and Criticism. I skipped grad school and got a job in the internet industry. 
-                  I worked in NYC’s Silicon Alley dot-coms for six years before an opportunity to live in a farmhouse came up and I moved to Princeton where I have been 
-                  been ever since.</p> 
-                <p>I like to make things, to invent, to create, to experiment with new ways of solving problems. I'm passionate about creating something new, 
-                  some knowledge, or some thing, that hasn’t existed before whether that’s a work of art, a product of design, or a web application.</p>
+                <p>Native Califloridian, I grew up in two Orange Counties at opposite ends of the country and later graduated from the University of Florida, earning a BA 
+                  in Interdisciplinary Film & Media Studies with a secondary focus in Literary Theory and Criticism. 
+                  After college I moved up to New Jersey, lived in Metuchen and Hoboken, and worked in NYC’s Silicon Alley dot-coms for six years before an opportunity to 
+                  live in a farmhouse came up and I moved to Princeton where I have been been ever since.</p> 
+                <p>I’m driven by the need to make things, to invent, to create, to experiment with new ways of solving problems. My mission is always to create something new, 
+                  some knowledge, or some thing, that hasn’t existed before whether that’s a work of art, a product of design, an information-rich application, or a combination
+                  of all three. </p>
               </div>
               <div className='jasonking xs'></div>
               <div>
@@ -98,27 +90,22 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
               <hr />
             <Row__Decorated>
               <Col__Decorated  xsOffset={1} xs={22} smOffset={1} sm={20} mdOffset={0} md={14}>
-              
-              <div>
-              <h3>Languages & Tools</h3>
-                <div><strong>JavaScript </strong> ES6, NodeJS, React, Vue, AngularJS, jQuery</div>
-                <div><strong>PHP </strong>Laravel, Composer </div>
-                <div><strong>Markup </strong>HTML, JSX, Pug, Handlebars, Markdown, Liquid</div>
-                <div><strong>Database </strong>MySQL, MongoDB</div>
-                <div><strong>Style </strong>CSS, SCSS, LESS, Styled Components, Bootstrap</div>
-                <div><strong>Build </strong> NPM, Yarn, Gulp, Webpack, Babel, Grunt</div>
-                <h3>Systems</h3>
-                <div><strong>Linux </strong>Debian/Ubuntu, CentOS, CLI, Apache, MySQL, Nginx</div>
-                <div><strong>Cloud </strong>Docker/Kubernetes, AWS, Digital Ocean, Rackspace, GCE, Proxmox</div>
-
-                <h3>UX & Design</h3>
-                <div>Photoshop, Illustrator, Premiere, Sketch</div>
-
-                <h3>Project Management</h3>
-                <div>GitHub/GitLab, JIRA, Slack, Trello</div>
-                <br /> 
-             
-
+                <div>
+                  <h3>Languages & Tools</h3>
+                  <div><strong>JavaScript </strong> ES6, NodeJS, React, Vue, AngularJS, jQuery</div>
+                  <div><strong>PHP </strong>Laravel, Composer </div>
+                  <div><strong>Markup </strong>HTML, JSX, Pug, Handlebars, Markdown, Liquid</div>
+                  <div><strong>Database </strong>MySQL, MongoDB</div>
+                  <div><strong>Style </strong>CSS, SCSS, LESS, Styled Components, Bootstrap</div>
+                  <div><strong>Build </strong> NPM, Yarn, Gulp, Webpack, Babel, Grunt</div>
+                  <h3>Systems</h3>
+                  <div><strong>Linux </strong>Debian/Ubuntu, CentOS, CLI, Apache, MySQL, Nginx</div>
+                  <div><strong>Cloud </strong>Docker/Kubernetes, AWS, Digital Ocean, Rackspace, GCE, Proxmox</div>
+                  <h3>UX & Design</h3>
+                  <div>Photoshop, Illustrator, Premiere, Sketch</div>
+                  <h3>Project Management</h3>
+                  <div>GitHub/GitLab, JIRA, Slack, Trello</div>
+                  <br /> 
                 </div>
               </Col__Decorated>
 
@@ -130,8 +117,11 @@ const Page = ({ recenttracks, themeName, setThemeName, pageTransitionReadyToEnte
                 <br />
                 {/* <a href='/Jason_King_Resume.pdf' target='_blank'>Download my Résumé</a>
                 <br />  */}
-                <a href='https://github.com/jsnkng/jsnkng' target='_blank'>View Site on GitHub</a>
+                <a href='https://github.com/jsnkng/jsnkng' target='_blank'>View the Site on GitHub</a>
+                <br />
+                <a href='https://www.linkedin.com/in/jsnkng/' target='_blank'>Find Me on LinkedIn</a>
                 <br /> 
+                <a href='https://www.instagram.com/jsnkng/' target='_blank'>Follow Me on Instagram</a>
                 <br />
                 
               </Col__Decorated>

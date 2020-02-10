@@ -15,11 +15,11 @@ import Navigation from '../components/navigation'
 
 const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) => {
   const [loaded, setLoaded] = useState(false)
-  console.log(origin)
+  const [sendMessageSuccess, setSendMessageSuccess] = useState(null)
+  
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
-  const onSubmit = data => {
-    console.log(data);
-    // complex POST request with JSON, headers:
+  
+  const onSubmit = (data, e) => {
     fetch(`${origin}/api/contact`, {
       method: 'POST',
       headers: {
@@ -27,17 +27,13 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
       },
       body: JSON.stringify({ data })
     }).then( r => {
-      // open(r.headers.get('location'));
-      return r.json();
+      if (r.status == 200) {
+        e.target.reset()
+        setSendMessageSuccess(true)
+      } else {
+        setSendMessageSuccess(false)
+      }
     })
-
-    // const { collectionType } = query
-    // const { origin }  = absoluteUrl(req)
-    // const collectionsResult = await fetch(`${origin}/api/collections/${collectionType}`)
-    // const result = await collectionsResult.json()
-    // result.collectionType = collectionType
-    // return result
-
   };
   
   useEffect(() => {
@@ -45,7 +41,9 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
     setLoaded(true)
     pageTransitionReadyToEnter()
   }, [])
-
+  
+ 
+  
   useEffect(() => {
     forceCheck()
   })
@@ -60,15 +58,24 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
           <title>JSNKNG</title>
         </Head>
 
-        <Hero backgroundURL={``}
-          vHeight={'90vh'}> 
-          <BackgroundOverlay />
-
-          <h1>Contact Jason King</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <Hero backgroundURL={``}> 
+          {
+            sendMessageSuccess && 
+            <div>
+              <h1>Thanks for contacting me.</h1>
+              <h2>I will get back to you as soon as I can.</h2>
+              <p><Link href='/' as='/'><a>Return to Home</a></Link></p>
+            </div>
+          }
+          {
+            sendMessageSuccess ||
+          
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Grid>
+            
               <Row__Decorated>
                 <Col__Decorated xs={24} smOffset={2} sm={20}>
+                  <h1>Contact Jason King</h1>
                   <label>
                     Your Name
                     <input name="senderName" ref={register({ required: true, maxLength: 80  })} /> {/* register an input */}
@@ -103,7 +110,7 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
                 <Col__Decorated xs={24} smOffset={2} sm={20}>
                   
                   <label>
-                      Your Message. What can we do for you?
+                      Your Message. What can I do for you?
                     <textarea name="senderMessage" ref={register({ required: true, maxLength: 480  })} ></textarea>
                     {errors.senderMessage && 'Please include a message. How can we help you?'}
                   </label>
@@ -111,7 +118,8 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
                 </Col__Decorated>
             </Row__Decorated>
           </Grid>
-                </form>
+        </form>
+        }
         </Hero>
 
         <Navigation parentTitle={`Home`} parentLink={{ href: `/`, as: `/` }} />
@@ -162,20 +170,21 @@ const Hero = styled.header`
     margin: 1rem 0;
     color: ${({ theme }) => theme.colors.text};
     }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 200;
+    margin: 1rem 0;
+    color: ${({ theme }) => theme.colors.text};
+  }
   p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 200;
     color: ${({ theme }) => theme.colors.text};
-    ${SuperQuery().maxWidth.of('360px').css`
-      font-size: 1.125rem;
-    `}
+    
     ${SuperQuery().minWidth.sm.css`
-      font-size: 2rem;
+      font-size: 1.5rem;
     `}
 
-    strong {
-      font-weight: 700;
-    }
     a {
       color: ${({ theme }) => theme.colors.color_two};
       border-bottom: 2px dotted;

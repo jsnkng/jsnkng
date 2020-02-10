@@ -31,7 +31,13 @@
       "GA_TRACKING_ID": "@jsnkng-ga-tracking-id",
       "SHOP_URL": "https://shop.jsnkng.com/collection/",
       "LASTFM_API": "@lastfm-api",
-      "SENDGRID_API": "@sendgrid-api"
+      "SENDGRID_API": "@sendgrid-api",
+      "SMTP_HOST": "@jsnkng-smtp-host",
+      "SMTP_PORT": "@jsnkng-smtp-port",
+      "SMTP_USER": "@jsnkng-smtp-user",
+      "SMTP_PASS": "@jsnkng-smtp-pass",
+      "SMTP_SENDER": "@jsnkng-smtp-sender",
+      "SMTP_RECIPIENT": "@jsnkng-smtp-recipient"
     }
   }
 }
