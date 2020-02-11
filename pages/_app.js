@@ -30,7 +30,6 @@ const setThemeName = themeName => {
   document.cookie = `themeName=${themeName}; path=/`
 }
 
-
   useEffect(() => {
     if (appCookies.themeName) {
       setThemeName(appCookies.themeName)
@@ -41,7 +40,7 @@ const setThemeName = themeName => {
     }
   }, [])
 
- 
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   /* desctructuring an object to get isOpen value because this is a 
   callback for the react burger menu and that's how they do it. */
@@ -71,8 +70,8 @@ const setThemeName = themeName => {
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
     <Head>
-    <title>{pageTitle}</title>
-    <meta property="og:title" content={pageTitle} />
+    <title>Jason King: Engineer/Designer/Artist</title>
+    <meta property="og:title" content="Jason King: Engineer/Designer/Artist" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jsnkng.com" />
     <meta property="og:image" content="https://www.jsnkng.com/jsnkng_ogimage.jpg" />
@@ -100,7 +99,7 @@ const setThemeName = themeName => {
           exit: 400,
         }}
         loadingClassNames="loading-indicator">
-              <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} setPageTitle={setPageTitle} key={router.route} />
+              <Component {...pageProps} themeName={themeName} setThemeName={setThemeName} key={router.route} />
           </PageTransition>
         </div>
       </div>
