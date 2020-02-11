@@ -33,6 +33,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
           <Grid>
             <Row__Decorated>
               <Col__Decorated xsOffset={1} xs={22}>
+                
                 <br /><p>Hello. I’m <strong><Link href='/about' as='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
                 {` `}I'm a <strong>Creative Technologist,</strong> an <strong><Link href='/projects/[projectType]' as='/projects/Web' scroll={false}><a>Engineer & UX Developer</a></Link>, 
                 {` `}<Link href='/collections/[collectionType]' as='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
@@ -51,6 +52,7 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
             </Row__Decorated>
           </Grid>
         </Hero>
+
 
         <Navigation parentTitle={``} parentLink={{ href: `/`, as: `/` }} />
         
