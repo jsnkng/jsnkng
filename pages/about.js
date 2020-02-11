@@ -18,7 +18,6 @@ const Page = ({ recenttracks, themeName, setThemeName, setPageTitle, pageTransit
     window.scrollTo(0, 0)
     setLoaded(true)
     pageTransitionReadyToEnter()
-    setPageTitle('About')
   }, [])
 
   useEffect(() => {
