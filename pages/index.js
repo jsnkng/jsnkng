@@ -27,14 +27,14 @@ const Page = ({ themeName, setThemeName, pageTransitionReadyToEnter }) => {
     return (
       <>
         <Head>
-          <title>Jason King: Developer/Designer/Artist</title>
+          <title>Jason King: Engineer/Designer/Artist</title>
         </Head>
         <Hero backgroundURL={``}> 
           <Grid>
             <Row__Decorated>
               <Col__Decorated xsOffset={1} xs={22}>
                 <br /><p>Hello. I’m <strong><Link href='/about' as='/about' scroll={false}><a>Jason King</a></Link>.</strong> 
-                {` `}I'm a <strong>Creative Technologist,</strong> a <strong><Link href='/projects/[projectType]' as='/projects/Web' scroll={false}><a>Web & Mobile Developer</a></Link>, 
+                {` `}I'm a <strong>Creative Technologist,</strong> an <strong><Link href='/projects/[projectType]' as='/projects/Web' scroll={false}><a>Engineer & UX Developer</a></Link>, 
                 {` `}<Link href='/collections/[collectionType]' as='/collections/Design' scroll={false}><a> Graphic Designer</a></Link>, </strong> and
                 {` `}<strong><Link href='/collections/[collectionType]' as='/collections/Art' scroll={false}><a> Visual Artist</a></Link>, </strong> 
                 {` `}living in <strong>Princeton, NJ.</strong></p>

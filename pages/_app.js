@@ -73,9 +73,9 @@ const setThemeName = themeName => {
     <title>Jason King: Engineer/Designer/Artist</title>
     <meta property="og:title" content="Jason King: Engineer/Designer/Artist" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jsnkng.com" />
+    <meta property="og:url" content="https://www.jsnkng.com" />
     <meta property="og:image" content="https://www.jsnkng.com/jsnkng_ogimage.jpg" />
-    <meta name="description" content="Hello. I’m Jason King. I'm a Creative Technologist, a Web & Mobile Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
+    <meta name="description" content="Hello. I’m Jason King. I'm a Creative Technologist, an Engineer & UX Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
     
     </Head>
       <GlobalStyle />

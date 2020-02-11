@@ -33,7 +33,7 @@ const collection = [
       { title: 'Claviaturae', name: 'Claviaturae', path: '/gallery/Mythologies/Claviaturae', ratio: '1:1', shop: false, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Ones Tenebris Flavaque', name: 'Ones_Tenebris_Flavaque', path: '/gallery/Mythologies/Ones_Tenebris_Flavaque', ratio: '1:1', shop: false, year: '2018', tags: 'Digital Photography, Pixellation' },
       { title: 'Convallaria Majalis', name: 'Convallaria_Majalis', path: '/gallery/Mythologies/Convallaria_Majalis', ratio: '1:1', shop: false, year: '2018', tags: 'Digital Photography, Pixellation' },
-      { title: 'Tesselato Stravit Flos Tegumen Spinis', name: 'Tesselato_Stravit_Flos_Tegumen_Spinis', path: '/gallery/Mythologies/Tesselato_Stravit_Flos_Tegumen_Spinis', ratio: '1:1', shop: false, year: '2018', tags: 'Digital Photography, Pixellation' },
+      { title: 'Tesselato Stravit Flos Tegumen Spinis', name: 'Tesselato_Stravit_Flos_Tegumen_Spinis', path: '/gallery/Mythologies/Tesselato_Stravit_Flos_Tegumen_Spinis', ratio: '1:1', shop: true, year: '2018', tags: 'Digital Photography, Pixellation' },
     ]
   },
   {
