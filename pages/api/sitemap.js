@@ -22,19 +22,15 @@ export default (req, res) => {
     })
     smStream.write({
       url: '/about',
-      changefreq: 'daily',
+      changefreq: 'weekly',
       priority: 0.9
     })
     smStream.write({
       url: '/contact',
-      changefreq: 'daily',
-      priority: 0.9
+      changefreq: 'monthly',
+      priority: 0.3
     })
-    smStream.write({
-      url: 'https://shop.jsnkng.com/',
-      changefreq: 'daily',
-      priority: 0.9
-    })
+
     smStream.write({
       url: '/projects/Web',
       changefreq: 'daily',
@@ -61,8 +57,8 @@ export default (req, res) => {
       collection.images.forEach(image => {
         smStream.write({
           url: `/collections/Art/collection/${collection.collectionName}/image/${image.name}`,
-          changefreq: 'daily',
-          priority: 0.9
+          changefreq: 'weekly',
+          priority: 0.5
         })
       })
     })
@@ -71,13 +67,13 @@ export default (req, res) => {
       smStream.write({
         url: `/collections/Design/collection/${collection.collectionName}`,
         changefreq: 'daily',
-        priority: 0.9
+        priority: 0.5
       })
       collection.images.forEach(image => {
         smStream.write({
           url: `/collections/Design/collection/${collection.collectionName}/image/${image.name}`,
-          changefreq: 'daily',
-          priority: 0.9
+          changefreq: 'weekly',
+          priority: 0.5
         })
       })
     })
@@ -85,8 +81,8 @@ export default (req, res) => {
     web_projects.forEach(project => {
       smStream.write({
         url: `/projects/Web/project/${project.projectName}`,
-        changefreq: 'daily',
-        priority: 0.9
+        changefreq: 'weekly',
+        priority: 0.5
       })
     })
     // End sitemap stream
