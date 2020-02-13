@@ -140,7 +140,6 @@ const Page = ({ recenttracks, themeName, setThemeName, setPageTitle, pageTransit
                 <Col__Decorated xsOffset={1} xs={20}>
                   {
                     recenttracks.track.map(item => {
-                      console.log(item.name)
                       return (
                         <div>{item.name}</div>
                       )

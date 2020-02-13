@@ -55,11 +55,11 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
       <>
 
         <Head>
-          <title>Jason King: Developer/Designer/Artist - Contact</title>
-          <meta property="og:title" content="Jason King: Developer/Designer/Artist - Contact" />
+          <title>Jason King: Engineer/Designer/Artist - Contact</title>
+          <meta property="og:title" content="Jason King: Engineer/Designer/Artist - Contact" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://jsnkng.com/contact" />
-          <meta property="og:image" content="https://jsnkng.com/jsnkng_256_invert.png" />
+          <meta property="og:url" content="https://www.jsnkng.com/contact" />
+          <meta property="og:image" content="https://www.jsnkng.com/jsnkng_256_invert.png" />
         </Head>
 
         <Hero backgroundURL={``}> 
@@ -143,7 +143,6 @@ Page.getInitialProps = async ({ req, query }) => {
   const { origin }  = absoluteUrl(req)
   const result = {}
   result.origin = origin
-  console.log(result)
   return result
 }
  
