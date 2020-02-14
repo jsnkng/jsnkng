@@ -46,7 +46,13 @@ const Page = ({
     return (
       <>
         <Head>
-          <title>JSNKNG {collections[heroIdx].collectionTitle}</title>
+          <title>{`Jason King : ${collections[heroIdx].collectionTypeTitle}`}</title>
+          <meta property="og:title" key="ogtitle" content={`Jason King ${collections[heroIdx].collectionTypeTitle} ${collections[heroIdx].collectionTitle}`} />
+          <meta property="og:type" key="ogtype" content="website" />
+          <meta property="og:url" key="ogurl" content={`https://www.jsnkng.com/collections/${collections[heroIdx].collectionType}/collection/${collections[heroIdx].collectionName}`} />
+          <meta property="og:image" key="ogimage" content={`${collections[heroIdx].images[heroBackgroundIdx].path}/image_i.jpg`}/>
+          <meta name="description" key="description" content="Hello. I’m Jason King. I'm a Creative Technologist, an Engineer & UX Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
+    
         </Head>
 
         <Content>

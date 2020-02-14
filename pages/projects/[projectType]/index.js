@@ -53,12 +53,12 @@ const Page = ({
 
         <Head>
           <title>{`Jason King ${projects[heroIdx].projectType}`}</title>
-
-          <meta property="og:title" content={`Jason King ${projects[heroIdx].projectType}`} />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content={`https://jsnkng.com/projects/${projects[heroIdx].projectType}`} />
-          <meta property="og:image" content={`https://jsnkng.com/${projects[heroIdx].projectLogo}`} />
-        </Head>
+          <meta property="og:title" key="ogtitle" content={`Jason King ${projects[heroIdx].projectType}`} />
+          <meta property="og:type" key="ogtype" content="website" />
+          <meta property="og:url" key="ogurl" content={`https://www.jsnkng.com/projects/${projects[heroIdx].projectType}`} />
+          <meta property="og:image" key="ogimage" content={`https://www.jsnkng.com/${projects[heroIdx].projectLogo}`} />
+          <meta name="description" key="description" content="Hello. I’m Jason King. I'm a Creative Technologist, an Engineer & UX Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
+      </Head>
 
         <Hero backgroundURL={projects[heroIdx].projectBackground}
           projectThumbLogo={projects[heroIdx].projectThumbLogo}> 

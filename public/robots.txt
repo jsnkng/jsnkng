@@ -1,0 +1,6 @@
+Sitemap: https://www.jsnkng.com/api/sitemap
+
+User-agent: *
+Allow: /*
+Disallow: /api/*
+Allow: /api/sitemap

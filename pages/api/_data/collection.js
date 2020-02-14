@@ -108,53 +108,6 @@ const collection = [
     ]
   },
   {
-    projectTypeTitle: 'Designs',
-    projectType: 'Design',
-    collectionTitle: 'PXL8N',
-    collectionName: 'PXL8N',
-    images: [
-      { title: 'Double Daredevil', name: 'Double_Daredevil', path: '/gallery/PXL8N/Double_Daredevil', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'Wintergreen Is Coming', name: 'Wintergreen_Is_Coming', path: '/gallery/PXL8N/Wintergreen_Is_Coming', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'Languid Angel', name: 'Languid_Angel', path: '/gallery/PXL8N/Languid_Angel', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-      { title: 'Petal Pusher', name: 'Petal_Pusher', path: '/gallery/PXL8N/Petal_Pusher', ratio: '1:1', shop: true, year: '2018', tags: 'Product Design' },
-    ]
-  },
-  {
-    projectTypeTitle: 'Designs',
-    projectType: 'Design',
-    collectionTitle: 'Coffee',
-    collectionName: 'Coffee',
-    images: [
-      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', shop: false, year: '2018', tags: 'Packaging Design' },
-    ]
-  },
-  {
-    projectTypeTitle: 'Designs',
-    projectType: 'Design',
-    collectionTitle: 'I Ching',
-    collectionName: 'IChing',
-    images: [
-      { title: 'Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '3:2', shop: false, year: '2018', tags: 'Packaging Design' },
-    ]
-  },
-  {
-    projectTypeTitle: 'Webd',
-    projectType: 'Webd',
-    collectionTitle: 'PXL∞N',
-    collectionName: 'PXL8N',
-    images: [
-      { title: 'PXL∞N Home Page', name: 'Home_Page_1', path: '/gallery/PXL8N/Home_Page_1', ratio: '13:23', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Home Page', name: 'Home_Page_2', path: '/gallery/PXL8N/Home_Page_2', ratio: '13:23', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Home Page', name: 'Home_Page_3', path: '/gallery/PXL8N/Home_Page_3', ratio: '13:23', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Home Page', name: 'Home_Page_4', path: '/gallery/PXL8N/Home_Page_4', ratio: '13:23', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Catalog Page', name: 'Catalog_View_1', path: '/gallery/PXL8N/Catalog_View_1', ratio: '13:24', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Product Page', name: 'Product_Page_1', path: '/gallery/PXL8N/Product_Page_1', ratio: '13:32', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Product Page', name: 'Product_Page_3', path: '/gallery/PXL8N/Product_Page_3', ratio: '13:32', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Product Page', name: 'Product_Page_4', path: '/gallery/PXL8N/Product_Page_4', ratio: '13:32', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-      { title: 'PXL∞N Product Page', name: 'Product_Page_5', path: '/gallery/PXL8N/Product_Page_5', ratio: '13:32', shop: false, year: '2018', tags: 'Shopify, HTML/Liquid, CSS, Photoshop' },
-    ]
-  },
-  {
     projectTypeTitle: 'Web',
     projectType: 'Web',
     projectTitle: 'National Park Guides',

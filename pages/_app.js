@@ -70,13 +70,12 @@ const setThemeName = themeName => {
   return (
     <ThemeProvider theme={ { colors: themes[themeName], flexboxgrid: themes.flexboxgrid }}>
     <Head>
-    <title>Jason King: Engineer/Designer/Artist</title>
-    <meta property="og:title" content="Jason King: Engineer/Designer/Artist" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.jsnkng.com" />
-    <meta property="og:image" content="https://www.jsnkng.com/jsnkng_ogimage.jpg" />
-    <meta name="description" content="Hello. I’m Jason King. I'm a Creative Technologist, an Engineer & UX Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
-    
+      <title>Jason King: Engineer/Designer/Artist</title>
+      <meta property="og:title" key="ogtitle" content="Jason King: Engineer/Designer/Artist" />
+      <meta property="og:type" key="ogtype" content="website" />
+      <meta property="og:url" key="ogurl" content="https://www.jsnkng.com" />
+      <meta property="og:image" key="ogimage" content="https://www.jsnkng.com/jsnkng_ogimage.jpg" />
+      <meta name="description" key="description" content="Hello. I’m Jason King. I'm a Creative Technologist, an Engineer & UX Developer, Graphic Designer, and Visual Artist, living in Princeton, NJ." />
     </Head>
       <GlobalStyle />
       <div id='outer__wrapper'>

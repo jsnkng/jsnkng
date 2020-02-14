@@ -60,7 +60,13 @@ const Page = ({
     return (
     <>
       <Head>
-        <title>JSNKNG</title>
+        <title>{`Jason King : ${collection.collectionTypeTitle}`}</title>
+        <meta property="og:title" key="ogtitle" content={`Jason King : ${collection.collectionTypeTitle}`} />
+        <meta property="og:type" key="ogtype" content="website" />
+        <meta property="og:url" key="ogurl" content={`https://www.jsnkng.com/collections/${collection.collectionType}/collection/${collection.collectionName}`} />
+        <meta property="og:image" key="ogimage" content={`https://www.jsnkng.com${collection.images[heroIdx].path}/image.jpg`} />
+        <meta name="description" key="description" content={collection.aboutCollection} />
+    
       </Head>
       <Content>
         <BackgroundOverlay 

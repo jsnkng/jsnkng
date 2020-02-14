@@ -112,6 +112,12 @@ const Page = ({ collection, collectionType, collectionName, imageName, themeName
     <div {...handlers}>
     <Head>
       <title>JSNKNG : {collectionName} : {imageName}</title>
+        <title>{`Jason King : ${collectionName} : ${imageName}`}</title>
+        <meta property="og:title" key="ogtitle" content={`Jason King : ${collectionName} : ${imageName}`} />
+        <meta property="og:type" key="ogtype" content="website" />
+        <meta property="og:url" key="ogurl" content={`https://www.jsnkng.com/collections/${collection.collectionType}/collection/${collection.collectionName}`} />
+        <meta property="og:image" key="ogimage" content={`https://www.jsnkng.com/gallery/${collectionName}/${imageName}/image.jpg`} />
+        <meta name="description" key="description" content={collection.aboutCollection} />
     </Head>
     <Content verticalHeight={verticalHeight}
         containerBackground={`/gallery/${collectionName}/${imageName}/image_iii.jpg`}>

@@ -55,7 +55,7 @@ const Page = ({ origin, themeName, setThemeName, pageTransitionReadyToEnter }) =
       <>
 
         <Head>
-          <title>Jason King: Engineer/Designer/Artist - Contact</title>
+          <title>Jason King: Contact</title>
           <meta property="og:title" content="Jason King: Engineer/Designer/Artist - Contact" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.jsnkng.com/contact" />
