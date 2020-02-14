@@ -171,7 +171,7 @@ const Page = ({ collection, collectionType, collectionName, imageName, themeName
                 </div>
                 { image.shop &&
                   <div className='item__shop'>
-                    <a href={`${process.env.SHOP_URL}${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
+                    <a href={`${process.env.SHOP_URL}product-type/${image.name.toLowerCase().replace(/_/g, '-')}`} target='_blank' rel='noopener'>
                       Shop
                     </a>
                   </div>

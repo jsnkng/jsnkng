@@ -29,7 +29,7 @@
       "REGION": "us-east-1",
       "Bucket": "national-park-images",
       "GA_TRACKING_ID": "@jsnkng-ga-tracking-id",
-      "SHOP_URL": "https://shop.jsnkng.com/collection/",
+      "SHOP_URL": "https://shop.jsnkng.com/",
       "LASTFM_API": "@lastfm-api",
       "SENDGRID_API": "@sendgrid-api",
       "SMTP_HOST": "@jsnkng-smtp-host",
